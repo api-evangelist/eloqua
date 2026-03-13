@@ -1,0 +1,1423 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk API
+  description: >-
+    The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for
+    high-volume data operations including imports, exports, and synchronization
+    of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+servers:
+  - url: https://secure.p01.eloqua.com/API/Bulk/2.0
+    description: Eloqua Bulk API v2.0 (pod may vary per instance)
+tags:
+  - name: Contact Exports
+    description: Export contact data in bulk
+  - name: Contact Imports
+    description: Import contact data in bulk
+  - name: Account Exports
+    description: Export account data in bulk
+  - name: Account Imports
+    description: Import account data in bulk
+  - name: Activity Exports
+    description: Export activity data in bulk
+  - name: Activity Imports
+    description: Import activity data in bulk
+  - name: Custom Object Exports
+    description: Export custom object data in bulk
+  - name: Custom Object Imports
+    description: Import custom object data in bulk
+  - name: Syncs
+    description: Manage data synchronization operations
+  - name: Contact Fields
+    description: Retrieve available contact fields for mapping
+  - name: Account Fields
+    description: Retrieve available account fields for mapping
+security:
+  - basicAuth: []
+  - oAuth2: []
+paths:
+  /contacts/exports:
+    get:
+      operationId: listContactExports
+      summary: List contact export definitions
+      description: >-
+        Retrieve all contact export definitions.
+      tags:
+        - Contact Exports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved contact exports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createContactExport
+      summary: Create a contact export definition
+      description: >-
+        Create a new export definition for contacts. After creation, create a
+        sync to execute the export.
+      tags:
+        - Contact Exports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '201':
+          description: Contact export definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request - invalid export definition
+        '401':
+          description: Unauthorized
+  /contacts/exports/{id}:
+    get:
+      operationId: getContactExport
+      summary: Retrieve a contact export definition
+      description: >-
+        Retrieve a specific contact export definition by its identifier.
+      tags:
+        - Contact Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved contact export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+    put:
+      operationId: updateContactExport
+      summary: Update a contact export definition
+      description: >-
+        Update an existing contact export definition.
+      tags:
+        - Contact Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '200':
+          description: Contact export definition updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+    delete:
+      operationId: deleteContactExport
+      summary: Delete a contact export definition
+      description: >-
+        Delete a contact export definition by its identifier.
+      tags:
+        - Contact Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Export definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+  /contacts/exports/{id}/data:
+    get:
+      operationId: getContactExportData
+      summary: Retrieve contact export data
+      description: >-
+        Retrieve the data from a completed contact export.
+      tags:
+        - Contact Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved export data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDataResult'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export not found
+  /contacts/imports:
+    get:
+      operationId: listContactImports
+      summary: List contact import definitions
+      description: >-
+        Retrieve all contact import definitions.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved contact imports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createContactImport
+      summary: Create a contact import definition
+      description: >-
+        Create a new import definition for contacts. After creation, push data
+        and create a sync to execute the import.
+      tags:
+        - Contact Imports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '201':
+          description: Contact import definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request - invalid import definition
+        '401':
+          description: Unauthorized
+  /contacts/imports/{id}:
+    get:
+      operationId: getContactImport
+      summary: Retrieve a contact import definition
+      description: >-
+        Retrieve a specific contact import definition by its identifier.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved contact import
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+    put:
+      operationId: updateContactImport
+      summary: Update a contact import definition
+      description: >-
+        Update an existing contact import definition.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '200':
+          description: Contact import definition updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+    delete:
+      operationId: deleteContactImport
+      summary: Delete a contact import definition
+      description: >-
+        Delete a contact import definition by its identifier.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Import definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+  /contacts/imports/{id}/data:
+    post:
+      operationId: pushContactImportData
+      summary: Push data to a contact import
+      description: >-
+        Push data records to be processed by the contact import definition.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: string
+      responses:
+        '204':
+          description: Data pushed successfully
+        '400':
+          description: Bad request - invalid data
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+    delete:
+      operationId: deleteContactImportData
+      summary: Delete staged contact import data
+      description: >-
+        Delete data that has been staged for the import but not yet synced.
+      tags:
+        - Contact Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Staged data deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+  /contacts/fields:
+    get:
+      operationId: listContactFields
+      summary: List contact fields
+      description: >-
+        Retrieve all available contact fields for use in export and import
+        field mappings.
+      tags:
+        - Contact Fields
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved contact fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldList'
+        '401':
+          description: Unauthorized
+  /contacts/syncActions:
+    post:
+      operationId: createContactSyncAction
+      summary: Create a contact sync action
+      description: >-
+        Create a sync action for contacts, such as setting subscription status.
+      tags:
+        - Contact Imports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncAction'
+      responses:
+        '201':
+          description: Sync action created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncAction'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /accounts/exports:
+    get:
+      operationId: listAccountExports
+      summary: List account export definitions
+      description: >-
+        Retrieve all account export definitions.
+      tags:
+        - Account Exports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved account exports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccountExport
+      summary: Create an account export definition
+      description: >-
+        Create a new export definition for accounts.
+      tags:
+        - Account Exports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '201':
+          description: Account export definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /accounts/exports/{id}:
+    get:
+      operationId: getAccountExport
+      summary: Retrieve an account export definition
+      description: >-
+        Retrieve a specific account export definition by its identifier.
+      tags:
+        - Account Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved account export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+    delete:
+      operationId: deleteAccountExport
+      summary: Delete an account export definition
+      description: >-
+        Delete an account export definition by its identifier.
+      tags:
+        - Account Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Export definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+  /accounts/imports:
+    get:
+      operationId: listAccountImports
+      summary: List account import definitions
+      description: >-
+        Retrieve all account import definitions.
+      tags:
+        - Account Imports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved account imports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccountImport
+      summary: Create an account import definition
+      description: >-
+        Create a new import definition for accounts.
+      tags:
+        - Account Imports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '201':
+          description: Account import definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /accounts/imports/{id}:
+    get:
+      operationId: getAccountImport
+      summary: Retrieve an account import definition
+      description: >-
+        Retrieve a specific account import definition.
+      tags:
+        - Account Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved account import
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+    delete:
+      operationId: deleteAccountImport
+      summary: Delete an account import definition
+      description: >-
+        Delete an account import definition.
+      tags:
+        - Account Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Import definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Import definition not found
+  /accounts/imports/{id}/data:
+    post:
+      operationId: pushAccountImportData
+      summary: Push data to an account import
+      description: >-
+        Push data records to be processed by the account import definition.
+      tags:
+        - Account Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: string
+      responses:
+        '204':
+          description: Data pushed successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /accounts/fields:
+    get:
+      operationId: listAccountFields
+      summary: List account fields
+      description: >-
+        Retrieve all available account fields for use in export and import
+        field mappings.
+      tags:
+        - Account Fields
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved account fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldList'
+        '401':
+          description: Unauthorized
+  /activities/exports:
+    get:
+      operationId: listActivityExports
+      summary: List activity export definitions
+      description: >-
+        Retrieve all activity export definitions.
+      tags:
+        - Activity Exports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved activity exports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createActivityExport
+      summary: Create an activity export definition
+      description: >-
+        Create a new export definition for activities such as email sends,
+        opens, clicks, form submissions, and web visits.
+      tags:
+        - Activity Exports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '201':
+          description: Activity export definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /activities/exports/{id}:
+    get:
+      operationId: getActivityExport
+      summary: Retrieve an activity export definition
+      description: >-
+        Retrieve a specific activity export definition.
+      tags:
+        - Activity Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved activity export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+    delete:
+      operationId: deleteActivityExport
+      summary: Delete an activity export definition
+      description: >-
+        Delete an activity export definition.
+      tags:
+        - Activity Exports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Export definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+  /activities/imports:
+    post:
+      operationId: createActivityImport
+      summary: Create an activity import definition
+      description: >-
+        Create a new import definition for external activities.
+      tags:
+        - Activity Imports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '201':
+          description: Activity import definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /activities/imports/{id}/data:
+    post:
+      operationId: pushActivityImportData
+      summary: Push data to an activity import
+      description: >-
+        Push data records to be processed by the activity import definition.
+      tags:
+        - Activity Imports
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: string
+      responses:
+        '204':
+          description: Data pushed successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /customObjects/{parentId}/exports:
+    get:
+      operationId: listCustomObjectExports
+      summary: List custom object export definitions
+      description: >-
+        Retrieve all export definitions for a specific custom object.
+      tags:
+        - Custom Object Exports
+      parameters:
+        - $ref: '#/components/parameters/parentId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved custom object exports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+    post:
+      operationId: createCustomObjectExport
+      summary: Create a custom object export definition
+      description: >-
+        Create a new export definition for a custom object.
+      tags:
+        - Custom Object Exports
+      parameters:
+        - $ref: '#/components/parameters/parentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '201':
+          description: Custom object export definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /customObjects/{parentId}/imports:
+    get:
+      operationId: listCustomObjectImports
+      summary: List custom object import definitions
+      description: >-
+        Retrieve all import definitions for a specific custom object.
+      tags:
+        - Custom Object Imports
+      parameters:
+        - $ref: '#/components/parameters/parentId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved custom object imports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+    post:
+      operationId: createCustomObjectImport
+      summary: Create a custom object import definition
+      description: >-
+        Create a new import definition for a custom object.
+      tags:
+        - Custom Object Imports
+      parameters:
+        - $ref: '#/components/parameters/parentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '201':
+          description: Custom object import definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /customObjects/{parentId}/imports/{id}/data:
+    post:
+      operationId: pushCustomObjectImportData
+      summary: Push data to a custom object import
+      description: >-
+        Push data records to be processed by the custom object import.
+      tags:
+        - Custom Object Imports
+      parameters:
+        - $ref: '#/components/parameters/parentId'
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: string
+      responses:
+        '204':
+          description: Data pushed successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /customObjects:
+    get:
+      operationId: listBulkCustomObjects
+      summary: List available custom objects
+      description: >-
+        Retrieve all custom objects available for bulk operations.
+      tags:
+        - Custom Object Exports
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved custom objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uri:
+                          type: string
+                          description: Custom object URI
+                        name:
+                          type: string
+                          description: Custom object name
+                  totalResults:
+                    type: integer
+                  limit:
+                    type: integer
+                  offset:
+                    type: integer
+                  hasMore:
+                    type: boolean
+        '401':
+          description: Unauthorized
+  /syncs:
+    get:
+      operationId: listSyncs
+      summary: List syncs
+      description: >-
+        Retrieve all sync operations.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved syncs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createSync
+      summary: Create a sync
+      description: >-
+        Create a new sync operation to execute an import or export definition.
+        The sync triggers the actual data transfer.
+      tags:
+        - Syncs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sync'
+      responses:
+        '201':
+          description: Sync created and queued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sync'
+        '400':
+          description: Bad request - invalid sync definition
+        '401':
+          description: Unauthorized
+  /syncs/{id}:
+    get:
+      operationId: getSync
+      summary: Retrieve a sync
+      description: >-
+        Retrieve a specific sync operation by its identifier to check status.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved sync
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sync'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sync not found
+  /syncs/{id}/data:
+    get:
+      operationId: getSyncData
+      summary: Retrieve sync data
+      description: >-
+        Retrieve the data associated with a completed sync operation.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved sync data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDataResult'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sync not found
+    delete:
+      operationId: deleteSyncData
+      summary: Delete sync data
+      description: >-
+        Delete the data associated with a sync operation.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Sync data deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sync not found
+  /syncs/{id}/logs:
+    get:
+      operationId: getSyncLogs
+      summary: Retrieve sync logs
+      description: >-
+        Retrieve log entries for a specific sync operation, including any
+        errors or warnings that occurred during processing.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved sync logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncLogList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sync not found
+  /syncs/{id}/rejects:
+    get:
+      operationId: getSyncRejects
+      summary: Retrieve sync rejects
+      description: >-
+        Retrieve rejected records from a sync operation, showing data rows
+        that could not be processed.
+      tags:
+        - Syncs
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved sync rejects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDataResult'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sync not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authentication using company\username and password
+        in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    parentId:
+      name: parentId
+      in: path
+      required: true
+      description: The parent custom object identifier
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
+      schema:
+        type: string
+  schemas:
+    ExportDefinition:
+      type: object
+      required:
+        - name
+        - fields
+      properties:
+        uri:
+          type: string
+          description: URI of the export definition
+          readOnly: true
+        name:
+          type: string
+          description: Name of the export definition
+        fields:
+          type: object
+          description: >-
+            Map of output column names to Eloqua field statement identifiers
+            (e.g., {"EmailAddress": "{{Contact.Field(C_EmailAddress)}}"})
+          additionalProperties:
+            type: string
+        filter:
+          type: string
+          description: >-
+            Filter expression to select records for export
+            (e.g., "{{Contact.CreatedAt}} > '2024-01-01'")
+        maxRecords:
+          type: integer
+          description: Maximum number of records to export
+        dataRetentionDuration:
+          type: string
+          description: How long exported data is retained (e.g., PT12H for 12 hours)
+        areSystemTimestampsInUTC:
+          type: boolean
+          description: Whether timestamps are in UTC
+          default: true
+        autoDeleteDuration:
+          type: string
+          description: Auto-delete duration for the export definition
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+          readOnly: true
+        syncedInstanceUri:
+          type: string
+          description: URI of the last sync associated with this definition
+          readOnly: true
+        status:
+          type: string
+          description: Status of the export definition
+          readOnly: true
+    ImportDefinition:
+      type: object
+      required:
+        - name
+        - fields
+        - identifierFieldName
+      properties:
+        uri:
+          type: string
+          description: URI of the import definition
+          readOnly: true
+        name:
+          type: string
+          description: Name of the import definition
+        fields:
+          type: object
+          description: >-
+            Map of source column names to Eloqua field statement identifiers
+            (e.g., {"EmailAddress": "{{Contact.Field(C_EmailAddress)}}"})
+          additionalProperties:
+            type: string
+        identifierFieldName:
+          type: string
+          description: >-
+            The field used to match import data to existing records
+            (e.g., "EmailAddress")
+        isSyncTriggeredOnImport:
+          type: boolean
+          description: Whether a sync is automatically triggered when data is pushed
+          default: false
+        syncActions:
+          type: array
+          description: Actions to perform during sync
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        dataRetentionDuration:
+          type: string
+          description: How long imported data is retained
+        isUpdatingMultipleMatchedRecords:
+          type: boolean
+          description: Whether to update all matching records or just the first
+          default: false
+        autoDeleteDuration:
+          type: string
+          description: Auto-delete duration for the import definition
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+          readOnly: true
+        syncedInstanceUri:
+          type: string
+          description: URI of the last sync associated with this definition
+          readOnly: true
+        status:
+          type: string
+          description: Status of the import definition
+          readOnly: true
+    Sync:
+      type: object
+      required:
+        - syncedInstanceUri
+      properties:
+        uri:
+          type: string
+          description: URI of the sync
+          readOnly: true
+        syncedInstanceUri:
+          type: string
+          description: >-
+            URI of the import or export definition to sync
+            (e.g., /contacts/exports/1)
+        syncStartedAt:
+          type: string
+          format: date-time
+          description: When the sync started
+          readOnly: true
+        syncEndedAt:
+          type: string
+          format: date-time
+          description: When the sync completed
+          readOnly: true
+        status:
+          type: string
+          enum:
+            - pending
+            - active
+            - success
+            - warning
+            - error
+          description: Current status of the sync
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created the sync
+          readOnly: true
+    SyncAction:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+            - add
+            - remove
+            - setStatus
+          description: The action to perform
+        destination:
+          type: string
+          description: >-
+            The destination for the action (e.g., a contact list URI
+            or subscription status)
+        status:
+          type: string
+          description: The status to set (when action is setStatus)
+    SyncLog:
+      type: object
+      properties:
+        severity:
+          type: string
+          enum:
+            - information
+            - warning
+            - error
+          description: Severity of the log entry
+        message:
+          type: string
+          description: Log message text
+        count:
+          type: integer
+          description: Number of records affected
+        createdAt:
+          type: string
+          format: date-time
+          description: Log entry timestamp
+    BulkField:
+      type: object
+      properties:
+        uri:
+          type: string
+          description: URI of the field
+        name:
+          type: string
+          description: Display name of the field
+        internalName:
+          type: string
+          description: Internal name of the field
+        dataType:
+          type: string
+          description: Data type of the field
+        hasReadOnlyConstraint:
+          type: boolean
+          description: Whether the field is read-only
+        hasNotNullConstraint:
+          type: boolean
+          description: Whether the field requires a value
+        hasUniquenessConstraint:
+          type: boolean
+          description: Whether field values must be unique
+        statement:
+          type: string
+          description: >-
+            Eloqua Markup Language (EML) statement for the field
+            (e.g., "{{Contact.Field(C_EmailAddress)}}")
+    ExportList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportDefinition'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    ImportList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportDefinition'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    SyncList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sync'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    SyncLogList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncLog'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    FieldList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkField'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    BulkDataResult:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of data records
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean

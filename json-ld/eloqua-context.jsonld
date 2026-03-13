@@ -1,0 +1,250 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "eloqua": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/schemas/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Contact": {
+      "@id": "eloqua:Contact",
+      "@context": {
+        "name": "schema:name",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "emailAddress": "schema:email",
+        "title": "schema:jobTitle",
+        "accountName": "schema:worksFor",
+        "address1": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "province": "schema:addressRegion",
+        "postalCode": "schema:postalCode",
+        "country": "schema:addressCountry",
+        "businessPhone": "schema:telephone",
+        "mobilePhone": "schema:telephone",
+        "isSubscribed": {
+          "@id": "eloqua:isSubscribed",
+          "@type": "xsd:string"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Account": {
+      "@id": "eloqua:Account",
+      "@context": {
+        "name": "schema:name",
+        "companyName": "schema:legalName",
+        "address1": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "province": "schema:addressRegion",
+        "postalCode": "schema:postalCode",
+        "country": "schema:addressCountry",
+        "businessPhone": "schema:telephone",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Campaign": {
+      "@id": "eloqua:Campaign",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "currentStatus": "eloqua:currentStatus",
+        "campaignCategory": "eloqua:campaignCategory",
+        "startAt": {
+          "@id": "schema:startDate",
+          "@type": "xsd:string"
+        },
+        "endAt": {
+          "@id": "schema:endDate",
+          "@type": "xsd:string"
+        },
+        "memberCount": {
+          "@id": "eloqua:memberCount",
+          "@type": "xsd:integer"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Email": {
+      "@id": "eloqua:Email",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "subject": "eloqua:subject",
+        "senderName": "eloqua:senderName",
+        "senderEmail": "schema:email",
+        "replyToEmail": "eloqua:replyToEmail",
+        "previewText": "eloqua:previewText",
+        "isTracked": {
+          "@id": "eloqua:isTracked",
+          "@type": "xsd:string"
+        },
+        "archived": {
+          "@id": "eloqua:archived",
+          "@type": "xsd:boolean"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Form": {
+      "@id": "eloqua:Form",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "htmlName": "eloqua:htmlName",
+        "currentStatus": "eloqua:currentStatus",
+        "archived": {
+          "@id": "eloqua:archived",
+          "@type": "xsd:boolean"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "LandingPage": {
+      "@id": "eloqua:LandingPage",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "relativePath": "schema:url",
+        "currentStatus": "eloqua:currentStatus",
+        "archived": {
+          "@id": "eloqua:archived",
+          "@type": "xsd:boolean"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "ContactSegment": {
+      "@id": "eloqua:ContactSegment",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "count": {
+          "@id": "eloqua:count",
+          "@type": "xsd:integer"
+        },
+        "lastCalculatedAt": {
+          "@id": "eloqua:lastCalculatedAt",
+          "@type": "xsd:string"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "CustomObject": {
+      "@id": "eloqua:CustomObject",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "displayNameFieldId": "eloqua:displayNameFieldId",
+        "uniqueCodeFieldId": "eloqua:uniqueCodeFieldId",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Program": {
+      "@id": "eloqua:Program",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "currentStatus": "eloqua:currentStatus",
+        "scheduledFor": {
+          "@id": "eloqua:scheduledFor",
+          "@type": "xsd:string"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "User": {
+      "@id": "eloqua:User",
+      "@context": {
+        "name": "schema:name",
+        "loginName": "eloqua:loginName",
+        "emailAddress": "schema:email",
+        "company": "schema:worksFor",
+        "enabled": {
+          "@id": "eloqua:enabled",
+          "@type": "xsd:boolean"
+        },
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:string"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:string"
+        }
+      }
+    }
+  }
+}

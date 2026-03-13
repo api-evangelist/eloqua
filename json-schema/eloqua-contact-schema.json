@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/schemas/contact.json",
+  "title": "Eloqua Contact",
+  "description": "A contact record in Oracle Eloqua representing an individual person tracked for marketing automation, email engagement, and lead management.",
+  "type": "object",
+  "required": ["emailAddress"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the contact",
+      "readOnly": true
+    },
+    "type": {
+      "type": "string",
+      "description": "Asset type in Eloqua",
+      "const": "Contact",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Contact display name"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "Contact first name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Contact last name"
+    },
+    "emailAddress": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact primary email address"
+    },
+    "title": {
+      "type": "string",
+      "description": "Contact job title"
+    },
+    "accountId": {
+      "type": "string",
+      "description": "Associated account identifier",
+      "readOnly": true
+    },
+    "accountName": {
+      "type": "string",
+      "description": "Associated account name"
+    },
+    "address1": {
+      "type": "string",
+      "description": "Primary address line"
+    },
+    "address2": {
+      "type": "string",
+      "description": "Secondary address line"
+    },
+    "address3": {
+      "type": "string",
+      "description": "Tertiary address line"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "province": {
+      "type": "string",
+      "description": "State or province"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal or ZIP code"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country"
+    },
+    "businessPhone": {
+      "type": "string",
+      "description": "Business phone number"
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "Mobile phone number"
+    },
+    "fax": {
+      "type": "string",
+      "description": "Fax number"
+    },
+    "salesPerson": {
+      "type": "string",
+      "description": "Account representative or sales person"
+    },
+    "isSubscribed": {
+      "type": "string",
+      "description": "Email subscription status (true or false as string)"
+    },
+    "isSmsSubscribed": {
+      "type": "string",
+      "description": "SMS subscription status"
+    },
+    "subscriptionDate": {
+      "type": "string",
+      "description": "Date the contact subscribed (Unix timestamp)"
+    },
+    "unsubscriptionDate": {
+      "type": "string",
+      "description": "Date the contact unsubscribed (Unix timestamp)"
+    },
+    "isBounceback": {
+      "type": "string",
+      "description": "Whether the contact email has bounced"
+    },
+    "bouncebackDate": {
+      "type": "string",
+      "description": "Date of the bounce (Unix timestamp)"
+    },
+    "fieldValues": {
+      "type": "array",
+      "description": "Custom field values for the contact",
+      "items": {
+        "$ref": "#/$defs/FieldValue"
+      }
+    },
+    "depth": {
+      "type": "string",
+      "enum": ["minimal", "partial", "complete"],
+      "description": "Level of detail returned for the contact",
+      "readOnly": true
+    },
+    "folderId": {
+      "type": "string",
+      "description": "Containing folder identifier",
+      "readOnly": true
+    },
+    "permissions": {
+      "type": "array",
+      "description": "Granted permissions on this contact",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "Creation timestamp (Unix time)",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User login who created the contact",
+      "readOnly": true
+    },
+    "createdByName": {
+      "type": "string",
+      "description": "Display name of the user who created the contact",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "Last update timestamp (Unix time)",
+      "readOnly": true
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "User login who last updated the contact",
+      "readOnly": true
+    },
+    "updatedByName": {
+      "type": "string",
+      "description": "Display name of the user who last updated the contact",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "FieldValue": {
+      "type": "object",
+      "description": "A custom field value entry",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Field identifier",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "Field type in Eloqua",
+          "readOnly": true
+        },
+        "value": {
+          "type": "string",
+          "description": "Field value (dates are returned as Unix timestamps)"
+        }
+      }
+    }
+  }
+}

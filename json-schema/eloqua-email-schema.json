@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/schemas/email.json",
+  "title": "Eloqua Email",
+  "description": "An email asset in Oracle Eloqua used for marketing communications, including subject line, sender information, HTML/plain text content, tracking configuration, and associated forms and images.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the email",
+      "readOnly": true
+    },
+    "type": {
+      "type": "string",
+      "description": "Asset type in Eloqua",
+      "const": "Email",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Email name",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Email description"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Email subject line"
+    },
+    "senderName": {
+      "type": "string",
+      "description": "Sender name displayed to recipients"
+    },
+    "senderEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Sender email address displayed to recipients"
+    },
+    "replyToEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Reply-to email address"
+    },
+    "replyToName": {
+      "type": "string",
+      "description": "Reply-to display name"
+    },
+    "previewText": {
+      "type": "string",
+      "description": "Preheader text shown in email clients",
+      "maxLength": 500
+    },
+    "htmlContent": {
+      "$ref": "#/$defs/HtmlContent"
+    },
+    "plainText": {
+      "type": "string",
+      "description": "Plain text version of the email"
+    },
+    "sendPlainTextOnly": {
+      "type": "boolean",
+      "description": "Whether to send as plain text only"
+    },
+    "isTracked": {
+      "type": "string",
+      "description": "Whether Eloqua tracks opens and clicks"
+    },
+    "isPrivate": {
+      "type": "string",
+      "description": "Whether the email is private to the creator"
+    },
+    "isContentProtected": {
+      "type": "string",
+      "description": "Whether the email is in content protection mode"
+    },
+    "currentStatus": {
+      "type": "string",
+      "description": "Current email status",
+      "readOnly": true
+    },
+    "layout": {
+      "type": "string",
+      "description": "Email main layout template"
+    },
+    "style": {
+      "type": "string",
+      "description": "Email layout style"
+    },
+    "renderMode": {
+      "type": "string",
+      "enum": ["fixed", "flow"],
+      "description": "Email layout rendering mode"
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Whether the email is archived"
+    },
+    "emailHeaderId": {
+      "type": "string",
+      "description": "Associated email header identifier"
+    },
+    "emailFooterId": {
+      "type": "string",
+      "description": "Associated email footer identifier"
+    },
+    "emailGroupId": {
+      "type": "string",
+      "description": "Associated email group identifier"
+    },
+    "forms": {
+      "type": "array",
+      "description": "Forms embedded in the email",
+      "items": {
+        "$ref": "#/$defs/AssetReference"
+      },
+      "readOnly": true
+    },
+    "images": {
+      "type": "array",
+      "description": "Images used in the email",
+      "items": {
+        "$ref": "#/$defs/AssetReference"
+      },
+      "readOnly": true
+    },
+    "hyperlinks": {
+      "type": "array",
+      "description": "Hyperlinks in the email",
+      "items": {
+        "$ref": "#/$defs/Hyperlink"
+      },
+      "readOnly": true
+    },
+    "contentSections": {
+      "type": "array",
+      "description": "Content sections in the email",
+      "items": {
+        "$ref": "#/$defs/AssetReference"
+      },
+      "readOnly": true
+    },
+    "dynamicContents": {
+      "type": "array",
+      "description": "Dynamic content blocks in the email",
+      "items": {
+        "$ref": "#/$defs/AssetReference"
+      },
+      "readOnly": true
+    },
+    "fieldMerges": {
+      "type": "array",
+      "description": "Field merge tokens in the email",
+      "items": {
+        "$ref": "#/$defs/AssetReference"
+      },
+      "readOnly": true
+    },
+    "folderId": {
+      "type": "string",
+      "description": "Containing folder identifier",
+      "readOnly": true
+    },
+    "depth": {
+      "type": "string",
+      "enum": ["minimal", "partial", "complete"],
+      "description": "Level of detail returned for the email",
+      "readOnly": true
+    },
+    "permissions": {
+      "type": "array",
+      "description": "Granted permissions on this email",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "Creation timestamp (Unix time)",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User login who created the email",
+      "readOnly": true
+    },
+    "createdByName": {
+      "type": "string",
+      "description": "Display name of the user who created the email",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "Last update timestamp (Unix time)",
+      "readOnly": true
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "User login who last updated the email",
+      "readOnly": true
+    },
+    "updatedByName": {
+      "type": "string",
+      "description": "Display name of the user who last updated the email",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "HtmlContent": {
+      "type": "object",
+      "description": "HTML content container for the email",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Content type identifier"
+        },
+        "contentSource": {
+          "type": "string",
+          "description": "HTML source content of the email"
+        }
+      }
+    },
+    "AssetReference": {
+      "type": "object",
+      "description": "Reference to an associated asset",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Asset identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Asset name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Asset type"
+        }
+      }
+    },
+    "Hyperlink": {
+      "type": "object",
+      "description": "A hyperlink in the email content",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Hyperlink identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Hyperlink name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Hyperlink type"
+        },
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "description": "Hyperlink URL"
+        }
+      }
+    }
+  }
+}

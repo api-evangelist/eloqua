@@ -3,7 +3,7 @@ description: Oracle Eloqua is a marketing automation platform that provides tool
 image: https://www.oracle.com/a/ocom/img/oracle-eloqua-logo.svg
 url: https://www.oracle.com/marketingcloud/products/marketing-automation/
 created: '2025'
-modified: '2025'
+modified: '2026-03-04'
 tags:
 - marketing automation
 - email marketing
@@ -30,6 +30,8 @@ apis:
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
   - type: rate-limits
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/RateLimits.html
+  - type: OpenAPI
+    url: openapi/eloqua-rest-openapi.yml
 - name: Eloqua Bulk API
   description: Bulk API for high-volume data operations including imports, exports, and synchronization of large datasets.
   image: https://www.oracle.com/a/ocom/img/oracle-eloqua-logo.svg
@@ -45,6 +47,8 @@ apis:
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
   - type: tutorials
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkTutorials.html
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-openapi.yml
 common:
 - type: getting-started
   url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html
@@ -58,7 +62,14 @@ common:
   url: https://www.oracle.com/legal/privacy/
 - type: sdks
   url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html
+- type: JSON-LD
+  url: json-ld/eloqua-context.jsonld
+- type: JSONSchema
+  url: json-schema/eloqua-contact-schema.json
+- type: JSONSchema
+  url: json-schema/eloqua-campaign-schema.json
+- type: JSONSchema
+  url: json-schema/eloqua-email-schema.json
 maintainers:
-- FN: Oracle Corporation
-  email: marketing-cloud@oracle.com
-  url: https://www.oracle.com/marketingcloud/
+- FN: Kin Lane
+  email: kin@apievangelist.com

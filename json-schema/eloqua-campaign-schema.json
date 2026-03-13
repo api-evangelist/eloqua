@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/schemas/campaign.json",
+  "title": "Eloqua Campaign",
+  "description": "A marketing campaign in Oracle Eloqua used to orchestrate multi-channel communications including email marketing, lead nurturing, and multi-step engagement programs.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the campaign",
+      "readOnly": true
+    },
+    "type": {
+      "type": "string",
+      "description": "Asset type in Eloqua",
+      "const": "Campaign",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Campaign name",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Campaign description"
+    },
+    "currentStatus": {
+      "type": "string",
+      "enum": ["Active", "Draft", "Scheduled", "Completed"],
+      "description": "Current campaign status",
+      "readOnly": true
+    },
+    "campaignCategory": {
+      "type": "string",
+      "enum": ["emailMarketing", "contact"],
+      "description": "Campaign type - emailMarketing for simple campaigns, contact for multi-step campaigns"
+    },
+    "startAt": {
+      "type": "string",
+      "description": "Campaign start date (Unix timestamp)"
+    },
+    "endAt": {
+      "type": "string",
+      "description": "Campaign end date (Unix timestamp)"
+    },
+    "memberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of members who entered the campaign in the last 90 days",
+      "readOnly": true
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "description": "Whether the campaign is read-only",
+      "readOnly": true
+    },
+    "isMemberAllowedReEntry": {
+      "type": "boolean",
+      "description": "Whether members can re-enter the campaign"
+    },
+    "runAsUserId": {
+      "type": "string",
+      "description": "User identifier that the campaign runs as"
+    },
+    "elements": {
+      "type": "array",
+      "description": "Campaign canvas elements (steps, decisions, actions)",
+      "items": {
+        "$ref": "#/$defs/CampaignElement"
+      }
+    },
+    "folderId": {
+      "type": "string",
+      "description": "Containing folder identifier",
+      "readOnly": true
+    },
+    "depth": {
+      "type": "string",
+      "enum": ["minimal", "partial", "complete"],
+      "description": "Level of detail returned for the campaign",
+      "readOnly": true
+    },
+    "permissions": {
+      "type": "array",
+      "description": "Granted permissions on this campaign",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "Creation timestamp (Unix time)",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User login who created the campaign",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "Last update timestamp (Unix time)",
+      "readOnly": true
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "User login who last updated the campaign",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "CampaignElement": {
+      "type": "object",
+      "description": "An element on the campaign canvas such as a segment, email send step, wait step, or decision rule",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Element identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Element name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Element type (e.g., CampaignSegment, CampaignEmail, CampaignWaitAction)"
+        },
+        "memberCount": {
+          "type": "integer",
+          "description": "Number of members at this step",
+          "readOnly": true
+        },
+        "outputTerminals": {
+          "type": "array",
+          "description": "Output connections to other elements",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "connectedId": {
+                "type": "string",
+                "description": "ID of the connected element"
+              },
+              "terminalId": {
+                "type": "string",
+                "description": "Terminal identifier"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

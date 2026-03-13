@@ -1,0 +1,2635 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua REST API
+  description: >-
+    The primary REST API for Oracle Eloqua Marketing Cloud Service, providing
+    access to marketing automation assets and data including contacts, accounts,
+    campaigns, emails, forms, landing pages, custom objects, and more.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+externalDocs:
+  description: Oracle Eloqua REST API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+servers:
+  - url: https://secure.p01.eloqua.com/API/REST/2.0
+    description: Eloqua REST API v2.0 (pod may vary per instance)
+tags:
+  - name: Contacts
+    description: Manage contact records and data
+  - name: Accounts
+    description: Manage account records and groups
+  - name: Campaigns
+    description: Create and manage marketing campaigns
+  - name: Emails
+    description: Create and manage email assets
+  - name: Forms
+    description: Create and manage forms and form data
+  - name: Landing Pages
+    description: Create and manage landing pages
+  - name: Custom Objects
+    description: Manage custom object definitions and data
+  - name: Contact Segments
+    description: Create and manage contact segments
+  - name: Contact Lists
+    description: Create and manage contact lists
+  - name: Programs
+    description: Create and manage automation programs
+  - name: Users
+    description: Manage system users
+security:
+  - basicAuth: []
+  - oAuth2: []
+paths:
+  /data/contacts:
+    post:
+      operationId: searchContacts
+      summary: Search contacts
+      description: >-
+        Retrieve a list of contacts matching the specified search criteria.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+        - $ref: '#/components/parameters/lastUpdatedAt'
+      responses:
+        '200':
+          description: Successfully retrieved contacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultContact'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+  /data/contact/{id}:
+    get:
+      operationId: getContact
+      summary: Retrieve a contact
+      description: >-
+        Retrieve a single contact record by its identifier.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+        - name: viewId
+          in: query
+          description: The contact view identifier to use
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved contact
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact not found
+    put:
+      operationId: updateContact
+      summary: Update a contact
+      description: >-
+        Update an existing contact record.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '200':
+          description: Successfully updated contact
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact not found
+    delete:
+      operationId: deleteContact
+      summary: Delete a contact
+      description: >-
+        Delete a contact record by its identifier.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Contact deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact not found
+  /data/contact/{id}/membership:
+    get:
+      operationId: getContactListMembership
+      summary: Get contact list membership
+      description: >-
+        Retrieve the contact lists to which a contact belongs.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved membership
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContactList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact not found
+  /data/accounts:
+    post:
+      operationId: searchAccounts
+      summary: Search accounts
+      description: >-
+        Retrieve a list of account records matching the specified criteria.
+      tags:
+        - Accounts
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultAccount'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /data/account/{id}:
+    get:
+      operationId: getAccount
+      summary: Retrieve an account
+      description: >-
+        Retrieve a single account record by its identifier.
+      tags:
+        - Accounts
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+  /data/account/{id}/membership:
+    get:
+      operationId: getAccountGroupMembership
+      summary: Get account group membership
+      description: >-
+        Retrieve the account groups to which an account belongs.
+      tags:
+        - Accounts
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved membership
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+  /assets/campaigns:
+    get:
+      operationId: listCampaigns
+      summary: List campaigns
+      description: >-
+        Retrieve all campaigns matching the specified criteria.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+        - $ref: '#/components/parameters/lastUpdatedAt'
+      responses:
+        '200':
+          description: Successfully retrieved campaigns
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCampaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/campaign:
+    post:
+      operationId: createCampaign
+      summary: Create a campaign
+      description: >-
+        Create a new marketing campaign.
+      tags:
+        - Campaigns
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '201':
+          description: Campaign created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/campaign/{id}:
+    get:
+      operationId: getCampaign
+      summary: Retrieve a campaign
+      description: >-
+        Retrieve a single campaign by its identifier.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved campaign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+    put:
+      operationId: updateCampaign
+      summary: Update a campaign
+      description: >-
+        Update an existing campaign.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '200':
+          description: Successfully updated campaign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+    delete:
+      operationId: deleteCampaign
+      summary: Delete a campaign
+      description: >-
+        Delete a campaign by its identifier.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Campaign deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+  /assets/campaign/active/{id}:
+    post:
+      operationId: activateCampaign
+      summary: Activate a campaign
+      description: >-
+        Activate a campaign, changing its status from Draft to Active.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Campaign activated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+  /assets/campaign/draft/{id}:
+    post:
+      operationId: deactivateCampaign
+      summary: Deactivate a campaign
+      description: >-
+        Deactivate a campaign, changing its status from Active to Draft.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Campaign deactivated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+  /assets/emails:
+    get:
+      operationId: listEmails
+      summary: List emails
+      description: >-
+        Retrieve all email assets matching the specified criteria.
+      tags:
+        - Emails
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+        - $ref: '#/components/parameters/lastUpdatedAt'
+      responses:
+        '200':
+          description: Successfully retrieved emails
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultEmail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/email:
+    post:
+      operationId: createEmail
+      summary: Create an email
+      description: >-
+        Create a new email asset.
+      tags:
+        - Emails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+      responses:
+        '201':
+          description: Email created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/email/{id}:
+    get:
+      operationId: getEmail
+      summary: Retrieve an email
+      description: >-
+        Retrieve a single email asset by its identifier.
+      tags:
+        - Emails
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+        - name: noMergeContent
+          in: query
+          description: Whether email components are dynamically populated
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: Successfully retrieved email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Email not found
+    put:
+      operationId: updateEmail
+      summary: Update an email
+      description: >-
+        Update an existing email asset.
+      tags:
+        - Emails
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+      responses:
+        '200':
+          description: Successfully updated email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Email not found
+    delete:
+      operationId: deleteEmail
+      summary: Delete an email
+      description: >-
+        Delete an email asset by its identifier.
+      tags:
+        - Emails
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Email deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Email not found
+  /assets/email/deployment:
+    post:
+      operationId: createEmailDeployment
+      summary: Create an email deployment
+      description: >-
+        Create and send an email deployment to a specified contact list or segment.
+      tags:
+        - Emails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDeployment'
+      responses:
+        '201':
+          description: Email deployment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeployment'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/email/deployment/{id}:
+    get:
+      operationId: getEmailDeployment
+      summary: Retrieve an email deployment
+      description: >-
+        Retrieve an email deployment by its identifier.
+      tags:
+        - Emails
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved email deployment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeployment'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Deployment not found
+  /assets/forms:
+    get:
+      operationId: listForms
+      summary: List forms
+      description: >-
+        Retrieve all form assets matching the specified criteria.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved forms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultForm'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/form:
+    post:
+      operationId: createForm
+      summary: Create a form
+      description: >-
+        Create a new form asset.
+      tags:
+        - Forms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Form'
+      responses:
+        '201':
+          description: Form created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/form/{id}:
+    get:
+      operationId: getForm
+      summary: Retrieve a form
+      description: >-
+        Retrieve a single form asset by its identifier.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    put:
+      operationId: updateForm
+      summary: Update a form
+      description: >-
+        Update an existing form asset.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Form'
+      responses:
+        '200':
+          description: Successfully updated form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    delete:
+      operationId: deleteForm
+      summary: Delete a form
+      description: >-
+        Delete a form asset by its identifier.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Form deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+  /data/form/{id}:
+    get:
+      operationId: getFormData
+      summary: Retrieve form submission data
+      description: >-
+        Retrieve submission data for a specific form.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: Successfully retrieved form data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FormData'
+                  page:
+                    type: integer
+                  pageSize:
+                    type: integer
+                  total:
+                    type: integer
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    post:
+      operationId: createFormData
+      summary: Submit form data
+      description: >-
+        Create a new form submission for the specified form.
+      tags:
+        - Forms
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormData'
+      responses:
+        '201':
+          description: Form data submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormData'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/landingPages:
+    get:
+      operationId: listLandingPages
+      summary: List landing pages
+      description: >-
+        Retrieve all landing page assets matching the specified criteria.
+      tags:
+        - Landing Pages
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved landing pages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultLandingPage'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/landingPage:
+    post:
+      operationId: createLandingPage
+      summary: Create a landing page
+      description: >-
+        Create a new landing page asset.
+      tags:
+        - Landing Pages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LandingPage'
+      responses:
+        '201':
+          description: Landing page created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingPage'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/landingPage/{id}:
+    get:
+      operationId: getLandingPage
+      summary: Retrieve a landing page
+      description: >-
+        Retrieve a single landing page asset by its identifier.
+      tags:
+        - Landing Pages
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved landing page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingPage'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Landing page not found
+    put:
+      operationId: updateLandingPage
+      summary: Update a landing page
+      description: >-
+        Update an existing landing page asset.
+      tags:
+        - Landing Pages
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LandingPage'
+      responses:
+        '200':
+          description: Successfully updated landing page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingPage'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Landing page not found
+    delete:
+      operationId: deleteLandingPage
+      summary: Delete a landing page
+      description: >-
+        Delete a landing page asset by its identifier.
+      tags:
+        - Landing Pages
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Landing page deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Landing page not found
+  /assets/customObjects:
+    get:
+      operationId: listCustomObjects
+      summary: List custom objects
+      description: >-
+        Retrieve all custom object definitions.
+      tags:
+        - Custom Objects
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved custom objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCustomObject'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/customObject:
+    post:
+      operationId: createCustomObject
+      summary: Create a custom object
+      description: >-
+        Create a new custom object definition.
+      tags:
+        - Custom Objects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObject'
+      responses:
+        '201':
+          description: Custom object created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObject'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/customObject/{id}:
+    get:
+      operationId: getCustomObject
+      summary: Retrieve a custom object
+      description: >-
+        Retrieve a custom object definition by its identifier.
+      tags:
+        - Custom Objects
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved custom object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObject'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+    put:
+      operationId: updateCustomObject
+      summary: Update a custom object
+      description: >-
+        Update an existing custom object definition.
+      tags:
+        - Custom Objects
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObject'
+      responses:
+        '200':
+          description: Successfully updated custom object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObject'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+    delete:
+      operationId: deleteCustomObject
+      summary: Delete a custom object
+      description: >-
+        Delete a custom object definition by its identifier.
+      tags:
+        - Custom Objects
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Custom object deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+  /data/customObject/{parentId}/instances:
+    get:
+      operationId: listCustomObjectData
+      summary: List custom object data instances
+      description: >-
+        Retrieve data instances for a specific custom object.
+      tags:
+        - Custom Objects
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          description: The custom object definition identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+      responses:
+        '200':
+          description: Successfully retrieved custom object data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CustomObjectData'
+                  page:
+                    type: integer
+                  pageSize:
+                    type: integer
+                  total:
+                    type: integer
+        '401':
+          description: Unauthorized
+        '404':
+          description: Custom object not found
+  /data/customObject/{parentId}/instance:
+    post:
+      operationId: createCustomObjectData
+      summary: Create a custom object data instance
+      description: >-
+        Create a new data instance for a specific custom object.
+      tags:
+        - Custom Objects
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          description: The custom object definition identifier
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObjectData'
+      responses:
+        '201':
+          description: Custom object data created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectData'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /data/customObject/{parentId}/instance/{id}:
+    get:
+      operationId: getCustomObjectData
+      summary: Retrieve a custom object data instance
+      description: >-
+        Retrieve a specific data instance from a custom object.
+      tags:
+        - Custom Objects
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          description: The custom object definition identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved custom object data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectData'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Instance not found
+    put:
+      operationId: updateCustomObjectData
+      summary: Update a custom object data instance
+      description: >-
+        Update an existing data instance for a custom object.
+      tags:
+        - Custom Objects
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          description: The custom object definition identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObjectData'
+      responses:
+        '200':
+          description: Successfully updated custom object data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectData'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Instance not found
+    delete:
+      operationId: deleteCustomObjectData
+      summary: Delete a custom object data instance
+      description: >-
+        Delete a specific data instance from a custom object.
+      tags:
+        - Custom Objects
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          description: The custom object definition identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Custom object data deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Instance not found
+  /assets/contact/segments:
+    get:
+      operationId: listContactSegments
+      summary: List contact segments
+      description: >-
+        Retrieve all contact segments matching the specified criteria.
+      tags:
+        - Contact Segments
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved contact segments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultContactSegment'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/contact/segment:
+    post:
+      operationId: createContactSegment
+      summary: Create a contact segment
+      description: >-
+        Create a new contact segment.
+      tags:
+        - Contact Segments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSegment'
+      responses:
+        '201':
+          description: Segment created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSegment'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/contact/segment/{id}:
+    get:
+      operationId: getContactSegment
+      summary: Retrieve a contact segment
+      description: >-
+        Retrieve a single contact segment by its identifier.
+      tags:
+        - Contact Segments
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved contact segment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSegment'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Segment not found
+    put:
+      operationId: updateContactSegment
+      summary: Update a contact segment
+      description: >-
+        Update an existing contact segment.
+      tags:
+        - Contact Segments
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSegment'
+      responses:
+        '200':
+          description: Successfully updated contact segment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSegment'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Segment not found
+    delete:
+      operationId: deleteContactSegment
+      summary: Delete a contact segment
+      description: >-
+        Delete a contact segment by its identifier.
+      tags:
+        - Contact Segments
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Segment deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Segment not found
+  /assets/contact/lists:
+    get:
+      operationId: listContactLists
+      summary: List contact lists
+      description: >-
+        Retrieve all contact lists matching the specified criteria.
+      tags:
+        - Contact Lists
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved contact lists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContactList'
+                  page:
+                    type: integer
+                  pageSize:
+                    type: integer
+                  total:
+                    type: integer
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/contact/list:
+    post:
+      operationId: createContactList
+      summary: Create a contact list
+      description: >-
+        Create a new contact list.
+      tags:
+        - Contact Lists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactList'
+      responses:
+        '201':
+          description: Contact list created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/contact/list/{id}:
+    get:
+      operationId: getContactList
+      summary: Retrieve a contact list
+      description: >-
+        Retrieve a single contact list by its identifier.
+      tags:
+        - Contact Lists
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved contact list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact list not found
+    put:
+      operationId: updateContactList
+      summary: Update a contact list
+      description: >-
+        Update an existing contact list.
+      tags:
+        - Contact Lists
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactList'
+      responses:
+        '200':
+          description: Successfully updated contact list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact list not found
+    delete:
+      operationId: deleteContactList
+      summary: Delete a contact list
+      description: >-
+        Delete a contact list by its identifier.
+      tags:
+        - Contact Lists
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Contact list deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Contact list not found
+  /assets/programs:
+    get:
+      operationId: listPrograms
+      summary: List programs
+      description: >-
+        Retrieve all automation programs matching the specified criteria.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved programs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultProgram'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/program:
+    post:
+      operationId: createProgram
+      summary: Create a program
+      description: >-
+        Create a new automation program.
+      tags:
+        - Programs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Program'
+      responses:
+        '201':
+          description: Program created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/program/{id}:
+    get:
+      operationId: getProgram
+      summary: Retrieve a program
+      description: >-
+        Retrieve a single automation program by its identifier.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved program
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+    put:
+      operationId: updateProgram
+      summary: Update a program
+      description: >-
+        Update an existing automation program.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Program'
+      responses:
+        '200':
+          description: Successfully updated program
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+    delete:
+      operationId: deleteProgram
+      summary: Delete a program
+      description: >-
+        Delete an automation program by its identifier.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Program deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+  /assets/program/active/{id}:
+    post:
+      operationId: activateProgram
+      summary: Activate a program
+      description: >-
+        Activate an automation program, changing its status to Active.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Program activated successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+  /assets/program/draft/{id}:
+    post:
+      operationId: deactivateProgram
+      summary: Deactivate a program
+      description: >-
+        Deactivate an automation program, returning it to Draft status.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Program deactivated successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+  /assets/program/pause/{id}:
+    post:
+      operationId: pauseProgram
+      summary: Pause a program
+      description: >-
+        Pause an active automation program.
+      tags:
+        - Programs
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Program paused successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Program not found
+  /system/users:
+    get:
+      operationId: listUsers
+      summary: List users
+      description: >-
+        Retrieve all system users matching the specified criteria.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/depth'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+                  page:
+                    type: integer
+                  pageSize:
+                    type: integer
+                  total:
+                    type: integer
+        '401':
+          description: Unauthorized
+  /system/user/{id}:
+    get:
+      operationId: getUser
+      summary: Retrieve a user
+      description: >-
+        Retrieve a single system user by their identifier.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+    put:
+      operationId: updateUser
+      summary: Update a user
+      description: >-
+        Update an existing system user.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Successfully updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+    delete:
+      operationId: deleteUser
+      summary: Delete a user
+      description: >-
+        Delete a system user by their identifier.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: User deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+  /system/user/current:
+    get:
+      operationId: getCurrentUser
+      summary: Retrieve current user
+      description: >-
+        Retrieve the currently authenticated user.
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Successfully retrieved current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authentication using company\username and password
+        in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+          - minimal
+          - partial
+          - complete
+        default: minimal
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    lastUpdatedAt:
+      name: lastUpdatedAt
+      in: query
+      description: Unix timestamp to filter entities updated after this time
+      schema:
+        type: integer
+  schemas:
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the contact
+          readOnly: true
+        name:
+          type: string
+          description: Contact display name
+        firstName:
+          type: string
+          description: Contact first name
+        lastName:
+          type: string
+          description: Contact last name
+        emailAddress:
+          type: string
+          format: email
+          description: Contact email address
+        title:
+          type: string
+          description: Contact job title
+        accountId:
+          type: string
+          description: Associated account identifier
+          readOnly: true
+        accountName:
+          type: string
+          description: Associated account name
+        address1:
+          type: string
+          description: Primary address line
+        address2:
+          type: string
+          description: Secondary address line
+        city:
+          type: string
+          description: City
+        province:
+          type: string
+          description: State or province
+        postalCode:
+          type: string
+          description: Postal or ZIP code
+        country:
+          type: string
+          description: Country
+        businessPhone:
+          type: string
+          description: Business phone number
+        mobilePhone:
+          type: string
+          description: Mobile phone number
+        isSubscribed:
+          type: string
+          description: Email subscription status
+        isBounced:
+          type: string
+          description: Whether the contact email has bounced
+        fieldValues:
+          type: array
+          description: Custom field values
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created the contact
+          readOnly: true
+        updatedBy:
+          type: string
+          description: User who last updated the contact
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the account
+          readOnly: true
+        name:
+          type: string
+          description: Account name
+        companyName:
+          type: string
+          description: Company name
+        address1:
+          type: string
+          description: Primary address line
+        city:
+          type: string
+          description: City
+        province:
+          type: string
+          description: State or province
+        postalCode:
+          type: string
+          description: Postal or ZIP code
+        country:
+          type: string
+          description: Country
+        businessPhone:
+          type: string
+          description: Business phone number
+        fieldValues:
+          type: array
+          description: Custom field values
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the campaign
+          readOnly: true
+        name:
+          type: string
+          description: Campaign name
+        description:
+          type: string
+          description: Campaign description
+        currentStatus:
+          type: string
+          enum:
+            - Active
+            - Draft
+            - Scheduled
+            - Completed
+          description: Current campaign status
+          readOnly: true
+        campaignCategory:
+          type: string
+          enum:
+            - emailMarketing
+            - contact
+          description: >-
+            Campaign type - emailMarketing for simple campaigns, contact
+            for multi-step campaigns
+        startAt:
+          type: string
+          description: Campaign start date (Unix time)
+        endAt:
+          type: string
+          description: Campaign end date (Unix time)
+        memberCount:
+          type: integer
+          description: Number of members entered in the last 90 days
+          readOnly: true
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created the campaign
+          readOnly: true
+        updatedBy:
+          type: string
+          description: User who last updated the campaign
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    Email:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the email
+          readOnly: true
+        name:
+          type: string
+          description: Email name
+        description:
+          type: string
+          description: Email description
+        subject:
+          type: string
+          description: Email subject line
+        senderName:
+          type: string
+          description: Sender name displayed to recipients
+        senderEmail:
+          type: string
+          format: email
+          description: Sender email address
+        replyToEmail:
+          type: string
+          format: email
+          description: Reply-to email address
+        replyToName:
+          type: string
+          description: Reply-to name
+        previewText:
+          type: string
+          description: Preheader text (max 500 characters)
+          maxLength: 500
+        htmlContent:
+          type: object
+          description: HTML content of the email
+          properties:
+            type:
+              type: string
+            contentSource:
+              type: string
+              description: HTML source content
+        plainText:
+          type: string
+          description: Plain text version of the email
+        sendPlainTextOnly:
+          type: boolean
+          description: Whether to send as plain text only
+        isTracked:
+          type: string
+          description: Whether Eloqua tracks interactions
+        currentStatus:
+          type: string
+          description: Current email status
+          readOnly: true
+        renderMode:
+          type: string
+          enum:
+            - fixed
+            - flow
+          description: Email layout rendering mode
+        archived:
+          type: boolean
+          description: Whether the email is archived
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created the email
+          readOnly: true
+        updatedBy:
+          type: string
+          description: User who last updated the email
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    EmailDeployment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the deployment
+          readOnly: true
+        name:
+          type: string
+          description: Deployment name
+        email:
+          type: object
+          description: The email asset to deploy
+          properties:
+            id:
+              type: string
+              description: Email asset identifier
+            type:
+              type: string
+        contactList:
+          type: object
+          description: Target contact list
+          properties:
+            id:
+              type: string
+              description: Contact list identifier
+            type:
+              type: string
+        segment:
+          type: object
+          description: Target contact segment
+          properties:
+            id:
+              type: string
+              description: Segment identifier
+            type:
+              type: string
+        type:
+          type: string
+          description: Deployment type
+    Form:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the form
+          readOnly: true
+        name:
+          type: string
+          description: Form name
+        description:
+          type: string
+          description: Form description
+        htmlName:
+          type: string
+          description: HTML name attribute
+        currentStatus:
+          type: string
+          description: Current form status
+          readOnly: true
+        archived:
+          type: boolean
+          description: Whether the form is archived
+        elements:
+          type: array
+          description: Form field elements
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+              htmlName:
+                type: string
+        processingSteps:
+          type: array
+          description: Form processing steps
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    FormData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Submission row identifier
+          readOnly: true
+        type:
+          type: string
+          description: Data type
+        fieldValues:
+          type: array
+          description: Submitted field values
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        submittedAt:
+          type: string
+          description: Submission timestamp (Unix time)
+          readOnly: true
+    LandingPage:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the landing page
+          readOnly: true
+        name:
+          type: string
+          description: Landing page name
+        description:
+          type: string
+          description: Landing page description
+        htmlContent:
+          type: object
+          description: HTML content of the landing page
+          properties:
+            type:
+              type: string
+            contentSource:
+              type: string
+              description: HTML source content
+        relativePath:
+          type: string
+          description: Relative URL path for the landing page
+        micrositeId:
+          type: string
+          description: Associated microsite identifier
+        currentStatus:
+          type: string
+          description: Current landing page status
+          readOnly: true
+        archived:
+          type: boolean
+          description: Whether the landing page is archived
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    CustomObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the custom object
+          readOnly: true
+        name:
+          type: string
+          description: Custom object name
+        description:
+          type: string
+          description: Custom object description
+        displayNameFieldId:
+          type: string
+          description: Field used as the display name
+        uniqueCodeFieldId:
+          type: string
+          description: Field used as the unique code
+        fields:
+          type: array
+          description: Custom object field definitions
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              dataType:
+                type: string
+              displayType:
+                type: string
+              defaultValue:
+                type: string
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    CustomObjectData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Data instance identifier
+          readOnly: true
+        type:
+          type: string
+          description: Data type
+        uniqueCode:
+          type: string
+          description: Unique code for the data instance
+        contactId:
+          type: string
+          description: Associated contact identifier
+        accountId:
+          type: string
+          description: Associated account identifier
+        fieldValues:
+          type: array
+          description: Field values for the data instance
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+    ContactSegment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the segment
+          readOnly: true
+        name:
+          type: string
+          description: Segment name
+        description:
+          type: string
+          description: Segment description
+        count:
+          type: integer
+          description: Number of contacts in the segment
+          readOnly: true
+        lastCalculatedAt:
+          type: string
+          description: When the segment was last calculated (Unix time)
+          readOnly: true
+        elements:
+          type: array
+          description: Segment filter criteria
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    ContactList:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the contact list
+          readOnly: true
+        name:
+          type: string
+          description: Contact list name
+        description:
+          type: string
+          description: Contact list description
+        count:
+          type: integer
+          description: Number of contacts in the list
+          readOnly: true
+        membershipAdditions:
+          type: array
+          description: Contact identifiers to add
+          items:
+            type: string
+        membershipDeletions:
+          type: array
+          description: Contact identifiers to remove
+          items:
+            type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    Program:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the program
+          readOnly: true
+        name:
+          type: string
+          description: Program name
+        description:
+          type: string
+          description: Program description
+        currentStatus:
+          type: string
+          enum:
+            - Active
+            - Draft
+            - Paused
+            - Completed
+            - Scheduled
+          description: Current program status
+          readOnly: true
+        scheduledFor:
+          type: string
+          description: Scheduled execution time (Unix time)
+        elements:
+          type: array
+          description: Program step elements
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the user
+          readOnly: true
+        name:
+          type: string
+          description: User display name
+        loginName:
+          type: string
+          description: User login name
+        emailAddress:
+          type: string
+          format: email
+          description: User email address
+        company:
+          type: string
+          description: User company name
+        enabled:
+          type: boolean
+          description: Whether the user account is enabled
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
+    QueryResultContact:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultAccount:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultCampaign:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Campaign'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultEmail:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Email'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultForm:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Form'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultLandingPage:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandingPage'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultCustomObject:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObject'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultContactSegment:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactSegment'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    QueryResultProgram:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
