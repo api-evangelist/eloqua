@@ -1,75 +1,69 @@
+aid: eloqua
 name: Oracle Eloqua
-description: Oracle Eloqua is a marketing automation platform that provides tools for lead management, email marketing, and marketing campaign management through comprehensive REST APIs.
-image: https://www.oracle.com/a/ocom/img/oracle-eloqua-logo.svg
-url: https://www.oracle.com/marketingcloud/products/marketing-automation/
-created: '2025'
-modified: '2026-03-04'
+description: >-
+  Oracle Eloqua is a marketing automation platform that provides tools for
+  lead management, email marketing, and marketing campaign management through
+  comprehensive REST APIs. It enables marketing teams to create, execute, and
+  measure the effectiveness of marketing programs and campaigns.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- marketing automation
-- email marketing
-- lead management
-- CRM
-- marketing campaigns
+  - Marketing Automation
+  - Email Marketing
+  - Lead Management
+  - CRM
+url: https://www.oracle.com/marketingcloud/products/marketing-automation/
+created: '2025-01-01'
+modified: '2026-03-16'
+position: Consumer
+access: 3rd-Party
+specificationVersion: '0.19'
 apis:
-- name: Eloqua REST API
-  description: The primary REST API for Oracle Eloqua, providing access to marketing automation, contact management, campaign operations, and analytics.
-  image: https://www.oracle.com/a/ocom/img/oracle-eloqua-logo.svg
-  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
-  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
-  tags:
-  - REST
-  - marketing
-  - contacts
-  - campaigns
-  properties:
-  - type: documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
-  - type: openapi
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/openapi.json
-  - type: authentication
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
-  - type: rate-limits
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/RateLimits.html
-  - type: OpenAPI
-    url: openapi/eloqua-rest-openapi.yml
-- name: Eloqua Bulk API
-  description: Bulk API for high-volume data operations including imports, exports, and synchronization of large datasets.
-  image: https://www.oracle.com/a/ocom/img/oracle-eloqua-logo.svg
-  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
-  baseURL: https://secure.p01.eloqua.com/API/Bulk/2.0/
-  tags:
-  - bulk operations
-  - data import
-  - data export
-  - sync
-  properties:
-  - type: documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
-  - type: tutorials
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkTutorials.html
-  - type: OpenAPI
-    url: openapi/eloqua-bulk-openapi.yml
+  - aid: eloqua:eloqua-rest-api
+    name: Eloqua REST API
+    description: >-
+      The primary REST API for Oracle Eloqua, providing access to marketing
+      automation, contact management, campaign operations, and analytics.
+    humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+    baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+    tags:
+      - Marketing
+      - Contacts
+      - Campaigns
+    properties:
+      - type: Documentation
+        url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+      - type: OpenAPI
+        url: openapi/eloqua-rest-openapi.yml
+  - aid: eloqua:eloqua-bulk-api
+    name: Eloqua Bulk API
+    description: >-
+      Bulk API for high-volume data operations including imports, exports,
+      and synchronization of large datasets.
+    humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    baseURL: https://secure.p01.eloqua.com/API/Bulk/2.0/
+    tags:
+      - Bulk Operations
+      - Data Import
+      - Data Export
+    properties:
+      - type: Documentation
+        url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+      - type: OpenAPI
+        url: openapi/eloqua-bulk-openapi.yml
 common:
-- type: getting-started
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html
-- type: authentication
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
-- type: support
-  url: https://support.oracle.com/
-- type: terms-of-service
-  url: https://www.oracle.com/legal/terms.html
-- type: privacy-policy
-  url: https://www.oracle.com/legal/privacy/
-- type: sdks
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html
-- type: JSON-LD
-  url: json-ld/eloqua-context.jsonld
-- type: JSONSchema
-  url: json-schema/eloqua-contact-schema.json
-- type: JSONSchema
-  url: json-schema/eloqua-campaign-schema.json
-- type: JSONSchema
-  url: json-schema/eloqua-email-schema.json
+  - type: GettingStarted
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html
+  - type: Authentication
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
+  - type: Support
+    url: https://support.oracle.com/
+  - type: TermsOfService
+    url: https://www.oracle.com/legal/terms.html
+  - type: PrivacyPolicy
+    url: https://www.oracle.com/legal/privacy/
+  - type: SDKs
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
