@@ -17,28 +17,28 @@ servers:
   - url: https://secure.p01.eloqua.com/API/Bulk/2.0
     description: Eloqua Bulk API v2.0 (pod may vary per instance)
 tags:
-  - name: Contact Exports
-    description: Export contact data in bulk
-  - name: Contact Imports
-    description: Import contact data in bulk
   - name: Account Exports
     description: Export account data in bulk
+  - name: Account Fields
+    description: Retrieve available account fields for mapping
   - name: Account Imports
     description: Import account data in bulk
   - name: Activity Exports
     description: Export activity data in bulk
   - name: Activity Imports
     description: Import activity data in bulk
+  - name: Contact Exports
+    description: Export contact data in bulk
+  - name: Contact Fields
+    description: Retrieve available contact fields for mapping
+  - name: Contact Imports
+    description: Import contact data in bulk
   - name: Custom Object Exports
     description: Export custom object data in bulk
   - name: Custom Object Imports
     description: Import custom object data in bulk
   - name: Syncs
     description: Manage data synchronization operations
-  - name: Contact Fields
-    description: Retrieve available contact fields for mapping
-  - name: Account Fields
-    description: Retrieve available account fields for mapping
 security:
   - basicAuth: []
   - oAuth2: []

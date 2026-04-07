@@ -17,24 +17,24 @@ servers:
   - url: https://secure.p01.eloqua.com/API/REST/2.0
     description: Eloqua REST API v2.0 (pod may vary per instance)
 tags:
-  - name: Contacts
-    description: Manage contact records and data
   - name: Accounts
     description: Manage account records and groups
   - name: Campaigns
     description: Create and manage marketing campaigns
+  - name: Contact Lists
+    description: Create and manage contact lists
+  - name: Contact Segments
+    description: Create and manage contact segments
+  - name: Contacts
+    description: Manage contact records and data
+  - name: Custom Objects
+    description: Manage custom object definitions and data
   - name: Emails
     description: Create and manage email assets
   - name: Forms
     description: Create and manage forms and form data
   - name: Landing Pages
     description: Create and manage landing pages
-  - name: Custom Objects
-    description: Manage custom object definitions and data
-  - name: Contact Segments
-    description: Create and manage contact segments
-  - name: Contact Lists
-    description: Create and manage contact lists
   - name: Programs
     description: Create and manage automation programs
   - name: Users
