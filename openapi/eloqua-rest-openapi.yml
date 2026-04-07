@@ -46,7 +46,7 @@ paths:
   /data/contacts:
     post:
       operationId: searchContacts
-      summary: Search contacts
+      summary: Oracle Eloqua Search contacts
       description: >-
         Retrieve a list of contacts matching the specified search criteria.
       tags:
@@ -76,7 +76,7 @@ paths:
   /data/contact/{id}:
     get:
       operationId: getContact
-      summary: Retrieve a contact
+      summary: Oracle Eloqua Retrieve a contact
       description: >-
         Retrieve a single contact record by its identifier.
       tags:
@@ -102,7 +102,7 @@ paths:
           description: Contact not found
     put:
       operationId: updateContact
-      summary: Update a contact
+      summary: Oracle Eloqua Update a contact
       description: >-
         Update an existing contact record.
       tags:
@@ -130,7 +130,7 @@ paths:
           description: Contact not found
     delete:
       operationId: deleteContact
-      summary: Delete a contact
+      summary: Oracle Eloqua Delete a contact
       description: >-
         Delete a contact record by its identifier.
       tags:
@@ -147,7 +147,7 @@ paths:
   /data/contact/{id}/membership:
     get:
       operationId: getContactListMembership
-      summary: Get contact list membership
+      summary: Oracle Eloqua Get contact list membership
       description: >-
         Retrieve the contact lists to which a contact belongs.
       tags:
@@ -173,7 +173,7 @@ paths:
   /data/accounts:
     post:
       operationId: searchAccounts
-      summary: Search accounts
+      summary: Oracle Eloqua Search accounts
       description: >-
         Retrieve a list of account records matching the specified criteria.
       tags:
@@ -198,7 +198,7 @@ paths:
   /data/account/{id}:
     get:
       operationId: getAccount
-      summary: Retrieve an account
+      summary: Oracle Eloqua Retrieve an account
       description: >-
         Retrieve a single account record by its identifier.
       tags:
@@ -220,7 +220,7 @@ paths:
   /data/account/{id}/membership:
     get:
       operationId: getAccountGroupMembership
-      summary: Get account group membership
+      summary: Oracle Eloqua Get account group membership
       description: >-
         Retrieve the account groups to which an account belongs.
       tags:
@@ -251,7 +251,7 @@ paths:
   /assets/campaigns:
     get:
       operationId: listCampaigns
-      summary: List campaigns
+      summary: Oracle Eloqua List campaigns
       description: >-
         Retrieve all campaigns matching the specified criteria.
       tags:
@@ -277,7 +277,7 @@ paths:
   /assets/campaign:
     post:
       operationId: createCampaign
-      summary: Create a campaign
+      summary: Oracle Eloqua Create a campaign
       description: >-
         Create a new marketing campaign.
       tags:
@@ -302,7 +302,7 @@ paths:
   /assets/campaign/{id}:
     get:
       operationId: getCampaign
-      summary: Retrieve a campaign
+      summary: Oracle Eloqua Retrieve a campaign
       description: >-
         Retrieve a single campaign by its identifier.
       tags:
@@ -323,7 +323,7 @@ paths:
           description: Campaign not found
     put:
       operationId: updateCampaign
-      summary: Update a campaign
+      summary: Oracle Eloqua Update a campaign
       description: >-
         Update an existing campaign.
       tags:
@@ -351,7 +351,7 @@ paths:
           description: Campaign not found
     delete:
       operationId: deleteCampaign
-      summary: Delete a campaign
+      summary: Oracle Eloqua Delete a campaign
       description: >-
         Delete a campaign by its identifier.
       tags:
@@ -368,7 +368,7 @@ paths:
   /assets/campaign/active/{id}:
     post:
       operationId: activateCampaign
-      summary: Activate a campaign
+      summary: Oracle Eloqua Activate a campaign
       description: >-
         Activate a campaign, changing its status from Draft to Active.
       tags:
@@ -389,7 +389,7 @@ paths:
   /assets/campaign/draft/{id}:
     post:
       operationId: deactivateCampaign
-      summary: Deactivate a campaign
+      summary: Oracle Eloqua Deactivate a campaign
       description: >-
         Deactivate a campaign, changing its status from Active to Draft.
       tags:
@@ -410,7 +410,7 @@ paths:
   /assets/emails:
     get:
       operationId: listEmails
-      summary: List emails
+      summary: Oracle Eloqua List emails
       description: >-
         Retrieve all email assets matching the specified criteria.
       tags:
@@ -436,7 +436,7 @@ paths:
   /assets/email:
     post:
       operationId: createEmail
-      summary: Create an email
+      summary: Oracle Eloqua Create an email
       description: >-
         Create a new email asset.
       tags:
@@ -461,7 +461,7 @@ paths:
   /assets/email/{id}:
     get:
       operationId: getEmail
-      summary: Retrieve an email
+      summary: Oracle Eloqua Retrieve an email
       description: >-
         Retrieve a single email asset by its identifier.
       tags:
@@ -488,7 +488,7 @@ paths:
           description: Email not found
     put:
       operationId: updateEmail
-      summary: Update an email
+      summary: Oracle Eloqua Update an email
       description: >-
         Update an existing email asset.
       tags:
@@ -516,7 +516,7 @@ paths:
           description: Email not found
     delete:
       operationId: deleteEmail
-      summary: Delete an email
+      summary: Oracle Eloqua Delete an email
       description: >-
         Delete an email asset by its identifier.
       tags:
@@ -533,7 +533,7 @@ paths:
   /assets/email/deployment:
     post:
       operationId: createEmailDeployment
-      summary: Create an email deployment
+      summary: Oracle Eloqua Create an email deployment
       description: >-
         Create and send an email deployment to a specified contact list or segment.
       tags:
@@ -558,7 +558,7 @@ paths:
   /assets/email/deployment/{id}:
     get:
       operationId: getEmailDeployment
-      summary: Retrieve an email deployment
+      summary: Oracle Eloqua Retrieve an email deployment
       description: >-
         Retrieve an email deployment by its identifier.
       tags:
@@ -579,7 +579,7 @@ paths:
   /assets/forms:
     get:
       operationId: listForms
-      summary: List forms
+      summary: Oracle Eloqua List forms
       description: >-
         Retrieve all form assets matching the specified criteria.
       tags:
@@ -604,7 +604,7 @@ paths:
   /assets/form:
     post:
       operationId: createForm
-      summary: Create a form
+      summary: Oracle Eloqua Create a form
       description: >-
         Create a new form asset.
       tags:
@@ -629,7 +629,7 @@ paths:
   /assets/form/{id}:
     get:
       operationId: getForm
-      summary: Retrieve a form
+      summary: Oracle Eloqua Retrieve a form
       description: >-
         Retrieve a single form asset by its identifier.
       tags:
@@ -650,7 +650,7 @@ paths:
           description: Form not found
     put:
       operationId: updateForm
-      summary: Update a form
+      summary: Oracle Eloqua Update a form
       description: >-
         Update an existing form asset.
       tags:
@@ -678,7 +678,7 @@ paths:
           description: Form not found
     delete:
       operationId: deleteForm
-      summary: Delete a form
+      summary: Oracle Eloqua Delete a form
       description: >-
         Delete a form asset by its identifier.
       tags:
@@ -695,7 +695,7 @@ paths:
   /data/form/{id}:
     get:
       operationId: getFormData
-      summary: Retrieve form submission data
+      summary: Oracle Eloqua Retrieve form submission data
       description: >-
         Retrieve submission data for a specific form.
       tags:
@@ -728,7 +728,7 @@ paths:
           description: Form not found
     post:
       operationId: createFormData
-      summary: Submit form data
+      summary: Oracle Eloqua Submit form data
       description: >-
         Create a new form submission for the specified form.
       tags:
@@ -755,7 +755,7 @@ paths:
   /assets/landingPages:
     get:
       operationId: listLandingPages
-      summary: List landing pages
+      summary: Oracle Eloqua List landing pages
       description: >-
         Retrieve all landing page assets matching the specified criteria.
       tags:
@@ -780,7 +780,7 @@ paths:
   /assets/landingPage:
     post:
       operationId: createLandingPage
-      summary: Create a landing page
+      summary: Oracle Eloqua Create a landing page
       description: >-
         Create a new landing page asset.
       tags:
@@ -805,7 +805,7 @@ paths:
   /assets/landingPage/{id}:
     get:
       operationId: getLandingPage
-      summary: Retrieve a landing page
+      summary: Oracle Eloqua Retrieve a landing page
       description: >-
         Retrieve a single landing page asset by its identifier.
       tags:
@@ -826,7 +826,7 @@ paths:
           description: Landing page not found
     put:
       operationId: updateLandingPage
-      summary: Update a landing page
+      summary: Oracle Eloqua Update a landing page
       description: >-
         Update an existing landing page asset.
       tags:
@@ -854,7 +854,7 @@ paths:
           description: Landing page not found
     delete:
       operationId: deleteLandingPage
-      summary: Delete a landing page
+      summary: Oracle Eloqua Delete a landing page
       description: >-
         Delete a landing page asset by its identifier.
       tags:
@@ -871,7 +871,7 @@ paths:
   /assets/customObjects:
     get:
       operationId: listCustomObjects
-      summary: List custom objects
+      summary: Oracle Eloqua List custom objects
       description: >-
         Retrieve all custom object definitions.
       tags:
@@ -896,7 +896,7 @@ paths:
   /assets/customObject:
     post:
       operationId: createCustomObject
-      summary: Create a custom object
+      summary: Oracle Eloqua Create a custom object
       description: >-
         Create a new custom object definition.
       tags:
@@ -921,7 +921,7 @@ paths:
   /assets/customObject/{id}:
     get:
       operationId: getCustomObject
-      summary: Retrieve a custom object
+      summary: Oracle Eloqua Retrieve a custom object
       description: >-
         Retrieve a custom object definition by its identifier.
       tags:
@@ -942,7 +942,7 @@ paths:
           description: Custom object not found
     put:
       operationId: updateCustomObject
-      summary: Update a custom object
+      summary: Oracle Eloqua Update a custom object
       description: >-
         Update an existing custom object definition.
       tags:
@@ -970,7 +970,7 @@ paths:
           description: Custom object not found
     delete:
       operationId: deleteCustomObject
-      summary: Delete a custom object
+      summary: Oracle Eloqua Delete a custom object
       description: >-
         Delete a custom object definition by its identifier.
       tags:
@@ -987,7 +987,7 @@ paths:
   /data/customObject/{parentId}/instances:
     get:
       operationId: listCustomObjectData
-      summary: List custom object data instances
+      summary: Oracle Eloqua List custom object data instances
       description: >-
         Retrieve data instances for a specific custom object.
       tags:
@@ -1027,7 +1027,7 @@ paths:
   /data/customObject/{parentId}/instance:
     post:
       operationId: createCustomObjectData
-      summary: Create a custom object data instance
+      summary: Oracle Eloqua Create a custom object data instance
       description: >-
         Create a new data instance for a specific custom object.
       tags:
@@ -1059,7 +1059,7 @@ paths:
   /data/customObject/{parentId}/instance/{id}:
     get:
       operationId: getCustomObjectData
-      summary: Retrieve a custom object data instance
+      summary: Oracle Eloqua Retrieve a custom object data instance
       description: >-
         Retrieve a specific data instance from a custom object.
       tags:
@@ -1085,7 +1085,7 @@ paths:
           description: Instance not found
     put:
       operationId: updateCustomObjectData
-      summary: Update a custom object data instance
+      summary: Oracle Eloqua Update a custom object data instance
       description: >-
         Update an existing data instance for a custom object.
       tags:
@@ -1119,7 +1119,7 @@ paths:
           description: Instance not found
     delete:
       operationId: deleteCustomObjectData
-      summary: Delete a custom object data instance
+      summary: Oracle Eloqua Delete a custom object data instance
       description: >-
         Delete a specific data instance from a custom object.
       tags:
@@ -1142,7 +1142,7 @@ paths:
   /assets/contact/segments:
     get:
       operationId: listContactSegments
-      summary: List contact segments
+      summary: Oracle Eloqua List contact segments
       description: >-
         Retrieve all contact segments matching the specified criteria.
       tags:
@@ -1167,7 +1167,7 @@ paths:
   /assets/contact/segment:
     post:
       operationId: createContactSegment
-      summary: Create a contact segment
+      summary: Oracle Eloqua Create a contact segment
       description: >-
         Create a new contact segment.
       tags:
@@ -1192,7 +1192,7 @@ paths:
   /assets/contact/segment/{id}:
     get:
       operationId: getContactSegment
-      summary: Retrieve a contact segment
+      summary: Oracle Eloqua Retrieve a contact segment
       description: >-
         Retrieve a single contact segment by its identifier.
       tags:
@@ -1213,7 +1213,7 @@ paths:
           description: Segment not found
     put:
       operationId: updateContactSegment
-      summary: Update a contact segment
+      summary: Oracle Eloqua Update a contact segment
       description: >-
         Update an existing contact segment.
       tags:
@@ -1241,7 +1241,7 @@ paths:
           description: Segment not found
     delete:
       operationId: deleteContactSegment
-      summary: Delete a contact segment
+      summary: Oracle Eloqua Delete a contact segment
       description: >-
         Delete a contact segment by its identifier.
       tags:
@@ -1258,7 +1258,7 @@ paths:
   /assets/contact/lists:
     get:
       operationId: listContactLists
-      summary: List contact lists
+      summary: Oracle Eloqua List contact lists
       description: >-
         Retrieve all contact lists matching the specified criteria.
       tags:
@@ -1294,7 +1294,7 @@ paths:
   /assets/contact/list:
     post:
       operationId: createContactList
-      summary: Create a contact list
+      summary: Oracle Eloqua Create a contact list
       description: >-
         Create a new contact list.
       tags:
@@ -1319,7 +1319,7 @@ paths:
   /assets/contact/list/{id}:
     get:
       operationId: getContactList
-      summary: Retrieve a contact list
+      summary: Oracle Eloqua Retrieve a contact list
       description: >-
         Retrieve a single contact list by its identifier.
       tags:
@@ -1340,7 +1340,7 @@ paths:
           description: Contact list not found
     put:
       operationId: updateContactList
-      summary: Update a contact list
+      summary: Oracle Eloqua Update a contact list
       description: >-
         Update an existing contact list.
       tags:
@@ -1368,7 +1368,7 @@ paths:
           description: Contact list not found
     delete:
       operationId: deleteContactList
-      summary: Delete a contact list
+      summary: Oracle Eloqua Delete a contact list
       description: >-
         Delete a contact list by its identifier.
       tags:
@@ -1385,7 +1385,7 @@ paths:
   /assets/programs:
     get:
       operationId: listPrograms
-      summary: List programs
+      summary: Oracle Eloqua List programs
       description: >-
         Retrieve all automation programs matching the specified criteria.
       tags:
@@ -1410,7 +1410,7 @@ paths:
   /assets/program:
     post:
       operationId: createProgram
-      summary: Create a program
+      summary: Oracle Eloqua Create a program
       description: >-
         Create a new automation program.
       tags:
@@ -1435,7 +1435,7 @@ paths:
   /assets/program/{id}:
     get:
       operationId: getProgram
-      summary: Retrieve a program
+      summary: Oracle Eloqua Retrieve a program
       description: >-
         Retrieve a single automation program by its identifier.
       tags:
@@ -1456,7 +1456,7 @@ paths:
           description: Program not found
     put:
       operationId: updateProgram
-      summary: Update a program
+      summary: Oracle Eloqua Update a program
       description: >-
         Update an existing automation program.
       tags:
@@ -1484,7 +1484,7 @@ paths:
           description: Program not found
     delete:
       operationId: deleteProgram
-      summary: Delete a program
+      summary: Oracle Eloqua Delete a program
       description: >-
         Delete an automation program by its identifier.
       tags:
@@ -1501,7 +1501,7 @@ paths:
   /assets/program/active/{id}:
     post:
       operationId: activateProgram
-      summary: Activate a program
+      summary: Oracle Eloqua Activate a program
       description: >-
         Activate an automation program, changing its status to Active.
       tags:
@@ -1518,7 +1518,7 @@ paths:
   /assets/program/draft/{id}:
     post:
       operationId: deactivateProgram
-      summary: Deactivate a program
+      summary: Oracle Eloqua Deactivate a program
       description: >-
         Deactivate an automation program, returning it to Draft status.
       tags:
@@ -1535,7 +1535,7 @@ paths:
   /assets/program/pause/{id}:
     post:
       operationId: pauseProgram
-      summary: Pause a program
+      summary: Oracle Eloqua Pause a program
       description: >-
         Pause an active automation program.
       tags:
@@ -1552,7 +1552,7 @@ paths:
   /system/users:
     get:
       operationId: listUsers
-      summary: List users
+      summary: Oracle Eloqua List users
       description: >-
         Retrieve all system users matching the specified criteria.
       tags:
@@ -1586,7 +1586,7 @@ paths:
   /system/user/{id}:
     get:
       operationId: getUser
-      summary: Retrieve a user
+      summary: Oracle Eloqua Retrieve a user
       description: >-
         Retrieve a single system user by their identifier.
       tags:
@@ -1607,7 +1607,7 @@ paths:
           description: User not found
     put:
       operationId: updateUser
-      summary: Update a user
+      summary: Oracle Eloqua Update a user
       description: >-
         Update an existing system user.
       tags:
@@ -1635,7 +1635,7 @@ paths:
           description: User not found
     delete:
       operationId: deleteUser
-      summary: Delete a user
+      summary: Oracle Eloqua Delete a user
       description: >-
         Delete a system user by their identifier.
       tags:
@@ -1652,7 +1652,7 @@ paths:
   /system/user/current:
     get:
       operationId: getCurrentUser
-      summary: Retrieve current user
+      summary: Oracle Eloqua Retrieve current user
       description: >-
         Retrieve the currently authenticated user.
       tags:

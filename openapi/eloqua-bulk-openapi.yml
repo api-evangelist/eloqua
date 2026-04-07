@@ -46,7 +46,7 @@ paths:
   /contacts/exports:
     get:
       operationId: listContactExports
-      summary: List contact export definitions
+      summary: Oracle Eloqua List contact export definitions
       description: >-
         Retrieve all contact export definitions.
       tags:
@@ -66,7 +66,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createContactExport
-      summary: Create a contact export definition
+      summary: Oracle Eloqua Create a contact export definition
       description: >-
         Create a new export definition for contacts. After creation, create a
         sync to execute the export.
@@ -92,7 +92,7 @@ paths:
   /contacts/exports/{id}:
     get:
       operationId: getContactExport
-      summary: Retrieve a contact export definition
+      summary: Oracle Eloqua Retrieve a contact export definition
       description: >-
         Retrieve a specific contact export definition by its identifier.
       tags:
@@ -112,7 +112,7 @@ paths:
           description: Export definition not found
     put:
       operationId: updateContactExport
-      summary: Update a contact export definition
+      summary: Oracle Eloqua Update a contact export definition
       description: >-
         Update an existing contact export definition.
       tags:
@@ -140,7 +140,7 @@ paths:
           description: Export definition not found
     delete:
       operationId: deleteContactExport
-      summary: Delete a contact export definition
+      summary: Oracle Eloqua Delete a contact export definition
       description: >-
         Delete a contact export definition by its identifier.
       tags:
@@ -157,7 +157,7 @@ paths:
   /contacts/exports/{id}/data:
     get:
       operationId: getContactExportData
-      summary: Retrieve contact export data
+      summary: Oracle Eloqua Retrieve contact export data
       description: >-
         Retrieve the data from a completed contact export.
       tags:
@@ -180,7 +180,7 @@ paths:
   /contacts/imports:
     get:
       operationId: listContactImports
-      summary: List contact import definitions
+      summary: Oracle Eloqua List contact import definitions
       description: >-
         Retrieve all contact import definitions.
       tags:
@@ -200,7 +200,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createContactImport
-      summary: Create a contact import definition
+      summary: Oracle Eloqua Create a contact import definition
       description: >-
         Create a new import definition for contacts. After creation, push data
         and create a sync to execute the import.
@@ -226,7 +226,7 @@ paths:
   /contacts/imports/{id}:
     get:
       operationId: getContactImport
-      summary: Retrieve a contact import definition
+      summary: Oracle Eloqua Retrieve a contact import definition
       description: >-
         Retrieve a specific contact import definition by its identifier.
       tags:
@@ -246,7 +246,7 @@ paths:
           description: Import definition not found
     put:
       operationId: updateContactImport
-      summary: Update a contact import definition
+      summary: Oracle Eloqua Update a contact import definition
       description: >-
         Update an existing contact import definition.
       tags:
@@ -274,7 +274,7 @@ paths:
           description: Import definition not found
     delete:
       operationId: deleteContactImport
-      summary: Delete a contact import definition
+      summary: Oracle Eloqua Delete a contact import definition
       description: >-
         Delete a contact import definition by its identifier.
       tags:
@@ -291,7 +291,7 @@ paths:
   /contacts/imports/{id}/data:
     post:
       operationId: pushContactImportData
-      summary: Push data to a contact import
+      summary: Oracle Eloqua Push data to a contact import
       description: >-
         Push data records to be processed by the contact import definition.
       tags:
@@ -319,7 +319,7 @@ paths:
           description: Import definition not found
     delete:
       operationId: deleteContactImportData
-      summary: Delete staged contact import data
+      summary: Oracle Eloqua Delete staged contact import data
       description: >-
         Delete data that has been staged for the import but not yet synced.
       tags:
@@ -336,7 +336,7 @@ paths:
   /contacts/fields:
     get:
       operationId: listContactFields
-      summary: List contact fields
+      summary: Oracle Eloqua List contact fields
       description: >-
         Retrieve all available contact fields for use in export and import
         field mappings.
@@ -357,7 +357,7 @@ paths:
   /contacts/syncActions:
     post:
       operationId: createContactSyncAction
-      summary: Create a contact sync action
+      summary: Oracle Eloqua Create a contact sync action
       description: >-
         Create a sync action for contacts, such as setting subscription status.
       tags:
@@ -382,7 +382,7 @@ paths:
   /accounts/exports:
     get:
       operationId: listAccountExports
-      summary: List account export definitions
+      summary: Oracle Eloqua List account export definitions
       description: >-
         Retrieve all account export definitions.
       tags:
@@ -401,7 +401,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createAccountExport
-      summary: Create an account export definition
+      summary: Oracle Eloqua Create an account export definition
       description: >-
         Create a new export definition for accounts.
       tags:
@@ -426,7 +426,7 @@ paths:
   /accounts/exports/{id}:
     get:
       operationId: getAccountExport
-      summary: Retrieve an account export definition
+      summary: Oracle Eloqua Retrieve an account export definition
       description: >-
         Retrieve a specific account export definition by its identifier.
       tags:
@@ -446,7 +446,7 @@ paths:
           description: Export definition not found
     delete:
       operationId: deleteAccountExport
-      summary: Delete an account export definition
+      summary: Oracle Eloqua Delete an account export definition
       description: >-
         Delete an account export definition by its identifier.
       tags:
@@ -463,7 +463,7 @@ paths:
   /accounts/imports:
     get:
       operationId: listAccountImports
-      summary: List account import definitions
+      summary: Oracle Eloqua List account import definitions
       description: >-
         Retrieve all account import definitions.
       tags:
@@ -482,7 +482,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createAccountImport
-      summary: Create an account import definition
+      summary: Oracle Eloqua Create an account import definition
       description: >-
         Create a new import definition for accounts.
       tags:
@@ -507,7 +507,7 @@ paths:
   /accounts/imports/{id}:
     get:
       operationId: getAccountImport
-      summary: Retrieve an account import definition
+      summary: Oracle Eloqua Retrieve an account import definition
       description: >-
         Retrieve a specific account import definition.
       tags:
@@ -527,7 +527,7 @@ paths:
           description: Import definition not found
     delete:
       operationId: deleteAccountImport
-      summary: Delete an account import definition
+      summary: Oracle Eloqua Delete an account import definition
       description: >-
         Delete an account import definition.
       tags:
@@ -544,7 +544,7 @@ paths:
   /accounts/imports/{id}/data:
     post:
       operationId: pushAccountImportData
-      summary: Push data to an account import
+      summary: Oracle Eloqua Push data to an account import
       description: >-
         Push data records to be processed by the account import definition.
       tags:
@@ -571,7 +571,7 @@ paths:
   /accounts/fields:
     get:
       operationId: listAccountFields
-      summary: List account fields
+      summary: Oracle Eloqua List account fields
       description: >-
         Retrieve all available account fields for use in export and import
         field mappings.
@@ -592,7 +592,7 @@ paths:
   /activities/exports:
     get:
       operationId: listActivityExports
-      summary: List activity export definitions
+      summary: Oracle Eloqua List activity export definitions
       description: >-
         Retrieve all activity export definitions.
       tags:
@@ -611,7 +611,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createActivityExport
-      summary: Create an activity export definition
+      summary: Oracle Eloqua Create an activity export definition
       description: >-
         Create a new export definition for activities such as email sends,
         opens, clicks, form submissions, and web visits.
@@ -637,7 +637,7 @@ paths:
   /activities/exports/{id}:
     get:
       operationId: getActivityExport
-      summary: Retrieve an activity export definition
+      summary: Oracle Eloqua Retrieve an activity export definition
       description: >-
         Retrieve a specific activity export definition.
       tags:
@@ -657,7 +657,7 @@ paths:
           description: Export definition not found
     delete:
       operationId: deleteActivityExport
-      summary: Delete an activity export definition
+      summary: Oracle Eloqua Delete an activity export definition
       description: >-
         Delete an activity export definition.
       tags:
@@ -674,7 +674,7 @@ paths:
   /activities/imports:
     post:
       operationId: createActivityImport
-      summary: Create an activity import definition
+      summary: Oracle Eloqua Create an activity import definition
       description: >-
         Create a new import definition for external activities.
       tags:
@@ -699,7 +699,7 @@ paths:
   /activities/imports/{id}/data:
     post:
       operationId: pushActivityImportData
-      summary: Push data to an activity import
+      summary: Oracle Eloqua Push data to an activity import
       description: >-
         Push data records to be processed by the activity import definition.
       tags:
@@ -726,7 +726,7 @@ paths:
   /customObjects/{parentId}/exports:
     get:
       operationId: listCustomObjectExports
-      summary: List custom object export definitions
+      summary: Oracle Eloqua List custom object export definitions
       description: >-
         Retrieve all export definitions for a specific custom object.
       tags:
@@ -748,7 +748,7 @@ paths:
           description: Custom object not found
     post:
       operationId: createCustomObjectExport
-      summary: Create a custom object export definition
+      summary: Oracle Eloqua Create a custom object export definition
       description: >-
         Create a new export definition for a custom object.
       tags:
@@ -775,7 +775,7 @@ paths:
   /customObjects/{parentId}/imports:
     get:
       operationId: listCustomObjectImports
-      summary: List custom object import definitions
+      summary: Oracle Eloqua List custom object import definitions
       description: >-
         Retrieve all import definitions for a specific custom object.
       tags:
@@ -797,7 +797,7 @@ paths:
           description: Custom object not found
     post:
       operationId: createCustomObjectImport
-      summary: Create a custom object import definition
+      summary: Oracle Eloqua Create a custom object import definition
       description: >-
         Create a new import definition for a custom object.
       tags:
@@ -824,7 +824,7 @@ paths:
   /customObjects/{parentId}/imports/{id}/data:
     post:
       operationId: pushCustomObjectImportData
-      summary: Push data to a custom object import
+      summary: Oracle Eloqua Push data to a custom object import
       description: >-
         Push data records to be processed by the custom object import.
       tags:
@@ -852,7 +852,7 @@ paths:
   /customObjects:
     get:
       operationId: listBulkCustomObjects
-      summary: List available custom objects
+      summary: Oracle Eloqua List available custom objects
       description: >-
         Retrieve all custom objects available for bulk operations.
       tags:
@@ -892,7 +892,7 @@ paths:
   /syncs:
     get:
       operationId: listSyncs
-      summary: List syncs
+      summary: Oracle Eloqua List syncs
       description: >-
         Retrieve all sync operations.
       tags:
@@ -912,7 +912,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createSync
-      summary: Create a sync
+      summary: Oracle Eloqua Create a sync
       description: >-
         Create a new sync operation to execute an import or export definition.
         The sync triggers the actual data transfer.
@@ -938,7 +938,7 @@ paths:
   /syncs/{id}:
     get:
       operationId: getSync
-      summary: Retrieve a sync
+      summary: Oracle Eloqua Retrieve a sync
       description: >-
         Retrieve a specific sync operation by its identifier to check status.
       tags:
@@ -959,7 +959,7 @@ paths:
   /syncs/{id}/data:
     get:
       operationId: getSyncData
-      summary: Retrieve sync data
+      summary: Oracle Eloqua Retrieve sync data
       description: >-
         Retrieve the data associated with a completed sync operation.
       tags:
@@ -981,7 +981,7 @@ paths:
           description: Sync not found
     delete:
       operationId: deleteSyncData
-      summary: Delete sync data
+      summary: Oracle Eloqua Delete sync data
       description: >-
         Delete the data associated with a sync operation.
       tags:
@@ -998,7 +998,7 @@ paths:
   /syncs/{id}/logs:
     get:
       operationId: getSyncLogs
-      summary: Retrieve sync logs
+      summary: Oracle Eloqua Retrieve sync logs
       description: >-
         Retrieve log entries for a specific sync operation, including any
         errors or warnings that occurred during processing.
@@ -1022,7 +1022,7 @@ paths:
   /syncs/{id}/rejects:
     get:
       operationId: getSyncRejects
-      summary: Retrieve sync rejects
+      summary: Oracle Eloqua Retrieve sync rejects
       description: >-
         Retrieve rejected records from a sync operation, showing data rows
         that could not be processed.
