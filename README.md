@@ -1,16 +1,19 @@
 # Oracle Eloqua (eloqua)
-Oracle Eloqua is a marketing automation platform that provides tools for lead management, email marketing, and marketing campaign management through comprehensive REST APIs.
+Oracle Eloqua is a marketing automation platform that provides tools for lead management, email marketing, and marketing campaign management through comprehensive REST APIs. It enables marketing teams to create, execute, and measure the effectiveness of marketing programs and campaigns.
 
-**URL:** [Visit APIs.json URL](https://www.oracle.com/marketingcloud/products/marketing-automation/)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/eloqua/refs/heads/main/apis.yml)
+
+## Scope
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
 ## Tags:
-
- - marketing automation, email marketing, lead management, CRM, marketing campaigns
+ - CRM, Email Marketing, Lead Management, Marketing Automation
 
 ## Timestamps
-
-- **Created:** 2025 
-- **Modified:** 2025 
+- **Created:** 2025-01-01
+- **Modified:** 2026-03-16
 
 ## APIs
 
@@ -19,44 +22,37 @@ The primary REST API for Oracle Eloqua, providing access to marketing automation
 
 **Human URL:** [https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/)
 
+**Base URL:** https://secure.p01.eloqua.com/API/REST/2.0/
 
 #### Tags:
-
- - REST, marketing, contacts, campaigns
+ - Campaigns, Contacts, Marketing
 
 #### Properties
-
-- [documentation](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/)
-- [openapi](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/openapi.json)
-- [authentication](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html)
-- [rate-limits](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/RateLimits.html)
+- [Documentation](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/)
+- [OpenAPI](openapi/eloqua-rest-openapi.yml)
 
 ### Eloqua Bulk API
 Bulk API for high-volume data operations including imports, exports, and synchronization of large datasets.
 
 **Human URL:** [https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html)
 
+**Base URL:** https://secure.p01.eloqua.com/API/Bulk/2.0/
 
 #### Tags:
-
- - bulk operations, data import, data export, sync
+ - Bulk Operations, Data Export, Data Import
 
 #### Properties
-
-- [documentation](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html)
-- [tutorials](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkTutorials.html)
+- [Documentation](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html)
+- [OpenAPI](openapi/eloqua-bulk-openapi.yml)
 
 ## Common Properties
-
-- [getting-started](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html)
-- [authentication](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html)
-- [support](https://support.oracle.com/)
-- [terms-of-service](https://www.oracle.com/legal/terms.html)
-- [privacy-policy](https://www.oracle.com/legal/privacy/)
-- [sdks](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html)
+- [Getting Started](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html)
+- [Authentication](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html)
+- [Support](https://support.oracle.com/)
+- [Terms of Service](https://www.oracle.com/legal/terms.html)
+- [Privacy Policy](https://www.oracle.com/legal/privacy/)
+- [SDKs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html)
 
 ## Maintainers
-
-**FN:** Oracle Corporation
-
-**Email:** marketing-cloud@oracle.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
