@@ -1,0 +1,1351 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua Bulk API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including
+    imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  tags:
+  - Eloqua
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: eloqua
+    baseUri: https://secure.p01.eloqua.com/API/Bulk/2.0
+    description: Oracle Eloqua Bulk API HTTP API.
+    authentication:
+      type: basic
+      username: '{{ELOQUA_USERNAME}}'
+      password: '{{ELOQUA_PASSWORD}}'
+    resources:
+    - name: contacts-exports
+      path: /contacts/exports
+      operations:
+      - name: listcontactexports
+        method: GET
+        description: Oracle Eloqua List contact export definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcontactexport
+        method: POST
+        description: Oracle Eloqua Create a contact export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-exports-id
+      path: /contacts/exports/{id}
+      operations:
+      - name: getcontactexport
+        method: GET
+        description: Oracle Eloqua Retrieve a contact export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecontactexport
+        method: PUT
+        description: Oracle Eloqua Update a contact export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecontactexport
+        method: DELETE
+        description: Oracle Eloqua Delete a contact export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-exports-id-data
+      path: /contacts/exports/{id}/data
+      operations:
+      - name: getcontactexportdata
+        method: GET
+        description: Oracle Eloqua Retrieve contact export data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-imports
+      path: /contacts/imports
+      operations:
+      - name: listcontactimports
+        method: GET
+        description: Oracle Eloqua List contact import definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcontactimport
+        method: POST
+        description: Oracle Eloqua Create a contact import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-imports-id
+      path: /contacts/imports/{id}
+      operations:
+      - name: getcontactimport
+        method: GET
+        description: Oracle Eloqua Retrieve a contact import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecontactimport
+        method: PUT
+        description: Oracle Eloqua Update a contact import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecontactimport
+        method: DELETE
+        description: Oracle Eloqua Delete a contact import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-imports-id-data
+      path: /contacts/imports/{id}/data
+      operations:
+      - name: pushcontactimportdata
+        method: POST
+        description: Oracle Eloqua Push data to a contact import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecontactimportdata
+        method: DELETE
+        description: Oracle Eloqua Delete staged contact import data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-fields
+      path: /contacts/fields
+      operations:
+      - name: listcontactfields
+        method: GET
+        description: Oracle Eloqua List contact fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contacts-syncactions
+      path: /contacts/syncActions
+      operations:
+      - name: createcontactsyncaction
+        method: POST
+        description: Oracle Eloqua Create a contact sync action
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-exports
+      path: /accounts/exports
+      operations:
+      - name: listaccountexports
+        method: GET
+        description: Oracle Eloqua List account export definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createaccountexport
+        method: POST
+        description: Oracle Eloqua Create an account export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-exports-id
+      path: /accounts/exports/{id}
+      operations:
+      - name: getaccountexport
+        method: GET
+        description: Oracle Eloqua Retrieve an account export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteaccountexport
+        method: DELETE
+        description: Oracle Eloqua Delete an account export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-imports
+      path: /accounts/imports
+      operations:
+      - name: listaccountimports
+        method: GET
+        description: Oracle Eloqua List account import definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createaccountimport
+        method: POST
+        description: Oracle Eloqua Create an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-imports-id
+      path: /accounts/imports/{id}
+      operations:
+      - name: getaccountimport
+        method: GET
+        description: Oracle Eloqua Retrieve an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteaccountimport
+        method: DELETE
+        description: Oracle Eloqua Delete an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-imports-id-data
+      path: /accounts/imports/{id}/data
+      operations:
+      - name: pushaccountimportdata
+        method: POST
+        description: Oracle Eloqua Push data to an account import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-fields
+      path: /accounts/fields
+      operations:
+      - name: listaccountfields
+        method: GET
+        description: Oracle Eloqua List account fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-exports
+      path: /activities/exports
+      operations:
+      - name: listactivityexports
+        method: GET
+        description: Oracle Eloqua List activity export definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createactivityexport
+        method: POST
+        description: Oracle Eloqua Create an activity export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-exports-id
+      path: /activities/exports/{id}
+      operations:
+      - name: getactivityexport
+        method: GET
+        description: Oracle Eloqua Retrieve an activity export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteactivityexport
+        method: DELETE
+        description: Oracle Eloqua Delete an activity export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-imports
+      path: /activities/imports
+      operations:
+      - name: createactivityimport
+        method: POST
+        description: Oracle Eloqua Create an activity import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-imports-id-data
+      path: /activities/imports/{id}/data
+      operations:
+      - name: pushactivityimportdata
+        method: POST
+        description: Oracle Eloqua Push data to an activity import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customobjects-parentid-exports
+      path: /customObjects/{parentId}/exports
+      operations:
+      - name: listcustomobjectexports
+        method: GET
+        description: Oracle Eloqua List custom object export definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomobjectexport
+        method: POST
+        description: Oracle Eloqua Create a custom object export definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customobjects-parentid-imports
+      path: /customObjects/{parentId}/imports
+      operations:
+      - name: listcustomobjectimports
+        method: GET
+        description: Oracle Eloqua List custom object import definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomobjectimport
+        method: POST
+        description: Oracle Eloqua Create a custom object import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customobjects-parentid-imports-id-data
+      path: /customObjects/{parentId}/imports/{id}/data
+      operations:
+      - name: pushcustomobjectimportdata
+        method: POST
+        description: Oracle Eloqua Push data to a custom object import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customobjects
+      path: /customObjects
+      operations:
+      - name: listbulkcustomobjects
+        method: GET
+        description: Oracle Eloqua List available custom objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs
+      path: /syncs
+      operations:
+      - name: listsyncs
+        method: GET
+        description: Oracle Eloqua List syncs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsync
+        method: POST
+        description: Oracle Eloqua Create a sync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id
+      path: /syncs/{id}
+      operations:
+      - name: getsync
+        method: GET
+        description: Oracle Eloqua Retrieve a sync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-data
+      path: /syncs/{id}/data
+      operations:
+      - name: getsyncdata
+        method: GET
+        description: Oracle Eloqua Retrieve sync data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletesyncdata
+        method: DELETE
+        description: Oracle Eloqua Delete sync data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-logs
+      path: /syncs/{id}/logs
+      operations:
+      - name: getsynclogs
+        method: GET
+        description: Oracle Eloqua Retrieve sync logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-rejects
+      path: /syncs/{id}/rejects
+      operations:
+      - name: getsyncrejects
+        method: GET
+        description: Oracle Eloqua Retrieve sync rejects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: eloqua-rest
+    description: REST adapter for Oracle Eloqua Bulk API.
+    resources:
+    - path: /contacts/exports
+      name: listcontactexports
+      operations:
+      - method: GET
+        name: listcontactexports
+        description: Oracle Eloqua List contact export definitions
+        call: eloqua.listcontactexports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/exports
+      name: createcontactexport
+      operations:
+      - method: POST
+        name: createcontactexport
+        description: Oracle Eloqua Create a contact export definition
+        call: eloqua.createcontactexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/exports/{id}
+      name: getcontactexport
+      operations:
+      - method: GET
+        name: getcontactexport
+        description: Oracle Eloqua Retrieve a contact export definition
+        call: eloqua.getcontactexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/exports/{id}
+      name: updatecontactexport
+      operations:
+      - method: PUT
+        name: updatecontactexport
+        description: Oracle Eloqua Update a contact export definition
+        call: eloqua.updatecontactexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/exports/{id}
+      name: deletecontactexport
+      operations:
+      - method: DELETE
+        name: deletecontactexport
+        description: Oracle Eloqua Delete a contact export definition
+        call: eloqua.deletecontactexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/exports/{id}/data
+      name: getcontactexportdata
+      operations:
+      - method: GET
+        name: getcontactexportdata
+        description: Oracle Eloqua Retrieve contact export data
+        call: eloqua.getcontactexportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports
+      name: listcontactimports
+      operations:
+      - method: GET
+        name: listcontactimports
+        description: Oracle Eloqua List contact import definitions
+        call: eloqua.listcontactimports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports
+      name: createcontactimport
+      operations:
+      - method: POST
+        name: createcontactimport
+        description: Oracle Eloqua Create a contact import definition
+        call: eloqua.createcontactimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports/{id}
+      name: getcontactimport
+      operations:
+      - method: GET
+        name: getcontactimport
+        description: Oracle Eloqua Retrieve a contact import definition
+        call: eloqua.getcontactimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports/{id}
+      name: updatecontactimport
+      operations:
+      - method: PUT
+        name: updatecontactimport
+        description: Oracle Eloqua Update a contact import definition
+        call: eloqua.updatecontactimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports/{id}
+      name: deletecontactimport
+      operations:
+      - method: DELETE
+        name: deletecontactimport
+        description: Oracle Eloqua Delete a contact import definition
+        call: eloqua.deletecontactimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports/{id}/data
+      name: pushcontactimportdata
+      operations:
+      - method: POST
+        name: pushcontactimportdata
+        description: Oracle Eloqua Push data to a contact import
+        call: eloqua.pushcontactimportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/imports/{id}/data
+      name: deletecontactimportdata
+      operations:
+      - method: DELETE
+        name: deletecontactimportdata
+        description: Oracle Eloqua Delete staged contact import data
+        call: eloqua.deletecontactimportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/fields
+      name: listcontactfields
+      operations:
+      - method: GET
+        name: listcontactfields
+        description: Oracle Eloqua List contact fields
+        call: eloqua.listcontactfields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /contacts/syncActions
+      name: createcontactsyncaction
+      operations:
+      - method: POST
+        name: createcontactsyncaction
+        description: Oracle Eloqua Create a contact sync action
+        call: eloqua.createcontactsyncaction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/exports
+      name: listaccountexports
+      operations:
+      - method: GET
+        name: listaccountexports
+        description: Oracle Eloqua List account export definitions
+        call: eloqua.listaccountexports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/exports
+      name: createaccountexport
+      operations:
+      - method: POST
+        name: createaccountexport
+        description: Oracle Eloqua Create an account export definition
+        call: eloqua.createaccountexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/exports/{id}
+      name: getaccountexport
+      operations:
+      - method: GET
+        name: getaccountexport
+        description: Oracle Eloqua Retrieve an account export definition
+        call: eloqua.getaccountexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/exports/{id}
+      name: deleteaccountexport
+      operations:
+      - method: DELETE
+        name: deleteaccountexport
+        description: Oracle Eloqua Delete an account export definition
+        call: eloqua.deleteaccountexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/imports
+      name: listaccountimports
+      operations:
+      - method: GET
+        name: listaccountimports
+        description: Oracle Eloqua List account import definitions
+        call: eloqua.listaccountimports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/imports
+      name: createaccountimport
+      operations:
+      - method: POST
+        name: createaccountimport
+        description: Oracle Eloqua Create an account import definition
+        call: eloqua.createaccountimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/imports/{id}
+      name: getaccountimport
+      operations:
+      - method: GET
+        name: getaccountimport
+        description: Oracle Eloqua Retrieve an account import definition
+        call: eloqua.getaccountimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/imports/{id}
+      name: deleteaccountimport
+      operations:
+      - method: DELETE
+        name: deleteaccountimport
+        description: Oracle Eloqua Delete an account import definition
+        call: eloqua.deleteaccountimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/imports/{id}/data
+      name: pushaccountimportdata
+      operations:
+      - method: POST
+        name: pushaccountimportdata
+        description: Oracle Eloqua Push data to an account import
+        call: eloqua.pushaccountimportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/fields
+      name: listaccountfields
+      operations:
+      - method: GET
+        name: listaccountfields
+        description: Oracle Eloqua List account fields
+        call: eloqua.listaccountfields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/exports
+      name: listactivityexports
+      operations:
+      - method: GET
+        name: listactivityexports
+        description: Oracle Eloqua List activity export definitions
+        call: eloqua.listactivityexports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/exports
+      name: createactivityexport
+      operations:
+      - method: POST
+        name: createactivityexport
+        description: Oracle Eloqua Create an activity export definition
+        call: eloqua.createactivityexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/exports/{id}
+      name: getactivityexport
+      operations:
+      - method: GET
+        name: getactivityexport
+        description: Oracle Eloqua Retrieve an activity export definition
+        call: eloqua.getactivityexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/exports/{id}
+      name: deleteactivityexport
+      operations:
+      - method: DELETE
+        name: deleteactivityexport
+        description: Oracle Eloqua Delete an activity export definition
+        call: eloqua.deleteactivityexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/imports
+      name: createactivityimport
+      operations:
+      - method: POST
+        name: createactivityimport
+        description: Oracle Eloqua Create an activity import definition
+        call: eloqua.createactivityimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /activities/imports/{id}/data
+      name: pushactivityimportdata
+      operations:
+      - method: POST
+        name: pushactivityimportdata
+        description: Oracle Eloqua Push data to an activity import
+        call: eloqua.pushactivityimportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects/{parentId}/exports
+      name: listcustomobjectexports
+      operations:
+      - method: GET
+        name: listcustomobjectexports
+        description: Oracle Eloqua List custom object export definitions
+        call: eloqua.listcustomobjectexports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects/{parentId}/exports
+      name: createcustomobjectexport
+      operations:
+      - method: POST
+        name: createcustomobjectexport
+        description: Oracle Eloqua Create a custom object export definition
+        call: eloqua.createcustomobjectexport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects/{parentId}/imports
+      name: listcustomobjectimports
+      operations:
+      - method: GET
+        name: listcustomobjectimports
+        description: Oracle Eloqua List custom object import definitions
+        call: eloqua.listcustomobjectimports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects/{parentId}/imports
+      name: createcustomobjectimport
+      operations:
+      - method: POST
+        name: createcustomobjectimport
+        description: Oracle Eloqua Create a custom object import definition
+        call: eloqua.createcustomobjectimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects/{parentId}/imports/{id}/data
+      name: pushcustomobjectimportdata
+      operations:
+      - method: POST
+        name: pushcustomobjectimportdata
+        description: Oracle Eloqua Push data to a custom object import
+        call: eloqua.pushcustomobjectimportdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customObjects
+      name: listbulkcustomobjects
+      operations:
+      - method: GET
+        name: listbulkcustomobjects
+        description: Oracle Eloqua List available custom objects
+        call: eloqua.listbulkcustomobjects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs
+      name: listsyncs
+      operations:
+      - method: GET
+        name: listsyncs
+        description: Oracle Eloqua List syncs
+        call: eloqua.listsyncs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs
+      name: createsync
+      operations:
+      - method: POST
+        name: createsync
+        description: Oracle Eloqua Create a sync
+        call: eloqua.createsync
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs/{id}
+      name: getsync
+      operations:
+      - method: GET
+        name: getsync
+        description: Oracle Eloqua Retrieve a sync
+        call: eloqua.getsync
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs/{id}/data
+      name: getsyncdata
+      operations:
+      - method: GET
+        name: getsyncdata
+        description: Oracle Eloqua Retrieve sync data
+        call: eloqua.getsyncdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs/{id}/data
+      name: deletesyncdata
+      operations:
+      - method: DELETE
+        name: deletesyncdata
+        description: Oracle Eloqua Delete sync data
+        call: eloqua.deletesyncdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs/{id}/logs
+      name: getsynclogs
+      operations:
+      - method: GET
+        name: getsynclogs
+        description: Oracle Eloqua Retrieve sync logs
+        call: eloqua.getsynclogs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /syncs/{id}/rejects
+      name: getsyncrejects
+      operations:
+      - method: GET
+        name: getsyncrejects
+        description: Oracle Eloqua Retrieve sync rejects
+        call: eloqua.getsyncrejects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: eloqua-mcp
+    transport: http
+    description: MCP adapter for Oracle Eloqua Bulk API for AI agent use.
+    tools:
+    - name: listcontactexports
+      description: Oracle Eloqua List contact export definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listcontactexports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcontactexport
+      description: Oracle Eloqua Create a contact export definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createcontactexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcontactexport
+      description: Oracle Eloqua Retrieve a contact export definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getcontactexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecontactexport
+      description: Oracle Eloqua Update a contact export definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: eloqua.updatecontactexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecontactexport
+      description: Oracle Eloqua Delete a contact export definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deletecontactexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcontactexportdata
+      description: Oracle Eloqua Retrieve contact export data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getcontactexportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcontactimports
+      description: Oracle Eloqua List contact import definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listcontactimports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcontactimport
+      description: Oracle Eloqua Create a contact import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createcontactimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcontactimport
+      description: Oracle Eloqua Retrieve a contact import definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getcontactimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecontactimport
+      description: Oracle Eloqua Update a contact import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: eloqua.updatecontactimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecontactimport
+      description: Oracle Eloqua Delete a contact import definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deletecontactimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pushcontactimportdata
+      description: Oracle Eloqua Push data to a contact import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.pushcontactimportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecontactimportdata
+      description: Oracle Eloqua Delete staged contact import data
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deletecontactimportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcontactfields
+      description: Oracle Eloqua List contact fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listcontactfields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcontactsyncaction
+      description: Oracle Eloqua Create a contact sync action
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createcontactsyncaction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listaccountexports
+      description: Oracle Eloqua List account export definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listaccountexports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createaccountexport
+      description: Oracle Eloqua Create an account export definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createaccountexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getaccountexport
+      description: Oracle Eloqua Retrieve an account export definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getaccountexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteaccountexport
+      description: Oracle Eloqua Delete an account export definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deleteaccountexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listaccountimports
+      description: Oracle Eloqua List account import definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listaccountimports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createaccountimport
+      description: Oracle Eloqua Create an account import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createaccountimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getaccountimport
+      description: Oracle Eloqua Retrieve an account import definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getaccountimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteaccountimport
+      description: Oracle Eloqua Delete an account import definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deleteaccountimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pushaccountimportdata
+      description: Oracle Eloqua Push data to an account import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.pushaccountimportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listaccountfields
+      description: Oracle Eloqua List account fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listaccountfields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listactivityexports
+      description: Oracle Eloqua List activity export definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listactivityexports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createactivityexport
+      description: Oracle Eloqua Create an activity export definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createactivityexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getactivityexport
+      description: Oracle Eloqua Retrieve an activity export definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getactivityexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteactivityexport
+      description: Oracle Eloqua Delete an activity export definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deleteactivityexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createactivityimport
+      description: Oracle Eloqua Create an activity import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createactivityimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pushactivityimportdata
+      description: Oracle Eloqua Push data to an activity import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.pushactivityimportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcustomobjectexports
+      description: Oracle Eloqua List custom object export definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listcustomobjectexports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcustomobjectexport
+      description: Oracle Eloqua Create a custom object export definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createcustomobjectexport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcustomobjectimports
+      description: Oracle Eloqua List custom object import definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listcustomobjectimports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcustomobjectimport
+      description: Oracle Eloqua Create a custom object import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createcustomobjectimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pushcustomobjectimportdata
+      description: Oracle Eloqua Push data to a custom object import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.pushcustomobjectimportdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listbulkcustomobjects
+      description: Oracle Eloqua List available custom objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listbulkcustomobjects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsyncs
+      description: Oracle Eloqua List syncs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.listsyncs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsync
+      description: Oracle Eloqua Create a sync
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eloqua.createsync
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsync
+      description: Oracle Eloqua Retrieve a sync
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getsync
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsyncdata
+      description: Oracle Eloqua Retrieve sync data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getsyncdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesyncdata
+      description: Oracle Eloqua Delete sync data
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eloqua.deletesyncdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsynclogs
+      description: Oracle Eloqua Retrieve sync logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getsynclogs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsyncrejects
+      description: Oracle Eloqua Retrieve sync rejects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eloqua.getsyncrejects
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ELOQUA_USERNAME: ELOQUA_USERNAME
+    ELOQUA_PASSWORD: ELOQUA_PASSWORD
