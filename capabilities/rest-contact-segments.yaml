@@ -1,0 +1,204 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua REST API — Contact Segments
+  description: 'Oracle Eloqua REST API — Contact Segments. 5 operations. Lead operation: Oracle Eloqua Create a contact segment.
+    Self-contained Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Contact Segments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-contact-segments
+    baseUri: https://secure.p01.eloqua.com/API/REST/2.0
+    description: Oracle Eloqua REST API — Contact Segments business capability. Self-contained, no shared references.
+    resources:
+    - name: assets-contact-segment
+      path: /assets/contact/segment
+      operations:
+      - name: createcontactsegment
+        method: POST
+        description: Oracle Eloqua Create a contact segment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: assets-contact-segment-id
+      path: /assets/contact/segment/{id}
+      operations:
+      - name: getcontactsegment
+        method: GET
+        description: Oracle Eloqua Retrieve a contact segment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecontactsegment
+        method: PUT
+        description: Oracle Eloqua Update a contact segment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecontactsegment
+        method: DELETE
+        description: Oracle Eloqua Delete a contact segment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-contact-segments
+      path: /assets/contact/segments
+      operations:
+      - name: listcontactsegments
+        method: GET
+        description: Oracle Eloqua List contact segments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-contact-segments-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua REST API — Contact Segments. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/assets/contact/segment
+      name: assets-contact-segment
+      description: REST surface for assets-contact-segment.
+      operations:
+      - method: POST
+        name: createcontactsegment
+        description: Oracle Eloqua Create a contact segment
+        call: rest-contact-segments.createcontactsegment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/contact/segment/{id}
+      name: assets-contact-segment-id
+      description: REST surface for assets-contact-segment-id.
+      operations:
+      - method: GET
+        name: getcontactsegment
+        description: Oracle Eloqua Retrieve a contact segment
+        call: rest-contact-segments.getcontactsegment
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecontactsegment
+        description: Oracle Eloqua Update a contact segment
+        call: rest-contact-segments.updatecontactsegment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecontactsegment
+        description: Oracle Eloqua Delete a contact segment
+        call: rest-contact-segments.deletecontactsegment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/contact/segments
+      name: assets-contact-segments
+      description: REST surface for assets-contact-segments.
+      operations:
+      - method: GET
+        name: listcontactsegments
+        description: Oracle Eloqua List contact segments
+        call: rest-contact-segments.listcontactsegments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-contact-segments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua REST API — Contact Segments. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-create-contact-segment
+      description: Oracle Eloqua Create a contact segment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-contact-segments.createcontactsegment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-contact-segment
+      description: Oracle Eloqua Retrieve a contact segment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-contact-segments.getcontactsegment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-update-contact-segment
+      description: Oracle Eloqua Update a contact segment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-contact-segments.updatecontactsegment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-contact-segment
+      description: Oracle Eloqua Delete a contact segment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-contact-segments.deletecontactsegment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-list-contact-segments
+      description: Oracle Eloqua List contact segments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-contact-segments.listcontactsegments
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,258 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua Bulk API — Syncs
+  description: 'Oracle Eloqua Bulk API — Syncs. 7 operations. Lead operation: Oracle Eloqua List syncs. Self-contained Naftiko
+    capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Syncs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bulk-syncs
+    baseUri: https://secure.p01.eloqua.com/API/Bulk/2.0
+    description: Oracle Eloqua Bulk API — Syncs business capability. Self-contained, no shared references.
+    resources:
+    - name: syncs
+      path: /syncs
+      operations:
+      - name: listsyncs
+        method: GET
+        description: Oracle Eloqua List syncs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsync
+        method: POST
+        description: Oracle Eloqua Create a sync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: syncs-id
+      path: /syncs/{id}
+      operations:
+      - name: getsync
+        method: GET
+        description: Oracle Eloqua Retrieve a sync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-data
+      path: /syncs/{id}/data
+      operations:
+      - name: getsyncdata
+        method: GET
+        description: Oracle Eloqua Retrieve sync data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletesyncdata
+        method: DELETE
+        description: Oracle Eloqua Delete sync data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-logs
+      path: /syncs/{id}/logs
+      operations:
+      - name: getsynclogs
+        method: GET
+        description: Oracle Eloqua Retrieve sync logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: syncs-id-rejects
+      path: /syncs/{id}/rejects
+      operations:
+      - name: getsyncrejects
+        method: GET
+        description: Oracle Eloqua Retrieve sync rejects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bulk-syncs-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua Bulk API — Syncs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/syncs
+      name: syncs
+      description: REST surface for syncs.
+      operations:
+      - method: GET
+        name: listsyncs
+        description: Oracle Eloqua List syncs
+        call: bulk-syncs.listsyncs
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsync
+        description: Oracle Eloqua Create a sync
+        call: bulk-syncs.createsync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/syncs/{id}
+      name: syncs-id
+      description: REST surface for syncs-id.
+      operations:
+      - method: GET
+        name: getsync
+        description: Oracle Eloqua Retrieve a sync
+        call: bulk-syncs.getsync
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/syncs/{id}/data
+      name: syncs-id-data
+      description: REST surface for syncs-id-data.
+      operations:
+      - method: GET
+        name: getsyncdata
+        description: Oracle Eloqua Retrieve sync data
+        call: bulk-syncs.getsyncdata
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesyncdata
+        description: Oracle Eloqua Delete sync data
+        call: bulk-syncs.deletesyncdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/syncs/{id}/logs
+      name: syncs-id-logs
+      description: REST surface for syncs-id-logs.
+      operations:
+      - method: GET
+        name: getsynclogs
+        description: Oracle Eloqua Retrieve sync logs
+        call: bulk-syncs.getsynclogs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/syncs/{id}/rejects
+      name: syncs-id-rejects
+      description: REST surface for syncs-id-rejects.
+      operations:
+      - method: GET
+        name: getsyncrejects
+        description: Oracle Eloqua Retrieve sync rejects
+        call: bulk-syncs.getsyncrejects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bulk-syncs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua Bulk API — Syncs. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: oracle-eloqua-list-syncs
+      description: Oracle Eloqua List syncs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-syncs.listsyncs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-create-sync
+      description: Oracle Eloqua Create a sync
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bulk-syncs.createsync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-sync
+      description: Oracle Eloqua Retrieve a sync
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-syncs.getsync
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-sync-data
+      description: Oracle Eloqua Retrieve sync data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-syncs.getsyncdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-sync-data
+      description: Oracle Eloqua Delete sync data
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: bulk-syncs.deletesyncdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-sync-logs
+      description: Oracle Eloqua Retrieve sync logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-syncs.getsynclogs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-sync-rejects
+      description: Oracle Eloqua Retrieve sync rejects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-syncs.getsyncrejects
+      outputParameters:
+      - type: object
+        mapping: $.

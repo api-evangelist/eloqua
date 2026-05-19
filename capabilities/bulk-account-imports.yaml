@@ -1,0 +1,204 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua Bulk API — Account Imports
+  description: 'Oracle Eloqua Bulk API — Account Imports. 5 operations. Lead operation: Oracle Eloqua List account import
+    definitions. Self-contained Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Account Imports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bulk-account-imports
+    baseUri: https://secure.p01.eloqua.com/API/Bulk/2.0
+    description: Oracle Eloqua Bulk API — Account Imports business capability. Self-contained, no shared references.
+    resources:
+    - name: accounts-imports
+      path: /accounts/imports
+      operations:
+      - name: listaccountimports
+        method: GET
+        description: Oracle Eloqua List account import definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createaccountimport
+        method: POST
+        description: Oracle Eloqua Create an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: accounts-imports-id
+      path: /accounts/imports/{id}
+      operations:
+      - name: getaccountimport
+        method: GET
+        description: Oracle Eloqua Retrieve an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteaccountimport
+        method: DELETE
+        description: Oracle Eloqua Delete an account import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-imports-id-data
+      path: /accounts/imports/{id}/data
+      operations:
+      - name: pushaccountimportdata
+        method: POST
+        description: Oracle Eloqua Push data to an account import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bulk-account-imports-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua Bulk API — Account Imports. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/accounts/imports
+      name: accounts-imports
+      description: REST surface for accounts-imports.
+      operations:
+      - method: GET
+        name: listaccountimports
+        description: Oracle Eloqua List account import definitions
+        call: bulk-account-imports.listaccountimports
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createaccountimport
+        description: Oracle Eloqua Create an account import definition
+        call: bulk-account-imports.createaccountimport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/accounts/imports/{id}
+      name: accounts-imports-id
+      description: REST surface for accounts-imports-id.
+      operations:
+      - method: GET
+        name: getaccountimport
+        description: Oracle Eloqua Retrieve an account import definition
+        call: bulk-account-imports.getaccountimport
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteaccountimport
+        description: Oracle Eloqua Delete an account import definition
+        call: bulk-account-imports.deleteaccountimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/accounts/imports/{id}/data
+      name: accounts-imports-id-data
+      description: REST surface for accounts-imports-id-data.
+      operations:
+      - method: POST
+        name: pushaccountimportdata
+        description: Oracle Eloqua Push data to an account import
+        call: bulk-account-imports.pushaccountimportdata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bulk-account-imports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua Bulk API — Account Imports. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-list-account-import
+      description: Oracle Eloqua List account import definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-account-imports.listaccountimports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-create-account-import
+      description: Oracle Eloqua Create an account import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bulk-account-imports.createaccountimport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-account-import
+      description: Oracle Eloqua Retrieve an account import definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-account-imports.getaccountimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-account-import
+      description: Oracle Eloqua Delete an account import definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: bulk-account-imports.deleteaccountimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-push-data-account
+      description: Oracle Eloqua Push data to an account import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bulk-account-imports.pushaccountimportdata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

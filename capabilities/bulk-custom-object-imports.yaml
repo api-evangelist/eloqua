@@ -1,0 +1,147 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua Bulk API — Custom Object Imports
+  description: 'Oracle Eloqua Bulk API — Custom Object Imports. 3 operations. Lead operation: Oracle Eloqua List custom object
+    import definitions. Self-contained Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Custom Object Imports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bulk-custom-object-imports
+    baseUri: https://secure.p01.eloqua.com/API/Bulk/2.0
+    description: Oracle Eloqua Bulk API — Custom Object Imports business capability. Self-contained, no shared references.
+    resources:
+    - name: customObjects-parentId-imports
+      path: /customObjects/{parentId}/imports
+      operations:
+      - name: listcustomobjectimports
+        method: GET
+        description: Oracle Eloqua List custom object import definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomobjectimport
+        method: POST
+        description: Oracle Eloqua Create a custom object import definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: customObjects-parentId-imports-id-data
+      path: /customObjects/{parentId}/imports/{id}/data
+      operations:
+      - name: pushcustomobjectimportdata
+        method: POST
+        description: Oracle Eloqua Push data to a custom object import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bulk-custom-object-imports-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua Bulk API — Custom Object Imports. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/customobjects/{parentid}/imports
+      name: customobjects-parentid-imports
+      description: REST surface for customObjects-parentId-imports.
+      operations:
+      - method: GET
+        name: listcustomobjectimports
+        description: Oracle Eloqua List custom object import definitions
+        call: bulk-custom-object-imports.listcustomobjectimports
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcustomobjectimport
+        description: Oracle Eloqua Create a custom object import definition
+        call: bulk-custom-object-imports.createcustomobjectimport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/customobjects/{parentid}/imports/{id}/data
+      name: customobjects-parentid-imports-id-data
+      description: REST surface for customObjects-parentId-imports-id-data.
+      operations:
+      - method: POST
+        name: pushcustomobjectimportdata
+        description: Oracle Eloqua Push data to a custom object import
+        call: bulk-custom-object-imports.pushcustomobjectimportdata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bulk-custom-object-imports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua Bulk API — Custom Object Imports. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-list-custom-object
+      description: Oracle Eloqua List custom object import definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bulk-custom-object-imports.listcustomobjectimports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-create-custom-object
+      description: Oracle Eloqua Create a custom object import definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bulk-custom-object-imports.createcustomobjectimport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-push-data-custom
+      description: Oracle Eloqua Push data to a custom object import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bulk-custom-object-imports.pushcustomobjectimportdata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

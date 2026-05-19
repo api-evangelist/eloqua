@@ -1,0 +1,268 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua REST API — Campaigns
+  description: 'Oracle Eloqua REST API — Campaigns. 7 operations. Lead operation: Oracle Eloqua Create a campaign. Self-contained
+    Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Campaigns
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-campaigns
+    baseUri: https://secure.p01.eloqua.com/API/REST/2.0
+    description: Oracle Eloqua REST API — Campaigns business capability. Self-contained, no shared references.
+    resources:
+    - name: assets-campaign
+      path: /assets/campaign
+      operations:
+      - name: createcampaign
+        method: POST
+        description: Oracle Eloqua Create a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: assets-campaign-active-id
+      path: /assets/campaign/active/{id}
+      operations:
+      - name: activatecampaign
+        method: POST
+        description: Oracle Eloqua Activate a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-campaign-draft-id
+      path: /assets/campaign/draft/{id}
+      operations:
+      - name: deactivatecampaign
+        method: POST
+        description: Oracle Eloqua Deactivate a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-campaign-id
+      path: /assets/campaign/{id}
+      operations:
+      - name: getcampaign
+        method: GET
+        description: Oracle Eloqua Retrieve a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecampaign
+        method: PUT
+        description: Oracle Eloqua Update a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecampaign
+        method: DELETE
+        description: Oracle Eloqua Delete a campaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-campaigns
+      path: /assets/campaigns
+      operations:
+      - name: listcampaigns
+        method: GET
+        description: Oracle Eloqua List campaigns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-campaigns-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua REST API — Campaigns. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/assets/campaign
+      name: assets-campaign
+      description: REST surface for assets-campaign.
+      operations:
+      - method: POST
+        name: createcampaign
+        description: Oracle Eloqua Create a campaign
+        call: rest-campaigns.createcampaign
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/campaign/active/{id}
+      name: assets-campaign-active-id
+      description: REST surface for assets-campaign-active-id.
+      operations:
+      - method: POST
+        name: activatecampaign
+        description: Oracle Eloqua Activate a campaign
+        call: rest-campaigns.activatecampaign
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/campaign/draft/{id}
+      name: assets-campaign-draft-id
+      description: REST surface for assets-campaign-draft-id.
+      operations:
+      - method: POST
+        name: deactivatecampaign
+        description: Oracle Eloqua Deactivate a campaign
+        call: rest-campaigns.deactivatecampaign
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/campaign/{id}
+      name: assets-campaign-id
+      description: REST surface for assets-campaign-id.
+      operations:
+      - method: GET
+        name: getcampaign
+        description: Oracle Eloqua Retrieve a campaign
+        call: rest-campaigns.getcampaign
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecampaign
+        description: Oracle Eloqua Update a campaign
+        call: rest-campaigns.updatecampaign
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecampaign
+        description: Oracle Eloqua Delete a campaign
+        call: rest-campaigns.deletecampaign
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/campaigns
+      name: assets-campaigns
+      description: REST surface for assets-campaigns.
+      operations:
+      - method: GET
+        name: listcampaigns
+        description: Oracle Eloqua List campaigns
+        call: rest-campaigns.listcampaigns
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-campaigns-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua REST API — Campaigns. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-create-campaign
+      description: Oracle Eloqua Create a campaign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-campaigns.createcampaign
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-activate-campaign
+      description: Oracle Eloqua Activate a campaign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-campaigns.activatecampaign
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-deactivate-campaign
+      description: Oracle Eloqua Deactivate a campaign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-campaigns.deactivatecampaign
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-campaign
+      description: Oracle Eloqua Retrieve a campaign
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-campaigns.getcampaign
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-update-campaign
+      description: Oracle Eloqua Update a campaign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-campaigns.updatecampaign
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-campaign
+      description: Oracle Eloqua Delete a campaign
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-campaigns.deletecampaign
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-list-campaigns
+      description: Oracle Eloqua List campaigns
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-campaigns.listcampaigns
+      outputParameters:
+      - type: object
+        mapping: $.

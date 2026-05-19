@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua REST API — Accounts
+  description: 'Oracle Eloqua REST API — Accounts. 3 operations. Lead operation: Oracle Eloqua Retrieve an account. Self-contained
+    Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Accounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-accounts
+    baseUri: https://secure.p01.eloqua.com/API/REST/2.0
+    description: Oracle Eloqua REST API — Accounts business capability. Self-contained, no shared references.
+    resources:
+    - name: data-account-id
+      path: /data/account/{id}
+      operations:
+      - name: getaccount
+        method: GET
+        description: Oracle Eloqua Retrieve an account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: data-account-id-membership
+      path: /data/account/{id}/membership
+      operations:
+      - name: getaccountgroupmembership
+        method: GET
+        description: Oracle Eloqua Get account group membership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: data-accounts
+      path: /data/accounts
+      operations:
+      - name: searchaccounts
+        method: POST
+        description: Oracle Eloqua Search accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-accounts-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua REST API — Accounts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/data/account/{id}
+      name: data-account-id
+      description: REST surface for data-account-id.
+      operations:
+      - method: GET
+        name: getaccount
+        description: Oracle Eloqua Retrieve an account
+        call: rest-accounts.getaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/account/{id}/membership
+      name: data-account-id-membership
+      description: REST surface for data-account-id-membership.
+      operations:
+      - method: GET
+        name: getaccountgroupmembership
+        description: Oracle Eloqua Get account group membership
+        call: rest-accounts.getaccountgroupmembership
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/accounts
+      name: data-accounts
+      description: REST surface for data-accounts.
+      operations:
+      - method: POST
+        name: searchaccounts
+        description: Oracle Eloqua Search accounts
+        call: rest-accounts.searchaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua REST API — Accounts. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-retrieve-account
+      description: Oracle Eloqua Retrieve an account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-accounts.getaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-get-account-group
+      description: Oracle Eloqua Get account group membership
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-accounts.getaccountgroupmembership
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-search-accounts
+      description: Oracle Eloqua Search accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: rest-accounts.searchaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

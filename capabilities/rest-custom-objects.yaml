@@ -1,0 +1,414 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Eloqua REST API — Custom Objects
+  description: 'Oracle Eloqua REST API — Custom Objects. 10 operations. Lead operation: Oracle Eloqua Create a custom object.
+    Self-contained Naftiko capability covering one Eloqua business surface.'
+  tags:
+  - Eloqua
+  - Custom Objects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELOQUA_API_KEY: ELOQUA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-custom-objects
+    baseUri: https://secure.p01.eloqua.com/API/REST/2.0
+    description: Oracle Eloqua REST API — Custom Objects business capability. Self-contained, no shared references.
+    resources:
+    - name: assets-customObject
+      path: /assets/customObject
+      operations:
+      - name: createcustomobject
+        method: POST
+        description: Oracle Eloqua Create a custom object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: assets-customObject-id
+      path: /assets/customObject/{id}
+      operations:
+      - name: getcustomobject
+        method: GET
+        description: Oracle Eloqua Retrieve a custom object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecustomobject
+        method: PUT
+        description: Oracle Eloqua Update a custom object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecustomobject
+        method: DELETE
+        description: Oracle Eloqua Delete a custom object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-customObjects
+      path: /assets/customObjects
+      operations:
+      - name: listcustomobjects
+        method: GET
+        description: Oracle Eloqua List custom objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: data-customObject-parentId-instance
+      path: /data/customObject/{parentId}/instance
+      operations:
+      - name: createcustomobjectdata
+        method: POST
+        description: Oracle Eloqua Create a custom object data instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: parentId
+          in: path
+          type: string
+          description: The custom object definition identifier
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: data-customObject-parentId-instance-id
+      path: /data/customObject/{parentId}/instance/{id}
+      operations:
+      - name: getcustomobjectdata
+        method: GET
+        description: Oracle Eloqua Retrieve a custom object data instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: parentId
+          in: path
+          type: string
+          description: The custom object definition identifier
+          required: true
+      - name: updatecustomobjectdata
+        method: PUT
+        description: Oracle Eloqua Update a custom object data instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: parentId
+          in: path
+          type: string
+          description: The custom object definition identifier
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecustomobjectdata
+        method: DELETE
+        description: Oracle Eloqua Delete a custom object data instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: parentId
+          in: path
+          type: string
+          description: The custom object definition identifier
+          required: true
+    - name: data-customObject-parentId-instances
+      path: /data/customObject/{parentId}/instances
+      operations:
+      - name: listcustomobjectdata
+        method: GET
+        description: Oracle Eloqua List custom object data instances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: parentId
+          in: path
+          type: string
+          description: The custom object definition identifier
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ELOQUA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-custom-objects-rest
+    port: 8080
+    description: REST adapter for Oracle Eloqua REST API — Custom Objects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/assets/customobject
+      name: assets-customobject
+      description: REST surface for assets-customObject.
+      operations:
+      - method: POST
+        name: createcustomobject
+        description: Oracle Eloqua Create a custom object
+        call: rest-custom-objects.createcustomobject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/customobject/{id}
+      name: assets-customobject-id
+      description: REST surface for assets-customObject-id.
+      operations:
+      - method: GET
+        name: getcustomobject
+        description: Oracle Eloqua Retrieve a custom object
+        call: rest-custom-objects.getcustomobject
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecustomobject
+        description: Oracle Eloqua Update a custom object
+        call: rest-custom-objects.updatecustomobject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecustomobject
+        description: Oracle Eloqua Delete a custom object
+        call: rest-custom-objects.deletecustomobject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/customobjects
+      name: assets-customobjects
+      description: REST surface for assets-customObjects.
+      operations:
+      - method: GET
+        name: listcustomobjects
+        description: Oracle Eloqua List custom objects
+        call: rest-custom-objects.listcustomobjects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/customobject/{parentid}/instance
+      name: data-customobject-parentid-instance
+      description: REST surface for data-customObject-parentId-instance.
+      operations:
+      - method: POST
+        name: createcustomobjectdata
+        description: Oracle Eloqua Create a custom object data instance
+        call: rest-custom-objects.createcustomobjectdata
+        with:
+          parentId: rest.parentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/customobject/{parentid}/instance/{id}
+      name: data-customobject-parentid-instance-id
+      description: REST surface for data-customObject-parentId-instance-id.
+      operations:
+      - method: GET
+        name: getcustomobjectdata
+        description: Oracle Eloqua Retrieve a custom object data instance
+        call: rest-custom-objects.getcustomobjectdata
+        with:
+          parentId: rest.parentId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecustomobjectdata
+        description: Oracle Eloqua Update a custom object data instance
+        call: rest-custom-objects.updatecustomobjectdata
+        with:
+          parentId: rest.parentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecustomobjectdata
+        description: Oracle Eloqua Delete a custom object data instance
+        call: rest-custom-objects.deletecustomobjectdata
+        with:
+          parentId: rest.parentId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/customobject/{parentid}/instances
+      name: data-customobject-parentid-instances
+      description: REST surface for data-customObject-parentId-instances.
+      operations:
+      - method: GET
+        name: listcustomobjectdata
+        description: Oracle Eloqua List custom object data instances
+        call: rest-custom-objects.listcustomobjectdata
+        with:
+          parentId: rest.parentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-custom-objects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Eloqua REST API — Custom Objects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: oracle-eloqua-create-custom-object
+      description: Oracle Eloqua Create a custom object
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-custom-objects.createcustomobject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-custom-object
+      description: Oracle Eloqua Retrieve a custom object
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.getcustomobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-update-custom-object
+      description: Oracle Eloqua Update a custom object
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.updatecustomobject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-custom-object
+      description: Oracle Eloqua Delete a custom object
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-custom-objects.deletecustomobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-list-custom-objects
+      description: Oracle Eloqua List custom objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.listcustomobjects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-create-custom-object-2
+      description: Oracle Eloqua Create a custom object data instance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-custom-objects.createcustomobjectdata
+      with:
+        parentId: tools.parentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-retrieve-custom-object-2
+      description: Oracle Eloqua Retrieve a custom object data instance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.getcustomobjectdata
+      with:
+        parentId: tools.parentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-update-custom-object-2
+      description: Oracle Eloqua Update a custom object data instance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.updatecustomobjectdata
+      with:
+        parentId: tools.parentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-delete-custom-object-2
+      description: Oracle Eloqua Delete a custom object data instance
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-custom-objects.deletecustomobjectdata
+      with:
+        parentId: tools.parentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oracle-eloqua-list-custom-object
+      description: Oracle Eloqua List custom object data instances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-objects.listcustomobjectdata
+      with:
+        parentId: tools.parentId
+      outputParameters:
+      - type: object
+        mapping: $.
