@@ -1,0 +1,1091 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contact Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact export definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by"
+              }
+            ]
+          },
+          "docs": "Retrieve all contact export definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a contact export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new export definition for contacts. After creation, create a sync to execute the export."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific contact export definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact export definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact export definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve contact export data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/exports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the data from a completed contact export."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact import definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by"
+              }
+            ]
+          },
+          "docs": "Retrieve all contact import definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a contact import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new import definition for contacts. After creation, push data and create a sync to execute the import."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific contact import definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact import definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact import definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Push data to a contact import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push data records to be processed by the contact import definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete staged contact import data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete data that has been staged for the import but not yet synced."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a contact sync action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/syncActions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a sync action for contacts, such as setting subscription status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/fields",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all available contact fields for use in export and import field mappings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List account export definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/exports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all account export definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an account export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/exports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new export definition for accounts."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an account export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific account export definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete an account export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete an account export definition by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List account import definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/imports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all account import definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an account import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new import definition for accounts."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an account import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific account import definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete an account import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete an account import definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Push data to an account import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push data records to be processed by the account import definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List account fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/accounts/fields",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all available account fields for use in export and import field mappings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activity Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List activity export definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/exports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all activity export definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an activity export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/exports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new export definition for activities such as email sends, opens, clicks, form submissions, and web visits."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an activity export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific activity export definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete an activity export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete an activity export definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activity Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an activity import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new import definition for external activities."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Push data to an activity import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push data records to be processed by the activity import definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Object Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List custom object export definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects/:parentId/exports",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The parent custom object identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all export definitions for a specific custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a custom object export definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects/:parentId/exports",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The parent custom object identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new export definition for a custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua List available custom objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all custom objects available for bulk operations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Object Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List custom object import definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects/:parentId/imports",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The parent custom object identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all import definitions for a specific custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a custom object import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects/:parentId/imports",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The parent custom object identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new import definition for a custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Push data to a custom object import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/customObjects/:parentId/imports/:id/data",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The parent custom object identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push data records to be processed by the custom object import."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Syncs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List syncs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by"
+              }
+            ]
+          },
+          "docs": "Retrieve all sync operations."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new sync operation to execute an import or export definition. The sync triggers the actual data transfer."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific sync operation by its identifier to check status."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve sync data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the data associated with a completed sync operation."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete sync data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete the data associated with a sync operation."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve sync logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve log entries for a specific sync operation, including any errors or warnings that occurred during processing."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve sync rejects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/syncs/:id/rejects",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve rejected records from a sync operation, showing data rows that could not be processed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

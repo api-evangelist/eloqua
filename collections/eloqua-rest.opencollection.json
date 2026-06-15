@@ -1,0 +1,1794 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua REST API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Search contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/contacts",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              },
+              {
+                "name": "lastUpdatedAt",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp to filter entities updated after this time"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of contacts matching the specified search criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "viewId",
+                "value": "",
+                "type": "query",
+                "description": "The contact view identifier to use"
+              }
+            ]
+          },
+          "docs": "Retrieve a single contact record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact record."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Get contact list membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/contact/:id/membership",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve the contact lists to which a contact belongs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Search accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/accounts",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of account records matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/account/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single account record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Get account group membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/account/:id/membership",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve the account groups to which an account belongs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Campaigns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaigns",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              },
+              {
+                "name": "lastUpdatedAt",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp to filter entities updated after this time"
+              }
+            ]
+          },
+          "docs": "Retrieve all campaigns matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new marketing campaign."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single campaign by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing campaign."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a campaign by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Activate a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign/active/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Activate a campaign, changing its status from Draft to Active."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Deactivate a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/campaign/draft/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Deactivate a campaign, changing its status from Active to Draft."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/emails",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              },
+              {
+                "name": "lastUpdatedAt",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp to filter entities updated after this time"
+              }
+            ]
+          },
+          "docs": "Retrieve all email assets matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new email asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "noMergeContent",
+                "value": "",
+                "type": "query",
+                "description": "Whether email components are dynamically populated"
+              }
+            ]
+          },
+          "docs": "Retrieve a single email asset by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing email asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete an email asset by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an email deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email/deployment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and send an email deployment to a specified contact list or segment."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an email deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/email/deployment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve an email deployment by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Forms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/forms",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all form assets matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a form",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/form",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new form asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single form asset by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a form",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing form asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a form",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a form asset by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve form submission data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              }
+            ]
+          },
+          "docs": "Retrieve submission data for a specific form."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Submit form data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new form submission for the specified form."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Landing Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List landing pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/landingPages",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all landing page assets matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a landing page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/landingPage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new landing page asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a landing page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/landingPage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single landing page asset by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a landing page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/landingPage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing landing page asset."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a landing page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/landingPage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a landing page asset by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Objects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List custom objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/customObjects",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all custom object definitions."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a custom object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/customObject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new custom object definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a custom object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/customObject/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a custom object definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a custom object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/customObject/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing custom object definition."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a custom object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/customObject/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a custom object definition by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua List custom object data instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/customObject/:parentId/instances",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The custom object definition identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              }
+            ]
+          },
+          "docs": "Retrieve data instances for a specific custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a custom object data instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/customObject/:parentId/instance",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The custom object definition identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new data instance for a specific custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a custom object data instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/customObject/:parentId/instance/:id",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The custom object definition identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific data instance from a custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a custom object data instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/customObject/:parentId/instance/:id",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The custom object definition identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing data instance for a custom object."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a custom object data instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/data/customObject/:parentId/instance/:id",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path",
+                "description": "The custom object definition identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a specific data instance from a custom object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Segments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact segments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/segments",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all contact segments matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a contact segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/segment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new contact segment."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/segment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single contact segment by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/segment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact segment."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/segment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact segment by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/lists",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all contact lists matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a contact list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new contact list."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/list/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single contact list by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact list",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/list/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact list."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact list",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/contact/list/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact list by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Programs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/programs",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all automation programs matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Create a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new automation program."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single automation program by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing automation program."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete an automation program by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Activate a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/active/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Activate an automation program, changing its status to Active."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Deactivate a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/draft/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Deactivate an automation program, returning it to Draft status."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Pause a program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/assets/program/pause/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Pause an active automation program."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/system/users",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all system users matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single system user by their identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing system user."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a system user by their identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/REST/2.0/system/user/current"
+          },
+          "docs": "Retrieve the currently authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
