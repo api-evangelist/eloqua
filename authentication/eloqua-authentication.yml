@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/eloqua-bulk-openapi.yml, openapi/eloqua-rest-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+  sources:
+  - openapi/eloqua-bulk-openapi.yml
+  - openapi/eloqua-rest-openapi.yml
+- name: oAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+    tokenUrl: https://login.eloqua.com/auth/oauth2/token
+    scopes: 1
+  description: OAuth 2.0 authorization code flow
+  sources:
+  - openapi/eloqua-bulk-openapi.yml
+  - openapi/eloqua-rest-openapi.yml
