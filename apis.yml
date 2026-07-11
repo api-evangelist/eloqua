@@ -49,6 +49,8 @@ apis:
       - type: OpenAPI
         url: openapi/eloqua-bulk-openapi.yml
 common:
+  - type: OAuthScopes
+    url: scopes/eloqua-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/eloqua
   - type: GettingStarted
