@@ -49,6 +49,8 @@ apis:
       - type: OpenAPI
         url: openapi/eloqua-bulk-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/eloqua-agentic-access.yml
   - type: DomainSecurity
     url: security/eloqua-domain-security.yml
   - type: Authentication
