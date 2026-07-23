@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Activity Exports API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Activity Exports
+  description: Export activity data in bulk
+paths:
+  /activities/exports:
+    get:
+      operationId: listActivityExports
+      summary: Oracle Eloqua List activity export definitions
+      description: Retrieve all activity export definitions.
+      tags:
+      - Activity Exports
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved activity exports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createActivityExport
+      summary: Oracle Eloqua Create an activity export definition
+      description: Create a new export definition for activities such as email sends, opens, clicks, form submissions, and web visits.
+      tags:
+      - Activity Exports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDefinition'
+      responses:
+        '201':
+          description: Activity export definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /activities/exports/{id}:
+    get:
+      operationId: getActivityExport
+      summary: Oracle Eloqua Retrieve an activity export definition
+      description: Retrieve a specific activity export definition.
+      tags:
+      - Activity Exports
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved activity export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportDefinition'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+    delete:
+      operationId: deleteActivityExport
+      summary: Oracle Eloqua Delete an activity export definition
+      description: Delete an activity export definition.
+      tags:
+      - Activity Exports
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Export definition deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Export definition not found
+components:
+  schemas:
+    ExportList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportDefinition'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    ExportDefinition:
+      type: object
+      required:
+      - name
+      - fields
+      properties:
+        uri:
+          type: string
+          description: URI of the export definition
+          readOnly: true
+        name:
+          type: string
+          description: Name of the export definition
+        fields:
+          type: object
+          description: 'Map of output column names to Eloqua field statement identifiers (e.g., {"EmailAddress": "{{Contact.Field(C_EmailAddress)}}"})'
+          additionalProperties:
+            type: string
+        filter:
+          type: string
+          description: Filter expression to select records for export (e.g., "{{Contact.CreatedAt}} > '2024-01-01'")
+        maxRecords:
+          type: integer
+          description: Maximum number of records to export
+        dataRetentionDuration:
+          type: string
+          description: How long exported data is retained (e.g., PT12H for 12 hours)
+        areSystemTimestampsInUTC:
+          type: boolean
+          description: Whether timestamps are in UTC
+          default: true
+        autoDeleteDuration:
+          type: string
+          description: Auto-delete duration for the export definition
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+          readOnly: true
+        syncedInstanceUri:
+          type: string
+          description: URI of the last sync associated with this definition
+          readOnly: true
+        status:
+          type: string
+          description: Status of the export definition
+          readOnly: true
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html

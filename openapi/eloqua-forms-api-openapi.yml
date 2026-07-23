@@ -1,0 +1,369 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Forms API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Forms
+  description: Create and manage forms and form data
+paths:
+  /assets/forms:
+    get:
+      operationId: listForms
+      summary: Oracle Eloqua List forms
+      description: Retrieve all form assets matching the specified criteria.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/depth'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved forms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultForm'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/form:
+    post:
+      operationId: createForm
+      summary: Oracle Eloqua Create a form
+      description: Create a new form asset.
+      tags:
+      - Forms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Form'
+      responses:
+        '201':
+          description: Form created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/form/{id}:
+    get:
+      operationId: getForm
+      summary: Oracle Eloqua Retrieve a form
+      description: Retrieve a single form asset by its identifier.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/id'
+      - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    put:
+      operationId: updateForm
+      summary: Oracle Eloqua Update a form
+      description: Update an existing form asset.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Form'
+      responses:
+        '200':
+          description: Successfully updated form
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    delete:
+      operationId: deleteForm
+      summary: Oracle Eloqua Delete a form
+      description: Delete a form asset by its identifier.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Form deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+  /data/form/{id}:
+    get:
+      operationId: getFormData
+      summary: Oracle Eloqua Retrieve form submission data
+      description: Retrieve submission data for a specific form.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/id'
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: Successfully retrieved form data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FormData'
+                  page:
+                    type: integer
+                  pageSize:
+                    type: integer
+                  total:
+                    type: integer
+        '401':
+          description: Unauthorized
+        '404':
+          description: Form not found
+    post:
+      operationId: createFormData
+      summary: Oracle Eloqua Submit form data
+      description: Create a new form submission for the specified form.
+      tags:
+      - Forms
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormData'
+      responses:
+        '201':
+          description: Form data submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormData'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
+    FormData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Submission row identifier
+          readOnly: true
+        type:
+          type: string
+          description: Data type
+        fieldValues:
+          type: array
+          description: Submitted field values
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        submittedAt:
+          type: string
+          description: Submission timestamp (Unix time)
+          readOnly: true
+    QueryResultForm:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Form'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    Form:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the form
+          readOnly: true
+        name:
+          type: string
+          description: Form name
+        description:
+          type: string
+          description: Form description
+        htmlName:
+          type: string
+          description: HTML name attribute
+        currentStatus:
+          type: string
+          description: Current form status
+          readOnly: true
+        archived:
+          type: boolean
+          description: Whether the form is archived
+        elements:
+          type: array
+          description: Form field elements
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+              htmlName:
+                type: string
+        processingSteps:
+          type: array
+          description: Form processing steps
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+  parameters:
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html

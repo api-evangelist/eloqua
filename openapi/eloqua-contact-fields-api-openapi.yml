@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Contact Fields API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Contact Fields
+  description: Retrieve available contact fields for mapping
+paths:
+  /contacts/fields:
+    get:
+      operationId: listContactFields
+      summary: Oracle Eloqua List contact fields
+      description: Retrieve all available contact fields for use in export and import field mappings.
+      tags:
+      - Contact Fields
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successfully retrieved contact fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    FieldList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkField'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    BulkField:
+      type: object
+      properties:
+        uri:
+          type: string
+          description: URI of the field
+        name:
+          type: string
+          description: Display name of the field
+        internalName:
+          type: string
+          description: Internal name of the field
+        dataType:
+          type: string
+          description: Data type of the field
+        hasReadOnlyConstraint:
+          type: boolean
+          description: Whether the field is read-only
+        hasNotNullConstraint:
+          type: boolean
+          description: Whether the field requires a value
+        hasUniquenessConstraint:
+          type: boolean
+          description: Whether field values must be unique
+        statement:
+          type: string
+          description: Eloqua Markup Language (EML) statement for the field (e.g., "{{Contact.Field(C_EmailAddress)}}")
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html

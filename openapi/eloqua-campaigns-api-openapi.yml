@@ -1,0 +1,322 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Campaigns API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Campaigns
+  description: Create and manage marketing campaigns
+paths:
+  /assets/campaigns:
+    get:
+      operationId: listCampaigns
+      summary: Oracle Eloqua List campaigns
+      description: Retrieve all campaigns matching the specified criteria.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/depth'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/orderBy'
+      - $ref: '#/components/parameters/lastUpdatedAt'
+      responses:
+        '200':
+          description: Successfully retrieved campaigns
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCampaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/campaign:
+    post:
+      operationId: createCampaign
+      summary: Oracle Eloqua Create a campaign
+      description: Create a new marketing campaign.
+      tags:
+      - Campaigns
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '201':
+          description: Campaign created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assets/campaign/{id}:
+    get:
+      operationId: getCampaign
+      summary: Oracle Eloqua Retrieve a campaign
+      description: Retrieve a single campaign by its identifier.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/id'
+      - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved campaign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+    put:
+      operationId: updateCampaign
+      summary: Oracle Eloqua Update a campaign
+      description: Update an existing campaign.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '200':
+          description: Successfully updated campaign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+    delete:
+      operationId: deleteCampaign
+      summary: Oracle Eloqua Delete a campaign
+      description: Delete a campaign by its identifier.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '204':
+          description: Campaign deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+  /assets/campaign/active/{id}:
+    post:
+      operationId: activateCampaign
+      summary: Oracle Eloqua Activate a campaign
+      description: Activate a campaign, changing its status from Draft to Active.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Campaign activated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+  /assets/campaign/draft/{id}:
+    post:
+      operationId: deactivateCampaign
+      summary: Oracle Eloqua Deactivate a campaign
+      description: Deactivate a campaign, changing its status from Active to Draft.
+      tags:
+      - Campaigns
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Campaign deactivated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Campaign not found
+components:
+  parameters:
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    lastUpdatedAt:
+      name: lastUpdatedAt
+      in: query
+      description: Unix timestamp to filter entities updated after this time
+      schema:
+        type: integer
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+  schemas:
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the campaign
+          readOnly: true
+        name:
+          type: string
+          description: Campaign name
+        description:
+          type: string
+          description: Campaign description
+        currentStatus:
+          type: string
+          enum:
+          - Active
+          - Draft
+          - Scheduled
+          - Completed
+          description: Current campaign status
+          readOnly: true
+        campaignCategory:
+          type: string
+          enum:
+          - emailMarketing
+          - contact
+          description: Campaign type - emailMarketing for simple campaigns, contact for multi-step campaigns
+        startAt:
+          type: string
+          description: Campaign start date (Unix time)
+        endAt:
+          type: string
+          description: Campaign end date (Unix time)
+        memberCount:
+          type: integer
+          description: Number of members entered in the last 90 days
+          readOnly: true
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created the campaign
+          readOnly: true
+        updatedBy:
+          type: string
+          description: User who last updated the campaign
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+    QueryResultCampaign:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Campaign'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html

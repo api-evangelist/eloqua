@@ -1,0 +1,171 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Activity Imports API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Activity Imports
+  description: Import activity data in bulk
+paths:
+  /activities/imports:
+    post:
+      operationId: createActivityImport
+      summary: Oracle Eloqua Create an activity import definition
+      description: Create a new import definition for external activities.
+      tags:
+      - Activity Imports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDefinition'
+      responses:
+        '201':
+          description: Activity import definition created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportDefinition'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /activities/imports/{id}/data:
+    post:
+      operationId: pushActivityImportData
+      summary: Oracle Eloqua Push data to an activity import
+      description: Push data records to be processed by the activity import definition.
+      tags:
+      - Activity Imports
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: string
+      responses:
+        '204':
+          description: Data pushed successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    SyncAction:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - add
+          - remove
+          - setStatus
+          description: The action to perform
+        destination:
+          type: string
+          description: The destination for the action (e.g., a contact list URI or subscription status)
+        status:
+          type: string
+          description: The status to set (when action is setStatus)
+    ImportDefinition:
+      type: object
+      required:
+      - name
+      - fields
+      - identifierFieldName
+      properties:
+        uri:
+          type: string
+          description: URI of the import definition
+          readOnly: true
+        name:
+          type: string
+          description: Name of the import definition
+        fields:
+          type: object
+          description: 'Map of source column names to Eloqua field statement identifiers (e.g., {"EmailAddress": "{{Contact.Field(C_EmailAddress)}}"})'
+          additionalProperties:
+            type: string
+        identifierFieldName:
+          type: string
+          description: The field used to match import data to existing records (e.g., "EmailAddress")
+        isSyncTriggeredOnImport:
+          type: boolean
+          description: Whether a sync is automatically triggered when data is pushed
+          default: false
+        syncActions:
+          type: array
+          description: Actions to perform during sync
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        dataRetentionDuration:
+          type: string
+          description: How long imported data is retained
+        isUpdatingMultipleMatchedRecords:
+          type: boolean
+          description: Whether to update all matching records or just the first
+          default: false
+        autoDeleteDuration:
+          type: string
+          description: Auto-delete duration for the import definition
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+          readOnly: true
+        syncedInstanceUri:
+          type: string
+          description: URI of the last sync associated with this definition
+          readOnly: true
+        status:
+          type: string
+          description: Status of the import definition
+          readOnly: true
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html

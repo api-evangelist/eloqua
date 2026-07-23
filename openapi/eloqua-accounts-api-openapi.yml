@@ -1,0 +1,239 @@
+openapi: 3.1.0
+info:
+  title: Oracle Eloqua Bulk Account Exports Accounts API
+  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  version: '2.0'
+  contact:
+    name: Oracle Support
+    url: https://support.oracle.com/
+  termsOfService: https://www.oracle.com/legal/terms.html
+servers:
+- url: https://secure.p01.eloqua.com/API/Bulk/2.0
+  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+security:
+- basicAuth: []
+- oAuth2: []
+tags:
+- name: Accounts
+  description: Manage account records and groups
+paths:
+  /data/accounts:
+    post:
+      operationId: searchAccounts
+      summary: Oracle Eloqua Search accounts
+      description: Retrieve a list of account records matching the specified criteria.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/depth'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/orderBy'
+      responses:
+        '200':
+          description: Successfully retrieved accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultAccount'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /data/account/{id}:
+    get:
+      operationId: getAccount
+      summary: Oracle Eloqua Retrieve an account
+      description: Retrieve a single account record by its identifier.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/id'
+      - $ref: '#/components/parameters/depth'
+      responses:
+        '200':
+          description: Successfully retrieved account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+  /data/account/{id}/membership:
+    get:
+      operationId: getAccountGroupMembership
+      summary: Oracle Eloqua Get account group membership
+      description: Retrieve the account groups to which an account belongs.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Successfully retrieved membership
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+components:
+  schemas:
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
+    QueryResultAccount:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the account
+          readOnly: true
+        name:
+          type: string
+          description: Account name
+        companyName:
+          type: string
+          description: Company name
+        address1:
+          type: string
+          description: Primary address line
+        city:
+          type: string
+          description: City
+        province:
+          type: string
+          description: State or province
+        postalCode:
+          type: string
+          description: Postal or ZIP code
+        country:
+          type: string
+          description: Country
+        businessPhone:
+          type: string
+          description: Business phone number
+        fieldValues:
+          type: array
+          description: Custom field values
+          items:
+            $ref: '#/components/schemas/FieldValue'
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
+  parameters:
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
+    oAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          scopes:
+            full: Full access to all Eloqua resources
+externalDocs:
+  description: Oracle Eloqua Bulk API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
