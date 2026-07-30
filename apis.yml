@@ -5,7 +5,20 @@ description: >-
   marketing campaign management through comprehensive REST APIs. It enables marketing teams to create, execute, and
   measure the effectiveness of marketing programs and campaigns.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/eloqua.png
 tags:
   - CRM
   - Email Marketing
@@ -18,36 +31,314 @@ position: Consumer
 access: 3rd-Party
 specificationVersion: '0.19'
 apis:
-  - aid: eloqua:eloqua-rest-api
-    name: Eloqua REST API
-    description: >-
-      The primary REST API for Oracle Eloqua, providing access to marketing automation, contact management, campaign
-      operations, and analytics.
-    humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
-    baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
-    tags:
-      - Campaigns
-      - Contacts
-      - Marketing
-    properties:
-      - type: Documentation
-        url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
-      - type: OpenAPI
-        url: openapi/eloqua-rest-openapi.yml
-  - aid: eloqua:eloqua-bulk-api
-    name: Eloqua Bulk API
-    description: Bulk API for high-volume data operations including imports, exports, and synchronization of large datasets.
-    humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
-    baseURL: https://secure.p01.eloqua.com/API/Bulk/2.0/
-    tags:
-      - Bulk Operations
-      - Data Export
-      - Data Import
-    properties:
-      - type: Documentation
-        url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
-      - type: OpenAPI
-        url: openapi/eloqua-bulk-openapi.yml
+- aid: eloqua:eloqua-account-exports-api
+  name: Oracle Eloqua Account Exports API
+  description: Export account data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Account Exports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-account-exports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-account-fields-api
+  name: Oracle Eloqua Account Fields API
+  description: Retrieve available account fields for mapping
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Account Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-account-fields-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-account-imports-api
+  name: Oracle Eloqua Account Imports API
+  description: Import account data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Account Imports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-account-imports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-accounts-api
+  name: Oracle Eloqua Accounts API
+  description: Manage account records and groups
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-activity-exports-api
+  name: Oracle Eloqua Activity Exports API
+  description: Export activity data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Activity Exports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-activity-exports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-activity-imports-api
+  name: Oracle Eloqua Activity Imports API
+  description: Import activity data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Activity Imports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-activity-imports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-campaigns-api
+  name: Oracle Eloqua Campaigns API
+  description: Create and manage marketing campaigns
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-campaigns-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contact-exports-api
+  name: Oracle Eloqua Contact Exports API
+  description: Export contact data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contact Exports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contact-exports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contact-fields-api
+  name: Oracle Eloqua Contact Fields API
+  description: Retrieve available contact fields for mapping
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contact Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contact-fields-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contact-imports-api
+  name: Oracle Eloqua Contact Imports API
+  description: Import contact data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contact Imports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contact-imports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contact-lists-api
+  name: Oracle Eloqua Contact Lists API
+  description: Create and manage contact lists
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contact Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contact-lists-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contact-segments-api
+  name: Oracle Eloqua Contact Segments API
+  description: Create and manage contact segments
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contact Segments
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contact-segments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-contacts-api
+  name: Oracle Eloqua Contacts API
+  description: Manage contact records and data
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-custom-object-exports-api
+  name: Oracle Eloqua Custom Object Exports API
+  description: Export custom object data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Custom Object Exports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-custom-object-exports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-custom-object-imports-api
+  name: Oracle Eloqua Custom Object Imports API
+  description: Import custom object data in bulk
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Custom Object Imports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-custom-object-imports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-custom-objects-api
+  name: Oracle Eloqua Custom Objects API
+  description: Manage custom object definitions and data
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Custom Objects
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-custom-objects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-emails-api
+  name: Oracle Eloqua Emails API
+  description: Create and manage email assets
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Emails
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-emails-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-forms-api
+  name: Oracle Eloqua Forms API
+  description: Create and manage forms and form data
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-forms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-landing-pages-api
+  name: Oracle Eloqua Landing Pages API
+  description: Create and manage landing pages
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Landing Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-landing-pages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-programs-api
+  name: Oracle Eloqua Programs API
+  description: Create and manage automation programs
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-programs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-syncs-api
+  name: Oracle Eloqua Syncs API
+  description: Manage data synchronization operations
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Syncs
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-syncs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+- aid: eloqua:eloqua-users-api
+  name: Oracle Eloqua Users API
+  description: Manage system users
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
 common:
   - type: AgenticAccess
     url: agentic-access/eloqua-agentic-access.yml
