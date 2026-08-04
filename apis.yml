@@ -340,6 +340,16 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
 common:
+  - type: GitHubOrganization
+    url: https://github.com/oracle
+  - type: Website
+    url: https://www.oracle.com/cx/marketing/automation/
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
+  - type: Pricing
+    url: https://www.oracle.com/cx/marketing/automation/
+  - type: SignUp
+    url: https://login.eloqua.com/
   - type: AgenticAccess
     url: agentic-access/eloqua-agentic-access.yml
   - type: DomainSecurity
