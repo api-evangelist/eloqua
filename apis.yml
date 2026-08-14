@@ -24,9 +24,15 @@ tags:
   - Email Marketing
   - Lead Management
   - Marketing Automation
+  - Campaign Management
+  - Bulk Data
+  - Landing Pages
+  - Forms
+  - Reporting
+  - B2B Marketing
 url: https://www.oracle.com/marketingcloud/products/marketing-automation/
 created: '2025-01-01'
-modified: '2026-05-19'
+modified: '2026-08-13'
 position: Consumer
 access: 3rd-Party
 specificationVersion: '0.19'
@@ -44,7 +50,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-account-fields-api
   name: Oracle Eloqua Account Fields API
   description: Retrieve available account fields for mapping
@@ -58,7 +64,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-account-imports-api
   name: Oracle Eloqua Account Imports API
   description: Import account data in bulk
@@ -72,7 +78,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-accounts-api
   name: Oracle Eloqua Accounts API
   description: Manage account records and groups
@@ -86,7 +92,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-activity-exports-api
   name: Oracle Eloqua Activity Exports API
   description: Export activity data in bulk
@@ -100,7 +106,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-activity-imports-api
   name: Oracle Eloqua Activity Imports API
   description: Import activity data in bulk
@@ -114,7 +120,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-campaigns-api
   name: Oracle Eloqua Campaigns API
   description: Create and manage marketing campaigns
@@ -128,7 +134,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-exports-api
   name: Oracle Eloqua Contact Exports API
   description: Export contact data in bulk
@@ -142,7 +148,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-fields-api
   name: Oracle Eloqua Contact Fields API
   description: Retrieve available contact fields for mapping
@@ -156,7 +162,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-imports-api
   name: Oracle Eloqua Contact Imports API
   description: Import contact data in bulk
@@ -170,7 +176,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-lists-api
   name: Oracle Eloqua Contact Lists API
   description: Create and manage contact lists
@@ -184,7 +190,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-segments-api
   name: Oracle Eloqua Contact Segments API
   description: Create and manage contact segments
@@ -198,7 +204,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contacts-api
   name: Oracle Eloqua Contacts API
   description: Manage contact records and data
@@ -212,7 +218,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-object-exports-api
   name: Oracle Eloqua Custom Object Exports API
   description: Export custom object data in bulk
@@ -226,7 +232,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-object-imports-api
   name: Oracle Eloqua Custom Object Imports API
   description: Import custom object data in bulk
@@ -240,7 +246,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-objects-api
   name: Oracle Eloqua Custom Objects API
   description: Manage custom object definitions and data
@@ -254,7 +260,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-emails-api
   name: Oracle Eloqua Emails API
   description: Create and manage email assets
@@ -268,7 +274,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-forms-api
   name: Oracle Eloqua Forms API
   description: Create and manage forms and form data
@@ -282,7 +288,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-landing-pages-api
   name: Oracle Eloqua Landing Pages API
   description: Create and manage landing pages
@@ -296,7 +302,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-programs-api
   name: Oracle Eloqua Programs API
   description: Create and manage automation programs
@@ -310,7 +316,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-syncs-api
   name: Oracle Eloqua Syncs API
   description: Manage data synchronization operations
@@ -324,7 +330,7 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-users-api
   name: Oracle Eloqua Users API
   description: Manage system users
@@ -338,7 +344,34 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+- aid: eloqua:eloqua-published-rest-api
+  name: Oracle Eloqua REST API (Oracle-published contract)
+  description: >-
+    Oracle's own published machine-readable contract for the Eloqua Marketing Cloud Service REST
+    APIs, harvested verbatim from the Swagger document its REST reference links from index.html.
+    A single Swagger 2.0 document covering all three families - Application API 1.0/2.0, Bulk API
+    2.0 and Reporting API 1.0 - with 459 paths, 649 operations, 365 definitions and 136 tags.
+    info.version 2026.08.07.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application API
+  - Bulk API
+  - Reporting API
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-published-swagger.json
+  - type: Overlay
+    url: overlays/eloqua-published-swagger-overlay.yaml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/oracle
@@ -346,8 +379,6 @@ common:
     url: https://www.oracle.com/cx/marketing/automation/
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
-  - type: Pricing
-    url: https://www.oracle.com/cx/marketing/automation/
   - type: SignUp
     url: https://login.eloqua.com/
   - type: AgenticAccess
@@ -361,7 +392,7 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/eloqua
   - type: GettingStarted
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/GettingStarted.html
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Application.html
   - type: Authentication
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
   - type: Support
@@ -370,8 +401,42 @@ common:
     url: https://www.oracle.com/legal/terms.html
   - type: PrivacyPolicy
     url: https://www.oracle.com/legal/privacy/
-  - type: SDKs
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: DeveloperPortal
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
+  - type: Packages
+    url: packages/eloqua-packages.yml
+  - type: LLMsTxt
+    url: llms/eloqua-llms.txt
+  - type: Overlay
+    url: overlays/eloqua-published-swagger-overlay.yaml
+  - type: Conformance
+    url: conformance/eloqua-conformance.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/eloqua-lifecycle.yml
+  - type: StatusPage
+    url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+  - type: Conventions
+    url: conventions/eloqua-conventions.yml
+  - type: ChangeLog
+    url: changelog/eloqua-changelog.yml
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Plans
+    url: plans/eloqua-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/eloqua-rate-limits.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
