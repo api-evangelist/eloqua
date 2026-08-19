@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk Account Exports Contacts API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Search contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/contacts",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              },
+              {
+                "name": "lastUpdatedAt",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp to filter entities updated after this time"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of contacts matching the specified search criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "viewId",
+                "value": "",
+                "type": "query",
+                "description": "The contact view identifier to use"
+              }
+            ]
+          },
+          "docs": "Retrieve a single contact record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing contact record."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a contact record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Get contact list membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/contact/:id/membership",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve the contact lists to which a contact belongs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

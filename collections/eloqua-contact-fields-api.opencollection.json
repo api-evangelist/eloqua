@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk Account Exports Contact Fields API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contact Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List contact fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/contacts/fields",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Starting index for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve all available contact fields for use in export and import field mappings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

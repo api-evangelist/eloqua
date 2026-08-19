@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk Account Exports Accounts API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Search accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/accounts",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of account records matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/account/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single account record by its identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Get account group membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/data/account/:id/membership",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Retrieve the account groups to which an account belongs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

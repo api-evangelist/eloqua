@@ -1,0 +1,196 @@
+{
+  "item": [
+    {
+      "id": "27276bc4-bcb2-4702-83a1-3dfcbf155e43",
+      "name": "Account Fields",
+      "description": {
+        "content": "Retrieve available account fields for mapping",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36dc054a-f895-41b5-9669-78d307c46662",
+          "name": "Oracle Eloqua List account fields",
+          "request": {
+            "name": "Oracle Eloqua List account fields",
+            "description": {
+              "content": "Retrieve all available account fields for use in export and import field mappings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting index for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bff195c1-d272-4799-b3f8-c1f7f2ceaa29",
+              "name": "Successfully retrieved account fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"uri\": \"string\",\n      \"name\": \"string\",\n      \"internalName\": \"string\",\n      \"dataType\": \"string\",\n      \"hasReadOnlyConstraint\": true,\n      \"hasNotNullConstraint\": true,\n      \"hasUniquenessConstraint\": true,\n      \"statement\": \"string\"\n    },\n    {\n      \"uri\": \"string\",\n      \"name\": \"string\",\n      \"internalName\": \"string\",\n      \"dataType\": \"string\",\n      \"hasReadOnlyConstraint\": true,\n      \"hasNotNullConstraint\": true,\n      \"hasUniquenessConstraint\": false,\n      \"statement\": \"string\"\n    }\n  ],\n  \"totalResults\": 4462,\n  \"limit\": 1219,\n  \"offset\": 7816,\n  \"hasMore\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f655dd80-80af-4cf8-a536-9f6ab6549404",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://secure.p01.eloqua.com/API/Bulk/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f96f052-edd7-480f-bc3e-0a563c031675",
+    "name": "Oracle Eloqua Bulk Account Exports Account Fields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.\n\nContact Support:\n Name: Oracle Support",
+      "type": "text/plain"
+    }
+  }
+}

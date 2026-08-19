@@ -1,26 +1,62 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/eloqua-bulk-openapi.yml, openapi/eloqua-rest-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html,
+  openapi/eloqua-published-swagger.json
+docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  OAuth 2.0 scope surface for Oracle Eloqua. Confirmed against Oracle's own OAuth reference:
+  Eloqua publishes exactly ONE scope value, "full", and it is optional. There is no read/write
+  split, no per-resource scope, and no way for a consumer to request least privilege through
+  OAuth. Authorization is instead enforced by the Eloqua user's security-group permissions,
+  which are configured inside the tenancy and are not expressible in the token request.
+summary:
+  scope_count: 1
+  granularity: all-or-nothing
+  least_privilege_available: false
 schemes:
-- name: oAuth2
-  source: openapi/eloqua-bulk-openapi.yml
-  flows:
-  - flow: authorizationCode
-    authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
-    tokenUrl: https://login.eloqua.com/auth/oauth2/token
-  description: OAuth 2.0 authorization code flow
-- name: oAuth2
-  source: openapi/eloqua-rest-openapi.yml
-  flows:
-  - flow: authorizationCode
-    authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
-    tokenUrl: https://login.eloqua.com/auth/oauth2/token
-  description: OAuth 2.0 authorization code flow
+  - name: oAuth2
+    source: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+        tokenUrl: https://login.eloqua.com/auth/oauth2/token
+      - flow: implicit
+        authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+      - flow: password
+        tokenUrl: https://login.eloqua.com/auth/oauth2/token
+    description: OAuth 2.0 with a single "full" scope
 scopes:
-- scope: full
-  description: Full access to all Eloqua resources
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/eloqua-bulk-openapi.yml
-  - openapi/eloqua-rest-openapi.yml
+  - scope: full
+    description: >-
+      Full access to all Eloqua resources reachable by the authorizing user. Oracle's authorize
+      endpoint documents the scope parameter as "Must be 'full' or not supplied", and marks it
+      optional — omitting it yields the same access.
+    required: false
+    flows:
+      - authorizationCode
+      - implicit
+      - password
+    sources:
+      - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html
+effective_authorization:
+  mechanism: Eloqua security groups and contact-level security, configured per instance
+  note: >-
+    Because the token carries no granularity, what a call can actually do is decided entirely by
+    the authorizing user's permissions. Oracle calls this out for the Bulk API: "Some Eloqua
+    instances enable contact-level security, which restricts access to data based on different
+    user roles... it is important that the Eloqua user accessing the API has the appropriate
+    permissions." Two clients holding identically-scoped tokens can therefore see different data.
+  implication_for_agents: >-
+    An agent cannot narrow its own blast radius through the OAuth grant. Least privilege has to be
+    engineered outside the protocol, by provisioning a dedicated Eloqua user whose security group
+    grants only the required object permissions.
+spec_gap:
+  finding: >-
+    The published Swagger declares no securityDefinitions at all, so the "full" scope appears
+    nowhere in the machine-readable contract. It is documented in prose only.
+cross_links:
+  authentication: authentication/eloqua-authentication.yml
+  agentic_access: agentic-access/eloqua-agentic-access.yml

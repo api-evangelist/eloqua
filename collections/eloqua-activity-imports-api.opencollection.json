@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk Account Exports Activity Imports API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activity Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua Create an activity import definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new import definition for external activities."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Push data to an activity import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/activities/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push data records to be processed by the activity import definition."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

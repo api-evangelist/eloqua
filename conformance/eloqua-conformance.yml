@@ -1,0 +1,121 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/eloqua-published-swagger.json plus
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html,
+  .../APIRequests_URLParameters.html, .../APIRequests_HTTPValidationErrors.html,
+  .../API_Call_Format_Bulk.html
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Cross-cutting standards conformance for the Oracle Eloqua REST APIs, asserted only where
+  Oracle's own published contract or reference documentation carries the evidence.
+summary:
+  conforms: 5
+  does_not_conform: 8
+standards:
+  - id: oauth2
+    name: OAuth 2.0 (RFC 6749)
+    conforms: true
+    evidence: >-
+      Oracle documents the authorization endpoint https://login.eloqua.com/auth/oauth2/authorize
+      and token endpoint https://login.eloqua.com/auth/oauth2/token, and supports the
+      authorization_code, implicit and resource-owner-password-credentials grants with
+      refresh tokens. Documented at
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html
+  - id: oauth2-discovery
+    name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+    conforms: false
+    evidence: >-
+      login.eloqua.com/.well-known/oauth-authorization-server returns 404;
+      secure.p01.eloqua.com returns 200 with an HTML SPA shell, not metadata.
+      See well-known/eloqua-well-known.yml.
+  - id: oidc
+    name: OpenID Connect
+    conforms: false
+    evidence: >-
+      No /.well-known/openid-configuration document on any Eloqua host, and no id_token
+      documented in the OAuth flows. Eloqua's OAuth is authorization only.
+  - id: http-basic
+    name: HTTP Basic Authentication (RFC 7617)
+    conforms: true
+    evidence: >-
+      Documented as a supported (though not recommended) scheme using CompanyName\Username
+      credentials — https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Basic.html
+  - id: odata
+    name: OData query conventions
+    conforms: partial
+    evidence: >-
+      123 operations in the published Swagger — the Reporting API 1.0 family — declare the
+      OData query parameter set $select, $filter, $orderby, $top, $skip, $count and $expand.
+      The Application and Bulk APIs use entirely different, non-OData conventions
+      (page/count and limit/offset respectively), so Eloqua is not OData-conformant
+      provider-wide.
+  - id: rfc9457
+    name: Problem Details for HTTP APIs (RFC 9457 / RFC 7807)
+    conforms: false
+    evidence: >-
+      No operation declares application/problem+json. Errors use a proprietary
+      {type, parameter, requirement, value} envelope plus an ELQ-nnnnn status code set.
+      See errors/eloqua-problem-types.yml.
+  - id: pagination
+    name: Documented pagination
+    conforms: true
+    evidence: >-
+      All three API families document pagination, but with three different conventions:
+      page/count (Application, count capped at 1000), limit/offset with hasMore (Bulk),
+      and $top/$skip (Reporting). Documented at
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_URLParameters.html
+  - id: idempotency
+    name: Idempotency keys for unsafe methods
+    conforms: false
+    evidence: >-
+      No idempotency header, request key or replay semantics documented for any API family.
+  - id: rate-limit-headers
+    name: RateLimit header fields for HTTP (IETF draft)
+    conforms: false
+    evidence: >-
+      429 Too Many Requests is documented, but no RateLimit-*, X-RateLimit-* or Retry-After
+      header is documented on any response.
+  - id: rfc8594
+    name: Sunset HTTP Header Field (RFC 8594)
+    conforms: false
+    evidence: No Sunset or Deprecation header documented; no dated deprecation policy published.
+  - id: openapi
+    name: OpenAPI / Swagger machine-readable contract
+    conforms: true
+    evidence: >-
+      Oracle publishes a Swagger 2.0 document at
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json covering 459
+      paths, 649 operations and 365 definitions across the Application, Bulk and Reporting APIs.
+      It is linked from the reference's own index.html. Caveats: it is Swagger 2.0 rather than
+      OpenAPI 3.x, it declares no securityDefinitions despite the API requiring auth, it names
+      no host/basePath (correct, since Eloqua has no fixed host), it carries zero response
+      examples, and operationIds are not unique — "SearchGETRest20" and
+      "ReadIndividualGETRest20" are reused across dozens of endpoints, which breaks
+      operationId-keyed code generation.
+  - id: asyncapi
+    name: AsyncAPI event contract
+    conforms: false
+    evidence: >-
+      No AsyncAPI document and no published event/streaming contract. The Bulk API's
+      asynchronous staging pattern is polled over HTTP, not evented.
+  - id: json-schema
+    name: JSON Schema component definitions
+    conforms: true
+    evidence: >-
+      365 reusable definitions in the published Swagger, referenced via $ref across
+      responses and request bodies.
+  - id: tls
+    name: TLS transport security
+    conforms: true
+    evidence: >-
+      TLSv1.3 observed on secure.p01.eloqua.com and docs.oracle.com; Oracle documents
+      SSL/TLS with 128-bit and 256-bit cipher support for all API calls. See
+      security/eloqua-domain-security.yml.
+compliance_programs:
+  published: false
+  note: >-
+    No Eloqua-specific trust center, certification list or compliance page was found on the
+    developer surface. Oracle publishes corporate compliance material at the company level,
+    not on the Eloqua API surface, so no type:Compliance pointer is emitted.

@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Eloqua Bulk Account Exports Users API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oracle Eloqua List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/system/users",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return (1-1000)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return (starts at 1)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search criteria for filtering results"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g., createdAt DESC)"
+              }
+            ]
+          },
+          "docs": "Retrieve all system users matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail returned for the entity"
+              }
+            ]
+          },
+          "docs": "Retrieve a single system user by their identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing system user."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Delete a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/system/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Delete a system user by their identifier."
+        },
+        {
+          "info": {
+            "name": "Oracle Eloqua Retrieve current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://secure.p01.eloqua.com/API/Bulk/2.0/system/user/current"
+          },
+          "docs": "Retrieve the currently authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

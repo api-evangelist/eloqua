@@ -1,0 +1,322 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPStatusCodes.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPValidationErrors.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_EloquaStatusCodes.html,
+  openapi/eloqua-published-swagger.json
+docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_EloquaStatusCodes.html
+provider: Oracle Eloqua
+providerId: eloqua
+format: proprietary
+rfc9457: false
+content_type: application/json
+description: >-
+  Error catalog for the Oracle Eloqua Application, Bulk and Reporting REST APIs. Eloqua does NOT
+  use RFC 9457 application/problem+json. It layers three distinct error vocabularies: standard
+  HTTP status codes, a typed JSON validation-error envelope returned on 400, and an ELQ-nnnnn
+  application status code set surfaced primarily through Bulk sync logs and rejects.
+summary:
+  http_status_codes: 10
+  validation_error_types: 20
+  eloqua_status_codes: 84
+  operations_with_error_responses: 526
+
+envelope:
+  description: >-
+    A failed validation returns a 400 with a typed JSON body naming the offending parameter and
+    the requirement it violated.
+  fields:
+    type: Error type, e.g. EndpointParameterError or ObjectValidationError
+    parameter: Name of the offending request parameter
+    requirement: Nested object naming the violated requirement
+    value: The rejected value
+  example: |
+    {
+      "type":"EndpointParameterError",
+      "parameter":"id",
+      "requirement":{
+        "type":"IdRequirement",
+        "isRelativeAllowed":false
+      },
+      "value":"sandwich"
+    }
+
+http_status_codes:
+  - status: 400
+    title: "Bad Request"
+    remediation: "Parsing error, missing reference, serialization error, or a validation error. See validation_error_types."
+    spec_occurrences: 526
+  - status: 401
+    title: "Login required / Unauthorized"
+    remediation: "Credentials or access token missing, expired or invalid. Oracle instructs clients to re-call https://login.eloqua.com/id on a 401 to distinguish an invalidated credential from a data-center move."
+    spec_occurrences: 526
+  - status: 403
+    title: "Forbidden"
+    remediation: "Also returned as 'This service has not been enabled for your site.', 'XSRF Protection Failure', and 'Eloqua Analyzer license is required' (Reporting API)."
+    spec_occurrences: 526
+  - status: 404
+    title: "Not Found"
+    remediation: "The requested resource was not found."
+    spec_occurrences: 525
+  - status: 409
+    title: "Conflict"
+    remediation: "Name collision with another asset, or a delete blocked by dependencies."
+    spec_occurrences: 188
+  - status: 410
+    title: "Gone"
+    remediation: "The requested resource is no longer available. Present on 179 operations in the published spec."
+    spec_occurrences: 179
+  - status: 412
+    title: "Precondition Failed"
+    remediation: "The resource you are attempting to delete has dependencies and cannot be deleted; also used for storage-space conditions."
+    spec_occurrences: 179
+  - status: 413
+    title: "Payload Too Large"
+    remediation: "Storage space exceeded."
+    spec_occurrences: 179
+  - status: 429
+    title: "Too Many Requests"
+    remediation: "Rate limited. No RateLimit-* or Retry-After header is documented; see rate-limits/eloqua-rate-limits.yml."
+  - status: 500
+    title: "Internal Server Error"
+    remediation: "The service has encountered an error."
+    spec_occurrences: 524
+  - status: 502
+    title: "Bad Gateway"
+  - status: 503
+    title: "Service Unavailable"
+    remediation: "Temporary server error or a timeout processing the request. Oracle's documented remediation is to check Eloqua System Status and retry with increasing delay."
+    spec_occurrences: 179
+  - status: 301
+    title: "Login required"
+    remediation: "Documented by Oracle among API status responses."
+  - status: 304
+    title: "Not Modified"
+
+validation_error_types:
+  - type: EndpointParameterError
+    meaning: "Caused by incorrect input parameters."
+  - type: BooleanRequirement
+    meaning: "The value must be either \"true\" or \"false\"."
+  - type: ContentRequirement
+    meaning: "The content supplied is blacklisted."
+  - type: DateRequirement
+    meaning: "The value must be a proper date."
+  - type: IdRequirement
+    meaning: "The value must be an integer greater than 0."
+  - type: ImmutabilityRequirement
+    meaning: "The value cannot be changed once it has been set."
+  - type: IntegerRequirement
+    meaning: "The value should be an integer."
+  - type: NoDuplicatesRequirement
+    meaning: "There is a duplicate value supplied in the request."
+  - type: NotNullRequirement
+    meaning: "The value cannot be null or missing."
+  - type: ObjectValidationError
+    meaning: "A problem with one of the properties on the object."
+  - type: TextWithNoUrlRequirement
+    meaning: "The value must not contain URLs."
+  - type: TextWithNoHtmlRequirement
+    meaning: "The value must not contain HTML."
+  - type: EmailAddressRequirement
+    meaning: "The value must contain an email address."
+  - type: ValidTextLengthRequirement
+    meaning: "The value does not contain a valid number of characters."
+  - type: RelationshipRequirement
+    meaning: "A relationship between two objects or related properties has not been met."
+  - type: SyntaxRequirement
+    meaning: "The HTML is not valid or could not be parsed."
+  - type: UniquenessRequirement
+    meaning: "The supplied name is not unique."
+  - type: UrlRequirement
+    meaning: "The supplied value should be a valid url."
+
+eloqua_status_codes:
+  description: >-
+    Application-level status codes returned alongside HTTP status codes, principally in Bulk API
+    sync logs (GET /api/bulk/2.0/syncs/{id}/logs) and rejects (.../rejects). Many are
+    informational counters rather than failures.
+  codes:
+    - code: ELQ-00001
+      message: "Total records processed."
+    - code: ELQ-00002
+      message: "Invalid email addresses."
+    - code: ELQ-00003
+      message: "Total records remaining after duplicates are rejected."
+    - code: ELQ-00004
+      message: "Contacts created."
+    - code: ELQ-00005
+      message: "Accounts created."
+    - code: ELQ-00007
+      message: "CustomObject data created."
+    - code: ELQ-00011
+      message: "Duplicate email addresses."
+    - code: ELQ-00012
+      message: "CustomObject data updated."
+    - code: ELQ-00013
+      message: "Contacts deleted."
+    - code: ELQ-00014
+      message: "Accounts deleted."
+    - code: ELQ-00016
+      message: "Contacts email marked as bounced."
+    - code: ELQ-00017
+      message: "Contacts email marked as unsubscribed."
+    - code: ELQ-00022
+      message: "Contacts updated."
+    - code: ELQ-00023
+      message: "Accounts updated."
+    - code: ELQ-00025
+      message: "CustomObject data linked."
+    - code: ELQ-00026
+      message: "Duplicate identifier."
+    - code: ELQ-00032
+      message: "Malformed records."
+    - code: ELQ-00033
+      message: "Email addresses created."
+    - code: ELQ-00034
+      message: "Total unmatched records."
+    - code: ELQ-00035
+      message: "Email addresses updated."
+    - code: ELQ-00048
+      message: "Contact already exists."
+    - code: ELQ-00049
+      message: "Total new records."
+    - code: ELQ-00055
+      message: "Campaign not found."
+    - code: ELQ-00059
+      message: "Empty records."
+    - code: ELQ-00060
+      message: "Total rejected records."
+    - code: ELQ-00061
+      message: "Rejected records (missing fields)."
+    - code: ELQ-00062
+      message: "Duplicate account linkage."
+    - code: ELQ-00067
+      message: "CustomObject data deleted."
+    - code: ELQ-00068
+      message: "Assets created."
+    - code: ELQ-00069
+      message: "Activities created."
+    - code: ELQ-00070
+      message: "Activity Type not found."
+    - code: ELQ-00072
+      message: "Asset Type not found."
+    - code: ELQ-00077
+      message: "Event data created."
+    - code: ELQ-00078
+      message: "Event data linked."
+    - code: ELQ-00079
+      message: "Event data updated."
+    - code: ELQ-00080
+      message: "Event data deleted."
+    - code: ELQ-00081
+      message: "Event data rejected."
+    - code: ELQ-00082
+      message: "Added members to program canvas step {stepId}."
+    - code: ELQ-00084
+      message: "Opportunity does not exist."
+    - code: ELQ-00085
+      message: "Contact does not exist."
+    - code: ELQ-00101
+      message: "Sync processed for sync {syncId}, resulting in {status} status."
+    - code: ELQ-00102
+      message: "Successfully exported members to csv file."
+    - code: ELQ-00103
+      message: "Membership snapshot for export."
+    - code: ELQ-00104
+      message: "Successfully converted file {file} ({kbUsed} kb) with {converter} converter."
+    - code: ELQ-00105
+      message: "Error processing import staging file {file} on sync {syncId} for user {userId}."
+      remediation: "Delete data from staging area for the definition, re-upload data, and sync. If the same error occurs again you can submit an SR to investigate."
+    - code: ELQ-00106
+      message: "Successfully converted csv file to sqlite, taking {kbUsed} kb."
+    - code: ELQ-00107
+      message: "There was an error processing the {type}."
+      remediation: "Delete data from staging area for the definition, re-upload data, and sync. If the same error occurs again you can submit an SR to investigate."
+    - code: ELQ-00109
+      message: "Unable to convert file {file} with {converter} converter. File will remain locked and will NOT be processed."
+    - code: ELQ-00110
+      message: "Trying to unlock file {file} on import {importId} for user {userId}. File has been {lockedState}."
+    - code: ELQ-00111
+      message: "Field {field} is not part of import definition, and will be ignored."
+    - code: ELQ-00112
+      message: "identifierFieldName"
+      remediation: "{field} must be contained within Fields, if specified."
+    - code: ELQ-00114
+      message: "Added members to Account List {listId}."
+    - code: ELQ-00115
+      message: "Subscribed members to Email Group {groupId}."
+    - code: ELQ-00116
+      message: "Unsubscribed members from Email Group {groupId}."
+    - code: ELQ-00117
+      message: "Removed members from Account List {listId}."
+    - code: ELQ-00118
+      message: "Removed members from Contact List {listId}."
+    - code: ELQ-00119
+      message: "Added members to Contact List {listId}."
+    - code: ELQ-00120
+      message: "Updated members status to {status} in Cloud Connector Instance {instanceId}."
+    - code: ELQ-00121
+      message: "Field {field} is part of import definition, but not included in file {file}."
+    - code: ELQ-00122
+      message: "Validation errors found on sync {syncId} for user {userId}. Sync will NOT proceed."
+      remediation: "This indicates there is a validation error with the definition, for which more details on the validation error are provided in the log message. Restart from the beginning with creating a new valid definition."
+    - code: ELQ-00123
+      message: "identifierField"
+      remediation: "will be ignored since Activities are never updated."
+    - code: ELQ-00124
+      message: "There was no data available to process."
+    - code: ELQ-00125
+      message: "Constraint failed."
+    - code: ELQ-00126
+      message: "There are no fields to process in the file {file}."
+    - code: ELQ-00127
+      message: "There are no mapped fields in the file {file}."
+    - code: ELQ-00128
+      message: "Updated members status to {status} in service instance {instanceML}."
+    - code: ELQ-00129
+      message: "Initialized internal staging for data transfer."
+    - code: ELQ-00130
+      message: "Total records staged for import."
+    - code: ELQ-00131
+      message: "Deleted internal staging for data transfer."
+    - code: ELQ-00132
+      message: "Campaign not active."
+    - code: ELQ-00133
+      message: "Unable to lock file."
+    - code: ELQ-00134
+      message: "Successfully locked file."
+    - code: ELQ-00135
+      message: "Multiple matched record limit exceeded."
+    - code: ELQ-00136
+      message: "Staging area storage limit exceeded."
+    - code: ELQ-00137
+      message: "Ready for data import processing."
+    - code: ELQ-00138
+      message: "Contacts email marked as subscribed."
+    - code: ELQ-00139
+      message: "Error staging data for sync actions."
+      remediation: "Delete data from staging area for the definition, re-upload data, and sync. If the same error occurs again you can submit an SR to investigate."
+    - code: ELQ-00140
+      message: "Records staged for sync actions."
+      remediation: "This is an informational message indicating the number of records staged."
+    - code: ELQ-00141
+      message: "Error when exporting members to csv file."
+    - code: ELQ-00142
+      message: "Error when exporting members to csv file. Retrying."
+    - code: ELQ-00143
+      message: "Sync Recovery Worker could not recover from sync error. {syncProductType} definition for id {syncReferenceId} has been deleted."
+      remediation: "This indicates the definition was deleted before the sync completed. Restart from the beginning and be sure to not delete the definition before the sync completes."
+    - code: ELQ-00144
+      message: "Total records with rejected fields."
+    - code: ELQ-00145
+      message: "The request failed and will be retried automatically in the specified time."
+    - code: ELQ-00146
+      message: "The sync failed because of a temporary error."
+      remediation: "Retry the sync after an hour. If the same error occurs again you can submit an SR to investigate."
+
+cross_links:
+  conventions: conventions/eloqua-conventions.yml
+  rate_limits: rate-limits/eloqua-rate-limits.yml
+  lifecycle: lifecycle/eloqua-lifecycle.yml

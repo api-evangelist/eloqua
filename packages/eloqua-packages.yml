@@ -1,0 +1,106 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Registry queries against registry.npmjs.org, pypi.org/pypi, rubygems.org/api/v1,
+  the npm search API, and the GitHub repository search API; plus the Oracle Eloqua
+  REST API reference at https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Client library inventory for the Oracle Eloqua Application, Bulk and Reporting REST APIs.
+  Oracle publishes no first-party Eloqua client library on any public package registry — every
+  package below is community-maintained. This is a load-bearing finding: the Eloqua REST contract
+  itself is current (Oracle's published Swagger carries info.version 2026.08.07), while the most
+  widely installed community client last shipped in 2024 and the rest are 6-13 years stale.
+summary:
+  official_count: 0
+  community_count: 6
+  registries_checked:
+    - npm
+    - pypi
+    - rubygems
+    - github
+  finding: >-
+    No Oracle-published Eloqua SDK exists on npm, PyPI, RubyGems, Maven Central, NuGet,
+    pkg.go.dev, Packagist or crates.io. The docs link that previously implied one
+    (https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/SDKs.html) is a soft 404 —
+    Oracle Help Center answers HTTP 200 with the generic "Oracle Marketing - Get Started"
+    shell for any unknown path under that book, so a 200 there is not a document.
+packages:
+  - name: eloqua
+    registry: npm
+    url: https://www.npmjs.com/package/eloqua
+    repository: https://github.com/MadKudu/node-eloqua
+    language: javascript
+    official: false
+    version: 1.3.7
+    published: '2024-01-03'
+    note: >-
+      Community Node wrapper maintained by MadKudu. The most recently published Eloqua client
+      on any registry, and still 2.5 years behind the current published contract.
+  - name: eloqua-sdk
+    registry: npm
+    url: https://www.npmjs.com/package/eloqua-sdk
+    language: javascript
+    official: false
+    version: 1.2.1
+    published: '2019-04-19'
+    note: >-
+      Names itself "SDK to interact with Oracle Eloqua API" but is not published by Oracle.
+      Abandoned since 2019.
+  - name: eloqua-rest-api
+    registry: npm
+    url: https://www.npmjs.com/package/eloqua-rest-api
+    language: javascript
+    official: false
+    version: 1.0.18
+    published: '2019-12-23'
+    note: Community REST client. Abandoned since 2019.
+  - name: eloqua-api
+    registry: npm
+    url: https://www.npmjs.com/package/eloqua-api
+    repository: https://github.com/PaaBliiTo/eloqua-api
+    language: javascript
+    official: false
+    version: 1.0.1
+    published: '2018-12-03'
+    note: Community helper module. Abandoned since 2018.
+  - name: pyeloqua
+    registry: pypi
+    url: https://pypi.org/project/pyeloqua/
+    repository: https://github.com/colemanja91/pyeloqua
+    language: python
+    official: false
+    version: 0.5.11
+    published: '2018-11-09'
+    note: >-
+      The de-facto Python client for the Bulk API. Community maintained, abandoned since 2018.
+  - name: eloqua
+    registry: rubygems
+    url: https://rubygems.org/gems/eloqua
+    language: ruby
+    official: false
+    version: 1.2.4
+    published: '2013-02-21'
+    note: >-
+      Ruby gem targeting the legacy Eloqua SOAP API, not the REST contract profiled here.
+      Last release 2013.
+absent_registries:
+  - registry: maven-central
+    version: null
+    note: No Oracle-published Eloqua artifact found; searched for eloqua coordinates.
+  - registry: nuget
+    version: null
+    note: >-
+      No Oracle-published Eloqua package. Community C# clients exist only as GitHub source
+      (fredsakr/eloqua-csharp-rest-client, fredsakr/eloqua-csharp-sdk), never packaged.
+  - registry: go
+    version: null
+    note: >-
+      No Oracle module. Community library CleverTouch/go-eloqua is GitHub-source only.
+  - registry: packagist
+    version: null
+    note: No Oracle-published PHP package found.
+  - registry: crates.io
+    version: null
+    note: No Rust client found.

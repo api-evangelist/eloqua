@@ -1,0 +1,1004 @@
+{
+  "item": [
+    {
+      "id": "b0479413-3c10-40c2-ad56-530f75c2867b",
+      "name": "Account Imports",
+      "description": {
+        "content": "Import account data in bulk",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04d9270e-96de-4480-b18c-e56d3f377182",
+          "name": "Oracle Eloqua List account import definitions",
+          "request": {
+            "name": "Oracle Eloqua List account import definitions",
+            "description": {
+              "content": "Retrieve all account import definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "imports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Starting index for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc55e045-a740-41b7-8cdd-021477490c7c",
+              "name": "Successfully retrieved account imports",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"identifierFieldName\": \"string\",\n      \"uri\": \"string\",\n      \"isSyncTriggeredOnImport\": false,\n      \"syncActions\": [\n        {\n          \"action\": \"setStatus\",\n          \"destination\": \"string\",\n          \"status\": \"string\"\n        },\n        {\n          \"action\": \"remove\",\n          \"destination\": \"string\",\n          \"status\": \"string\"\n        }\n      ],\n      \"dataRetentionDuration\": \"string\",\n      \"isUpdatingMultipleMatchedRecords\": false,\n      \"autoDeleteDuration\": \"string\",\n      \"createdAt\": \"1997-01-16T04:10:30.949Z\",\n      \"updatedAt\": \"1949-11-01T05:57:15.327Z\",\n      \"syncedInstanceUri\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": \"string\"\n      },\n      \"identifierFieldName\": \"string\",\n      \"uri\": \"string\",\n      \"isSyncTriggeredOnImport\": false,\n      \"syncActions\": [\n        {\n          \"action\": \"remove\",\n          \"destination\": \"string\",\n          \"status\": \"string\"\n        },\n        {\n          \"action\": \"setStatus\",\n          \"destination\": \"string\",\n          \"status\": \"string\"\n        }\n      ],\n      \"dataRetentionDuration\": \"string\",\n      \"isUpdatingMultipleMatchedRecords\": false,\n      \"autoDeleteDuration\": \"string\",\n      \"createdAt\": \"1996-04-06T12:57:32.951Z\",\n      \"updatedAt\": \"2001-04-26T12:20:53.241Z\",\n      \"syncedInstanceUri\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"totalResults\": 3629,\n  \"limit\": 9652,\n  \"offset\": 4330,\n  \"hasMore\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5e1b7f8-8d0a-478e-afd7-abb9194e8744",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b7b9ce4-9854-43f2-8aeb-afb5e745a3ff",
+          "name": "Oracle Eloqua Create an account import definition",
+          "request": {
+            "name": "Oracle Eloqua Create an account import definition",
+            "description": {
+              "content": "Create a new import definition for accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "imports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"identifierFieldName\": \"<string>\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"<string>\",\n      \"destination\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"action\": \"<string>\",\n      \"destination\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"dataRetentionDuration\": \"<string>\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "712fce90-2f0f-45c7-bbbd-66c0b8c1ee8a",
+              "name": "Account import definition created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identifierFieldName\": \"<string>\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"dataRetentionDuration\": \"<string>\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields\": {\n    \"key_0\": \"string\"\n  },\n  \"identifierFieldName\": \"string\",\n  \"uri\": \"string\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"add\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"action\": \"add\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"dataRetentionDuration\": \"string\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"string\",\n  \"createdAt\": \"1981-03-07T14:27:57.622Z\",\n  \"updatedAt\": \"1985-12-02T22:21:04.112Z\",\n  \"syncedInstanceUri\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15e69b8b-14c8-4a67-b49c-617550cf458c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identifierFieldName\": \"<string>\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"dataRetentionDuration\": \"<string>\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1db89df-4fb3-4cfb-9119-ad07a266aa94",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identifierFieldName\": \"<string>\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"action\": \"setStatus\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"dataRetentionDuration\": \"<string>\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07ca5215-db7b-4ab6-ba4d-1b841c8b3b6f",
+          "name": "Oracle Eloqua Retrieve an account import definition",
+          "request": {
+            "name": "Oracle Eloqua Retrieve an account import definition",
+            "description": {
+              "content": "Retrieve a specific account import definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "imports",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52a05cdc-18df-4d78-9ce9-edcd8df003d9",
+              "name": "Successfully retrieved account import",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields\": {\n    \"key_0\": \"string\"\n  },\n  \"identifierFieldName\": \"string\",\n  \"uri\": \"string\",\n  \"isSyncTriggeredOnImport\": false,\n  \"syncActions\": [\n    {\n      \"action\": \"add\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"action\": \"add\",\n      \"destination\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"dataRetentionDuration\": \"string\",\n  \"isUpdatingMultipleMatchedRecords\": false,\n  \"autoDeleteDuration\": \"string\",\n  \"createdAt\": \"1981-03-07T14:27:57.622Z\",\n  \"updatedAt\": \"1985-12-02T22:21:04.112Z\",\n  \"syncedInstanceUri\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "226b5174-fb82-4ca7-8ae4-d1cd98b5a42d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d1f7dbb-728d-4690-9458-6398760717f6",
+              "name": "Import definition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca9fe90d-a6d4-4cf7-8b15-f53440c219f2",
+          "name": "Oracle Eloqua Delete an account import definition",
+          "request": {
+            "name": "Oracle Eloqua Delete an account import definition",
+            "description": {
+              "content": "Delete an account import definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "imports",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29dcd057-87f8-4635-bdea-43d2b98bb61c",
+              "name": "Import definition deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db9ebdc8-030b-4c5a-a557-f64d2559d494",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b76d7cb-9877-4f11-a254-771cb16499b4",
+              "name": "Import definition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6b285c2-e3bd-4eac-b77e-0f8d9099bf9a",
+          "name": "Oracle Eloqua Push data to an account import",
+          "request": {
+            "name": "Oracle Eloqua Push data to an account import",
+            "description": {
+              "content": "Push data records to be processed by the account import definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "imports",
+                ":id",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  {\n    \"key_0\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9553c93-3486-4428-ad03-a8464e395419",
+              "name": "Data pushed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  {\n    \"key_0\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06af3f0e-e376-4aa2-a7e5-66d5e808c9a3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  {\n    \"key_0\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40c27e60-2432-441d-8265-2af0c5e098c4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "imports",
+                    ":id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  {\n    \"key_0\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://secure.p01.eloqua.com/API/Bulk/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e34226c2-0c0f-4cb8-b392-0bb6bf660011",
+    "name": "Oracle Eloqua Bulk Account Exports Account Imports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.\n\nContact Support:\n Name: Oracle Support",
+      "type": "text/plain"
+    }
+  }
+}

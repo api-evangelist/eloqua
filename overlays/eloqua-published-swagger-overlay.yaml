@@ -1,0 +1,163 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Oracle Eloqua published Swagger
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-13'
+  method: generated
+  source: openapi/eloqua-published-swagger.json
+  note: >-
+    Non-destructive enhancement layer over Oracle's published contract. The original at
+    openapi/eloqua-published-swagger.json is never mutated. This overlay records the four gaps
+    that stop the published spec from being usable as a standalone contract — no declared
+    security, no host, no external docs, and no runtime semantics — and supplies them from
+    Oracle's own prose documentation. Values are transcribed from Oracle's docs, never invented.
+    Note: the target document is Swagger 2.0, so the security actions below emit
+    securityDefinitions rather than components.securitySchemes.
+extends: ../openapi/eloqua-published-swagger.json
+actions:
+  - target: $
+    description: >-
+      Declare the authentication the API actually requires. Oracle's published Swagger declares
+      no securityDefinitions and no security requirement on any of its 649 operations, so a
+      generator reading it alone produces unauthenticated clients.
+    update:
+      securityDefinitions:
+        oAuth2:
+          type: oauth2
+          flow: accessCode
+          authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+          tokenUrl: https://login.eloqua.com/auth/oauth2/token
+          description: >-
+            OAuth 2.0 authorization code grant. Oracle's recommended scheme. Client Id and
+            Client Secret are minted in the Eloqua instance under
+            Settings > AppCloud Developer > Create New App.
+          scopes:
+            full: Full access to all Eloqua resources reachable by the authorizing user.
+        basicAuth:
+          type: basic
+          description: >-
+            HTTP Basic using CompanyName\Username and password. Supported but discouraged by
+            Oracle in favour of OAuth 2.0.
+      security:
+        - oAuth2:
+            - full
+        - basicAuth: []
+
+  - target: $
+    description: >-
+      Record that Eloqua has no fixed host, and how the real one is discovered. The published
+      Swagger omits host and basePath entirely — correct, but silent about why.
+    update:
+      x-base-url-discovery:
+        required: true
+        endpoint: https://login.eloqua.com/id
+        method: GET
+        authenticated: true
+        minimum_permission: Advanced Users - Marketing
+        response_fields:
+          - urls.base
+          - urls.apis.rest.standard
+          - urls.apis.rest.bulk
+        pods:
+          - p01
+          - p02
+          - p03
+          - p04
+          - p06
+          - p07
+          - p08
+        caching: Cache for the user's session. Oracle throttles this endpoint.
+        on_401: >-
+          Re-call /id. Success means the instance moved data centers — retry at the new base.
+          Failure means stop calling.
+        docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/DeterminingBaseURL.html
+      x-server-templates:
+        - url: https://{pod}.eloqua.com/API/REST/2.0
+          family: Application API
+        - url: https://{pod}.eloqua.com/api/bulk/2.0
+          family: Bulk API
+        - url: https://{pod}.eloqua.com/api/reporting/1.0
+          family: Reporting API
+
+  - target: $
+    description: Attach the external documentation the reference itself is built from.
+    update:
+      externalDocs:
+        description: Oracle Eloqua REST API reference
+        url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+
+  - target: $
+    description: >-
+      Attach the runtime semantics an agent needs and the spec omits — pagination per family,
+      rate-limit posture, error envelope, and the absence of idempotency.
+    update:
+      x-conventions:
+        source: conventions/eloqua-conventions.yml
+        idempotency:
+          supported: false
+          note: No idempotency key documented. Write retries can duplicate records.
+        pagination:
+          application_api:
+            style: page-number
+            params:
+              - page
+              - count
+            count_max: 1000
+          bulk_api:
+            style: limit-offset
+            params:
+              - limit
+              - offset
+            response_fields:
+              - count
+              - hasMore
+              - items
+              - totalResults
+          reporting_api:
+            style: odata
+            params:
+              - $top
+              - $skip
+              - $count
+        depth:
+          param: depth
+          values:
+            - minimal
+            - partial
+            - complete
+          not_supported_on: Reporting API
+        request_headers:
+          - Content-Type (mandatory on PUT/POST)
+          - Accept
+          - X-HTTP-Method-Override
+          - X-HTTP-Status-Code-Override
+        rate_limits:
+          headers: none
+          exhaustion_status: 429
+          published_numbers: false
+          source: rate-limits/eloqua-rate-limits.yml
+      x-errors:
+        rfc9457: false
+        envelope:
+          - type
+          - parameter
+          - requirement
+          - value
+        eloqua_status_codes: 84
+        source: errors/eloqua-problem-types.yml
+
+  - target: $
+    description: >-
+      Record the contract-quality defects found in the published document so downstream tooling
+      does not silently mis-bind. These are observations about the original, not edits to it.
+    update:
+      x-contract-notes:
+        operation_id_uniqueness: false
+        operation_id_note: >-
+          operationIds are reused across endpoints — "SearchGETRest20" and
+          "ReadIndividualGETRest20" each appear on dozens of paths. Bind tools by path+method.
+        response_examples: 0
+        security_declared: false
+        spec_version: swagger-2.0
+        contract_version: '2026.08.07'

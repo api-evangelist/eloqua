@@ -1,0 +1,72 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  openapi/eloqua-published-swagger.json (Oracle's published Swagger, info.version 2026.08.07)
+  plus the Oracle Eloqua REST API reference at
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Packaged Agent Skills for the Oracle Eloqua REST APIs. Every operationId referenced below was
+  grepped out of Oracle's own published contract — none is invented. Oracle publishes no skills,
+  AGENTS.md or agent guidance of its own; these are API Evangelist generations grounded in the
+  real spec and the real reference documentation.
+searched_first:
+  - url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+    finding: No provider-published agent skills, AGENTS.md or llms.txt.
+prerequisites:
+  base_url_discovery:
+    required: true
+    endpoint: https://login.eloqua.com/id
+    note: >-
+      Every skill begins by resolving the instance's base URL. Eloqua has no fixed API host and
+      instances move between pods, so a hardcoded host will break for most tenancies.
+  authentication: OAuth 2.0 bearer token (scope "full") or HTTP Basic with CompanyName\Username
+  content_type: application/json — mandatory on PUT and POST
+  idempotency: none available; every skill states the duplication risk explicitly
+skills:
+  - name: eloqua-bulk-contact-export
+    file: eloqua-bulk-contact-export.md
+    api: Bulk API 2.0
+    flow: definition -> sync -> retrieve
+    operations:
+      - GetContactFieldSearch
+      - PostContactExportIndividual
+      - PostSyncIndividual
+      - GetSyncIndividual
+      - GetSyncDataQuery
+      - GetSyncLogSearch
+      - DeleteContactExportDataQuery
+  - name: eloqua-bulk-contact-import
+    file: eloqua-bulk-contact-import.md
+    api: Bulk API 2.0
+    flow: definition -> stage -> sync -> reconcile rejects
+    operations:
+      - GetContactFieldSearch
+      - PostContactImportIndividual
+      - PostContactImportData
+      - PostSyncIndividual
+      - GetSyncIndividual
+      - GetSyncLogSearch
+      - GetSyncRejectSearch
+      - DeleteContactImportData
+  - name: eloqua-campaign-and-email-authoring
+    file: eloqua-campaign-and-email-authoring.md
+    api: Application API 2.0
+    flow: create email asset -> create campaign -> activate -> search
+    operations:
+      - CreateIndividualPOSTRest20
+      - ReadIndividualGETRest20
+      - UpdateIndividualPUTRest20
+      - SearchGETRest20
+      - ActivateIndividualPOSTRest20
+      - DeactivateIndividualPOSTRest20
+    caveat: >-
+      Application API operationIds are NOT unique in Oracle's published spec — the same
+      operationId is reused across dozens of resources. The skill instructs binding by
+      path + method.
+cross_links:
+  conventions: conventions/eloqua-conventions.yml
+  errors: errors/eloqua-problem-types.yml
+  authentication: authentication/eloqua-authentication.yml
+  data_model: data-model/eloqua-data-model.yml

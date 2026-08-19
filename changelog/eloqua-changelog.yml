@@ -1,0 +1,59 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/eloqua-published-swagger.json (info.version), plus probes of
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/ and
+  https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Change-tracking posture for the Oracle Eloqua REST APIs. Oracle publishes no dated, per-release
+  API changelog on the developer surface that a machine can read. What it does publish is a
+  calendar-dated contract: the Swagger document carries info.version as a build date, so the
+  contract itself is the change signal. That is a weaker artifact than a changelog — it tells you
+  the document moved, not what moved inside it — but it is real and it is dated.
+scheme: calendar-dated contract version (YYYY.MM.DD)
+current_version: '2026.08.07'
+current_version_observed: '2026-08-13'
+version_source: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json
+url_versions:
+  - /API/REST/1.0/
+  - /API/REST/2.0/
+  - /api/bulk/2.0/
+  - /api/reporting/1.0/
+entries: []
+entries_note: >-
+  No dated entries[] are recorded because none were found published. Writing invented release
+  notes would be fabrication; an empty list with a stated cause is the honest record.
+dated_changelog_published: false
+probes:
+  - url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json
+    status: 200
+    finding: >-
+      Valid Swagger 2.0, info.version 2026.08.07 — six days old at probe time, so the contract
+      is actively rebuilt.
+  - url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+    status: 403
+    finding: >-
+      Oracle's release announcements and system status live in Oracle Customer Connect, whose
+      Akamai edge refuses non-browser clients. Not machine-readable.
+  - url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/AppCloud/Concepts/whats-new.htm
+    status: 200
+    finding: >-
+      Oracle Help Center soft-404 — answers 200 with the generic "Oracle Marketing - Get Started"
+      shell. No what's-new topic at that path.
+detection_strategy:
+  description: >-
+    Until Oracle publishes a changelog, the only reliable way to detect Eloqua API change is to
+    diff the published Swagger.
+  method: >-
+    Poll https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json, compare
+    info.version, and diff paths/definitions when it moves.
+  baseline_captured: openapi/eloqua-published-swagger.json
+  baseline_shape:
+    paths: 459
+    operations: 649
+    definitions: 365
+    tags: 136
+cross_links:
+  lifecycle: lifecycle/eloqua-lifecycle.yml

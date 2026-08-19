@@ -1,0 +1,1627 @@
+{
+  "item": [
+    {
+      "id": "6c3e2eab-ae59-4ca1-bcc6-59adf901ff93",
+      "name": "Emails",
+      "description": {
+        "content": "Create and manage email assets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34c13d66-fbd4-478f-a14a-775bed7b4fee",
+          "name": "Oracle Eloqua List emails",
+          "request": {
+            "name": "Oracle Eloqua List emails",
+            "description": {
+              "content": "Retrieve all email assets matching the specified criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "emails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>",
+                  "description": "Maximum number of entities to return (1-1000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "depth",
+                  "value": "minimal",
+                  "description": "Level of detail returned for the entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to return (starts at 1)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search criteria for filtering results"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Field to sort results by (e.g., createdAt DESC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastUpdatedAt",
+                  "value": "<integer>",
+                  "description": "Unix timestamp to filter entities updated after this time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3455dede-4e5f-4e43-bd99-4d3808e27ef9",
+              "name": "Successfully retrieved emails",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastUpdatedAt",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"subject\": \"string\",\n      \"senderName\": \"string\",\n      \"senderEmail\": \"DVBOj5wnRHBp@kgMtbzZM.hj\",\n      \"replyToEmail\": \"AscqKIE@kfAisBGSVLRfzgcaYCUxlAqfFBZnixmF.jjx\",\n      \"replyToName\": \"string\",\n      \"previewText\": \"string\",\n      \"htmlContent\": {\n        \"type\": \"string\",\n        \"contentSource\": \"string\"\n      },\n      \"plainText\": \"string\",\n      \"sendPlainTextOnly\": true,\n      \"isTracked\": \"string\",\n      \"currentStatus\": \"string\",\n      \"renderMode\": \"flow\",\n      \"archived\": false,\n      \"folderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"updatedAt\": \"string\",\n      \"createdBy\": \"string\",\n      \"updatedBy\": \"string\",\n      \"depth\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"subject\": \"string\",\n      \"senderName\": \"string\",\n      \"senderEmail\": \"kn3@PYzXdbNlFHiRd.dppo\",\n      \"replyToEmail\": \"w6nGix@PQBxImCyxdjxpudGXZzi.vmch\",\n      \"replyToName\": \"string\",\n      \"previewText\": \"string\",\n      \"htmlContent\": {\n        \"type\": \"string\",\n        \"contentSource\": \"string\"\n      },\n      \"plainText\": \"string\",\n      \"sendPlainTextOnly\": true,\n      \"isTracked\": \"string\",\n      \"currentStatus\": \"string\",\n      \"renderMode\": \"fixed\",\n      \"archived\": true,\n      \"folderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"updatedAt\": \"string\",\n      \"createdBy\": \"string\",\n      \"updatedBy\": \"string\",\n      \"depth\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"page\": 7095,\n  \"pageSize\": 1972,\n  \"total\": 2685\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c47123f-d45e-4d4f-83d4-efefe574bf0c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastUpdatedAt",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c07cffc-c621-42ac-9288-09e77c66b124",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastUpdatedAt",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f0c05b4-1f70-4340-b375-6acdb99ab25f",
+          "name": "Oracle Eloqua Create an email",
+          "request": {
+            "name": "Oracle Eloqua Create an email",
+            "description": {
+              "content": "Create a new email asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4bc76537-8992-4993-b572-51c009501af6",
+              "name": "Email created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"subject\": \"string\",\n  \"senderName\": \"string\",\n  \"senderEmail\": \"iFRcic4k-IU9t@TdDbvNVERNUKAtuYEl.zs\",\n  \"replyToEmail\": \"GRgy@pTxKeXhSQSZPxBXzl.auj\",\n  \"replyToName\": \"string\",\n  \"previewText\": \"string\",\n  \"htmlContent\": {\n    \"type\": \"string\",\n    \"contentSource\": \"string\"\n  },\n  \"plainText\": \"string\",\n  \"sendPlainTextOnly\": false,\n  \"isTracked\": \"string\",\n  \"currentStatus\": \"string\",\n  \"renderMode\": \"flow\",\n  \"archived\": false,\n  \"folderId\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"createdBy\": \"string\",\n  \"updatedBy\": \"string\",\n  \"depth\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a4a7f50-be56-476b-8690-e398b184148f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e313afec-89e6-4627-bb16-05d975a55185",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d365db8-94bd-49c8-8320-3c0273ed7ca3",
+          "name": "Oracle Eloqua Retrieve an email",
+          "request": {
+            "name": "Oracle Eloqua Retrieve an email",
+            "description": {
+              "content": "Retrieve a single email asset by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "depth",
+                  "value": "minimal",
+                  "description": "Level of detail returned for the entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "noMergeContent",
+                  "value": "true",
+                  "description": "Whether email components are dynamically populated"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00339816-9822-4e96-b11a-45bd2749e1bf",
+              "name": "Successfully retrieved email",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "noMergeContent",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"subject\": \"string\",\n  \"senderName\": \"string\",\n  \"senderEmail\": \"iFRcic4k-IU9t@TdDbvNVERNUKAtuYEl.zs\",\n  \"replyToEmail\": \"GRgy@pTxKeXhSQSZPxBXzl.auj\",\n  \"replyToName\": \"string\",\n  \"previewText\": \"string\",\n  \"htmlContent\": {\n    \"type\": \"string\",\n    \"contentSource\": \"string\"\n  },\n  \"plainText\": \"string\",\n  \"sendPlainTextOnly\": false,\n  \"isTracked\": \"string\",\n  \"currentStatus\": \"string\",\n  \"renderMode\": \"flow\",\n  \"archived\": false,\n  \"folderId\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"createdBy\": \"string\",\n  \"updatedBy\": \"string\",\n  \"depth\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ef38e97-48ae-43d2-9a08-96f80c8e3ab3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "noMergeContent",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7be7f102-907a-442a-a38c-9411d453a778",
+              "name": "Email not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "minimal"
+                    },
+                    {
+                      "key": "noMergeContent",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b668979-f19b-472c-b436-6766cb59b379",
+          "name": "Oracle Eloqua Update an email",
+          "request": {
+            "name": "Oracle Eloqua Update an email",
+            "description": {
+              "content": "Update an existing email asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65ec0ea1-3d1b-4fb2-99c3-df1978b6ee70",
+              "name": "Successfully updated email",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"subject\": \"string\",\n  \"senderName\": \"string\",\n  \"senderEmail\": \"iFRcic4k-IU9t@TdDbvNVERNUKAtuYEl.zs\",\n  \"replyToEmail\": \"GRgy@pTxKeXhSQSZPxBXzl.auj\",\n  \"replyToName\": \"string\",\n  \"previewText\": \"string\",\n  \"htmlContent\": {\n    \"type\": \"string\",\n    \"contentSource\": \"string\"\n  },\n  \"plainText\": \"string\",\n  \"sendPlainTextOnly\": false,\n  \"isTracked\": \"string\",\n  \"currentStatus\": \"string\",\n  \"renderMode\": \"flow\",\n  \"archived\": false,\n  \"folderId\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"createdBy\": \"string\",\n  \"updatedBy\": \"string\",\n  \"depth\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "086117b9-c1a3-4f23-8336-aea624111915",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "074052bf-6048-495e-b8bf-eb347e19e7b5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bf7b0dc-7628-4352-af38-6f10cbe5de53",
+              "name": "Email not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"senderEmail\": \"<email>\",\n  \"replyToEmail\": \"<email>\",\n  \"replyToName\": \"<string>\",\n  \"previewText\": \"<string>\",\n  \"htmlContent\": {\n    \"type\": \"<string>\",\n    \"contentSource\": \"<string>\"\n  },\n  \"plainText\": \"<string>\",\n  \"sendPlainTextOnly\": \"<boolean>\",\n  \"isTracked\": \"<string>\",\n  \"renderMode\": \"<string>\",\n  \"archived\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11f60705-aa09-4675-b179-3fa1670cd1f2",
+          "name": "Oracle Eloqua Delete an email",
+          "request": {
+            "name": "Oracle Eloqua Delete an email",
+            "description": {
+              "content": "Delete an email asset by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e87d235-f58c-4431-a21a-4515af571e8f",
+              "name": "Email deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6db73111-921e-41a8-868c-102f656a3ac1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b227b77-f26f-4c81-ba6b-886fd5d6a445",
+              "name": "Email not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0530492-8ee1-4c18-902e-988690ec2142",
+          "name": "Oracle Eloqua Create an email deployment",
+          "request": {
+            "name": "Oracle Eloqua Create an email deployment",
+            "description": {
+              "content": "Create and send an email deployment to a specified contact list or segment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email",
+                "deployment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"contactList\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"segment\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4265c512-ee87-46d5-801b-4c9b0c40531a",
+              "name": "Email deployment created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"contactList\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"segment\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"email\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"contactList\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"segment\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13b68080-99c2-4638-ac80-9ac73d83ed5e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"contactList\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"segment\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8f35dae-d970-4c19-bf47-b7bb0c955e2d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"contactList\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"segment\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6402e205-4aeb-42ee-bdcf-ff14954f2b23",
+          "name": "Oracle Eloqua Retrieve an email deployment",
+          "request": {
+            "name": "Oracle Eloqua Retrieve an email deployment",
+            "description": {
+              "content": "Retrieve an email deployment by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                "email",
+                "deployment",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dafba1f1-a9fa-4465-a2e1-66f38d03bf7b",
+              "name": "Successfully retrieved email deployment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"email\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"contactList\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"segment\": {\n    \"id\": \"string\",\n    \"type\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5209f5c0-dfcf-4c03-85d3-bcbb17cdd036",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07bd1594-2fc4-4cc8-8e83-9bc63a01f4b7",
+              "name": "Deployment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    "email",
+                    "deployment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://secure.p01.eloqua.com/API/Bulk/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c0c02555-e47d-41ea-a2f3-358bd2d0b91a",
+    "name": "Oracle Eloqua Bulk Account Exports Emails API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.\n\nContact Support:\n Name: Oracle Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -4,7 +4,15 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Oracle Eloqua
 providerId: eloqua
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-08-13'
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPStatusCodes.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/DeterminingBaseURL.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_URLParameters.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPStatusCodes.html
 tags:
   - CRM
   - Email Marketing
@@ -13,81 +21,82 @@ tags:
   - Rate Limiting
   - Quotas
   - Throttling
-description: Machine-readable rate limit definitions for the Oracle Eloqua API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+description: >-
+  Published rate-limit posture for the Oracle Eloqua REST APIs. CORRECTION 2026-08-13 — this file
+  previously carried a scaffold that asserted X-RateLimit-Limit / X-RateLimit-Remaining /
+  X-RateLimit-Reset / RateLimit-Policy response headers. Oracle documents NONE of those headers.
+  They have been removed. What Oracle actually publishes is a 429 status code, a throttling
+  warning on one specific endpoint, and hard page-size caps — nothing more.
+limit_count: 0
+numeric_limits_published: false
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+  note: >-
+    No rate-limit response header of any kind is documented on any Eloqua API family. An agent
+    cannot read remaining budget from a response; it can only react to a 429 after the fact.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
+  throttledMessage: Too Many Requests
+  quotaExceeded: 413
+  quotaExceededMessage: Storage space exceeded.
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Eloqua REST API
-      - Eloqua Bulk API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
+  - scope: endpoint
+    endpoint: https://login.eloqua.com/id
+    window: null
+    limit: null
+    documented: true
+    evidence: >-
+      "There will be throttling or rate-limiting imposed on the /id endpoint to prevent this
+      behavior. Instead, call it once per session (or after a reasonable period of time) and
+      cache the results." — DeterminingBaseURL.html. No number is published.
+  - scope: request
+    api: Application API (REST 1.0 / 2.0)
+    parameter: count
     limit: 1000
-    timeFrame: month
-    applies:
-      - Eloqua REST API
-      - Eloqua Bulk API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Eloqua REST API
-      - Eloqua Bulk API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Eloqua REST API
-      - Eloqua Bulk API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Eloqua REST API
-      - Eloqua Bulk API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+    unit: entities per page
+    documented: true
+    evidence: >-
+      "Any whole number between 1 and 1000 inclusive." — APIRequests_URLParameters.html.
+      This is a hard page-size cap, not a request-rate limit.
+  - scope: account
+    api: Bulk API 2.0
+    window: null
+    limit: null
+    documented: false
+    evidence: >-
+      Oracle's Bulk API getting-started topic refers readers to "The Bulk API Limits
+      documentation" for sizing guidance, but that topic lives in the Oracle Eloqua Developer's
+      Guide (docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/), a MadCap Flare help
+      system whose topic paths are not enumerable — its TOC, sitemap and search index all
+      resolve to the Oracle Help Center's generic 200 shell. The numbers could not be read.
+  - scope: account
+    api: Bulk API 2.0
+    limit_type: staging storage
+    documented: true
+    evidence: >-
+      Storage limits are enforced and surfaced as HTTP 413 "Storage space exceeded." and as
+      ELQ-00136 "Staging area storage limit exceeded." in sync logs. No quota figure published.
+exhaustion_behavior:
+  status: 429
+  retry_after_header: false
+  documented_recovery: >-
+    Oracle publishes retry guidance for 503 (check Eloqua System Status, retry with increasing
+    delay) but no backoff guidance for 429. Bulk sync failures carry their own codes —
+    ELQ-00145 states the request will be retried automatically, and ELQ-00146 instructs a retry
+    after one hour.
+  idempotency_warning: >-
+    Eloqua documents no idempotency key, so a retry after a 429 or 503 on a write is not safe
+    against duplication. See conventions/eloqua-conventions.yml.
+agent_readiness_note: >-
+  Rate-limit signaling is the weakest part of Eloqua's runtime contract. A 429 is documented, so
+  an agent knows the failure mode, but with no headers and no published numbers it has no way to
+  pace itself before hitting the wall or to know how long to wait after it does.
+cross_links:
+  errors: errors/eloqua-problem-types.yml
+  conventions: conventions/eloqua-conventions.yml
+  lifecycle: lifecycle/eloqua-lifecycle.yml

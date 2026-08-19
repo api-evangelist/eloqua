@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: probed
+source: Direct HTTPS probes of every apis.yml baseURL host, OpenAPI servers[] host, and the docs/login hosts
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Probe record for RFC 8615 /.well-known/ discovery surfaces across every Oracle Eloqua host.
+  RESULT: NO well-known document is served on any host. Every path either 404s or answers 200
+  with an HTML application shell (the Eloqua secure pod returns the marketing-app SPA; Oracle
+  Help Center returns its generic "Oracle Marketing - Get Started" template). Per the pipeline
+  rule, none of these 200s is a document, so NO WellKnown or SecurityTxt pointer is emitted
+  into apis.yml.
+result: none
+soft_200_warning: >-
+  secure.p01.eloqua.com answers HTTP 200 with an HTML SPA shell for /.well-known/openid-configuration,
+  /.well-known/oauth-authorization-server and /.well-known/api-catalog. Treating those status codes
+  as evidence would falsely credit Oracle with an OAuth discovery surface it does not publish.
+  Eloqua's OAuth endpoints are documented in prose only — see authentication/eloqua-authentication.yml.
+hosts:
+  - host: secure.p01.eloqua.com
+    role: api-base (apis.yml baseURL + OpenAPI servers[])
+    paths:
+      - path: /.well-known/security.txt
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        content_type: text/html
+        note: HTML SPA shell, not a JSON OpenID Provider Metadata document. Counted as a miss.
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        content_type: text/html
+        note: HTML SPA shell, not RFC 8414 metadata. Counted as a miss.
+        file: null
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        content_type: text/html
+        note: HTML SPA shell, not an RFC 9727 catalog. Counted as a miss.
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        document: false
+        file: null
+  - host: login.eloqua.com
+    role: oauth authorization + token endpoint host, and the /id base-URL discovery endpoint
+    paths:
+      - path: /.well-known/openid-configuration
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/security.txt
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        document: false
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        document: false
+        file: null
+  - host: secure.eloqua.com
+    role: pod-independent API alias documented in the Bulk API call-format topic
+    paths:
+      - path: /.well-known/security.txt
+        status: 404
+        document: false
+        file: null
+  - host: docs.oracle.com
+    role: documentation + published Swagger host
+    paths:
+      - path: /.well-known/security.txt
+        status: 404
+        document: false
+        file: null
+  - host: www.oracle.com
+    role: corporate/product site
+    paths:
+      - path: /.well-known/security.txt
+        status: 403
+        document: false
+        note: Akamai edge returns 403 to non-browser clients; no document retrievable.
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        document: false
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        document: false
+        file: null

@@ -1,28 +1,112 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/eloqua-bulk-openapi.yml, openapi/eloqua-rest-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Basic.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/DeterminingBaseURL.html,
+  openapi/eloqua-published-swagger.json
+docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Authentication profile for the Oracle Eloqua Application, Bulk and Reporting REST APIs, read
+  from Oracle's own published reference. Oracle supports exactly two schemes and states a clear
+  preference: "For security reasons, we recommend authentication using OAuth 2.0."
 summary:
   types:
-  - http
-  - oauth2
+    - oauth2
+    - http
   oauth2_flows:
-  - authorizationCode
+    - authorizationCode
+    - implicit
+    - password
+  preferred: oauth2
+  scope_count: 1
 schemes:
-- name: basicAuth
-  type: http
-  scheme: basic
-  description: HTTP Basic authentication using company\username and password in the format CompanyName\Username.
-  sources:
-  - openapi/eloqua-bulk-openapi.yml
-  - openapi/eloqua-rest-openapi.yml
-- name: oAuth2
-  type: oauth2
-  flows:
-  - flow: authorizationCode
-    authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
-    tokenUrl: https://login.eloqua.com/auth/oauth2/token
-    scopes: 1
-  description: OAuth 2.0 authorization code flow
-  sources:
-  - openapi/eloqua-bulk-openapi.yml
-  - openapi/eloqua-rest-openapi.yml
+  - name: oAuth2
+    type: oauth2
+    preferred: true
+    description: >-
+      OAuth 2.0. Oracle supports three grants — Authorization Code, Implicit, and Resource Owner
+      Password Credentials — and recommends Authorization Code for apps that extend Eloqua.
+      2-legged OAuth is supported for second-party apps and 3-legged for AppCloud apps.
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+        tokenUrl: https://login.eloqua.com/auth/oauth2/token
+        scopes:
+          full: Full access to all Eloqua resources
+        parameters:
+          response_type: Must be "code" (required)
+          client_id: App's Client Id from AppCloud Developer registration (required)
+          redirect_uri: App's registered Callback Url (required)
+          scope: Must be "full" or not supplied (optional)
+          state: Opaque value with meaning for the app (optional)
+      - flow: implicit
+        authorizationUrl: https://login.eloqua.com/auth/oauth2/authorize
+      - flow: password
+        tokenUrl: https://login.eloqua.com/auth/oauth2/token
+    token_endpoint_auth: >-
+      HTTP Basic on the token request, carrying the app's Client Id and Client Secret.
+    refresh_tokens: true
+    credential_provisioning:
+      self_serve: false
+      path: Eloqua instance > Settings > AppCloud Developer > Create New App
+      note: >-
+        Client Id and Client Secret are minted inside an existing Eloqua tenancy. A developer
+        without an Eloqua instance cannot obtain API credentials.
+    request_signing:
+      supported: true
+      docs:
+        - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_oAuthSigning.html
+        - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_ValidatingCallSignature.html
+      note: >-
+        Oracle documents OAuth signing and call-signature validation for AppCloud apps receiving
+        inbound calls from Eloqua.
+    sources:
+      - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html
+  - name: basicAuth
+    type: http
+    scheme: basic
+    preferred: false
+    description: >-
+      HTTP Basic Authentication. The username is qualified with the Eloqua company name using a
+      backslash — CompanyName\Username — base64 encoded with the password. Oracle explicitly
+      discourages it: "if a user changes their password, you will need to obtain the new
+      password. If feasible, use OAuth over basic authentication."
+    sources:
+      - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Basic.html
+      - https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+base_url_dependency:
+  required: true
+  endpoint: https://login.eloqua.com/id
+  description: >-
+    Authentication alone is not enough to call Eloqua. Every authenticated client must first
+    call GET https://login.eloqua.com/id to discover its instance's pod and base URLs. The same
+    credential resolves to a different host per tenancy (p01 through p08), and instances can
+    move between pods.
+  minimum_permission: Advanced Users - Marketing
+  failure_handling: >-
+    A 401 on any API call should trigger a re-call of /id: success means the instance moved and
+    the call should be retried at the new base; failure means stop.
+spec_gap:
+  finding: >-
+    Oracle's published Swagger (docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json)
+    declares NO securityDefinitions and no security requirement on any of its 649 operations,
+    despite every endpoint requiring authentication. The auth contract lives only in prose. A code
+    generator or agent reading the spec alone would produce unauthenticated clients.
+  severity: high
+  remediation: >-
+    Add securityDefinitions for oauth2 (authorizationCode with the documented endpoints) and
+    basic, and a top-level security requirement, to the published Swagger.
+transport_security:
+  tls: required
+  documented: >-
+    "Oracle Eloqua utilizes SSL/TLS with support for 128-bit and 256-bit ciphers to securely
+    transmit traffic in all API calls." — Getting_Started_Bulk.html
+  observed: TLSv1.3 on secure.p01.eloqua.com (see security/eloqua-domain-security.yml)
+cross_links:
+  scopes: scopes/eloqua-scopes.yml
+  conventions: conventions/eloqua-conventions.yml
+  conformance: conformance/eloqua-conformance.yml

@@ -1,0 +1,111 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/index.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPStatusCodes.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Application.html,
+  openapi/eloqua-published-swagger.json
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Versioning, deprecation and operational-transparency posture for the Oracle Eloqua REST APIs,
+  read from Oracle's own published reference and its published Swagger.
+
+versioning:
+  scheme: path-segment major version, per API family
+  families:
+    - name: Application API
+      versions:
+        - '1.0'
+        - '2.0'
+      path: /API/REST/{version}/
+      note: >-
+        Both 1.0 and 2.0 are still present and documented in the current published Swagger.
+        1.0 carries 65 tags, 2.0 the larger share of the asset and data surface. Oracle
+        does not mark 1.0 deprecated in the contract.
+    - name: Bulk API
+      versions:
+        - '2.0'
+      path: /api/bulk/2.0/
+    - name: Reporting API
+      versions:
+        - '1.0'
+      path: /api/reporting/1.0/
+  contract_version:
+    field: info.version
+    value: '2026.08.07'
+    scheme: calendar (YYYY.MM.DD)
+    observed: '2026-08-13'
+    note: >-
+      Oracle versions the published Swagger document by build date, independently of the URL
+      version. This is the only dated release signal Oracle exposes for the API contract, and
+      it was 6 days old when probed — the document is actively maintained.
+  soap_legacy:
+    present: true
+    note: >-
+      The /id discovery response still advertises SOAP service endpoints
+      (Service.svc, DataTransferService.svc, EmailService.svc, ExternalActionService.svc)
+      alongside REST. Those are outside this profile's REST scope.
+
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No RFC 8594 Sunset or Deprecation response header is documented, and no dated deprecation
+    policy page was reachable on the Oracle Help Center. The only deprecation-adjacent signal
+    in the contract is HTTP 410 Gone ("The requested resource is no longer available"),
+    declared on 179 operations in the published Swagger. Because no deprecation POLICY is
+    published, no type:Deprecation pointer is emitted into apis.yml.
+  gone_status_in_contract:
+    status: 410
+    operations: 179
+    description: The requested resource is no longer available.
+  deprecated_operations_in_spec: 0
+  note_on_deprecated_flag: >-
+    No operation in the published Swagger carries the Swagger 2.0 `deprecated: true` flag.
+
+status_page:
+  published: true
+  name: Eloqua System Status
+  url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+  source: >-
+    Linked by Oracle from its own REST API reference — see the 503 guidance on
+    https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPStatusCodes.html
+    ("It's recommended to check Eloqua System Status").
+  probe:
+    url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+    status: 403
+    note: >-
+      Oracle Customer Connect's Akamai edge returns 403 to non-browser clients. The page is
+      genuinely published — Oracle links it from the API reference — but it is not
+      machine-readable, and it sits inside a community platform rather than a dedicated
+      status host with an incident feed or JSON endpoint.
+  machine_readable_feed: false
+
+sla:
+  published: false
+  note: >-
+    No API-specific SLA or uptime commitment is published on the Eloqua developer surface.
+    Oracle Cloud service-level commitments are contractual and live outside the developer docs.
+
+retry_and_recovery:
+  documented: true
+  guidance:
+    - >-
+      503 — temporary server error. Check Eloqua System Status, wait out any planned or
+      unplanned unavailability, then retry with increasing delay between attempts.
+    - >-
+      401 — re-call GET https://login.eloqua.com/id. A success means the instance moved data
+      centers, so retry the call at the new base URL. A failure means stop calling.
+    - >-
+      Bulk sync failure — ELQ-00146 instructs a retry after one hour; ELQ-00145 states the
+      request will be retried automatically.
+  idempotency: >-
+    None documented, so retries are not safe on write operations. See
+    conventions/eloqua-conventions.yml.
+
+support:
+  url: https://support.oracle.com/
+  community: https://community.oracle.com/customerconnect/

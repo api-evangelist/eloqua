@@ -1,0 +1,128 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/eloqua-published-swagger.json
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Candidate Model Context Protocol tool surface derived from Oracle's own published Eloqua
+  Swagger. Oracle ships NO MCP server for Eloqua — hosted or stdio. Nothing below is callable
+  today; these are proposed tool bindings an implementer (Oracle or a third party) could stand
+  up against the real REST contract.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+  note: >-
+    Searched npm (registry search for "eloqua"), PyPI, the Oracle GitHub organization and the
+    Oracle Eloqua REST API reference. No first-party or community MCP server was found, and no
+    MCP endpoint was probed — per the pipeline rule, no endpoint URL is guessed here.
+discovery:
+  probed:
+    - url: https://secure.p01.eloqua.com/.well-known/oauth-protected-resource
+      status: 404
+    - url: https://secure.p01.eloqua.com/.well-known/oauth-authorization-server
+      status: 200
+      note: HTML SPA shell, not RFC 8414 metadata — a miss, not a hit.
+  registries_searched:
+    - npm search API (text=eloqua) — 15 results, none an MCP server
+    - GitHub repository search (eloqua in:name) — 30 results, none an MCP server
+status: candidate
+pointer_suppressed:
+  type: MCPServer
+  reason: >-
+    NO type:MCPServer pointer is emitted into apis.yml. That pointer asserts the provider ships
+    an MCP server, and Oracle does not — this file is a derived candidate with deployment.mode
+    "none". Wiring it would credit Oracle with an agent surface it has never published, the same
+    false-positive pattern that put a WellKnown pointer on 2,169 providers whose own probes
+    record a 404 on every path. Re-emit the pointer only if Oracle publishes a real endpoint or
+    package.
+surfaces:
+  openapi: openapi/eloqua-published-swagger.json
+  operations_total: 649
+  api_families:
+    - name: Application API (REST 1.0 / 2.0)
+      base: https://{pod}.eloqua.com/API/REST/2.0
+      note: Synchronous asset + data management. Not for high-volume data.
+    - name: Bulk API 2.0
+      base: https://{pod}.eloqua.com/api/bulk/2.0
+      note: Three-step async import/export via a staging area.
+    - name: Reporting API 1.0
+      base: https://{pod}.eloqua.com/api/reporting/1.0
+      note: OData-style query surface ($select/$filter/$top/$skip/$orderby/$count/$expand).
+candidate_tools:
+  - tool: eloqua_search_contacts
+    rest:
+      - operationId: SearchContactsSEARCHRest20
+        method: post
+        path: /api/rest/2.0/data/contacts
+    consequence: read
+  - tool: eloqua_get_contact
+    rest:
+      - operationId: ReadIndividualGETRest20
+        method: get
+        path: /api/rest/2.0/data/contact/{id}
+    consequence: read
+  - tool: eloqua_update_contact
+    rest:
+      - operationId: UpdateIndividualPUTRest20
+        method: put
+        path: /api/rest/2.0/data/contact/{id}
+    consequence: write
+  - tool: eloqua_list_campaigns
+    rest:
+      - operationId: SearchGETRest20
+        method: get
+        path: /api/rest/2.0/assets/campaigns
+    consequence: read
+    note: >-
+      operationId collision — Oracle reuses the operationId "SearchGETRest20" across many
+      list endpoints in the published spec, so the path is the only reliable binding key.
+  - tool: eloqua_list_emails
+    rest:
+      - operationId: SearchGETRest20
+        method: get
+        path: /api/rest/2.0/assets/emails
+    consequence: read
+    note: Same operationId collision as above.
+  - tool: eloqua_create_contact_export
+    rest:
+      - operationId: PostContactExportIndividual
+        method: post
+        path: /api/bulk/2.0/contacts/exports
+    consequence: write
+  - tool: eloqua_create_sync
+    rest:
+      - operationId: PostSyncIndividual
+        method: post
+        path: /api/bulk/2.0/syncs
+    consequence: write
+  - tool: eloqua_get_sync
+    rest:
+      - operationId: GetSyncIndividual
+        method: get
+        path: /api/bulk/2.0/syncs/{id}
+    consequence: read
+  - tool: eloqua_get_sync_data
+    rest:
+      - operationId: GetSyncDataQuery
+        method: get
+        path: /api/bulk/2.0/syncs/{id}/data
+    consequence: read
+  - tool: eloqua_get_sync_rejects
+    rest:
+      - operationId: GetSyncRejectSearch
+        method: get
+        path: /api/bulk/2.0/syncs/{id}/rejects
+    consequence: read
+implementation_notes:
+  - >-
+    Any Eloqua MCP server must resolve the caller's pod first. There is no single API host:
+    a client authenticates, calls GET https://login.eloqua.com/id, and reads
+    urls.apis.rest.standard / urls.apis.rest.bulk from the response. Hardcoding
+    secure.p01.eloqua.com will break for instances on p02/p03/p04/p06/p07/p08.
+  - >-
+    Eloqua documents no idempotency key. Any write tool must be marked non-retry-safe or the
+    server must implement its own dedupe.

@@ -1,0 +1,243 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_URLParameters.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_HTTPRequestHeaders.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests_RequestDepth.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/API_Call_Format_Bulk.html,
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/DeterminingBaseURL.html,
+  openapi/eloqua-published-swagger.json
+docs: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/APIRequests.html
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Cross-cutting runtime semantics for the Oracle Eloqua Application, Bulk and Reporting REST
+  APIs, read from Oracle's own published reference. Eloqua is unusual in two respects an agent
+  must handle: there is no fixed API host (the base URL is discovered per instance), and the
+  three API families do not share a pagination or query convention.
+
+base_url_resolution:
+  fixed_host: false
+  discovery_endpoint: https://login.eloqua.com/id
+  method: GET, authenticated (Basic or OAuth 2.0 bearer)
+  returns: urls.base, urls.apis.rest.standard, urls.apis.rest.bulk, urls.apis.soap.*
+  pods:
+    - p01
+    - p02
+    - p03
+    - p04
+    - p06
+    - p07
+    - p08
+  caching: >-
+    Oracle instructs clients to cache the /id response for the duration of the user's session
+    and explicitly warns that the /id endpoint is throttled/rate-limited if called per request.
+  failover: >-
+    Documented behavior — on a 401 from any API call, re-call /id. A success means the instance
+    moved data centers and the call should be retried at the new base; a failure means stop.
+  note: >-
+    Instances can and do move between pods. secure.p01.eloqua.com in this profile's baseURL is
+    an example host from Oracle's docs, not a universal endpoint.
+
+authentication:
+  styles:
+    - oauth2 (authorization_code, implicit, resource owner password credentials)
+    - http basic (CompanyName\Username:password)
+  preferred: oauth2
+  scope_model: single scope, value "full", optional
+  detail: authentication/eloqua-authentication.yml
+
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    Oracle documents no idempotency key, no request-replay semantics and no dedupe token for
+    any of the three API families. Retrying a POST to /api/rest/2.0/data/contact or to a Bulk
+    import staging area can create duplicate records. The Bulk API's own guidance is to design
+    the client for resiliency ("if an item fails to import, can you send it again in 15
+    minutes"), which is retry advice, not an idempotency guarantee. Because there is no
+    idempotency support, NO type:Idempotency pointer is emitted into apis.yml.
+
+pagination:
+  consistent_across_apis: false
+  styles:
+    - api: Application API (REST 1.0 / 2.0)
+      style: page-number
+      params:
+        page: Page of entities to return; defaults to 1. Any positive whole number.
+        count: Maximum entities per page. Whole number 1-1000 inclusive.
+      example: GET [base]/API/REST/2.0/data/contacts?page=3&count=10
+      response_fields:
+        - page
+        - pageSize
+        - total
+        - elements
+    - api: Bulk API 2.0
+      style: limit-offset
+      params:
+        limit: Maximum records to return
+        offset: Records to skip; set offset=limit to fetch the next batch
+      response_fields:
+        - count
+        - hasMore
+        - items
+        - totalResults
+    - api: Reporting API 1.0
+      style: odata
+      params:
+        $top: Maximum records
+        $skip: Records to skip
+        $count: Return a total count
+      note: >-
+        123 operations in the published spec carry the OData query parameter set
+        ($select, $filter, $orderby, $top, $skip, $count, $expand).
+
+filtering_and_sort:
+  - api: Application API
+    search_param: search
+    syntax: search={term}{operator}{value}
+    operators:
+      - '='
+      - '!='
+      - '>'
+      - '<'
+      - '>='
+      - '<='
+    wildcard: "'*' suffix on {value} for partial match"
+    sort_params:
+      sort: property name to sort by
+      dir: asc | desc
+      orderBy: "field plus optional direction, e.g. ?orderBy=createdAt DESC"
+    other:
+      lastUpdatedAt: Unix timestamp filter; also returns deleted assets
+      viewId: Filter Contact/Account data by view
+    note: >-
+      Fields can be searched even when they are not returned at the requested depth.
+  - api: Bulk API
+    search_param: q
+    syntax: q=<term><operator><value>
+    example: name='Email*'
+    sort_params:
+      orderBy: "<term> ASC | DESC"
+  - api: Reporting API
+    search_param: $filter
+    syntax: OData $filter expression
+
+field_expansion:
+  mechanism: depth
+  param: depth
+  values:
+    minimal: >-
+      Entity name, type, id, createdAt, updatedAt and a small set of common properties.
+      Best performing — scans the least data.
+    partial: All of the entity's own properties; related entities returned at minimal depth.
+    complete: All properties; all related entities returned at complete depth.
+  applies_to: Application API only
+  not_supported_on: Reporting API
+  odata_equivalent: $select and $expand on the Reporting API
+
+request_headers:
+  - name: Content-Type
+    required_for:
+      - PUT
+      - POST
+    values:
+      - application/json
+      - text/csv
+    note: >-
+      Mandatory on PUT/POST across all families; omitting it errors. The Bulk API accepts
+      text/csv as well as application/json for staging-area uploads and does not support XML.
+  - name: Accept
+    required: false
+    values:
+      - application/json
+      - text/csv
+    note: Defaults to JSON when omitted.
+  - name: X-HTTP-Method-Override
+    required: false
+    purpose: >-
+      Lets clients that cannot emit PUT/DELETE send GET/POST carrying the intended verb.
+  - name: X-HTTP-Status-Code-Override
+    required: false
+    purpose: >-
+      Forces the response status code (e.g. always 200) for clients that cannot read
+      non-200 statuses.
+  - name: Authorization
+    required: true
+    values:
+      - Bearer <access_token>
+      - Basic base64(Company\User:password)
+
+response_headers:
+  headers:
+    - name: X-HTTP-Original-Status-Code
+      emitted_when: X-HTTP-Status-Code-Override was supplied on the request
+      purpose: Carries the real status code that was masked.
+  rate_limit_headers: none documented
+  request_id_header: none documented
+
+request_id_tracing:
+  supported: false
+  note: >-
+    No request-id or correlation-id response header is documented for any Eloqua API family.
+    The Bulk API's traceability unit is the sync — GET /api/bulk/2.0/syncs/{id}/logs and
+    /rejects give per-sync audit detail instead.
+
+versioning:
+  style: path-segment major version
+  application_api:
+    - /API/REST/1.0/
+    - /API/REST/2.0/
+  bulk_api:
+    - /api/bulk/2.0/
+  reporting_api:
+    - /api/reporting/1.0/
+  spec_version: >-
+    Oracle's published Swagger carries info.version as a calendar date — 2026.08.07 at the time
+    of this pass — so the contract document is versioned separately from the URL version.
+  detail: lifecycle/eloqua-lifecycle.yml
+
+error_envelope:
+  format: proprietary JSON (not RFC 9457 application/problem+json)
+  content_type: application/json
+  shape:
+    type: Error type, e.g. EndpointParameterError, ObjectValidationError
+    parameter: Offending parameter name (endpoint parameter errors)
+    requirement: "Nested object naming the violated requirement, e.g. {type: IdRequirement}"
+    value: The rejected value
+  eloqua_status_codes: >-
+    In addition to HTTP status codes, Eloqua returns ELQ-nnnnn application status codes with
+    human-readable messages, principally on Bulk sync logs and rejects.
+  detail: errors/eloqua-problem-types.yml
+
+rate_limit_signaling:
+  headers: none
+  exhaustion_status: 429
+  documented_message: Too Many Requests
+  detail: rate-limits/eloqua-rate-limits.yml
+
+async_pattern:
+  api: Bulk API 2.0
+  steps:
+    - Define the import or export (field mapping, filter, actions) — POST an export/import definition.
+    - >-
+      Move data into the staging area — POST the payload for imports; POST a sync to make Eloqua
+      write the data for exports.
+    - >-
+      Move data to its destination — for exports GET /syncs/{id}/data; for imports the sync
+      merges staged data into the Eloqua database.
+  rationale: >-
+    Oracle's stated design goal is fast client requests with long I/O performed asynchronously,
+    avoiding database locks during the HTTP request.
+  monitoring:
+    - GET /api/bulk/2.0/syncs/{id} — status
+    - GET /api/bulk/2.0/syncs/{id}/logs — ELQ-nnnnn log messages
+    - GET /api/bulk/2.0/syncs/{id}/rejects — per-record import failures
+
+cross_links:
+  errors: errors/eloqua-problem-types.yml
+  lifecycle: lifecycle/eloqua-lifecycle.yml
+  authentication: authentication/eloqua-authentication.yml
+  scopes: scopes/eloqua-scopes.yml
+  rate_limits: rate-limits/eloqua-rate-limits.yml
+  data_model: data-model/eloqua-data-model.yml

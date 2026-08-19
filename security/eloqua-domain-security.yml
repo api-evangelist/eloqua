@@ -1,7 +1,13 @@
-generated: '2026-07-11'
+generated: '2026-08-13'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
+- host: www.oracle.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb  7 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
 - host: docs.oracle.com
   https: true
   tls_version: TLSv1.3
@@ -16,18 +22,18 @@ domains:
 - domain: oracle.com
   dnssec: false
   caa:
-  - 0 issue "pki.goog"
   - 0 issue "letsencrypt.org"
   - 0 issue "digicert.com"
+  - 0 issue "pki.goog"
   spf: true
   dmarc: true
   dmarc_policy: reject
 - domain: eloqua.com
   dnssec: false
   caa:
-  - 0 issuewild "www.digicert.com"
   - 0 issue "www.digicert.com"
   - 0 issue "letsencrypt.org"
+  - 0 issuewild "www.digicert.com"
   spf: true
   dmarc: true
   dmarc_policy: reject

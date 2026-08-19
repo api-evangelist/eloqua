@@ -1,0 +1,289 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/eloqua-published-swagger.json
+provider: Oracle Eloqua
+providerId: eloqua
+description: >-
+  Entity-relationship graph for the Oracle Eloqua REST APIs, derived from the $ref links and
+  id-reference fields in Oracle's own published Swagger (365 definitions). Eloqua's model splits
+  cleanly in two: ASSETS (emails, landing pages, forms, campaigns, programs, segments) which are
+  authored marketing objects, and DATA (contacts, accounts, custom object data, activities) which
+  are the records those assets act on. The Bulk API adds a third, operational layer — export and
+  import definitions plus the syncs that move data through a staging area.
+summary:
+  definitions_total: 365
+  entities_profiled: 20
+identifiers:
+  style: numeric string
+  note: >-
+    Eloqua ids are integers serialized as JSON strings ("id":"1"). There are no typed id
+    prefixes. Every entity also carries a "type" discriminator naming its class
+    (e.g. "type":"Contact"), which is how a response is identified rather than by id shape.
+  common_fields:
+    - id
+    - type
+    - name
+    - createdAt
+    - updatedAt
+    - createdBy
+    - updatedBy
+    - depth
+  timestamps: Unix epoch seconds, serialized as strings, on the Application API.
+domains:
+  - name: assets
+    description: Authored marketing objects managed through /API/REST/{version}/assets/
+    entities: [Email, LandingPage, Form, Campaign, Program, ContactSegment, ContactList, CustomObject, EmailGroup, Folder]
+  - name: data
+    description: Records acted on, managed through /API/REST/{version}/data/
+    entities: [Contact, Account, CustomObjectData, Activity, Visitor, EventRegistrant]
+  - name: bulk
+    description: Operational objects for the three-step async import/export pattern under /api/bulk/2.0/
+    entities: [Export, Import, Sync, SyncLog, SyncReject, SyncAction]
+  - name: reporting
+    description: Read-only OData-style analytics surface under /api/reporting/1.0/
+entities:
+  - name: ContactRest20
+    properties: 45
+    relationships:
+      - type: has_many
+        via: fieldValues
+        target: FieldValueRest20
+    id_references: [accountId, folderId, sourceTemplateId]
+  - name: AccountRest20
+    properties: 26
+    relationships:
+      - type: has_many
+        via: fieldValues
+        target: FieldValueRest20
+      - type: has_many
+        via: crmSystemMappings
+        target: CrmSystemMappingRest20
+    id_references: [folderId, sourceTemplateId]
+  - name: CampaignRest20
+    properties: 44
+    relationships:
+      - type: has_many
+        via: elements
+        target: CampaignElementRest20
+      - type: has_many
+        via: fieldValues
+        target: FieldValueRest20
+      - type: has_many
+        via: crmIds
+        target: ExternalCampaignMappingRest20
+    id_references: [adCampaignId, badgeId, crmId, crmIds, folderId, isUpdatingCrmId, runAsUserId, sourceTemplateId]
+  - name: EmailRest20
+    properties: 50
+    relationships:
+      - type: has_one
+        via: htmlContent
+        target: HtmlContentRest20
+      - type: has_many
+        via: forms
+        target: FormRest20
+      - type: has_many
+        via: images
+        target: ImageFileRest20
+      - type: has_many
+        via: hyperlinks
+        target: HyperlinkRest20
+      - type: has_many
+        via: contentSections
+        target: ContentSectionRest20
+      - type: has_many
+        via: dynamicContents
+        target: DynamicContentRest20
+      - type: has_many
+        via: files
+        target: ImportedFileRest20
+      - type: has_many
+        via: contentServiceInstances
+        target: CloudComponentInstanceRest20
+      - type: has_many
+        via: fieldMerges
+        target: FieldMergeRest20
+      - type: has_many
+        via: attachments
+        target: ImportedFileRest20
+    id_references: [brandId, emailFooterId, emailGroupId, emailHeaderId, encodingId, folderId, sourceTemplateId, virtualMTAId]
+  - name: FormRest20
+    properties: 32
+    relationships:
+      - type: has_one
+        via: size
+        target: SizeRest20
+      - type: has_many
+        via: elements
+        target: FormElementRest20
+      - type: has_many
+        via: processingSteps
+        target: FormProcessingStepRest20
+      - type: has_one
+        via: defaultKeyFieldMapping
+        target: FormFieldUpdateMappingRest20
+    id_references: [folderId, sourceTemplateId, submitFailedLandingPageId]
+  - name: LandingPageRest20
+    properties: 41
+    relationships:
+      - type: has_one
+        via: htmlContent
+        target: HtmlContentRest20
+      - type: has_many
+        via: forms
+        target: FormRest20
+      - type: has_many
+        via: images
+        target: ImageFileRest20
+      - type: has_many
+        via: hyperlinks
+        target: HyperlinkRest20
+      - type: has_many
+        via: contentSections
+        target: ContentSectionRest20
+      - type: has_many
+        via: dynamicContents
+        target: DynamicContentRest20
+      - type: has_many
+        via: files
+        target: ImportedFileRest20
+      - type: has_many
+        via: contentServiceInstances
+        target: CloudComponentInstanceRest20
+    id_references: [displayTimeZoneId, folderId, micrositeId, sourceTemplateId]
+  - name: ProgramRest20
+    properties: 24
+    relationships:
+      - type: has_many
+        via: elements
+        target: CampaignElementRest20
+    id_references: [defaultEntityId, folderId, runAsUserId, sourceTemplateId]
+  - name: CustomObjectRest20
+    properties: 21
+    relationships:
+      - type: has_many
+        via: fields
+        target: CustomObjectFieldRest20
+    id_references: [displayNameFieldId, emailAddressFieldId, folderId, sourceTemplateId, uniqueCodeFieldId]
+  - name: ContactListRest20
+    properties: 21
+    id_references: [dataLookupId, folderId, sourceTemplateId]
+  - name: ContactSegmentRest20
+    properties: 21
+    relationships:
+      - type: has_many
+        via: elements
+        target: SegmentElementRest20
+    id_references: [folderId, sourceTemplateId]
+  - name: UserRest20
+    properties: 60
+    relationships:
+      - type: has_one
+        via: preferences
+        target: UserPreferencesRest20
+      - type: has_many
+        via: typePermissions
+        target: TypePermissionRest20
+      - type: has_many
+        via: securityGroups
+        target: SecurityGroupRest20
+      - type: has_many
+        via: interfacePermissions
+        target: InterfacePermissionRest20
+      - type: has_many
+        via: productPermissions
+        target: ProductPermissionRest20
+      - type: has_one
+        via: crmUserNames
+        target: crmUserNamesRest20
+    id_references: [defaultAccountViewId, defaultContactViewId, digitalSignatureId, federationId, folderId, personalPhotoId, sourceTemplateId]
+  - name: CustomObjectDataRest20
+    properties: 22
+    relationships:
+      - type: has_many
+        via: fieldValues
+        target: FieldValueRest20
+    id_references: [accountId, contactId, folderId, sourceTemplateId]
+  - name: FolderRest20
+    properties: 18
+    id_references: [folderId, sourceTemplateId]
+  - name: Export
+    properties: 17
+    relationships:
+      - type: has_many
+        via: syncActions
+        target: SyncAction
+    id_references: [externalSystemId]
+  - name: Import
+    properties: 20
+    relationships:
+      - type: has_one
+        via: importRule
+        target: ImportRuleType
+      - type: has_many
+        via: syncActions
+        target: SyncAction
+      - type: has_one
+        via: updateRule
+        target: RuleType
+    id_references: [externalSystemId]
+  - name: Sync
+    properties: 8
+    relationships:
+      - type: has_one
+        via: status
+        target: SyncStatusType
+  - name: SyncLog
+    properties: 6
+    relationships:
+      - type: has_one
+        via: severity
+        target: SyncResultSeverity
+  - name: SyncReject
+    properties: 5
+  - name: SyncAction
+    properties: 4
+    relationships:
+      - type: has_one
+        via: action
+        target: SyncActionType
+      - type: has_one
+        via: status
+        target: MemberStatus
+  - name: FieldValueRest20
+    properties: 4
+
+bulk_flow:
+  description: >-
+    The Bulk API relationship that matters operationally is definition -> sync -> data.
+    An export or import DEFINITION is created once and reused; a SYNC is created against a
+    definition's uri and is the object you poll; the synced data is retrieved from or posted to
+    the definition's staging area.
+  edges:
+    - from: Export
+      to: Sync
+      via: syncedInstanceUri
+      cardinality: has_many
+    - from: Import
+      to: Sync
+      via: syncedInstanceUri
+      cardinality: has_many
+    - from: Sync
+      to: SyncLog
+      via: /api/bulk/2.0/syncs/{id}/logs
+      cardinality: has_many
+    - from: Sync
+      to: SyncReject
+      via: /api/bulk/2.0/syncs/{id}/rejects
+      cardinality: has_many
+custom_fields:
+  mechanism: fieldValues
+  description: >-
+    Contact and Account extend through a fieldValues[] array of FieldValue objects keyed by a
+    numeric field id, not by name. A client must first resolve field ids from
+    /api/bulk/2.0/contacts/fields or /API/REST/2.0/assets/contact/fields before it can read or
+    write custom data. In the Bulk API the same fields are addressed by statement — for example
+    Contact.Field(C_EmailAddress) — in the export/import definition's field map.
+cross_links:
+  conventions: conventions/eloqua-conventions.yml
+  errors: errors/eloqua-problem-types.yml
+  json_schema: json-schema/
