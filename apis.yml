@@ -85,6 +85,8 @@ apis:
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -337,6 +339,8 @@ apis:
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
