@@ -1,9 +1,8 @@
 aid: eloqua
 name: Oracle Eloqua
-description: >-
-  Oracle Eloqua is a marketing automation platform that provides tools for lead management, email marketing, and
-  marketing campaign management through comprehensive REST APIs. It enables marketing teams to create, execute, and
-  measure the effectiveness of marketing programs and campaigns.
+description: Oracle Eloqua is a marketing automation platform that provides tools for lead management, email marketing,
+  and marketing campaign management through comprehensive REST APIs. It enables marketing teams to create, execute,
+  and measure the effectiveness of marketing programs and campaigns.
 type: Index
 accessModel:
   pricing: freemium
@@ -20,19 +19,19 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/eloqua.png
 tags:
-  - CRM
-  - Email Marketing
-  - Lead Management
-  - Marketing Automation
-  - Campaign Management
-  - Bulk Data
-  - Landing Pages
-  - Forms
-  - Reporting
-  - B2B Marketing
+- CRM
+- Email Marketing
+- Lead Management
+- Marketing Automation
+- Campaign Management
+- Bulk Data
+- Landing Pages
+- Forms
+- Reporting
+- B2B Marketing
 url: https://www.oracle.com/marketingcloud/products/marketing-automation/
 created: '2025-01-01'
-modified: '2026-08-13'
+modified: '2026-08-21'
 position: Consumer
 access: 3rd-Party
 specificationVersion: '0.23'
@@ -351,12 +350,10 @@ apis:
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-published-rest-api
   name: Oracle Eloqua REST API (Oracle-published contract)
-  description: >-
-    Oracle's own published machine-readable contract for the Eloqua Marketing Cloud Service REST
-    APIs, harvested verbatim from the Swagger document its REST reference links from index.html.
-    A single Swagger 2.0 document covering all three families - Application API 1.0/2.0, Bulk API
-    2.0 and Reporting API 1.0 - with 459 paths, 649 operations, 365 definitions and 136 tags.
-    info.version 2026.08.07.
+  description: Oracle's own published machine-readable contract for the Eloqua Marketing Cloud Service REST APIs,
+    harvested verbatim from the Swagger document its REST reference links from index.html. A single Swagger 2.0
+    document covering all three families - Application API 1.0/2.0, Bulk API 2.0 and Reporting API 1.0 - with 459
+    paths, 649 operations, 365 definitions and 136 tags. info.version 2026.08.07.
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
@@ -377,70 +374,76 @@ apis:
   - type: ErrorCatalog
     url: errors/eloqua-problem-types.yml
 common:
-  - type: GitHubOrganization
-    url: https://github.com/oracle
-  - type: Website
-    url: https://www.oracle.com/cx/marketing/automation/
-  - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
-  - type: SignUp
-    url: https://login.eloqua.com/
-  - type: AgenticAccess
-    url: agentic-access/eloqua-agentic-access.yml
-  - type: DomainSecurity
-    url: security/eloqua-domain-security.yml
-  - type: Authentication
-    url: authentication/eloqua-authentication.yml
-  - type: OAuthScopes
-    url: scopes/eloqua-scopes.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/eloqua
-  - type: GettingStarted
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Application.html
-  - type: Authentication
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
-  - type: Support
-    url: https://support.oracle.com/
-  - type: TermsOfService
-    url: https://www.oracle.com/legal/terms.html
-  - type: PrivacyPolicy
-    url: https://www.oracle.com/legal/privacy/
-  - type: APIReference
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
-  - type: DeveloperPortal
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
-  - type: Packages
-    url: packages/eloqua-packages.yml
-  - type: LLMsTxt
-    url: llms/eloqua-llms.txt
-  - type: Overlay
-    url: overlays/eloqua-published-swagger-overlay.yaml
-  - type: Conformance
-    url: conformance/eloqua-conformance.yml
-  - type: ErrorCatalog
-    url: errors/eloqua-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/eloqua-lifecycle.yml
-  - type: StatusPage
-    url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
-  - type: Conventions
-    url: conventions/eloqua-conventions.yml
-  - type: ChangeLog
-    url: changelog/eloqua-changelog.yml
-  - type: DataModel
-    url: data-model/eloqua-data-model.yml
-  - type: AgentSkill
-    url: skills/_index.yml
-  - type: Plans
-    url: plans/eloqua-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/eloqua-rate-limits.yml
+- type: ParentCompany
+  url: https://apis.io/providers/oracle/
+  name: Oracle
+  x-relationship: acquisition
+  x-generated-by: oracle-family:2026-08-21
+- type: GitHubOrganization
+  url: https://github.com/oracle
+- type: Website
+  url: https://www.oracle.com/cx/marketing/automation/
+- type: Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
+- type: SignUp
+  url: https://login.eloqua.com/
+- type: AgenticAccess
+  url: agentic-access/eloqua-agentic-access.yml
+- type: DomainSecurity
+  url: security/eloqua-domain-security.yml
+- type: Authentication
+  url: authentication/eloqua-authentication.yml
+- type: OAuthScopes
+  url: scopes/eloqua-scopes.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/eloqua
+- type: GettingStarted
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Application.html
+- type: Authentication
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication.html
+- type: Support
+  url: https://support.oracle.com/
+- type: TermsOfService
+  url: https://www.oracle.com/legal/terms.html
+- type: PrivacyPolicy
+  url: https://www.oracle.com/legal/privacy/
+- type: APIReference
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+- type: DeveloperPortal
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/
+- type: Packages
+  url: packages/eloqua-packages.yml
+- type: LLMsTxt
+  url: llms/eloqua-llms.txt
+- type: Overlay
+  url: overlays/eloqua-published-swagger-overlay.yaml
+- type: Conformance
+  url: conformance/eloqua-conformance.yml
+- type: ErrorCatalog
+  url: errors/eloqua-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/eloqua-lifecycle.yml
+- type: StatusPage
+  url: https://community.oracle.com/customerconnect/categories/cx-eloqua-system-status/
+- type: Conventions
+  url: conventions/eloqua-conventions.yml
+- type: ChangeLog
+  url: changelog/eloqua-changelog.yml
+- type: DataModel
+  url: data-model/eloqua-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Plans
+  url: plans/eloqua-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/eloqua-rate-limits.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-enrichment:
   date: '2026-08-13'
   status: enriched
   artifacts_added: 16
   pass: local-v1
+x-parent: oracle
+x-relationship: acquisition
