@@ -49,7 +49,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-account-fields-api
   name: Oracle Eloqua Account Fields API
   description: Retrieve available account fields for mapping
@@ -63,7 +64,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-account-imports-api
   name: Oracle Eloqua Account Imports API
   description: Import account data in bulk
@@ -77,7 +79,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-accounts-api
   name: Oracle Eloqua Accounts API
   description: Manage account records and groups
@@ -93,7 +96,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-activity-exports-api
   name: Oracle Eloqua Activity Exports API
   description: Export activity data in bulk
@@ -107,7 +111,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-activity-imports-api
   name: Oracle Eloqua Activity Imports API
   description: Import activity data in bulk
@@ -121,7 +126,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-campaigns-api
   name: Oracle Eloqua Campaigns API
   description: Create and manage marketing campaigns
@@ -135,7 +141,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-exports-api
   name: Oracle Eloqua Contact Exports API
   description: Export contact data in bulk
@@ -149,7 +156,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-fields-api
   name: Oracle Eloqua Contact Fields API
   description: Retrieve available contact fields for mapping
@@ -163,7 +171,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-imports-api
   name: Oracle Eloqua Contact Imports API
   description: Import contact data in bulk
@@ -177,7 +186,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-lists-api
   name: Oracle Eloqua Contact Lists API
   description: Create and manage contact lists
@@ -191,7 +201,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contact-segments-api
   name: Oracle Eloqua Contact Segments API
   description: Create and manage contact segments
@@ -205,7 +216,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-contacts-api
   name: Oracle Eloqua Contacts API
   description: Manage contact records and data
@@ -219,7 +231,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-object-exports-api
   name: Oracle Eloqua Custom Object Exports API
   description: Export custom object data in bulk
@@ -233,7 +246,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-object-imports-api
   name: Oracle Eloqua Custom Object Imports API
   description: Import custom object data in bulk
@@ -247,7 +261,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-custom-objects-api
   name: Oracle Eloqua Custom Objects API
   description: Manage custom object definitions and data
@@ -261,7 +276,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-emails-api
   name: Oracle Eloqua Emails API
   description: Create and manage email assets
@@ -275,7 +291,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-forms-api
   name: Oracle Eloqua Forms API
   description: Create and manage forms and form data
@@ -289,7 +306,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-landing-pages-api
   name: Oracle Eloqua Landing Pages API
   description: Create and manage landing pages
@@ -303,7 +321,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-programs-api
   name: Oracle Eloqua Programs API
   description: Create and manage automation programs
@@ -317,7 +336,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-syncs-api
   name: Oracle Eloqua Syncs API
   description: Manage data synchronization operations
@@ -331,7 +351,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
 - aid: eloqua:eloqua-users-api
   name: Oracle Eloqua Users API
   description: Manage system users
@@ -347,24 +368,2662 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   - type: Documentation
-    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
-- aid: eloqua:eloqua-published-rest-api
-  name: Oracle Eloqua REST API (Oracle-published contract)
-  description: Oracle's own published machine-readable contract for the Eloqua Marketing Cloud Service REST APIs,
-    harvested verbatim from the Swagger document its REST reference links from index.html. A single Swagger 2.0
-    document covering all three families - Application API 1.0/2.0, Bulk API 2.0 and Reporting API 1.0 - with 459
-    paths, 649 operations, 365 definitions and 136 tags. info.version 2026.08.07.
+    url: >-
+      https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Getting_Started_Bulk.html
+- aid: eloqua:eloqua-application-1-0-accounts-api
+  name: Oracle Eloqua Application/1.0/Accounts API
+  description: >-
+    An Oracle Eloqua Account provides group contact information.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Accounts'>Learn
+    more about accounts</a>.
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
-  - Application API
-  - Bulk API
-  - Reporting API
+  - Application/1.0/Accounts
   properties:
   - type: OpenAPI
-    url: openapi/eloqua-published-swagger.json
-  - type: Overlay
-    url: overlays/eloqua-published-swagger-overlay.yaml
+    url: openapi/eloqua-application-1-0-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-activities-api
+  name: Oracle Eloqua Application/1.0/Activities API
+  description: Activities are tracked for individual contacts.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-activities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-contact-fields-api
+  name: Oracle Eloqua Application/1.0/Contact fields API
+  description: >-
+    Contact fields are the fields associated with a specific contact asset.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ContactFields'>Learn
+    more about contact fields</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Contact fields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-contact-fields-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-contact-list-api
+  name: Oracle Eloqua Application/1.0/Contact list API
+  description: Customized lists of contacts.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Contact list
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-contact-list-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-contact-segments-api
+  name: Oracle Eloqua Application/1.0/Contact segments API
+  description: >-
+    Segments API endpoints.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Segments'>Learn
+    more about segments</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Contact segments
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-contact-segments-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-contacts-api
+  name: Oracle Eloqua Application/1.0/Contacts API
+  description: >-
+    A contact is a data entity that contains the explicit data around an individual person in the database.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Contacts'>Learn
+    more about contacts</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-content-sections-api
+  name: Oracle Eloqua Application/1.0/Content sections API
+  description: >-
+    Content sections allow you to create shared content to use inside assets such as emails and landing
+    pages.
+
+
+    <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/index.html#CSHID=SharedContent'>Learn
+    more about shared content</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Content sections
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-content-sections-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-custom-object-data-api
+  name: Oracle Eloqua Application/1.0/Custom object data API
+  description: >-
+    Custom object data are the records of custom object instances.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects'>Learn
+    more about custom objects</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Custom object data
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-custom-object-data-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-custom-objects-api
+  name: Oracle Eloqua Application/1.0/Custom objects API
+  description: >-
+    Custom objects are a complement to the standard Data Entities (i.e. Contacts, Companies). Essentially,
+    custom objects are used for two main functions: linking directly to a Contact and performing actions
+    based on information collected without duplication.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects'>Learn
+    more about custom objects</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Custom objects
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-custom-objects-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-email-folders-api
+  name: Oracle Eloqua Application/1.0/Email folders API
+  description: >-
+    Email folders organize your email assets.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Emails'>Learn
+    more about emails</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Email folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-email-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-email-footers-api
+  name: Oracle Eloqua Application/1.0/Email footers API
+  description: >-
+    Email footers are used to customize the look and feel of the bottom of your email.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailFooters'>Learn
+    more about email footers</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Email footers
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-email-footers-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-email-groups-api
+  name: Oracle Eloqua Application/1.0/Email groups API
+  description: >-
+    Email Groups are used to control default settings for similar types of emails. For instance, you can
+    set the default header, footer, subscription landing page, and unsubscribe landing page for a set
+    of email newsletters. Then your contacts can subscribe or unsubscribe at the group level to simplify
+    subscription management. As an administrator, you can add or delete groups as required to control
+    email subscriptions.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailGroups'>Learn
+    more about email groups</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Email groups
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-email-groups-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-email-headers-api
+  name: Oracle Eloqua Application/1.0/Email headers API
+  description: >-
+    Email headers are used to customize the look and feel of the top of your email. Headers can be used
+    in your emails for branding purposes (your company's logo), to provide links to other (external) resources,
+    or to display the link for a contact to view the email in a browser. Email headers are automatically
+    added to your email after selecting and saving the email group to which it belongs, but you can also
+    select a different header on a per-email basis from the email header chooser.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailHeaders'>Learn
+    more about email headers</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Email headers
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-email-headers-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-emails-api
+  name: Oracle Eloqua Application/1.0/Emails API
+  description: >-
+    Despite vast innovations and improvements to other channels of communication with prospects, emails
+    are still central to many marketing campaigns. You can reach a large number of existing and potential
+    customers efficiently and cheaply through email messages. Eloqua includes robust email marketing capabilities
+    that you can weave into your marketing campaigns.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Emails'>Learn
+    more about emails</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Emails
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-emails-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-form-data-api
+  name: Oracle Eloqua Application/1.0/Form data API
+  description: "Form data are the submissions for a form. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn\
+    \ more about forms</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Form data
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-form-data-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-forms-api
+  name: Oracle Eloqua Application/1.0/Forms API
+  description: "Form data are the submissions for a form. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn\
+    \ more about Forms</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-forms-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-images-api
+  name: Oracle Eloqua Application/1.0/Images API
+  description: >-
+    Image assets to be used in places such as emails or landing pages.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Images'>Learn
+    more about images</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Images
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-images-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-landing-pages-api
+  name: Oracle Eloqua Application/1.0/Landing pages API
+  description: "Landing pages are often the first significant part of a campaign that a contact will see.\
+    \ A contact may be directed to your landing page from a link in an email or from an ad on the web.\
+    \ The landing page provides the contact with more information and options related to the email or\
+    \ ad that brought them there. On the landing page they can be asked to participate in the campaign\
+    \ by reviewing detailed information, submitting a form, or clicking a button to receive additional\
+    \ information etc. The landing page moves prospects through your campaign and gives them a clearer\
+    \ idea about your product and your companies trustworthiness. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=LandingPages'>Learn\
+    \ more about landing pages</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Landing pages
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-landing-pages-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-microsites-api
+  name: Oracle Eloqua Application/1.0/Microsites API
+  description: >-
+    A microsite is a miniature website, often dedicated to a specific campaign, product, or keyword. The
+    purpose is to give a visitor (whether channeled through your website, social media assets, emails,
+    SMS, or other channels) precise information that they can use to better understand your products and
+    services or to make a buying decision. There are three types of microsites: basic, secure and authenticated.
+    Each landing page you create in Eloqua must have an associated microsite.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Microsites'>Learn
+    more about microsites</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Microsites
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-microsites-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-option-lists-api
+  name: Oracle Eloqua Application/1.0/Option lists API
+  description: >-
+    Option lists are usually referred to on the marketers' side as select lists or pick lists.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=PickLists'>Learn
+    more about option lists</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Option lists
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-option-lists-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-1-0-users-api
+  name: Oracle Eloqua Application/1.0/Users API
+  description: >-
+    Users API endpoints. The API allows you to modify such things as a user's time preference.
+
+
+    <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/UserManagement/UserManagement.htm'>Learn
+    more about user management</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/1.0/Users
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-1-0-users-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-account-groups-api
+  name: Oracle Eloqua Application/2.0/Account groups API
+  description: >-
+    An Oracle Eloqua Account Group provides the ability to group multiple companies into an Account Group.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Accounts'>Learn
+    more about accounts</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Account groups
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-account-groups-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-accounts-api
+  name: Oracle Eloqua Application/2.0/Accounts API
+  description: >-
+    An Oracle Eloqua Account provides group contact information.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Accounts'>Learn
+    more about accounts</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-activities-api
+  name: Oracle Eloqua Application/2.0/Activities API
+  description: Activities API endpoint.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-activities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-audit-logs-api
+  name: Oracle Eloqua Application/2.0/Audit logs API
+  description: >-
+    The Audit Log API endpoint enables initiating a request for <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EloquaAuditing'>Eloqua
+    audit log</a> exports using the Application API.  Specify the type of audit log you want to export
+    within a specified date and time range. If the request is successful, a report will be sent to the
+    email address specified in the request.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Audit logs
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-audit-logs-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-campaign-fields-api
+  name: Oracle Eloqua Application/2.0/Campaign fields API
+  description: >-
+    Campaign fields are the fields associated with a specific campaign asset.
+
+
+    <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/Administration/Tasks/ConfiguringCustomCampaignFields.htm'>Learn
+    more about campaign fields</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Campaign fields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-campaign-fields-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-campaign-folders-api
+  name: Oracle Eloqua Application/2.0/Campaign folders API
+  description: Campaign folders organize your campaign assets.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Campaign folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-campaign-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-campaigns-api
+  name: Oracle Eloqua Application/2.0/Campaigns API
+  description: >-
+    Marketing campaigns are at the center of the Eloqua application, campaigns are comprised of different
+    elements (such as segments, emails, landing pages, etc.) that are used to perform a variety of functions.
+    You can combine the different elements in a number of ways to customize your campaign flow.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Campaigns'>Learn
+    more about campaigns</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-campaigns-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-contact-filter-folders-api
+  name: Oracle Eloqua Application/2.0/Contact filter folders API
+  description: Contact filter folders organize your contact filters.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Contact filter folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-contact-filter-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-contact-list-folders-api
+  name: Oracle Eloqua Application/2.0/Contact list folders API
+  description: Contact list folders organize your contact lists.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Contact list folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-contact-list-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-contact-segment-folders-api
+  name: Oracle Eloqua Application/2.0/Contact segment folders API
+  description: Contact segment folders to organize your segments.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Contact segment folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-contact-segment-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-contact-segments-api
+  name: Oracle Eloqua Application/2.0/Contact segments API
+  description: >-
+    Contact segments are groups of contacts generated based on filter criteria and contact lists.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Segments'>Learn
+    more about Segments</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Contact segments
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-contact-segments-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-contacts-api
+  name: Oracle Eloqua Application/2.0/Contacts API
+  description: >-
+    A contact is a data entity that contains the explicit data around an individual person in the database.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Contacts'>Learn
+    more about contacts</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-countries-api
+  name: Oracle Eloqua Application/2.0/Countries API
+  description: Countries API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Countries
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-countries-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-custom-object-data-api
+  name: Oracle Eloqua Application/2.0/Custom object data API
+  description: >-
+    Custom object data are the records of custom object instances.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects'>Learn
+    more about custom objects</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Custom object data
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-custom-object-data-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-custom-objects-api
+  name: Oracle Eloqua Application/2.0/Custom objects API
+  description: >-
+    Custom objects are a complement to the standard Data Entities (i.e. Contacts, Companies). Essentially,
+    custom objects are used for two main functions: linking directly to a Contact and performing actions
+    based on information collected without duplication.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects'>Learn
+    more about custom objects</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Custom objects
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-custom-objects-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-dedupe-rules-api
+  name: Oracle Eloqua Application/2.0/Dedupe Rules API
+  description: Dedupe Rule endpoints
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Dedupe Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-dedupe-rules-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-email-deployment-api
+  name: Oracle Eloqua Application/2.0/Email deployment API
+  description: >-
+    The email deployment API is used to send and retrieve email deployments. There are two methods for
+    creating and sending email deployments: to a single contact, or to a low volume of contacts (up to
+    100 contacts).
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Emails'>Learn
+    more about emails</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Email deployment
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-email-deployment-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-email-folders-api
+  name: Oracle Eloqua Application/2.0/Email folders API
+  description: Email folders organize your email assets.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Email folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-email-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-emails-api
+  name: Oracle Eloqua Application/2.0/Emails API
+  description: >-
+    Emails API Endpoints.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Emails'>Learn
+    more about emails</a>. Creating and updating emails with the type <code>ResponsiveHtmlContent</code>
+    is not supported. If you use these endpoints with this email type, we cannot guarantee your email
+    will be responsive.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Emails
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-emails-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-event-registrants-api
+  name: Oracle Eloqua Application/2.0/Event registrants API
+  description: "The event registration API is used to manage event registrants. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EventManagement'>Learn\
+    \ more about Event Management</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Event registrants
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-event-registrants-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-events-api
+  name: Oracle Eloqua Application/2.0/Events API
+  description: >-
+    The events API is used to manage events.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EventManagement'>Learn
+    more about Event Management</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Events
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-events-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-external-activities-api
+  name: Oracle Eloqua Application/2.0/External activities API
+  description: >-
+    External activities are non-Eloqua (that is, offline) activities performed by your contacts or prospects.
+    These assets can be imported for use in Eloqua campaign reporting.
+
+
+    External asset types is the 'umbrella' (top-level) classification for something that your contacts
+    or prospects are performing, for example, a Tradeshow.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets'>Learn
+    more about external assets</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/External activities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-external-activities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-external-asset-types-api
+  name: Oracle Eloqua Application/2.0/External asset types API
+  description: >-
+    External activities are non-Eloqua (that is, offline) activities performed by your contacts or prospects.
+    These assets can be imported for use in Eloqua campaign reporting.
+
+
+    External asset types is the 'umbrella' (top-level) classification for something that your contacts
+    or prospects are performing, for example, a Tradeshow.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets'>Learn
+    more about external assets</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/External asset types
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-external-asset-types-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-external-assets-api
+  name: Oracle Eloqua Application/2.0/External assets API
+  description: >-
+    External assets are non-Eloqua (that is, offline) activities performed by your contacts or prospects.
+    These assets can be imported for use in Eloqua campaign reporting.
+
+
+    <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets'>Learn
+    more about external assets</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/External assets
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-external-assets-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-form-data-api
+  name: Oracle Eloqua Application/2.0/Form data API
+  description: "Form data are the submissions for a form.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn\
+    \ more about Forms</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Form data
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-form-data-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-form-folders-api
+  name: Oracle Eloqua Application/2.0/Form folders API
+  description: Form folders organize your form assets.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Form folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-form-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-forms-api
+  name: Oracle Eloqua Application/2.0/Forms API
+  description: "Forms API endpoints.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn\
+    \ more about Forms</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-forms-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-hyperlink-folders-api
+  name: Oracle Eloqua Application/2.0/Hyperlink folders API
+  description: Hyperlink folders organize your hyperlinks.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Hyperlink folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-hyperlink-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-image-folders-api
+  name: Oracle Eloqua Application/2.0/Image folders API
+  description: Image folders organize your image assets.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Image folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-image-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-landing-pages-api
+  name: Oracle Eloqua Application/2.0/Landing pages API
+  description: "Landing Pages API endpoints.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=LandingPages'>Learn\
+    \ more about landing pages</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Landing pages
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-landing-pages-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-lookup-tables-api
+  name: Oracle Eloqua Application/2.0/Lookup tables API
+  description: Lookup table endpoints
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Lookup tables
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-lookup-tables-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-programs-api
+  name: Oracle Eloqua Application/2.0/Programs API
+  description: "Programs API endpoints.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ProgramCanvas'>Learn\
+    \ more about Programs</a>."
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-programs-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-security-groups-api
+  name: Oracle Eloqua Application/2.0/Security groups API
+  description: Security group API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Security groups
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-security-groups-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-signature-rule-mappings-api
+  name: Oracle Eloqua Application/2.0/Signature Rule Mappings API
+  description: Signature rule mappings API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Signature Rule Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-signature-rule-mappings-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-signature-rules-api
+  name: Oracle Eloqua Application/2.0/Signature Rules API
+  description: Signature rules API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Signature Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-signature-rules-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-api
+  name: Oracle Eloqua Application/2.0/SMS API
+  description: SMS API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-codes-api
+  name: Oracle Eloqua Application/2.0/SMS codes API
+  description: SMS sender codes API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS codes
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-codes-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-folders-api
+  name: Oracle Eloqua Application/2.0/SMS folders API
+  description: SMS folders organize your SMS assets.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS folders
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-folders-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-invalid-keyword-messages-api
+  name: Oracle Eloqua Application/2.0/SMS invalid keyword messages API
+  description: SMS invalid keyword response message API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS invalid keyword messages
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-invalid-keyword-messages-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-keywords-api
+  name: Oracle Eloqua Application/2.0/SMS keywords API
+  description: SMS keywords API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-keywords-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-sms-subscription-api
+  name: Oracle Eloqua Application/2.0/SMS subscription API
+  description: The SMS subscription API is used to manage phone number consent.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/SMS subscription
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-sms-subscription-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-users-api
+  name: Oracle Eloqua Application/2.0/Users API
+  description: Users API endpoints.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Users
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-users-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-visitor-profile-fields-api
+  name: Oracle Eloqua Application/2.0/Visitor profile fields API
+  description: >-
+    A visitor profile field are the fields associated to a website visitor. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=VisitorProfileFields'>Learn
+    more about Visitor Profile Fields</a>.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Visitor profile fields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-visitor-profile-fields-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-application-2-0-visitors-api
+  name: Oracle Eloqua Application/2.0/Visitors API
+  description: >-
+    A visitor is a data entity that represents a unique cookie. The tracked activity data from that cookie
+    is associated with the Visitor. There can be multiple visitors linked to a single contact.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Application/2.0/Visitors
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-application-2-0-visitors-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-accounts-api
+  name: Oracle Eloqua Bulk/2.0/accounts API
+  description: The operations from the Bulk/2.0/accounts category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-activities-api
+  name: Oracle Eloqua Bulk/2.0/activities API
+  description: The operations from the Bulk/2.0/activities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/activities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-activities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-campaignresponses-api
+  name: Oracle Eloqua Bulk/2.0/campaign Responses API
+  description: The operations from the Bulk/2.0/campaignResponses category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/campaignResponses
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-campaignresponses-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-campaigns-api
+  name: Oracle Eloqua Bulk/2.0/campaigns API
+  description: The operations from the Bulk/2.0/campaigns category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-campaigns-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-contacts-api
+  name: Oracle Eloqua Bulk/2.0/contacts API
+  description: The operations from the Bulk/2.0/contacts category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-customobjects-api
+  name: Oracle Eloqua Bulk/2.0/custom Objects API
+  description: The operations from the Bulk/2.0/customObjects category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/customObjects
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-customobjects-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-emailaddresses-api
+  name: Oracle Eloqua Bulk/2.0/email Addresses API
+  description: The operations from the Bulk/2.0/emailAddresses category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/emailAddresses
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-emailaddresses-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-emailgroups-api
+  name: Oracle Eloqua Bulk/2.0/email Groups API
+  description: The operations from the Bulk/2.0/emailGroups category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/emailGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-emailgroups-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-events-api
+  name: Oracle Eloqua Bulk/2.0/events API
+  description: The operations from the Bulk/2.0/events category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/events
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-events-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-exports-api
+  name: Oracle Eloqua Bulk/2.0/exports API
+  description: The operations from the Bulk/2.0/exports category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/exports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-exports-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-imports-api
+  name: Oracle Eloqua Bulk/2.0/imports API
+  description: The operations from the Bulk/2.0/imports category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/imports
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-imports-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-opportunities-api
+  name: Oracle Eloqua Bulk/2.0/opportunities API
+  description: The operations from the Bulk/2.0/opportunities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/opportunities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-opportunities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-phonenumbers-api
+  name: Oracle Eloqua Bulk/2.0/phone Numbers API
+  description: The operations from the Bulk/2.0/phoneNumbers category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/phoneNumbers
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-phonenumbers-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-syncactions-api
+  name: Oracle Eloqua Bulk/2.0/sync Actions API
+  description: The operations from the Bulk/2.0/syncActions category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/syncActions
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-syncactions-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-bulk-2-0-syncs-api
+  name: Oracle Eloqua Bulk/2.0/syncs API
+  description: The operations from the Bulk/2.0/syncs category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Bulk/2.0/syncs
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-bulk-2-0-syncs-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-accountactivity-1-0-account-api
+  name: Oracle Eloqua Reporting/Account Activity/1.0/Account API
+  description: The operations from the Reporting/AccountActivity/1.0/Account category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/AccountActivity/1.0/Account
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-accountactivity-1-0-account-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-accountactivity-1-0-accountengagement-api
+  name: Oracle Eloqua Reporting/Account Activity/1.0/Account Engagement API
+  description: The operations from the Reporting/AccountActivity/1.0/AccountEngagement category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/AccountActivity/1.0/AccountEngagement
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-accountactivity-1-0-accountengagement-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-campaign-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Campaign API
+  description: The operations from the Reporting/ActivityDetails/1.0/Campaign category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/Campaign
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-campaign-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-campaignresponse-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Campaign Response API
+  description: The operations from the Reporting/ActivityDetails/1.0/CampaignResponse category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/CampaignResponse
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-campaignresponse-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-contact-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Contact API
+  description: The operations from the Reporting/ActivityDetails/1.0/Contact category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-contact-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-contactintegrationfields-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Contact Integration Fields API
+  description: The operations from the Reporting/ActivityDetails/1.0/ContactIntegrationFields category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/ContactIntegrationFields
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-contactintegrationfields-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-device-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Device API
+  description: The operations from the Reporting/ActivityDetails/1.0/Device category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/Device
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-device-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-eloqualinkedaccount-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Eloqua Linked Account API
+  description: The operations from the Reporting/ActivityDetails/1.0/EloquaLinkedAccount category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EloquaLinkedAccount
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-eloqualinkedaccount-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailasset-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Asset API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailautoclick-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Auto Click API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailAutoClick category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailAutoClick
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailautoclick-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailautoopen-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Auto Open API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailAutoOpen category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailAutoOpen
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailautoopen-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailbounceback-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Bounceback API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailBounceback category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailBounceback
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailbounceback-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailclickthrough-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Clickthrough API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailClickthrough category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailClickthrough
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailclickthrough-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailgroup-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Group API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailGroup category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailGroup
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailgroup-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailgroupsubscriptionstatus-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Group Subscription Status API
+  description: >-
+    The operations from the Reporting/ActivityDetails/1.0/EmailGroupSubscriptionStatus category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailGroupSubscriptionStatus
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/eloqua-reporting-activitydetails-1-0-emailgroupsubscriptionstatus-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailopen-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Open API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailOpen category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailOpen
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailopen-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailsend-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Send API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailSend category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailSend
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailsend-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-emailunsubscribe-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Email Unsubscribe API
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailUnsubscribe category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/EmailUnsubscribe
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-emailunsubscribe-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-formsubmission-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Form Submission API
+  description: The operations from the Reporting/ActivityDetails/1.0/FormSubmission category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/FormSubmission
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-formsubmission-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-landingpagevisit-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Landing Page Visit API
+  description: The operations from the Reporting/ActivityDetails/1.0/LandingPageVisit category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/LandingPageVisit
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-landingpagevisit-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-referrer-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Referrer API
+  description: The operations from the Reporting/ActivityDetails/1.0/Referrer category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/Referrer
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-referrer-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-segment-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Segment API
+  description: The operations from the Reporting/ActivityDetails/1.0/Segment category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/Segment
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-segment-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-spamunsubscribesbyemail-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/Spam Unsubscribes By Email API
+  description: The operations from the Reporting/ActivityDetails/1.0/SpamUnsubscribesByEmail category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/SpamUnsubscribesByEmail
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-spamunsubscribesbyemail-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-activitydetails-1-0-user-api
+  name: Oracle Eloqua Reporting/Activity Details/1.0/User API
+  description: The operations from the Reporting/ActivityDetails/1.0/User category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/ActivityDetails/1.0/User
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-activitydetails-1-0-user-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-calendar-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Calendar API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/Calendar category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-calendar-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-campaign-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Campaign API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/Campaign category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/Campaign
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-campaign-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-emailactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Email Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/EmailActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/EmailActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-emailactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-emailasset-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Email Asset API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/EmailAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/EmailAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-emailasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-externalactivitytotals-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/External Activity Totals API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/ExternalActivityTotals category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/ExternalActivityTotals
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-externalactivitytotals-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-formactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Form Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/FormActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/FormActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-formactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-landingpageactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Landing Page Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/LandingPageActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/LandingPageActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-landingpageactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-landingpageasset-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Landing Page Asset API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/LandingPageAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/LandingPageAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-landingpageasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-leadactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Lead Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/LeadActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/LeadActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-leadactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-marketingactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Marketing Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/MarketingActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/MarketingActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-marketingactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-segment-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Segment API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/Segment category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/Segment
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-segment-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-user-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/User API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/User category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/User
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-user-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignanalysis-1-0-webactivities-api
+  name: Oracle Eloqua Reporting/Campaign Analysis/1.0/Web Activities API
+  description: The operations from the Reporting/CampaignAnalysis/1.0/WebActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignAnalysis/1.0/WebActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignanalysis-1-0-webactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignexternalactivity-1-0-externalactivities-api
+  name: Oracle Eloqua Reporting/Campaign External Activity/1.0/External Activities API
+  description: >-
+    The operations from the Reporting/CampaignExternalActivity/1.0/ExternalActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignExternalActivity/1.0/ExternalActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-campaignexternalactivity-1-0-externalactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-campaignexternalactivity-1-0-externalactivityattributes-api
+  name: Oracle Eloqua Reporting/Campaign External Activity/1.0/External Activity Attributes API
+  description: >-
+    The operations from the Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/eloqua-reporting-campaignexternalactivity-1-0-externalactivityattributes-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-calendar-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Calendar API
+  description: The operations from the Reporting/FormSubmission/1.0/Calendar category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-calendar-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-campaign-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Campaign API
+  description: The operations from the Reporting/FormSubmission/1.0/Campaign category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/Campaign
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-campaign-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-emailasset-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Email Asset API
+  description: The operations from the Reporting/FormSubmission/1.0/EmailAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/EmailAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-emailasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-formasset-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Form Asset API
+  description: The operations from the Reporting/FormSubmission/1.0/FormAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/FormAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-formasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-formsubmissionactivities-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Form Submission Activities API
+  description: The operations from the Reporting/FormSubmission/1.0/FormSubmissionActivities category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/FormSubmissionActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-formsubmissionactivities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-landingpageasset-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Landing Page Asset API
+  description: The operations from the Reporting/FormSubmission/1.0/LandingPageAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/LandingPageAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-landingpageasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-user-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/User API
+  description: The operations from the Reporting/FormSubmission/1.0/User category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/User
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-user-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-formsubmission-1-0-webpage-api
+  name: Oracle Eloqua Reporting/Form Submission/1.0/Web Page API
+  description: The operations from the Reporting/FormSubmission/1.0/WebPage category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/FormSubmission/1.0/WebPage
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-formsubmission-1-0-webpage-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-landingpageanalysis-1-0-calendar-api
+  name: Oracle Eloqua Reporting/Landing Page Analysis/1.0/Calendar API
+  description: The operations from the Reporting/LandingPageAnalysis/1.0/Calendar category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/LandingPageAnalysis/1.0/Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-landingpageanalysis-1-0-calendar-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-landingpageanalysis-1-0-landingpageactivity-api
+  name: Oracle Eloqua Reporting/Landing Page Analysis/1.0/Landing Page Activity API
+  description: The operations from the Reporting/LandingPageAnalysis/1.0/LandingPageActivity category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/LandingPageAnalysis/1.0/LandingPageActivity
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-landingpageanalysis-1-0-landingpageactivity-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-landingpageanalysis-1-0-landingpageasset-api
+  name: Oracle Eloqua Reporting/Landing Page Analysis/1.0/Landing Page Asset API
+  description: The operations from the Reporting/LandingPageAnalysis/1.0/LandingPageAsset category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/LandingPageAnalysis/1.0/LandingPageAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-landingpageanalysis-1-0-landingpageasset-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-account-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Account API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/Account category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/Account
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-account-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-accountcampaignscore-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Account Campaign Score API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/AccountCampaignScore category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/AccountCampaignScore
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-accountcampaignscore-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-accountengagement-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Account Engagement API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/AccountEngagement category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/AccountEngagement
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-accountengagement-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-contact-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Contact API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/Contact category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-contact-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-opportunity-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Opportunity API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/Opportunity category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/Opportunity
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-opportunity-api-openapi.yml
+  - type: APIReference
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
+  - type: Documentation
+    url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  - type: DataModel
+    url: data-model/eloqua-data-model.yml
+  - type: ErrorCatalog
+    url: errors/eloqua-problem-types.yml
+- aid: eloqua:eloqua-reporting-opportunityanalysis-1-0-opportunityrevenue-api
+  name: Oracle Eloqua Reporting/Opportunity Analysis/1.0/Opportunity Revenue API
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/OpportunityRevenue category.
+  humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
+  baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
+  tags:
+  - Reporting/OpportunityAnalysis/1.0/OpportunityRevenue
+  properties:
+  - type: OpenAPI
+    url: openapi/eloqua-reporting-opportunityanalysis-1-0-opportunityrevenue-api-openapi.yml
   - type: APIReference
     url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/rest-endpoints.html
   - type: Documentation
