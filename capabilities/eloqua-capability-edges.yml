@@ -1,0 +1,395 @@
+slug: eloqua
+provider: Oracle Eloqua
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 39
+edges:
+- tag: Application/1.0/Landing pages
+  spec_file: eloqua-application-1-0-landing-pages-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: POST /api/rest/1.0/assets/landingPage  Create a landing page; schemas LandingPageRest10, DynamicContentRest10,
+    FormRest10
+  reason: Creating and managing landing pages with forms and dynamic content is core digital marketing
+    / marketing automation web asset management.
+- tag: Application/2.0/Campaigns
+  spec_file: eloqua-application-2-0-campaigns-api-openapi.yml
+  capability_id: BC-400.40
+  capability_id_l1: BC-400
+  capability_name: Demand Generation Management
+  confidence: 0.85
+  evidence: POST /api/rest/2.0/assets/campaign/active/{id}  Activate a campaign; schemas CampaignRest20,
+    CampaignElementRest20
+  reason: Create, activate and deactivate marketing campaigns — core demand generation campaign management
+    in a marketing automation platform.
+- tag: Application/2.0/Contact segments
+  spec_file: eloqua-application-2-0-contact-segments-api-openapi.yml
+  capability_id: BC-420.20
+  capability_id_l1: BC-420
+  capability_name: Customer Segmentation Management
+  confidence: 0.85
+  evidence: '"Create a contact segment", "Update a contact segment", schema "ContactSegmentRest20", "SegmentElementRest20"'
+  reason: Operations create, copy, update and list contact segments in a marketing automation platform
+    — this is customer segmentation definition and maintenance.
+- tag: Application/2.0/Security groups
+  spec_file: eloqua-application-2-0-security-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: '''Create a security group''; ''Add or remove users from a security group''; schemas TypePermissionsRest20,
+    InterfacePermissionRest20, ProductPermissionRest20'
+  reason: Administration of security groups, permissions and group membership for platform users is identity
+    and access management.
+- tag: Application/1.0/Contacts
+  spec_file: eloqua-application-1-0-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.8
+  evidence: '"Create a contact", "Retrieve a list of contacts", schema "ContactRest10"'
+  reason: CRUD over the marketing contact record (the customer/prospect master in Eloqua) — customer data
+    management. Not a technical object; the contact IS the business entity here.
+- tag: Application/1.0/Emails
+  spec_file: eloqua-application-1-0-emails-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"Create an email", schema "EmailRest10", "DynamicContentRest10", "LandingPageRest10"'
+  reason: Full lifecycle of marketing email assets including dynamic content and landing-page links on
+    a marketing automation platform — email marketing under digital marketing. Some ambiguity vs content
+    marketing.
+- tag: Application/2.0/Contacts
+  spec_file: eloqua-application-2-0-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.8
+  evidence: '"Retrieves a contact", "Update a contact", "Retrieve contact list membership information
+    for a contact", schema "ContactRest20"'
+  reason: CRUD and search over contact records with field values and list membership — management of the
+    marketing customer/contact master data.
+- tag: Application/2.0/Email deployment
+  spec_file: eloqua-application-2-0-email-deployment-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"Create and send an email deployment", schema "EmailDeploymentRest20"'
+  reason: Executes the sending of marketing emails from a marketing automation platform — digital/email
+    marketing execution.
+- tag: Application/2.0/Users
+  spec_file: eloqua-application-2-0-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: '''Create a user''; "Update a user''s password"; ''Enable or disable a user''; schemas UserRest20,
+    SecurityGroupRest20'
+  reason: User account provisioning, credential and enablement management for the platform — identity
+    and access management, not HR employee records.
+- tag: Contact Segments
+  spec_file: eloqua-contact-segments-api-openapi.yml
+  capability_id: BC-420.20
+  capability_id_l1: BC-420
+  capability_name: Customer Segmentation Management
+  confidence: 0.8
+  evidence: '"createContactSegment  Oracle Eloqua Create a contact segment", schemas ContactSegment, QueryResultContactSegment'
+  reason: Operations define and maintain contact segments in a marketing platform, which is squarely customer
+    segmentation management; only slight ambiguity versus marketing-side targeting capabilities.
+- tag: Emails
+  spec_file: eloqua-emails-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"Create an email", "Create an email deployment" on a platform for "email marketing, and marketing
+    campaign management"'
+  reason: Authoring email assets and deploying them is email/marketing-automation execution, which sits
+    under Digital Marketing Management. Vendor description explicitly names email marketing.
+- tag: Landing Pages
+  spec_file: eloqua-landing-pages-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"List landing pages", "Create a landing page"'
+  reason: Landing-page assets on a marketing automation platform are web/digital marketing properties,
+    squarely Digital Marketing Management.
+- tag: Reporting/ActivityDetails/1.0/EmailAutoClick
+  spec_file: eloqua-reporting-activitydetails-1-0-emailautoclick-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: 'EmailAutoClick_Get  Get all Email Auto Clicks; schemas: EmailAutoClick, Contact'
+  reason: Email click engagement activity per contact on a marketing automation platform — email campaign
+    engagement telemetry, squarely digital marketing (marketing automation) measurement.
+- tag: Reporting/ActivityDetails/1.0/EmailAutoOpen
+  spec_file: eloqua-reporting-activitydetails-1-0-emailautoopen-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: 'EmailAutoOpen_Get  Get all Email Auto Opens; schemas: EmailAutoOpen, Contact'
+  reason: Email open activity records tied to contacts, part of email marketing engagement reporting in
+    a marketing automation product.
+- tag: Reporting/ActivityDetails/1.0/EmailClickthrough
+  spec_file: eloqua-reporting-activitydetails-1-0-emailclickthrough-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: 'EmailClickthrough_Get  Get all Email Clickthroughs; schemas: EmailClickthrough, Contact'
+  reason: Clickthrough engagement activity per contact from email campaigns; clearly email/digital marketing
+    performance data.
+- tag: Reporting/ActivityDetails/1.0/EmailOpen
+  spec_file: eloqua-reporting-activitydetails-1-0-emailopen-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: 'EmailOpen_Get  Get all Email Opens; schemas: EmailOpen, Contact'
+  reason: Email open engagement events per contact from marketing campaigns; email/digital marketing measurement.
+- tag: Reporting/ActivityDetails/1.0/EmailSend
+  spec_file: eloqua-reporting-activitydetails-1-0-emailsend-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: EmailSend_Get  Get all Email Sends
+  reason: Records of marketing email sends on a marketing automation platform — email campaign execution
+    and reporting.
+- tag: Reporting/CampaignAnalysis/1.0/MarketingActivities
+  spec_file: eloqua-reporting-campaignanalysis-1-0-marketingactivities-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.8
+  evidence: '"Get all Marketing Activities" / "Get a single Marketing Activity"; schemas: Campaign, MarketingActivities'
+  reason: Explicitly marketing activity data within campaign analysis reporting — unambiguously Marketing
+    Management at L1; L2 not determinable from read-only reporting endpoints.
+- tag: Reporting/FormSubmission/1.0/Campaign
+  spec_file: eloqua-reporting-formsubmission-1-0-campaign-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.8
+  evidence: '"Get Form Submission activities for a specified Campaign ID"; schemas: Campaign, FormSubmissionActivities'
+  reason: Marketing campaign records with associated form-submission (lead capture) activity reporting
+    — clearly Marketing Management; L2 between demand generation and marketing operations measurement
+    is ambiguous.
+- tag: Contacts
+  spec_file: eloqua-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.78
+  evidence: '"searchContacts", "getContact", "updateContact", "deleteContact", schemas Contact, FieldValue'
+  reason: Full CRUD and search over contact master records with field values and list membership — customer/contact
+    data management. Some ambiguity as the same records feed campaign targeting, but data management is
+    the primary function.
+- tag: Reporting/ActivityDetails/1.0/EmailBounceback
+  spec_file: eloqua-reporting-activitydetails-1-0-emailbounceback-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.78
+  evidence: 'EmailBounceback_Get  Get all Email Bouncebacks; schemas: EmailBounceback, Contact'
+  reason: Email deliverability bounce events per contact — email campaign execution/measurement within
+    marketing automation, not any payment or technical failure concept.
+- tag: Application/1.0/Accounts
+  spec_file: eloqua-application-1-0-accounts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: 'POST /api/rest/1.0/data/account  Create an account; PUT /api/rest/1.0/data/account/{id}  Update
+    an account; schemas: CrmSystemMappingRest10, AccountRest10'
+  reason: Full CRUD over account (company/customer) records in the marketing database, including CRM system
+    mapping — this is customer/account master record management. 'Account' here is a customer organisation
+    record, not a login account or a financial ledger account.
+- tag: Application/1.0/Contact segments
+  spec_file: eloqua-application-1-0-contact-segments-api-openapi.yml
+  capability_id: BC-420.20
+  capability_id_l1: BC-420
+  capability_name: Customer Segmentation Management
+  confidence: 0.75
+  evidence: '"Create a contact segment" / schema "ContactSegmentRest10", "SegmentElementRest10"'
+  reason: Operations create, read, update and list contact segments in a marketing automation platform
+    — defining audience segments over contact data, which is Customer Segmentation Management. Some chance
+    it should instead sit under marketing campaign targeting, hence not full confidence.
+- tag: Application/1.0/Microsites
+  spec_file: eloqua-application-1-0-microsites-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: POST /api/rest/2.0... 'Create a microsite'; schemas MicrositeRest10, QueryResultMicrositeRest10
+  reason: Microsites are marketing web properties hosting landing pages; digital marketing web asset management
+    fits.
+- tag: Application/2.0/Landing pages
+  spec_file: eloqua-application-2-0-landing-pages-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: POST /api/rest/2.0/assets/landingPage — 'Create a landing page'; schemas LandingPageRest20,
+    DynamicContentRuleRest20, HtmlContentRest20
+  reason: Authoring and management of marketing landing pages with dynamic content — squarely web/digital
+    marketing asset management within marketing automation.
+- tag: Reporting/ActivityDetails/1.0/EmailUnsubscribe
+  spec_file: eloqua-reporting-activitydetails-1-0-emailunsubscribe-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: 'EmailUnsubscribe_Get  Retrieves all Email Unsubscribes; schemas: EmailUnsubscribe, Contact'
+  reason: Unsubscribe activity per contact from marketing emails — email marketing engagement/permission
+    data within a marketing automation platform.
+- tag: Reporting/CampaignAnalysis/1.0/LandingPageActivities
+  spec_file: eloqua-reporting-campaignanalysis-1-0-landingpageactivities-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.75
+  evidence: 'GET /API/OData/CampaignAnalysis/1/LandingPageActivities — "Get all Landing Page Activities";
+    schemas: LandingPageAsset, Campaign'
+  reason: Read-only reporting on landing-page activity within marketing campaign analysis on a marketing
+    automation platform. Clearly Marketing Management; ambiguous between digital marketing and marketing
+    operations measurement, so no L2 asserted.
+- tag: Reporting/CampaignAnalysis/1.0/LandingPageAsset
+  spec_file: eloqua-reporting-campaignanalysis-1-0-landingpageasset-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.75
+  evidence: '"Get Landing Page Activities for a specified Landing Page Asset"; schemas: LandingPageAsset,
+    Campaign'
+  reason: Campaign-analysis reporting over landing-page marketing assets — a marketing capability; sub-capability
+    (digital marketing vs marketing operations measurement) not clearly named.
+- tag: Reporting/CampaignAnalysis/1.0/LeadActivities
+  spec_file: eloqua-reporting-campaignanalysis-1-0-leadactivities-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.75
+  evidence: 'GET /API/OData/CampaignAnalysis/1/LeadActivities — "Get all Lead Activities"; schemas: LeadActivities,
+    Campaign'
+  reason: Reporting on lead activities tied to campaigns in a marketing automation product; sits under
+    Marketing Management, plausibly demand generation but the operations only expose reporting reads.
+- tag: Reporting/FormSubmission/1.0/EmailAsset
+  spec_file: eloqua-reporting-formsubmission-1-0-emailasset-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.75
+  evidence: '"Get all Email Assets"; "Get Form Submission activities for a specified Email Asset"'
+  reason: Email marketing assets and their form-submission response reporting on a marketing automation
+    platform; Marketing Management at L1, L2 not firmly evidenced.
+- tag: Campaigns
+  spec_file: eloqua-campaigns-api-openapi.yml
+  capability_id: BC-400.40
+  capability_id_l1: BC-400
+  capability_name: Demand Generation Management
+  confidence: 0.72
+  evidence: '"createCampaign  Oracle Eloqua Create a campaign", "activateCampaign  Oracle Eloqua Activate
+    a campaign"'
+  reason: Operations create, update, activate and deactivate marketing campaigns in a marketing automation
+    platform, which realises Marketing Management; demand generation / lifecycle campaign execution is
+    the closest sub-capability, though Digital Marketing (marketing automation) is a plausible alternative,
+    hence moderate confidence.
+- tag: Accounts
+  spec_file: eloqua-accounts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /data/accounts  searchAccounts; GET /data/account/{id}  Oracle Eloqua Retrieve an account;
+    GET /data/account/{id}/membership  Get account group membership
+  reason: Read/search access to the account (company) records held in the marketing database, plus their
+    group membership — this is customer master data access in a marketing automation platform. Confidence
+    held at 0.7 because the surface is read-only and thin.
+- tag: Application/2.0/Accounts
+  spec_file: eloqua-application-2-0-accounts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /api/rest/2.0/data/accounts  Retrieve account information; schemas AccountRest20, CrmSystemMappingRest20,
+    FieldValueRest20
+  reason: Account (company) records with CRM system mapping and field values — customer/account master
+    data in the marketing database.
+- tag: Application/2.0/Emails
+  spec_file: eloqua-application-2-0-emails-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: '"Create an email", "Archive an email", schemas "EmailRest20", "DynamicContentRest20", "HtmlContentRest20"'
+  reason: Lifecycle management of marketing email assets (HTML content, dynamic content, field merges)
+    in a marketing automation platform; sits between email/digital marketing execution and content asset
+    management, so mid confidence on the sub-capability.
+- tag: Programs
+  spec_file: eloqua-programs-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: '"Activate a program", "Deactivate a program", "Pause a program" on a platform for "lead management,
+    email marketing, and marketing campaign management"'
+  reason: Eloqua programs are automated marketing/lead-nurture flows that are created, activated and paused
+    — clearly marketing execution, but the evidence does not disambiguate demand generation vs digital
+    marketing automation, so only L1 is asserted.
+- tag: Reporting/ActivityDetails/1.0/Campaign
+  spec_file: eloqua-reporting-activitydetails-1-0-campaign-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: '"Get all Campaigns", "Get a single Campaign" under Reporting/ActivityDetails'
+  reason: Read-only campaign records from the marketing platform's reporting surface — marketing campaign
+    data. Whether this realises demand generation or marketing operations measurement is ambiguous, so
+    only the L1 is asserted.
+- tag: Reporting/CampaignAnalysis/1.0/Campaign
+  spec_file: eloqua-reporting-campaignanalysis-1-0-campaign-api-openapi.yml
+  capability_id: BC-400.50
+  capability_id_l1: BC-400
+  capability_name: Marketing Operations Management
+  confidence: 0.7
+  evidence: '"Get web activities for a specified campaign", "Get email activities for a specified campaign",
+    "Get lead activities for a specified campaign"'
+  reason: Campaign-level performance reporting across email, web, form and lead activity — marketing measurement
+    within marketing operations.
+- tag: Reporting/CampaignAnalysis/1.0/WebActivities
+  spec_file: eloqua-reporting-campaignanalysis-1-0-webactivities-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: 'GET /API/OData/CampaignAnalysis/1/WebActivities — "Get all Web Activities"; schemas: Campaign,
+    WebActivities'
+  reason: Web visitor activity reporting linked to campaigns in a marketing automation platform; Marketing
+    Management at L1, sub-capability not clearly named by the operations.
+- tag: Reporting/CampaignExternalActivity/1.0/ExternalActivities
+  spec_file: eloqua-reporting-campaignexternalactivity-1-0-externalactivities-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: GET /API/OData/CampaignExternalActivity/1/ExternalActivities — "Get all External Activities"
+  reason: External (off-platform) campaign activity records exposed for campaign analysis reporting —
+    a marketing capability; too thin to pick an L2.

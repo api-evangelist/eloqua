@@ -4,6 +4,18 @@ description: Oracle Eloqua is a marketing automation platform that provides tool
   and marketing campaign management through comprehensive REST APIs. It enables marketing teams to create, execute,
   and measure the effectiveness of marketing programs and campaigns.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -3033,6 +3045,9 @@ apis:
   - type: ErrorCatalog
     url: errors/eloqua-problem-types.yml
 common:
+- type: CapabilityMap
+  url: capabilities/eloqua-capability-edges.yml
+  name: Oracle Eloqua Business Capability Map
 - type: ParentCompany
   url: https://apis.io/providers/oracle/
   name: Oracle
