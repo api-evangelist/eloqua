@@ -1,0 +1,414 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Lookup tables API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Lookup tables
+  description: Lookup table endpoints
+paths:
+  /api/rest/2.0/assets/lookupTable/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the lookup table.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. The default value is <code>minimal</code>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a lookup table.
+      description: Retrieves a single lookup table specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTable-{id}-get
+      x-filename-id: api-rest-2.0-assets-lookuptable-id-get
+  /api/rest/2.0/assets/lookupTables:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: The number of results returned in the request.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the lookup table was last updated. This is a read-only property.
+        required: false
+        schema:
+          type: integer
+      summary: Search for a Lookup table by Name field
+      description: 'Search for a Lookup table by Name field '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultLookupTableRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTables-get
+      x-filename-id: api-rest-2.0-assets-lookuptables-get
+  /api/rest/2.0/assets/lookupTable/{id}/lookupTableEntries:
+    get:
+      operationId: SearchEntriesGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Search for Lookup table entries by ID field
+        required: true
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      summary: Search for Lookup table Entries by Lookup or Replacement field
+      description: Search for Lookup table Entries by Lookup or Replacement field
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultLookupTableEntryRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTable-{id}-lookupTableEntries-get
+      x-filename-id: api-rest-2.0-assets-lookuptable-id-lookuptableentries-get
+  /api/rest/2.0/assets/lookupTable/{lookupTableId}/lookupTableEntry/{elementId}:
+    delete:
+      operationId: DeleteElementIndividualDELETERest20
+      parameters:
+      - name: lookupTableId
+        in: path
+        description: Id of the lookup table
+        required: true
+        schema:
+          type: integer
+      - name: elementId
+        in: path
+        description: ElementId of the lookup table
+        required: true
+        schema:
+          type: integer
+      summary: Delete Lookup Table Entry by ID
+      description: Delete Lookup Table Entry by ID
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTable-{lookupTableId}-lookupTableEntry-{elementId}-delete
+      x-filename-id: api-rest-2.0-assets-lookuptable-lookuptableid-lookuptableentry-elementid-delete
+    put:
+      operationId: UpdateElementIndividualPUTRest20
+      parameters:
+      - name: lookupTableId
+        in: path
+        description: Id of the lookup table
+        required: true
+        schema:
+          type: integer
+      - name: elementId
+        in: path
+        description: ElementId of the lookup table
+        required: true
+        schema:
+          type: integer
+      summary: Update existing Lookup Table Entry
+      description: Update existing Lookup Table Entry
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableEntryRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTable-{lookupTableId}-lookupTableEntry-{elementId}-put
+      x-filename-id: api-rest-2.0-assets-lookuptable-lookuptableid-lookuptableentry-elementid-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableEntryRest20'
+        description: The lookup table entry
+        required: true
+  /api/rest/2.0/assets/lookupTable/{id}/lookupTableEntry:
+    post:
+      operationId: AddEntryPOSTRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the lookup table
+        required: true
+        schema:
+          type: integer
+      summary: Add lookup table Entry for an existing lookup table
+      description: Add lookup table Entry for an existing lookup table
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableEntryRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Lookup tables
+      x-internal-id: api-rest-2.0-assets-lookupTable-{id}-lookupTableEntry-post
+      x-filename-id: api-rest-2.0-assets-lookuptable-id-lookuptableentry-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableEntryRest20'
+        description: The lookup table entry
+        required: true
+components:
+  schemas:
+    LookupTableEntryRest20:
+      title: LookupTableEntry
+      properties:
+        type:
+          type: string
+          description: The lookup table entry type.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the lookup table entry. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The status of the lookup table entry.
+        key:
+          type: string
+          description: The Key of each lookup table entry.
+        value:
+          type: string
+          description: The Value of each lookup table entry.
+    QueryResultLookupTableEntryRest20:
+      title: QueryResultLookupTableEntry
+      properties:
+        type:
+          type: string
+          description: The lookup table entry field's type in Eloqua.
+        elements:
+          type: array
+          description: Array of the lookup table element fields.
+          items:
+            $ref: '#/components/schemas/LookupTableEntryRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    LookupTableRest20:
+      title: LookupTable
+      properties:
+        type:
+          type: string
+          description: The lookup table type
+        id:
+          type: string
+          readOnly: true
+          description: Id of the lookup table. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The status of the lookup table.
+        name:
+          type: string
+          description: The name of the lookup table.
+        description:
+          type: string
+          description: The description of the lookup table.
+        permissions:
+          type: array
+          description: The permissions for the lookup table granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the lookup table.
+        sourceTemplateId:
+          type: string
+          description: The Id for the source template of the lookup table.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the lookup table.
+        createdByName:
+          type: string
+          description: The name of the user who created the lookup table.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the lookup table was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who last updated the lookup table.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the lookup table.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: The date and time the lookup table was last updated, expressed in Unix time.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the lookup table is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        lookupFieldName:
+          type: string
+          description: The lookup field of the lookup table.
+        replacementFieldName:
+          type: string
+          description: The replacement field of the lookup table.
+        valuesAreCaseSensitive:
+          type: string
+          description: While compare lookup field with case sensitive rule or not.
+    QueryResultLookupTableRest20:
+      title: QueryResultLookupTable
+      properties:
+        type:
+          type: string
+          description: The lookup table field's type in Eloqua.
+        elements:
+          type: array
+          description: Array of the lookup table fields.
+          items:
+            $ref: '#/components/schemas/LookupTableRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

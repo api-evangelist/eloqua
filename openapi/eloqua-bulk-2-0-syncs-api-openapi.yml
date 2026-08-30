@@ -1,0 +1,787 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/syncs API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Bulk/2.0/syncs
+  description: The operations from the Bulk/2.0/syncs category.
+paths:
+  /api/bulk/2.0/syncs:
+    get:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Retrieve a list of syncs
+      description: Retrieves a list of syncs.
+      operationId: GetSyncSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: SyncSearchResponse
+                description: The response body contains information about synchronizations.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items that match the search.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sync'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-get
+      x-filename-id: api-bulk-2.0-syncs-get
+    post:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Create an import or export sync
+      description: Creates an import or export sync.
+      operationId: PostSyncIndividual
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                title: SyncIndividualResponse
+                description: The response body includes information about the synchronization definition.
+                properties:
+                  callbackUrl:
+                    title: callbackUrl
+                    description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  status:
+                    $ref: '#/components/schemas/SyncStatusType'
+                  syncedInstanceUri:
+                    title: syncedInstanceUri
+                    description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                    type: string
+                  syncEndedAt:
+                    format: date-time
+                    title: syncEndedAt
+                    description: The date and time the sync ended. This is a read-only property.
+                    type: string
+                  syncStartedAt:
+                    format: date-time
+                    title: syncStartedAt
+                    description: The date and time the sync started. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-post
+      x-filename-id: api-bulk-2.0-syncs-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: SyncIndividual
+              description: The request body defines the details of the synchronization definition.
+              properties:
+                callbackUrl:
+                  title: callbackUrl
+                  description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                status:
+                  $ref: '#/components/schemas/SyncStatusType'
+                syncedInstanceUri:
+                  title: syncedInstanceUri
+                  description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                  type: string
+                syncEndedAt:
+                  format: date-time
+                  title: syncEndedAt
+                  description: The date and time the sync ended. This is a read-only property.
+                  type: string
+                syncStartedAt:
+                  format: date-time
+                  title: syncStartedAt
+                  description: The date and time the sync started. This is a read-only property.
+                  type: string
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+          text/csv:
+            schema:
+              title: SyncIndividual
+              description: The request body defines the details of the synchronization definition.
+              properties:
+                callbackUrl:
+                  title: callbackUrl
+                  description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                status:
+                  $ref: '#/components/schemas/SyncStatusType'
+                syncedInstanceUri:
+                  title: syncedInstanceUri
+                  description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                  type: string
+                syncEndedAt:
+                  format: date-time
+                  title: syncEndedAt
+                  description: The date and time the sync ended. This is a read-only property.
+                  type: string
+                syncStartedAt:
+                  format: date-time
+                  title: syncStartedAt
+                  description: The date and time the sync started. This is a read-only property.
+                  type: string
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+        description: The request body contains details about the synchronization definition.
+        required: true
+  /api/bulk/2.0/syncs/{id}:
+    get:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Retrieve a sync
+      description: Retrieves a sync.
+      operationId: GetSyncIndividual
+      parameters:
+      - name: id
+        in: path
+        description: Id of the sync.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: SyncIndividualResponse
+                description: The response body includes information about the synchronization definition.
+                properties:
+                  callbackUrl:
+                    title: callbackUrl
+                    description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  status:
+                    $ref: '#/components/schemas/SyncStatusType'
+                  syncedInstanceUri:
+                    title: syncedInstanceUri
+                    description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                    type: string
+                  syncEndedAt:
+                    format: date-time
+                    title: syncEndedAt
+                    description: The date and time the sync ended. This is a read-only property.
+                    type: string
+                  syncStartedAt:
+                    format: date-time
+                    title: syncStartedAt
+                    description: The date and time the sync started. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-{id}-get
+      x-filename-id: api-bulk-2.0-syncs-id-get
+  /api/bulk/2.0/syncs/{id}/data:
+    get:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Retrieve an export sync's data
+      description: 'Retrieves an export sync''s data. This endpoint allows you to retrieve data from an export that you have sync''d more than once. This endpoint will not return any information for import syncs: if the specified sync is an import Eloqua will return a 400 HTTP error code.'
+      operationId: GetSyncDataQuery
+      parameters:
+      - name: id
+        in: path
+        description: Id of the sync.
+        required: true
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 50,000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: totalResults
+        in: query
+        description: Total number of sync results found.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: SyncDataQueryResponse
+                description: The response body includes information about the synchronization definition.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items that match the search.
+                    type: array
+                    items:
+                      type: object
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-{id}-data-get
+      x-filename-id: api-bulk-2.0-syncs-id-data-get
+    delete:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Delete sync data
+      description: Deletes sync data for the sync specified by the <code>id</code> parameter.
+      operationId: DeleteSyncDataQuery
+      parameters:
+      - name: id
+        in: path
+        description: Id of the sync.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-{id}-data-delete
+      x-filename-id: api-bulk-2.0-syncs-id-data-delete
+  /api/bulk/2.0/syncs/{id}/logs:
+    get:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Retrieve a sync's logs
+      description: Retrieves a sync's logs.
+      operationId: GetSyncLogSearch
+      parameters:
+      - name: id
+        in: path
+        description: Id of the sync.
+        required: true
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: 'This captures the total number of records that satisfy the request. This is not the count returned in the current response, but total count on the server side. Example: ?totalResults=true.'
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: SyncLogSearchResponse
+                description: The response body contains information about a synchronization definition.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items that match the search.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SyncLog'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-{id}-logs-get
+      x-filename-id: api-bulk-2.0-syncs-id-logs-get
+  /api/bulk/2.0/syncs/{id}/rejects:
+    get:
+      tags:
+      - Bulk/2.0/syncs
+      summary: Retrieve import sync failure data
+      description: Retrieves the rejected records for the specified import sync.
+      operationId: GetSyncRejectSearch
+      parameters:
+      - name: id
+        in: path
+        description: Id of the sync.
+        required: true
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: SyncRejectSearchResponse
+                description: The response body contains information about the rejected records for the import synchronization.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: List of rejected records, with detail on each rejected record, including message, statusCode, recordIndex, and invalidFields.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SyncReject'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-syncs-{id}-rejects-get
+      x-filename-id: api-bulk-2.0-syncs-id-rejects-get
+components:
+  schemas:
+    SyncLog:
+      title: SyncLog
+      description: The detailed information about the sychronization.
+      properties:
+        count:
+          title: count
+          description: Number of results returned in the request.
+          type: integer
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        message:
+          title: message
+          description: The status message.
+          type: string
+        severity:
+          $ref: '#/components/schemas/SyncResultSeverity'
+        statusCode:
+          title: statusCode
+          description: The Eloqua status code.
+          type: string
+        syncUri:
+          title: syncUri
+          description: The sync's uri address.
+          type: string
+    Sync:
+      title: Sync
+      description: The definition of a sychronization. A synchronization is used to move data from the import staging area to the marketing database, or from the marketing database to the export staging area.
+      properties:
+        callbackUrl:
+          title: callbackUrl
+          description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        status:
+          $ref: '#/components/schemas/SyncStatusType'
+        syncedInstanceUri:
+          title: syncedInstanceUri
+          description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+          type: string
+        syncEndedAt:
+          format: date-time
+          title: syncEndedAt
+          description: The date and time the sync ended. This is a read-only property.
+          type: string
+        syncStartedAt:
+          format: date-time
+          title: syncStartedAt
+          description: The date and time the sync started. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    SyncReject:
+      title: SyncReject
+      description: The detailed information about the import sychronization data.
+      properties:
+        fieldValues:
+          title: fieldValues
+          description: The sync's field values.
+          type: object
+        invalidFields:
+          title: invalidFields
+          description: The sync's invalid fields.
+          type: array
+          items:
+            type: string
+        message:
+          title: message
+          description: The sync's message.
+          type: string
+        recordIndex:
+          title: recordIndex
+          description: The sync's record index.
+          type: integer
+        statusCode:
+          title: statusCode
+          description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
+          type: string
+    SyncResultSeverity:
+      title: SyncResultSeverity
+      description: The severity of the sync result.
+      default: information
+      enum:
+      - information
+      - warning
+      - error
+      type: string
+    SyncStatusType:
+      title: SyncStatusType
+      description: The status of the synchronization. This is a read-only property.
+      default: pending
+      enum:
+      - pending
+      - active
+      - success
+      - warning
+      - error
+      type: string

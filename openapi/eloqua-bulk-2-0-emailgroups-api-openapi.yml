@@ -1,0 +1,219 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/email Groups API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Bulk/2.0/emailGroups
+  description: The operations from the Bulk/2.0/emailGroups category.
+paths:
+  /api/bulk/2.0/emailGroups/{id}:
+    get:
+      tags:
+      - Bulk/2.0/emailGroups
+      summary: Retrieve an email group
+      description: Retrieves an email group.
+      operationId: GetEmailGroupIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The unique resource identifier of the email group.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: EmailGroupIndividualResponse
+                description: The response body contains information about the email group definition.
+                properties:
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  name:
+                    title: name
+                    description: The name of the email address definition.
+                    type: string
+                  statement:
+                    title: statement
+                    description: The markup language statement used to reference the field in an import or export mapping.
+                    type: string
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-emailGroups-{id}-get
+      x-filename-id: api-bulk-2.0-emailgroups-id-get
+  /api/bulk/2.0/emailGroups:
+    get:
+      tags:
+      - Bulk/2.0/emailGroups
+      summary: Retrieve a list of email groups
+      description: Retrieves a list of email groups.
+      operationId: GetEmailGroupSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: EmailGroupSearchResponse
+                description: The response body contains information about the email group definitions.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items that match the search.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmailGroup'
+                  limit:
+                    title: limit
+                    description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-emailGroups-get
+      x-filename-id: api-bulk-2.0-emailgroups-get
+components:
+  schemas:
+    EmailGroup:
+      title: EmailGroup
+      description: The definition of a grouping of emails in Eloqua, used for subscription management.
+      properties:
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        name:
+          title: name
+          description: The name of the email address definition.
+          type: string
+        statement:
+          title: statement
+          description: The markup language statement used to reference the field in an import or export mapping.
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string

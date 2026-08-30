@@ -1,0 +1,319 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Campaign fields API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Campaign fields
+  description: 'Campaign fields are the fields associated with a specific campaign asset.
+
+
+    <a href=''https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/Administration/Tasks/ConfiguringCustomCampaignFields.htm''>Learn more about campaign fields</a>.'
+paths:
+  /api/rest/2.0/assets/campaign/field:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      summary: Create a campaign field.
+      description: Creates a campaign field that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignFieldRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Campaign fields
+      x-internal-id: api-rest-2.0-assets-campaign-field-post
+      x-filename-id: api-rest-2.0-assets-campaign-field-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignFieldRest20'
+        description: The request body defines the details of the campaign field to be created.
+        required: true
+  /api/rest/2.0/assets/campaign/field/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the campaign field to be retrieved.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: &lt;code&gt;minimal&lt;/code&gt;, &lt;code&gt;partial&lt;/code&gt;, and &lt;code&gt;complete&lt;/code&gt;. Any other values passed are reset to &lt;code&gt;complete&lt;/code&gt; by default. For more information, see &lt;a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''&gt;Request depth&lt;/a&gt;.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a campaign field.
+      description: Retrieves the campaign field specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignFieldRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Campaign fields
+      x-internal-id: api-rest-2.0-assets-campaign-field-{id}-get
+      x-filename-id: api-rest-2.0-assets-campaign-field-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the campaign field to be updated.
+        required: true
+        schema:
+          type: integer
+      summary: Update a Campaign field.
+      description: Updates the campaign field specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignFieldRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Campaign fields
+      x-internal-id: api-rest-2.0-assets-campaign-field-{id}-put
+      x-filename-id: api-rest-2.0-assets-campaign-field-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignFieldRest20'
+        description: The details of the campaign field to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the campaign field to delete.
+        required: true
+        schema:
+          type: integer
+      summary: Delete a campaign field.
+      description: Deletes the campaign field specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Campaign fields
+      x-internal-id: api-rest-2.0-assets-campaign-field-{id}-delete
+      x-filename-id: api-rest-2.0-assets-campaign-field-id-delete
+  /api/rest/2.0/assets/campaign/fields:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. The default value is <code>minimal</code>.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the campaign field was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of campaign fields.
+      description: Retrieves all campaign fields that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCampaignFieldRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Campaign fields
+      x-internal-id: api-rest-2.0-assets-campaign-fields-get
+      x-filename-id: api-rest-2.0-assets-campaign-fields-get
+components:
+  schemas:
+    CampaignFieldRest20:
+      title: CampaignField
+      properties:
+        type:
+          type: string
+          description: CampaignField_Field_Type_Description
+        id:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_InternalId_Description
+        currentStatus:
+          type: string
+          description: CampaignField_Field_Status_Description
+        name:
+          type: string
+          description: CampaignField_Field_Name_Description
+        description:
+          type: string
+          description: CampaignField_Field_Description_Description
+        permissions:
+          type: array
+          description: CampaignField_Field_Permissions_Description
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_FolderId_Description
+        sourceTemplateId:
+          type: string
+          description: CampaignField_Field_SourceTemplateId_Description
+        createdBy:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_CreatedBy_Description
+        createdByName:
+          type: string
+          description: CampaignField_Field_CreatedByName_Description
+        createdAt:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_CreatedAt_Description
+        updatedBy:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_UpdatedBy_Description
+        updatedByName:
+          type: string
+          description: CampaignField_Field_UpdatedByName_Description
+        updatedAt:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_UpdatedAt_Description
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_ScheduledFor_Description
+        depth:
+          type: string
+          readOnly: true
+          description: CampaignField_Field_InternalDepth_Description
+        displayType:
+          type: string
+          description: 'The campaign field''s display type. The options are: multiSelect, singleSelect, and text.'
+        dataType:
+          type: string
+          description: 'The campaign field''s data type. The options are: date, numeric, and text.'
+        isRequired:
+          type: string
+          description: Whether or not the campaign field is required.
+        isReadOnly:
+          type: string
+          description: Whether or not the campaign field is read only.
+        optionListId:
+          type: string
+          description: The id of the associated option list.
+        isSystem:
+          type: string
+          description: Whether or not the campaign field is a system field.
+        displayIndex:
+          type: string
+          description: The campaign field's display index.
+    QueryResultCampaignFieldRest20:
+      title: QueryResultCampaignField
+      properties:
+        type:
+          type: string
+          description: QueryResult1CampaignField_Field_Type_Description
+        elements:
+          type: array
+          description: QueryResult1CampaignField_Field_Elements_Description
+          items:
+            $ref: '#/components/schemas/CampaignFieldRest20'
+        total:
+          type: integer
+          description: QueryResult1CampaignField_Field_TotalElements_Description
+        pageSize:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageSize_Description
+        page:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageIndex_Description

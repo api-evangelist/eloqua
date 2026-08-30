@@ -1,0 +1,173 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Custom object data API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Custom object data
+  description: 'Custom object data are the records of custom object instances.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects''>Learn more about custom objects</a>.'
+paths:
+  /api/rest/1.0/data/customObject/{id}:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the custom object.
+        required: true
+        schema:
+          type: integer
+      summary: Create custom object data
+      description: Creates custom object data that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectDataRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Custom object data
+      x-internal-id: api-rest-1.0-data-customObject-{id}-post
+      x-filename-id: api-rest-1.0-data-customobject-id-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObjectDataRest10'
+        description: The request body defines the details of the custom object data to be created.
+        required: true
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the custom object.
+        required: true
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: Unix timestamp for the date and time the custom object was last updated. This is a read-only property.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of custom object data
+      description: Retrieves the data for the custom object specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCustomObjectDataRest10'
+        '204':
+          description: No matching custom objects were found in the search.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Custom object data
+      x-internal-id: api-rest-1.0-data-customObject-{id}-get
+      x-filename-id: api-rest-1.0-data-customobject-id-get
+components:
+  schemas:
+    QueryResultCustomObjectDataRest10:
+      title: QueryResultCustomObjectData
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of custom object field elements.
+          items:
+            $ref: '#/components/schemas/CustomObjectDataRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+    CustomObjectDataRest10:
+      title: CustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the custom object. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The custom object's current status. This is a read-only property.
+        contactId:
+          type: string
+          description: Id of the contact. This is a read-only property.
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code> and <code>id</code> values for all of the fields associated with a given custom object data asset. Custom object date field values must be in Unix time format.
+          items:
+            $ref: '#/components/schemas/FieldValueRest10'

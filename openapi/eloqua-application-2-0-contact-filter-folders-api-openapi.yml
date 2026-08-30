@@ -1,0 +1,591 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Contact filter folders API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Contact filter folders
+  description: Contact filter folders organize your contact filters.
+paths:
+  /api/rest/2.0/assets/contact/filter/folder:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      summary: Create a folder
+      description: Creates a folder that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-post
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FolderRest20'
+        description: The request body defines the details of the folder to be created.
+        required: true
+  /api/rest/2.0/assets/contact/filter/folder/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the folder.
+        required: true
+        schema:
+          type: string
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: extensions
+        in: query
+        description: IFilterFolderService_Parameter_ReadIndividual_extensions_Description
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a folder
+      description: Retrieves the folder specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-{id}-get
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the folder.
+        required: true
+        schema:
+          type: string
+      summary: Update a folder
+      description: The request body defines the details of the folder to be updated.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-{id}-put
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FolderRest20'
+        description: The request body defines the details of the folder to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the folder.
+        required: true
+        schema:
+          type: string
+      summary: Delete a folder
+      description: Deletes the folder specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-{id}-delete
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-id-delete
+  /api/rest/2.0/assets/contact/filter/folders:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the email was last updated.
+        required: false
+        schema:
+          type: string
+      - name: extensions
+        in: query
+        description: IFilterFolderService_Parameter_Search_extensions_Description
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of folders
+      description: Retrieves all folders that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultFolderRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folders-get
+      x-filename-id: api-rest-2.0-assets-contact-filter-folders-get
+  /api/rest/2.0/assets/contact/filter/folder/{id}/contents:
+    get:
+      operationId: SearchContentsGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the folder.
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the email was last updated.
+        required: false
+        schema:
+          type: string
+      - name: extensions
+        in: query
+        description: IFilterFolderService_Parameter_SearchContents_extensions_Description
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of folder contents
+      description: Retrieves all folder contents that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultContractObjectRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-{id}-contents-get
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-id-contents-get
+    patch:
+      operationId: BatchMovePATCHRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the folder.
+        required: true
+        schema:
+          type: string
+      summary: Add content to a folder
+      description: Places all content into the folder specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MinimalRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-{id}-contents-patch
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-id-contents-patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+        description: The contents to place in the folder.
+        required: true
+  /api/rest/2.0/assets/contact/filter/folder/root/contents:
+    get:
+      operationId: SearchRootContentsGETRest20
+      parameters:
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the email was last updated.
+        required: false
+        schema:
+          type: string
+      - name: extensions
+        in: query
+        description: IFilterFolderService_Parameter_SearchRootContents_extensions_Description
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of folder contents in the root folder
+      description: Retrieves all folder contents in the root folder that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultContractObjectRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-root-contents-get
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-root-contents-get
+  /api/rest/2.0/assets/contact/filter/folder/root:
+    get:
+      operationId: ReadRootFolderGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: extensions
+        in: query
+        description: IFilterFolderService_Parameter_ReadRootFolder_extensions_Description
+        required: false
+        schema:
+          type: string
+      summary: Retrieve the root folder
+      description: Retrieves the root folder.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Contact filter folders
+      x-internal-id: api-rest-2.0-assets-contact-filter-folder-root-get
+      x-filename-id: api-rest-2.0-assets-contact-filter-folder-root-get
+components:
+  schemas:
+    MinimalRest20:
+      title: Minimal
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        name:
+          type: string
+    QueryResultContractObjectRest20:
+      title: QueryResultContractObject
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of generic objects.
+          items:
+            $ref: '#/components/schemas/MinimalRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultFolderRest20:
+      title: QueryResultFolder
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of folders.
+          items:
+            $ref: '#/components/schemas/FolderRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FolderRest20:
+      title: Folder
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the folder. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The asset's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the folder.
+        description:
+          type: string
+          description: The description of the folder.
+        permissions:
+          type: array
+          description: The permissions for the folder granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the folder.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the folder.
+        createdByName:
+          type: string
+          description: The name of the user who created the folder.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the folder was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the folder.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the folder.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the folder was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date and time the folder is scheduled for.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        isSystem:
+          type: string
+          readOnly: true
+          description: Whether or not the folder is a system folder.
+        archive:
+          type: string
+          description: Whether or not the folder is archived.

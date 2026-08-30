@@ -1,0 +1,393 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Accounts API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Accounts
+  description: 'An Oracle Eloqua Account provides group contact information.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Accounts''>Learn more about accounts</a>.'
+paths:
+  /api/rest/1.0/data/account:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      summary: Create an account
+      description: Creates an account that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Accounts
+      x-internal-id: api-rest-1.0-data-account-post
+      x-filename-id: api-rest-1.0-data-account-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountRest10'
+        description: The request body defines the details of the account to be created.
+        required: true
+  /api/rest/1.0/data/account/{id}:
+    get:
+      operationId: ReadIndividualGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the account.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      - name: viewId
+        in: query
+        description: Id of the account view.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve an account
+      description: Retrieves the account specified by the <code>id</code> parameter
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Accounts
+      x-internal-id: api-rest-1.0-data-account-{id}-get
+      x-filename-id: api-rest-1.0-data-account-id-get
+    put:
+      operationId: UpdateIndividualPUTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the account.
+        required: true
+        schema:
+          type: integer
+      summary: Update an account
+      description: Updates the account specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Accounts
+      x-internal-id: api-rest-1.0-data-account-{id}-put
+      x-filename-id: api-rest-1.0-data-account-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountRest10'
+        description: List of account fields.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the account.
+        required: true
+        schema:
+          type: integer
+      summary: Delete an account
+      description: Deletes the account specified by the <code>id</code> parameter.
+      responses:
+        '204':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: The account you are attempting to delete has dependencies, and cannot be deleted
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Accounts
+      x-internal-id: api-rest-1.0-data-account-{id}-delete
+      x-filename-id: api-rest-1.0-data-account-id-delete
+  /api/rest/1.0/data/accounts:
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the account was last updated. This is a read-only property.
+        required: false
+        schema:
+          type: integer
+      - name: viewId
+        in: query
+        description: 'Id of the account view to filter results. Must be a valid account view id. Example: <code>/api/REST/1.0/data/accounts?viewId=100005</code>.'
+        required: false
+        schema:
+          type: integer
+      - name: ownedByUserId
+        in: query
+        description: Set this query parameter to an Eloqua User ID to return all Accounts linked to that Eloqua User. You can link Users to Accounts using the Bulk API. For instructions on how to link Users to Accounts, refer to the <code>linkUsers</code> parameter in this <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/index.html#CSHID=ImportExportParams'>tutorial</a>.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of accounts
+      description: Retrieves all accounts that match the criteria specified by the request parameters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultAccountRest10'
+        '204':
+          description: No matching accounts were found in the search
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Accounts
+      x-internal-id: api-rest-1.0-data-accounts-get
+      x-filename-id: api-rest-1.0-data-accounts-get
+components:
+  schemas:
+    QueryResultAccountRest10:
+      title: QueryResultAccount
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of account fields.
+          items:
+            $ref: '#/components/schemas/AccountRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+    CrmSystemMappingRest10:
+      title: CrmSystemMapping
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        loginName:
+          type: string
+        MSDUserName:
+          type: string
+        SFDCUserName:
+          type: string
+        SODUserName:
+          type: string
+    AccountRest10:
+      title: Account
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the account. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The account's current status.
+        name:
+          type: string
+          description: The name of the account.
+        description:
+          type: string
+          description: The description of the account.
+        permissions:
+          type: string
+          description: The permissions for the account granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the account.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the account was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the account.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the account was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code> and <code>id</code> values for all of the accountFields associated with a given account.
+          items:
+            $ref: '#/components/schemas/FieldValueRest10'
+        address1:
+          type: string
+          description: The account's first address.
+        address2:
+          type: string
+          description: The account's second address.
+        address3:
+          type: string
+          description: The account's third address.
+        city:
+          type: string
+          description: The account's city.
+        province:
+          type: string
+          description: The account's province.
+        postalCode:
+          type: string
+          description: The account's postal code.
+        country:
+          type: string
+          description: The account's country.
+        businessPhone:
+          type: string
+          description: The account's business phone number.
+        crmSystemMappings:
+          type: array
+          description: 'Lists CRM Users linked to the Account. Each <code>crmSystemMappings</code> contains a <code>type</code>, <code>CRMUsername</code>(s), and Eloqua <code>loginName</code> values for all of the Eloqua Users linked to the Account.
+
+
+            This property is only returned if Eloqua Users are linked to the Account. For instructions on how to link Eloqua Users to Accounts, refer to the <code>linkUsers</code> parameter in this <a href=''https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/index.html#CSHID=ImportExportParams''>tutorial</a>.
+
+
+            This property is also only returned when the request depth is <code>complete</code>.'
+          items:
+            $ref: '#/components/schemas/CrmSystemMappingRest10'

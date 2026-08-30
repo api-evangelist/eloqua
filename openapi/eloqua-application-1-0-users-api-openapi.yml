@@ -1,0 +1,247 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Users API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Users
+  description: 'Users API endpoints. The API allows you to modify such things as a user''s time preference.
+
+
+    <a href=''https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/UserManagement/UserManagement.htm''>Learn more about user management</a>.'
+paths:
+  /api/rest/1.0/system/user/{id}:
+    get:
+      operationId: ReadIndividualGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user to retrieve.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a user
+      description: Retrieves the user specified by the <code>id</code> parameter. For security purposes, full user details are only displayed in a response if the user profile being retrieved via the API is the same user performing the request.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Users
+      x-internal-id: api-rest-1.0-system-user-{id}-get
+      x-filename-id: api-rest-1.0-system-user-id-get
+    put:
+      operationId: UpdateIndividualPUTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user to update.
+        required: true
+        schema:
+          type: integer
+      summary: Update a user
+      description: Updates the user specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Users
+      x-internal-id: api-rest-1.0-system-user-{id}-put
+      x-filename-id: api-rest-1.0-system-user-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRest10'
+        description: The request body defines the details of the user to be updated.
+        required: true
+  /api/rest/1.0/system/users:
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the user was last updated. This is a read-only property.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of users
+      description: Retrieves all users that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultUserRest10'
+        '204':
+          description: No matching users were found in the search.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Users
+      x-internal-id: api-rest-1.0-system-users-get
+      x-filename-id: api-rest-1.0-system-users-get
+components:
+  schemas:
+    UserPreferencesRest10:
+      title: UserPreferences
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        timezoneId:
+          type: string
+          description: The ID of the user's timezone in Eloqua. This is a read-only property.
+    UserRest10:
+      title: User
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the user. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used.
+        name:
+          type: string
+          description: The name of the user. This is a read-only property.
+        description:
+          type: string
+          description: The description of the user. This is a read-only property.
+        permissions:
+          type: string
+          description: The permissions for the user granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the user. This is a read-only property.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the user was created, expressed in Unix time. This is a read-only property.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the user. This is a read-only property.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the user was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        loginName:
+          type: string
+          description: The user's name used to login. This is a read-only property.
+        company:
+          type: string
+          description: The name of the user's company/instance. This is a read-only property.
+        emailAddress:
+          type: string
+          description: The user's email address. This is a read-only property.
+        preferences:
+          $ref: '#/components/schemas/UserPreferencesRest10'
+          description: A list of user preferences. "timezoneID" is identifies the user's timezone preference.
+        defaultContactViewId:
+          type: string
+          description: The user's default contact view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
+        defaultAccountViewId:
+          type: string
+          description: The user's default account view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
+    QueryResultUserRest10:
+      title: QueryResultUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of user fields.
+          items:
+            $ref: '#/components/schemas/UserRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

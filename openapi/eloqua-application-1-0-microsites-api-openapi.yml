@@ -1,0 +1,296 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Microsites API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Microsites
+  description: 'A microsite is a miniature website, often dedicated to a specific campaign, product, or keyword. The purpose is to give a visitor (whether channeled through your website, social media assets, emails, SMS, or other channels) precise information that they can use to better understand your products and services or to make a buying decision. There are three types of microsites: basic, secure and authenticated. Each landing page you create in Eloqua must have an associated microsite.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Microsites''>Learn more about microsites</a>.'
+paths:
+  /api/rest/1.0/assets/microsite:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      summary: Create a microsite
+      description: Creates a microsite that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrositeRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Microsites
+      x-internal-id: api-rest-1.0-assets-microsite-post
+      x-filename-id: api-rest-1.0-assets-microsite-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicrositeRest10'
+        description: The request body defines the details of the microsite to be updated.
+        required: true
+  /api/rest/1.0/assets/microsite/{id}:
+    get:
+      operationId: ReadIndividualGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the microsite.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a microsite
+      description: Retrieves a microsite specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrositeRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Microsites
+      x-internal-id: api-rest-1.0-assets-microsite-{id}-get
+      x-filename-id: api-rest-1.0-assets-microsite-id-get
+    put:
+      operationId: UpdateIndividualPUTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the microsite.
+        required: true
+        schema:
+          type: integer
+      summary: Update a microsite
+      description: Updates a microsite specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicrositeRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Microsites
+      x-internal-id: api-rest-1.0-assets-microsite-{id}-put
+      x-filename-id: api-rest-1.0-assets-microsite-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicrositeRest10'
+        description: The request body defines the details of the microsite to be created.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the microsite. This is a read-only property.
+        required: true
+        schema:
+          type: integer
+      summary: Delete a microsite
+      description: Deletes a microsite specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Microsites
+      x-internal-id: api-rest-1.0-assets-microsite-{id}-delete
+      x-filename-id: api-rest-1.0-assets-microsite-id-delete
+  /api/rest/1.0/assets/microsites:
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the microsite was last updated.
+        required: false
+        schema:
+          type: integer
+      - name: isCertificateProvisioned
+        in: query
+        description: Boolean query parameter to filter microsites provisioned using the Automated Certificate Management system. For example, ?isCertificateProvisioned=true. Set to false by default. For more information about Automated Certificate Management, refer to the <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/index.html#CSHID=AutoSSLCert'>help center</a>.
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of microsites
+      description: Retrieves all microsites that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultMicrositeRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Microsites
+      x-internal-id: api-rest-1.0-assets-microsites-get
+      x-filename-id: api-rest-1.0-assets-microsites-get
+components:
+  schemas:
+    MicrositeRest10:
+      title: Microsite
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the microsite. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The campaign's current status.
+        name:
+          type: string
+          description: The name of the microsite.
+        description:
+          type: string
+          description: The description of the microsite.
+        permissions:
+          type: string
+          description: The permissions for the microsite granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the microsite.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the microsite was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the microsite.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the microsite was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        domains:
+          type: array
+          description: A collection of associated sub domains.
+          items:
+            type: string
+        defaultLandingPageId:
+          type: string
+          description: The id for the associated default landing page.
+        isAllowedInFrame:
+          type: string
+          description: Whether pages associated to the microsite can be embedded within frames, iframes, or objects. <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/index.html#CSHID=PreventEmbedding'>Learn more</a>.
+    QueryResultMicrositeRest10:
+      title: QueryResultMicrosite
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of microsite fields.
+          items:
+            $ref: '#/components/schemas/MicrositeRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

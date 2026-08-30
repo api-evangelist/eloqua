@@ -1,0 +1,277 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/exports API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Bulk/2.0/exports
+  description: The operations from the Bulk/2.0/exports category.
+paths:
+  /api/bulk/2.0/exports/data:
+    get:
+      tags:
+      - Bulk/2.0/exports
+      summary: Discover the amount of database space your exports are using
+      description: This endpoint is used to discover how much space current exports are taking up in your database.
+      operationId: GetExportStorage
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: ExportStorageResponse
+                description: Response for the export storage usage, filtered by the fields or fieldsUri.
+                properties:
+                  kbAllowed:
+                    format: int64
+                    title: kbAllowed
+                    description: This value is set to "0" on purpose, this means there is no limit.
+                    type: integer
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space currently taking up in your database.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-exports-data-get
+      x-filename-id: api-bulk-2.0-exports-data-get
+  /api/bulk/2.0/exports:
+    get:
+      tags:
+      - Bulk/2.0/exports
+      summary: Retrieve a list of exports
+      description: Retrieves a list of exports.
+      operationId: GetExportSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: ExportSearchResponse
+                description: The response body contains information about the export definitions.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: List of export definitions.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Export'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-exports-get
+      x-filename-id: api-bulk-2.0-exports-get
+components:
+  schemas:
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
+    Export:
+      title: Export
+      description: The request body defines the details of the export definition. The following table displays properties for creating export definitions.
+      properties:
+        areSystemTimestampsInUTC:
+          title: areSystemTimestampsInUTC
+          description: Whether or not <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SystemTimestamps'>system timestamps</a> will be exported in UTC. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>Filtering tutorial</a> for an example of filtering when <code>areSystemTimestampsInUTC</code> is set to <code>true</code>.
+          type: boolean
+        autoDeleteDuration:
+          title: autoDeleteDuration
+          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        crmAccountIdField:
+          title: crmAccountIdField
+          description: The ML statement for an existing contact field which addresses the CRM account ID.
+          type: string
+        dataRetentionDuration:
+          title: dataRetentionDuration
+          description: The length of time exported data should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to PT12H (12 hours) if not explicitly set during export definition creation.
+          type: string
+        externalSystemId:
+          title: externalSystemId
+          description: The external system ID is used when exporting data containing CRM fields.
+          type: integer
+        fields:
+          title: fields
+          description: List of fields to be included in the operation.
+          type: object
+        filter:
+          title: filter
+          description: The filter parameter uses Eloqua Markup Language to only return certain results. Learn more about <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>filters</a>.
+          type: string
+        kbUsed:
+          format: int64
+          title: kbUsed
+          description: The amount of space used in kilobytes. This is a read-only property.
+          type: integer
+        maxRecords:
+          title: maxRecords
+          description: The maximum amount of records.
+          type: integer
+        name:
+          title: name
+          description: The name of the export definition.
+          type: string
+        productIdField:
+          title: productIdField
+          description: The ML statement for an existing campaign field which addresses the product ID.
+          type: string
+        syncActions:
+          title: syncActions
+          description: Specifies operations to perform during the sync with a maximum of 10 actions. See <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions'>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string

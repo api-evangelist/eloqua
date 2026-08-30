@@ -1,0 +1,170 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/External activities API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/External activities
+  description: 'External activities are non-Eloqua (that is, offline) activities performed by your contacts or prospects. These assets can be imported for use in Eloqua campaign reporting.
+
+
+    External asset types is the ''umbrella'' (top-level) classification for something that your contacts or prospects are performing, for example, a Tradeshow.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets''>Learn more about external assets</a>.'
+paths:
+  /api/rest/2.0/data/activity:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      summary: Create an external activity
+      description: Creates an external activity that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalActivitiesRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/External activities
+      x-internal-id: api-rest-2.0-data-activity-post
+      x-filename-id: api-rest-2.0-data-activity-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalActivitiesRest20'
+        description: The request body defines the details of the external activity to be created.
+        required: true
+  /api/rest/2.0/data/activity/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the external activity to retrieve.
+        required: true
+        schema:
+          type: integer
+      summary: Retrieve an external activity
+      description: Retrieves the external activity data specified by the <code>id</code> parameter. Ids are not consecutive.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalActivitiesRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/External activities
+      x-internal-id: api-rest-2.0-data-activity-{id}-get
+      x-filename-id: api-rest-2.0-data-activity-id-get
+components:
+  schemas:
+    ExternalActivitiesRest20:
+      title: ExternalActivities
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the external activity. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The external activity's current status.
+        name:
+          type: string
+          description: The name of the external activity.
+        description:
+          type: string
+          description: The description of the external activity.
+        permissions:
+          type: array
+          description: The permissions for the external activity granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the external activity.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the external activity.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the external activity.
+        createdByName:
+          type: string
+          description: The name of the user who created the external activity.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the external activity was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the external activity.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the external activity.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the external activity was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the external activity is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        campaignId:
+          type: integer
+          description: Id of the associated campaign. This value must correspond to a valid campaign.
+        assetName:
+          type: string
+          description: The name of the associated asset.
+        assetType:
+          type: string
+          description: The type of the associated asset.
+        activityType:
+          type: string
+          description: The activity's type.
+        activityDate:
+          type: string
+          description: The date the external activity was performed by the associated contact.
+        contactId:
+          type: integer
+          description: The id of the contact who performed the activity. This value must correspond to a valid contact.
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code> and <code>id</code> values for all of the activity fields associated with a given external activity
+          items:
+            type: object
+            additionalProperties:
+              type: string

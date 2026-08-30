@@ -1,0 +1,669 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Security groups API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Security groups
+  description: Security group API endpoints.
+paths:
+  /api/rest/2.0/system/security/group:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      summary: Create a security group
+      description: Creates a new security group.
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityGroupRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-post
+      x-filename-id: api-rest-2.0-system-security-group-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityGroupRest20'
+        description: The request body defines the details of the security group to be created.
+        required: true
+  /api/rest/2.0/system/security/group/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: The security group Id to retrieve
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. The default value is <code>minimal</code>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a security group
+      description: Retrieves the security group specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityGroupRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-{id}-get
+      x-filename-id: api-rest-2.0-system-security-group-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: id
+        in: path
+        description: The Id of the security group to update
+        required: true
+        schema:
+          type: integer
+      summary: Update a security group
+      description: Updates the security group specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityGroupRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-{id}-put
+      x-filename-id: api-rest-2.0-system-security-group-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityGroupRest20'
+        description: The request body defines the details of the security group to be updated
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: id
+        in: path
+        description: The Id of the security group to delete
+        required: true
+        schema:
+          type: integer
+      summary: Delete a security group
+      description: Deletes the security group specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-{id}-delete
+      x-filename-id: api-rest-2.0-system-security-group-id-delete
+  /api/rest/2.0/system/security/groups:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. The default value is <code>minimal</code>.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the security group was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve security groups
+      description: Retrieves a list of security groups in Eloqua.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultSecurityGroupRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-groups-get
+      x-filename-id: api-rest-2.0-system-security-groups-get
+  /api/rest/2.0/system/security/group/{id}/users:
+    get:
+      operationId: GetUsersGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: The security group id, from which you want to retrieve users
+        required: true
+        schema:
+          type: integer
+      summary: Retrieve a list of users
+      description: Retrieves a list of users that belong to the specified security group
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultSecurityGroupUserRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-{id}-users-get
+      x-filename-id: api-rest-2.0-system-security-group-id-users-get
+    patch:
+      operationId: PatchUsersPATCHRest20
+      parameters:
+      - name: id
+        in: path
+        description: The security group id, from which you want to add or remove users
+        required: true
+        schema:
+          type: integer
+      summary: Add or remove users from a security group
+      description: Adds or removes users from a security group.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SecurityGroupUserRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Security groups
+      x-internal-id: api-rest-2.0-system-security-group-{id}-users-patch
+      x-filename-id: api-rest-2.0-system-security-group-id-users-patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+        description: Array of users to add or remove from the group
+        required: true
+components:
+  schemas:
+    SecurityGroupRest20:
+      title: SecurityGroup
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the security group.
+        description:
+          type: string
+          description: The description of the security group.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the security group.
+        createdByName:
+          type: string
+          description: The name of the user who created the security group.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the security group was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the security group. This is a read-only property.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the security group.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the security group was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        name:
+          type: string
+          description: The name of the security group.
+        acronym:
+          type: string
+          description: Acronym for the security group
+        isReadOnly:
+          type: string
+          readOnly: true
+          description: Indicates if the security group is read only.
+        isEffective:
+          type: string
+          readOnly: true
+          description: Indicates if the security group is effective.
+    QueryResultSecurityGroupUserRest20:
+      title: QueryResultSecurityGroupUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of security group user data.
+          items:
+            $ref: '#/components/schemas/SecurityGroupUserRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    TypePermissionsRest20:
+      title: TypePermissions
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+    InterfacePermissionRest20:
+      title: InterfacePermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        interfaceCode:
+          type: string
+          description: ''
+        nestedInterfacePermissions:
+          type: array
+          description: ''
+          items:
+            $ref: '#/components/schemas/InterfacePermissionRest20'
+        name:
+          type: string
+          description: ''
+    ProductPermissionRest20:
+      title: ProductPermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        productCode:
+          type: string
+          description: ''
+    TypePermissionRest20:
+      title: TypePermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        objectType:
+          type: string
+          description: ''
+        permissions:
+          $ref: '#/components/schemas/TypePermissionsRest20'
+          description: ''
+    crmUserNamesRest20:
+      title: crmUserNames
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        SFDCUserName:
+          type: string
+          description: ''
+        MSDUserName:
+          type: string
+          description: ''
+        SODUserName:
+          type: string
+          description: ''
+    UserRest20:
+      title: User
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the user. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used.
+        name:
+          type: string
+          description: The name of the user. This is a read-only property.
+        description:
+          type: string
+          description: The description of the user.
+        permissions:
+          type: array
+          description: The permissions for the user granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the user. This is a read-only property.
+        sourceTemplateId:
+          type: string
+          description: Id of template used to create the user.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the user. This is a read-only property.
+        createdByName:
+          type: string
+          description: The name of the user who created the user.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the user was created, expressed in Unix time. This is a read-only property.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the user. This is a read-only property.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the user.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the user was last updated. This is a read-only property.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This parameter is not used.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>. This is a read-only property.'
+        loginName:
+          type: string
+          description: The user's name used to login. This is a read-only property.
+        emailAddress:
+          type: string
+          description: The user's email address.
+        federationId:
+          type: string
+          description: The user's Federation Id.
+        firstName:
+          type: string
+          description: The first name of the user.
+        lastName:
+          type: string
+          description: The last name of the user.
+        preferences:
+          $ref: '#/components/schemas/UserPreferencesRest20'
+          description: A list of user preferences.
+        typePermissions:
+          type: array
+          description: A list of the user's type permissions.
+          items:
+            $ref: '#/components/schemas/TypePermissionRest20'
+        capabilities:
+          type: array
+          description: 'A list of strings: the user''s capabilities.'
+          items:
+            type: string
+        betaAccess:
+          type: array
+          description: 'A list of strings: beta programs the user can access.'
+          items:
+            type: string
+        defaultContactViewId:
+          type: string
+          description: The user's default contact view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
+        defaultAccountViewId:
+          type: string
+          description: The user's default account view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
+        securityGroups:
+          type: array
+          description: The user's security groups.
+          items:
+            $ref: '#/components/schemas/SecurityGroupRest20'
+        interfacePermissions:
+          type: array
+          description: A list of the user's interface permissions.
+          items:
+            $ref: '#/components/schemas/InterfacePermissionRest20'
+        productPermissions:
+          type: array
+          description: A list of the user's product permissions.
+          items:
+            $ref: '#/components/schemas/ProductPermissionRest20'
+        isUsingBrightenTemplate:
+          type: string
+          description: This parameter is not used.
+        shortcuts:
+          type: array
+          description: This parameter is not used.
+          items:
+            type: string
+        isDeleted:
+          type: string
+          description: Indicates if the user is deleted.
+        isDisabled:
+          type: string
+          readOnly: true
+          description: Indicates if the user is disabled.
+        jobTitle:
+          type: string
+          description: Job title of the user.
+        companyDisplayName:
+          type: string
+          description: Name of the user's company to be displayed.
+        companyUrl:
+          type: string
+          description: URL of the user's company.
+        phone:
+          type: string
+          description: Phone number of the user.
+        crmUsername:
+          type: string
+          description: User's identifier in default CRM.
+        crmUserNames:
+          $ref: '#/components/schemas/crmUserNamesRest20'
+          description: List of <code>CrmUsernames</code> records. User's identifiers in internally supported CRMs.
+        passwordExpires:
+          type: string
+          description: Indicates if user's password can expire.
+        sendWelcomeEmail:
+          type: string
+          description: Indicates if "User Welcome" email would be sent to user upon user creation.
+        cellPhone:
+          type: string
+          description: Mobile phone number of the user.
+        address1:
+          type: string
+          description: User's address line 1.
+        address2:
+          type: string
+          description: User's address line 2.
+        replyToAddress:
+          type: string
+          description: User's email address used as "reply to" address.
+        department:
+          type: string
+          description: Name of the user's department.
+        fax:
+          type: string
+          description: Fax number of the user.
+        personalUrl:
+          type: string
+          description: User's personal URL.
+        personalMessage:
+          type: string
+          description: User's personal message.
+        ssoOnly:
+          type: string
+          description: Indicates if the user can only login using Single Sign On.
+        digitalSignatureId:
+          type: string
+          description: Internal id of user's digital signature.
+        personalPhotoId:
+          type: string
+          description: Internal id of user's personal photo.
+        city:
+          type: string
+          description: The name of the user's city.
+        state:
+          type: string
+          description: The name of the user's state or province.
+        country:
+          type: string
+          description: The name of the user's country.
+        zipCode:
+          type: string
+          description: User's ZIP or postal code.
+        senderEmailAddress:
+          type: string
+          description: User's "Sender Email Address"
+        senderDisplayName:
+          type: string
+          description: User's "Sender Display Name"
+        isAssetManager:
+          type: string
+          description: User_Field_IsAssetManager_Description
+    UserPreferencesRest20:
+      title: UserPreferences
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        timezoneId:
+          type: string
+          description: The ID of the user's timezone in Eloqua.
+    SecurityGroupUserRest20:
+      title: SecurityGroupUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        patchMethod:
+          type: string
+          description: The patch method to perform
+        user:
+          $ref: '#/components/schemas/UserRest20'
+          description: User object
+    QueryResultSecurityGroupRest20:
+      title: QueryResultSecurityGroup
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of security group fields.
+          items:
+            $ref: '#/components/schemas/SecurityGroupRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Visitor profile fields API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Visitor profile fields
+  description: A visitor profile field are the fields associated to a website visitor. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=VisitorProfileFields'>Learn more about Visitor Profile Fields</a>.
+paths:
+  /api/rest/2.0/assets/visitor/fields:
+    get:
+      operationId: GetVisitorProfileFieldsGETRest20
+      parameters:
+      - name: page
+        in: query
+        description: Specifies which page of visitor profile fields to return (the count parameter defines the number of visitor profile fields per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of visitor profile fields
+      description: Retrieves a list of visitor profile fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultProfileFieldRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Visitor profile fields
+      x-internal-id: api-rest-2.0-assets-visitor-fields-get
+      x-filename-id: api-rest-2.0-assets-visitor-fields-get
+components:
+  schemas:
+    QueryResultProfileFieldRest20:
+      title: QueryResultProfileField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of visitor profile fields.
+          items:
+            $ref: '#/components/schemas/ProfileFieldRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    ProfileFieldRest20:
+      title: ProfileField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the visitor profile field. This is a read-only property.
+        name:
+          type: string
+          description: 'The name of the visitor profile field. '
+        createdByName:
+          type: string
+          description: ProfileField_Field_CreatedByName_Description
+        updatedByName:
+          type: string
+          description: ProfileField_Field_UpdatedByName_Description
+        internalName:
+          type: string
+          description: The internal name of the visitor profile field.
+        dataType:
+          type: string
+          description: 'The visitor profile field''s data type. Possible values are: text, ''text'', ''largeText'', ''date'', or ''number''.'
+        length:
+          type: string
+          description: The value length of the field expressed in bytes.

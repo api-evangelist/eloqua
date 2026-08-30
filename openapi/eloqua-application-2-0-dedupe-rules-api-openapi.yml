@@ -1,0 +1,352 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Dedupe Rules API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Dedupe Rules
+  description: Dedupe Rule endpoints
+paths:
+  /api/rest/2.0/assets/dedupeRules:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: sourceType
+        in: query
+        description: Source Entity Type E.g. 1 (for contact), endpoint uses it to filter out the result if provided
+        required: false
+        schema:
+          type: integer
+      - name: targetType
+        in: query
+        description: Target Entity Type E.g. 2 (for Company), endpoint uses it to filter out the result if provided
+        required: false
+        schema:
+          type: integer
+      - name: IsMatchRule
+        in: query
+        description: Field that specifies if this is a Dedupe Rule or Match Rule. Fetches Both if not specified
+        required: false
+        schema:
+          type: boolean
+      - name: IsCompleted
+        in: query
+        description: Field that specifies if a Dedupe Rule or Match Rule is completed or not. Fetches Both if not specified
+        required: false
+        schema:
+          type: boolean
+      - name: search
+        in: query
+        description: Search term
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Max records in a page to be fetched
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Page number to be fetched
+        required: false
+        schema:
+          type: integer
+      summary: Search for Dedupe Rules and Match Rules by Name
+      description: Search for Dedupe Rules and Match Rules by Name and select Either or both using parameters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultDedupeRuleRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Dedupe Rules
+      x-internal-id: api-rest-2.0-assets-dedupeRules-get
+      x-filename-id: api-rest-2.0-assets-deduperules-get
+  /api/rest/2.0/assets/dedupeRule/{ruleId}/handlerSets:
+    get:
+      operationId: GetHandlerSetsGETRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: ID of the Dedupe Rule or Match Rule
+        required: true
+        schema:
+          type: integer
+      - name: isNonMatchesDestination
+        in: query
+        description: Field that specifies if a Dedupe Rule or Match Rule Handler Set contains any Non-Matches Destination Handlers or not. Fetches Both if not specified
+        required: false
+        schema:
+          type: boolean
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. The default value is <code>minimal</code>.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      summary: Get the Dedupe Rule or Match Rule Handler Sets
+      description: Get the Dedupe Rule or Match Rule Handler Sets by the indicated Rule ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultDedupeRuleHandlerSetRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Dedupe Rules
+      x-internal-id: api-rest-2.0-assets-dedupeRule-{ruleId}-handlerSets-get
+      x-filename-id: api-rest-2.0-assets-deduperule-ruleid-handlersets-get
+  /api/rest/2.0/assets/dedupeRule/{ruleId}/handlerSet/{id}:
+    get:
+      operationId: GetHandlerSetGETRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: ID of the Dedupe Rule or Match Rule
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: ID of the Dedupe Rule or Match Rule Handler Set
+        required: true
+        schema:
+          type: integer
+      summary: Get single Dedupe Rule or Match Rule Handler Set
+      description: Get the Dedupe Rule or Match Rule Handler Set by the indicated Rule ID and Rule Handler Set ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DedupeRuleHandlerSetRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Dedupe Rules
+      x-internal-id: api-rest-2.0-assets-dedupeRule-{ruleId}-handlerSet-{id}-get
+      x-filename-id: api-rest-2.0-assets-deduperule-ruleid-handlerset-id-get
+  /api/rest/2.0/assets/dedupeRule/{ruleId}:
+    get:
+      operationId: GetDedupeRuleByIdGETRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: ID of the Dedupe Rule or Match Rule
+        required: true
+        schema:
+          type: integer
+      summary: 'Get single Dedupe Rule or Match Rule '
+      description: Get single Dedupe Rule or Match Rule by ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DedupeRuleRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Dedupe Rules
+      x-internal-id: api-rest-2.0-assets-dedupeRule-{ruleId}-get
+      x-filename-id: api-rest-2.0-assets-deduperule-ruleid-get
+components:
+  schemas:
+    QueryResultDedupeRuleHandlerSetRest20:
+      title: QueryResultDedupeRuleHandlerSet
+      properties:
+        type:
+          type: string
+          description: The element's type in Eloqua
+        elements:
+          type: array
+          description: Array of dedupe rule handler sets
+          items:
+            $ref: '#/components/schemas/DedupeRuleHandlerSetRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultDedupeRuleRest20:
+      title: QueryResultDedupeRule
+      properties:
+        type:
+          type: string
+          description: The Dedupe rule type in Eloqua
+        elements:
+          type: array
+          description: Array of the Dedupe Rule fields
+          items:
+            $ref: '#/components/schemas/DedupeRuleRest20'
+        total:
+          type: integer
+          description: Total number of Dedupe Rules returned
+        pageSize:
+          type: integer
+          description: The Page size
+        page:
+          type: integer
+          description: The Specified page
+    DedupeRuleHandlerSetRest20:
+      title: DedupeRuleHandlerSet
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        deletePermanentlyFromDestination:
+          type: string
+        isNonMatchesDestination:
+          type: string
+    DedupeRuleRest20:
+      title: DedupeRule
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        sourceEntityType:
+          type: string
+        targetEntityType:
+          type: string
+        isMatchRule:
+          type: string
+        isCompleted:
+          type: string

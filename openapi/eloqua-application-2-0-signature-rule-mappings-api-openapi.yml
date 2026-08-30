@@ -1,0 +1,229 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Signature Rule Mappings API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Signature Rule Mappings
+  description: Signature rule mappings API endpoints.
+paths:
+  /api/rest/2.0/assets/email/signature/rule/{ruleId}/mappings:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: Id of the signature rule to target.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered, and the direction. The direction will default to ASC if not specified. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/APIRequests_URLParameters.html'>URL parameters</a> for information.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: Unix timestamp for the date and time the external asset was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of signature rule mappings
+      description: Retrieves all signature rule mappings for the signature rule specified by the <code>id</code> parameter that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultRuleMappingRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Signature Rule Mappings
+      x-internal-id: api-rest-2.0-assets-email-signature-rule-{ruleId}-mappings-get
+      x-filename-id: api-rest-2.0-assets-email-signature-rule-ruleid-mappings-get
+    post:
+      operationId: CreateIndividualPOSTRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: Id of the signature rule to target.
+        required: true
+        schema:
+          type: integer
+      summary: Create signature rule mappings
+      description: 'Create signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+
+        A maximum of 75000 mappings can be provided.'
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailSignatureRuleMappingRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Signature Rule Mappings
+      x-internal-id: api-rest-2.0-assets-email-signature-rule-{ruleId}-mappings-post
+      x-filename-id: api-rest-2.0-assets-email-signature-rule-ruleid-mappings-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+        description: The request body defines the details of the signature rule mappings to be created.
+        required: true
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: Id of the signature rule to update.
+        required: true
+        schema:
+          type: integer
+      summary: Update signature rule mappings
+      description: 'Update signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+
+        All mappings should be included in PUT requests as any missing mappings will be removed with the update.
+
+        A maximum of 75000 mappings can be provided.'
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailSignatureRuleMappingRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Signature Rule Mappings
+      x-internal-id: api-rest-2.0-assets-email-signature-rule-{ruleId}-mappings-put
+      x-filename-id: api-rest-2.0-assets-email-signature-rule-ruleid-mappings-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+        description: The request body defines the details of the signature rule mappings to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: ruleId
+        in: path
+        description: Id of the signature rule to delete mappings from.
+        required: true
+        schema:
+          type: integer
+      summary: Delete signature rule mappings
+      description: Delete signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Signature Rule Mappings
+      x-internal-id: api-rest-2.0-assets-email-signature-rule-{ruleId}-mappings-delete
+      x-filename-id: api-rest-2.0-assets-email-signature-rule-ruleid-mappings-delete
+components:
+  schemas:
+    QueryResultRuleMappingRest20:
+      title: QueryResultRuleMapping
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of signature rule mappings.
+          items:
+            $ref: '#/components/schemas/EmailSignatureRuleMappingRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    EmailSignatureRuleMappingRest20:
+      title: EmailSignatureRuleMapping
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        matchValue:
+          type: string
+          description: The value to be used for comparison.
+        senderId:
+          type: string
+          description: The id of the user that will be used as the sender if the contact's field value matches the match value.

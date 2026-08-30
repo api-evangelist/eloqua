@@ -1,0 +1,359 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Custom object data API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Custom object data
+  description: 'Custom object data are the records of custom object instances.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects''>Learn more about custom objects</a>.'
+paths:
+  /api/rest/2.0/data/customObject/{parentId}/instance:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent.
+        required: true
+        schema:
+          type: integer
+      summary: Create custom object data
+      description: Creates custom object data that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Custom object data
+      x-internal-id: api-rest-2.0-data-customObject-{parentId}-instance-post
+      x-filename-id: api-rest-2.0-data-customobject-parentid-instance-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObjectDataRest20'
+        description: The request body defines the details of the custom object data to be created.
+        required: true
+  /api/rest/2.0/data/customObject/{parentId}/instance/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the custom object data.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve custom object data
+      description: Retrieves the data (records) for the custom object specified by the {parentId} and <code>id</code> parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Custom object data
+      x-internal-id: api-rest-2.0-data-customObject-{parentId}-instance-{id}-get
+      x-filename-id: api-rest-2.0-data-customobject-parentid-instance-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the custom object data.
+        required: true
+        schema:
+          type: integer
+      summary: Update custom object data
+      description: Updates custom object data specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Custom object data
+      x-internal-id: api-rest-2.0-data-customObject-{parentId}-instance-{id}-put
+      x-filename-id: api-rest-2.0-data-customobject-parentid-instance-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomObjectDataRest20'
+        description: The request body defines the details of the custom object data to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the custom object data.
+        required: true
+        schema:
+          type: integer
+      summary: Delete custom object data
+      description: Deletes custom object data specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Custom object data
+      x-internal-id: api-rest-2.0-data-customObject-{parentId}-instance-{id}-delete
+      x-filename-id: api-rest-2.0-data-customobject-parentid-instance-id-delete
+  /api/rest/2.0/data/customObject/{parentId}/instances:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of custom object data assets to return (the count parameter defines the number of custom object data assets per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of custom object data
+      description: Retrieves the data (records) for all custom objects that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultCustomObjectDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Custom object data
+      x-internal-id: api-rest-2.0-data-customObject-{parentId}-instances-get
+      x-filename-id: api-rest-2.0-data-customobject-parentid-instances-get
+components:
+  schemas:
+    QueryResultCustomObjectDataRest20:
+      title: QueryResultCustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of custom object field elements.
+          items:
+            $ref: '#/components/schemas/CustomObjectDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    CustomObjectDataRest20:
+      title: CustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the custom object data.
+        currentStatus:
+          type: string
+          description: The custom object data's current status.
+        name:
+          type: string
+          description: The name of the custom object data.
+        description:
+          type: string
+          description: The description of the custom object data.
+        permissions:
+          type: array
+          description: The permissions for the custom object data granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the custom object data.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the asset.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the custom object data. This is a read-only property.
+        createdByName:
+          type: string
+          description: The name of the user who created the custom object data.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the custom object data was created, expressed in Unix time. This is a read-only property.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the custom object data.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the custom object data.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the custom object data was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the custom object data is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        contactId:
+          type: string
+          description: The contact record Id associated to this custom object data.
+        accountId:
+          type: string
+          description: The account record Id associated to this custom object data. This is a read-only property.
+        uniqueCode:
+          type: string
+          description: The unique code associated to the custom object data.
+        customObjectRecordStatus:
+          type: string
+          description: The record status of the custom object data.
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code> and <code>id</code> values for all of the fields associated with a given custom object data asset. Custom object date field values must be in Unix time format.
+          items:
+            $ref: '#/components/schemas/FieldValueRest20'
+        isMapped:
+          type: string
+          description: Whether or not the custom object data is mapped to a custom object.

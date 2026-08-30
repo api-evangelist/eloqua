@@ -1,0 +1,412 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Email footers API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Email footers
+  description: 'Email footers are used to customize the look and feel of the bottom of your email.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailFooters''>Learn more about email footers</a>.'
+paths:
+  /api/rest/1.0/assets/email/footer:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      summary: Create an email footer
+      description: Creates an email footer that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailFooterRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Email footers
+      x-internal-id: api-rest-1.0-assets-email-footer-post
+      x-filename-id: api-rest-1.0-assets-email-footer-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailFooterRest10'
+        description: The request body defines the details of the email footer to be created.
+        required: true
+  /api/rest/1.0/assets/email/footer/{id}:
+    get:
+      operationId: ReadIndividualGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email footer.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve an email footer
+      description: Retrieves the email footer specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailFooterRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Email footers
+      x-internal-id: api-rest-1.0-assets-email-footer-{id}-get
+      x-filename-id: api-rest-1.0-assets-email-footer-id-get
+    put:
+      operationId: UpdateIndividualPUTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email footer to update.
+        required: true
+        schema:
+          type: integer
+      summary: Update an email footer
+      description: Updates the email footer specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailFooterRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Email footers
+      x-internal-id: api-rest-1.0-assets-email-footer-{id}-put
+      x-filename-id: api-rest-1.0-assets-email-footer-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailFooterRest10'
+        description: The request body defines the details of the email footer to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email footer to delete.
+        required: true
+        schema:
+          type: integer
+      summary: Delete an email footer
+      description: Deletes the email footer specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Email footers
+      x-internal-id: api-rest-1.0-assets-email-footer-{id}-delete
+      x-filename-id: api-rest-1.0-assets-email-footer-id-delete
+  /api/rest/1.0/assets/email/footers:
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: Unix timestamp for the date and time the email footer was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of email footers
+      description: Retrieves all email footers that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultFooterRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Email footers
+      x-internal-id: api-rest-1.0-assets-email-footers-get
+      x-filename-id: api-rest-1.0-assets-email-footers-get
+components:
+  schemas:
+    EmailFooterRest10:
+      title: EmailFooter
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the email footer. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The email footer's current status.
+        name:
+          type: string
+          description: The name of the email footer.
+        description:
+          type: string
+          description: The description of the email footer.
+        permissions:
+          type: string
+          description: The permissions for the email footer granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the email footer.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the email footer was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the email footer.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the email footer was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        body:
+          type: string
+          description: The email footers's html text content.
+        text:
+          type: string
+          description: The raw text from the "body" parameter.
+        fieldMerges:
+          type: array
+          description: A list of associated Field Merges.
+          items:
+            $ref: '#/components/schemas/FieldMergeRest10'
+        hyperlinks:
+          type: array
+          description: A list of hyperlinks contained within the email footer.
+          items:
+            $ref: '#/components/schemas/HyperlinkRest10'
+    FieldMergeRest10:
+      title: FieldMerge
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the field merge. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The field merge's current status.
+        name:
+          type: string
+          description: Name of the field merge.
+        description:
+          type: string
+          description: The description of the field merge.
+        permissions:
+          type: string
+          description: The permissions for the field merge granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the field merge.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the field merge was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the field merge.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the field merge was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        syntax:
+          type: string
+          description: The syntax of the field merge.
+        defaultValue:
+          type: string
+          description: The default value of the field merge.
+        contactFieldId:
+          type: string
+          description: Id of the associated contact field.
+        accountFieldId:
+          type: string
+          description: Id of the associated account field.
+        eventId:
+          type: string
+          description: Id of the associated event.
+        eventFieldId:
+          type: string
+          description: Id of the associated event field.
+        eventSessionFieldId:
+          type: string
+          description: Id of the associated event session field.
+        mergeType:
+          type: string
+          description: 'Type of the field merge. Possible values include: <code>contactField</code>, <code>accountField</code>, <code>eventField</code>, <code>eventSessionField</code>, and <code>customObjectField</code>.'
+    QueryResultFooterRest10:
+      title: QueryResultFooter
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of footer fields.
+          items:
+            $ref: '#/components/schemas/EmailFooterRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    HyperlinkRest10:
+      title: Hyperlink
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the hyperlink. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The hyperlink's current status.
+        name:
+          type: string
+          description: Name of the hyperlink.
+        description:
+          type: string
+          description: The description of the hyperlink.
+        permissions:
+          type: string
+          description: The permissions for the hyperlink granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the hyperlink.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the hyperlink was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the hyperlink.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the hyperlink was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        href:
+          type: string
+          description: Href value of the hyperlink.
+        hyperlinkType:
+          type: string
+          description: 'The type of hyperlink. Possible values include: ExternalURL, ICSCalendarURL, LandingPageURL, ReferrerURL, RSSURL, or TrackedExternalURL.'
+        referencedEntityId:
+          type: string
+          description: Id of the referenced entity.

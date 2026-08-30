@@ -1,0 +1,180 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/SMS subscription API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/SMS subscription
+  description: The SMS subscription API is used to manage phone number consent.
+paths:
+  /api/rest/2.0/data/sms/subscription:
+    put:
+      operationId: UpdateSubscriptionPUTRest20
+      summary: Update a subscription
+      description: Update consent of a phone number.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhoneNumberSubscriptionRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/SMS subscription
+      x-internal-id: api-rest-2.0-data-sms-subscription-put
+      x-filename-id: api-rest-2.0-data-sms-subscription-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhoneNumberSubscriptionDetailsRest20'
+        description: The request body defines the details of the subscription message to be updated.
+        required: true
+    post:
+      operationId: SearchSEARCHRest20
+      parameters:
+      - name: X-HTTP-Method-Override
+        in: header
+        description: ISmsSubscriptionService_Parameter_Search_xhttpmethodoverride_Description
+        required: true
+        schema:
+          type: string
+          format: string
+          default: SEARCH
+      summary: Retrieve a list of subscription
+      description: Retrieve consent of a list of phone numbers, a maximum of 10 phone numbers can be passed in a single request.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PhoneNumberSubscriptionRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/SMS subscription
+      x-internal-id: api-rest-2.0-data-sms-subscription-post
+      x-filename-id: api-rest-2.0-data-sms-subscription-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhoneNumberSubscriptionSearchRest20'
+        description: The request body defines the details of the subscription message to be updated.
+        required: true
+components:
+  schemas:
+    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
+      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+      properties: {}
+    PhoneNumberSubscriptionRest20:
+      title: PhoneNumberSubscription
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscription_Field_Type_Description
+        status:
+          type: string
+          description: PhoneNumberSubscription_Field_Status_Description
+        timestamp:
+          type: string
+          description: PhoneNumberSubscription_Field_Timestamp_Description
+        originalPhoneNumber:
+          type: string
+          description: PhoneNumberSubscription_Field_OriginalPhoneNumber_Description
+        normalizedPhoneNumber:
+          type: string
+          description: PhoneNumberSubscription_Field_NormalizedPhoneNumber_Description
+        history:
+          type: array
+          description: PhoneNumberSubscription_Field_History_Description
+          items:
+            $ref: '#/components/schemas/PhoneNumberSubscriptionHistoryRest20'
+    PhoneNumberSubscriptionSearchRest20:
+      title: PhoneNumberSubscriptionSearch
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscriptionSearch_Field_Type_Description
+        depth:
+          type: string
+          readOnly: true
+          description: PhoneNumberSubscriptionSearch_Field_Depth_Description
+        phoneNumbers:
+          type: array
+          description: PhoneNumberSubscriptionSearch_Field_PhoneNumbers_Description
+          items:
+            type: string
+    PhoneNumberSubscriptionDetailsRest20:
+      title: PhoneNumberSubscriptionDetails
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_Type_Description
+        isSubscribed:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_IsSubscribed_Description
+        phoneNumber:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_PhoneNumber_Description
+        entityId:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityId_Description
+        entityType:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityType_Description
+        entityFieldId:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityFieldId_Description
+    PhoneNumberSubscriptionHistoryRest20:
+      title: PhoneNumberSubscriptionHistory
+      properties:
+        type:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+        userId:
+          $ref: '#/components/schemas/System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20'
+        sourceType:
+          type: string
+          enum:
+          - CreateEntity
+          - UpdateEntity
+          - ContactAsynchronousClear
+          - BulkUpdate
+          - WorkFlowUpdateRule
+          - ProgramBuilderUpdateRule
+          - ProgramBuilderDedupeHandler
+          - BulkApi
+          - DataImport
+          - SharedListRunUpdateRule
+          - InitialLoad
+          - SmsSubscriptionRestApi
+          - SmsSubscriptionBulkApi
+          - SmsSubscriptionDataImport
+          - SmsReply
+          - Visitor

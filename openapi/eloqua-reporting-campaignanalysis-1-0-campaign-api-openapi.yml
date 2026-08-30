@@ -1,0 +1,886 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign Analysis/1.0/Campaign API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/CampaignAnalysis/1.0/Campaign
+  description: The operations from the Reporting/CampaignAnalysis/1.0/Campaign category.
+paths:
+  /API/OData/CampaignAnalysis/1/Campaign:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get all Campaigns
+      operationId: Campaign_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Campaigns successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get a single Campaign
+      operationId: Campaign_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Campaign was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}/WebActivities:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get web activities for a specified campaign
+      operationId: Campaign_GetWebActivities
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: WebActivities were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebActivities'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-WebActivities-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-webactivities-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}/FormActivities:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get form activities for a specified campaign
+      operationId: Campaign_GetFormActivities
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: FormActivities were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FormActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FormActivities'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-FormActivities-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-formactivities-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}/LeadActivities:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get lead activities for a specified campaign
+      operationId: Campaign_GetLeadActivities
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: LeadActivities were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LeadActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LeadActivities'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-LeadActivities-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-leadactivities-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}/EmailActivities:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get email activities for a specified campaign
+      operationId: Campaign_GetEmailActivities
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailActivities'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-EmailActivities-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-emailactivities-get
+  /API/OData/CampaignAnalysis/1/Campaign/{key}/LandingPageActivities:
+    get:
+      tags:
+      - Reporting/CampaignAnalysis/1.0/Campaign
+      summary: Get landing page activities for a specified campaign
+      operationId: Campaign_GetLandingPageActivities
+      parameters:
+      - name: key
+        in: path
+        description: CampaignID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: LandingPageActivities were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageActivities'
+      x-internal-id: API-OData-CampaignAnalysis-1-Campaign-{key}-LandingPageActivities-get
+      x-filename-id: api-odata-campaignanalysis-1-campaign-key-landingpageactivities-get
+components:
+  schemas:
+    FormActivities:
+      type: object
+      properties:
+        formSubmitAggKey:
+          format: int32
+          type: integer
+        totalFormSubmissions:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        segmentId:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        segment:
+          $ref: '#/components/schemas/Segment'
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
+    EmailActivities:
+      type: object
+      properties:
+        openRate:
+          format: double
+          type: number
+        clickthroughRate:
+          format: double
+          type: number
+        clickToOpenRate:
+          format: double
+          type: number
+        emailSentAggKey:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        emailId:
+          format: int32
+          type: integer
+        segmentId:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        totalSends:
+          format: int32
+          type: integer
+        totalDelivered:
+          format: int32
+          type: integer
+        totalHardBouncebacks:
+          format: int32
+          type: integer
+        totalSoftBouncebacks:
+          format: int32
+          type: integer
+        totalOpens:
+          format: int32
+          type: integer
+        totalClickthroughs:
+          format: int32
+          type: integer
+        totalPossibleForwarders:
+          format: int32
+          type: integer
+        totalUnsubscribesbyEmail:
+          format: int32
+          type: integer
+        totalBouncebacks:
+          format: int32
+          type: integer
+        totalSpamUnsubscribersByEmail:
+          format: int32
+          type: integer
+        existingVisitorClickthroughs:
+          format: int32
+          type: integer
+        newVisitorClickthroughs:
+          format: int32
+          type: integer
+        isOpened:
+          format: int32
+          type: integer
+        isClickThroughed:
+          format: int32
+          type: integer
+        segment:
+          $ref: '#/components/schemas/Segment'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        emailAsset:
+          $ref: '#/components/schemas/EmailAsset'
+    LeadActivities:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        leadResponseDateHour:
+          format: date-time
+          type: string
+        newContacts:
+          format: int32
+          type: integer
+        newLeads:
+          format: int32
+          type: integer
+        totalResponses:
+          format: int32
+          type: integer
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+    WebActivities:
+      type: object
+      properties:
+        webActivitiesId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        totalPageViews:
+          format: int32
+          type: integer
+        totalVisitors:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        dateHour:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+    Calendar:
+      type: object
+      properties:
+        dateHour:
+          format: date-time
+          type: string
+        calendarYear:
+          format: int32
+          type: integer
+        calendarYearDesc:
+          type: string
+        calendarQtr:
+          format: int32
+          type: integer
+        calendarQtrDesc:
+          type: string
+        calendarMonth:
+          format: int32
+          type: integer
+        calendarMonthDesc:
+          type: string
+        calendarWeek:
+          format: int32
+          type: integer
+        calendarWeekDesc:
+          type: string
+        dayOfYearNum:
+          format: int32
+          type: integer
+        dayOfWeekNum:
+          format: int32
+          type: integer
+        dayOfWeekDesc:
+          type: string
+        dayOfMonthNum:
+          format: int32
+          type: integer
+        displayDayOfWeek:
+          type: string
+        hourOfDayNum:
+          format: int32
+          type: integer
+        calendarMonthId:
+          format: int32
+          type: integer
+        calendarQtrId:
+          format: int32
+          type: integer
+        calendarWeekId:
+          format: int32
+          type: integer
+        calendarDayId:
+          format: date-time
+          type: string
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+    LandingPageActivities:
+      type: object
+      properties:
+        landingPageTime:
+          format: double
+          type: number
+        landingPageActivitiesId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        landingPageViews:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        dateHour:
+          format: date-time
+          type: string
+        assetId:
+          format: int32
+          type: integer
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+    Segment:
+      type: object
+      properties:
+        segmentId:
+          format: int32
+          type: integer
+        segment:
+          type: string
+        segmentDescription:
+          type: string
+        segmentCreatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string

@@ -1,0 +1,184 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Email Asset API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/ActivityDetails/1.0/EmailAsset
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailAsset category.
+paths:
+  /API/OData/ActivityDetails/1/EmailAsset:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EmailAsset
+      summary: Get all Email Assets
+      operationId: EmailAsset_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EmailAssets successfully retrieve
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailAsset'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailAsset'
+      x-internal-id: API-OData-ActivityDetails-1-EmailAsset-get
+      x-filename-id: api-odata-activitydetails-1-emailasset-get
+  /API/OData/ActivityDetails/1/EmailAsset/{key}:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EmailAsset
+      summary: Get a single Email Asset
+      operationId: EmailAsset_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: EmailAsset ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EmailAsset was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailAsset'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailAsset'
+      x-internal-id: API-OData-ActivityDetails-1-EmailAsset-{key}-get
+      x-filename-id: api-odata-activitydetails-1-emailasset-key-get
+components:
+  schemas:
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string

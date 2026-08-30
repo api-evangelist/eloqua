@@ -1,0 +1,204 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Contact Integration Fields API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/ActivityDetails/1.0/ContactIntegrationFields
+  description: The operations from the Reporting/ActivityDetails/1.0/ContactIntegrationFields category.
+paths:
+  /API/OData/ActivityDetails/1/ContactIntegrationFields:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/ContactIntegrationFields
+      summary: Get Contact Integration Fields for all contacts
+      operationId: ContactIntegrationFields_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: ContactIntegrationFields successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContactIntegrationFields'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContactIntegrationFields'
+      x-internal-id: API-OData-ActivityDetails-1-ContactIntegrationFields-get
+      x-filename-id: api-odata-activitydetails-1-contactintegrationfields-get
+  /API/OData/ActivityDetails/1/ContactIntegrationFields/{key}:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/ContactIntegrationFields
+      summary: Get Contact Integration Fields for a contact
+      operationId: ContactIntegrationFields_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: Contact ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: ContactIntegrationFields was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContactIntegrationFields'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContactIntegrationFields'
+      x-internal-id: API-OData-ActivityDetails-1-ContactIntegrationFields-{key}-get
+      x-filename-id: api-odata-activitydetails-1-contactintegrationfields-key-get
+components:
+  schemas:
+    ContactIntegrationFields:
+      type: object
+      properties:
+        contactId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        lastSFDCCampaignID:
+          type: string
+        lastSFDCCampaignName:
+          type: string
+        lastSFDCCampaignStatus:
+          type: string
+        sfdcContactID:
+          type: string
+        sfdcAccountID:
+          type: string
+        sfdcEmailOptOut:
+          type: string
+        sfdcLeadID:
+          type: string
+        sfdcLeadRating:
+          type: string
+        oracleSalesCloudAccountID:
+          type: string
+        oracleSalesCloudContactID:
+          type: string
+        oracleSalesCloudLeadID:
+          type: string
+        lastMSCRMCampaignID:
+          type: string
+        lastMSCRMCampaignName:
+          type: string
+        lastMSCRMCampaignResponseID:
+          type: string
+        lastMSCRMCampaignStatus:
+          type: string
+        mscrmAccountID:
+          type: string
+        mscrmContactID:
+          type: string
+        mscrmEmailOptOut:
+          type: string
+        mscrmLeadID:
+          type: string
+        mscrmLeadRating:
+          type: string

@@ -1,0 +1,258 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Email Clickthrough API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/ActivityDetails/1.0/EmailClickthrough
+  description: The operations from the Reporting/ActivityDetails/1.0/EmailClickthrough category.
+paths:
+  /API/OData/ActivityDetails/1/EmailClickthrough:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EmailClickthrough
+      summary: Get all Email Clickthroughs
+      operationId: EmailClickthrough_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EmailClickthroughs successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailClickthrough'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailClickthrough'
+      x-internal-id: API-OData-ActivityDetails-1-EmailClickthrough-get
+      x-filename-id: api-odata-activitydetails-1-emailclickthrough-get
+  /API/OData/ActivityDetails/1/EmailClickthrough/{key}:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EmailClickthrough
+      summary: Get a single Email Clickthrough
+      operationId: EmailClickthrough_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: EmailClickthroughID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EmailClickthrough was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailClickthrough'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailClickthrough'
+      x-internal-id: API-OData-ActivityDetails-1-EmailClickthrough-{key}-get
+      x-filename-id: api-odata-activitydetails-1-emailclickthrough-key-get
+components:
+  schemas:
+    EmailClickthrough:
+      type: object
+      properties:
+        emailClickthroughId:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        baseUrlId:
+          format: int32
+          type: integer
+        clickDateHour:
+          format: date-time
+          type: string
+        firstClick:
+          format: int32
+          type: integer
+        clickThroughLink:
+          type: string
+        clickthroughQueryStringValue:
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'
+    Contact:
+      type: object
+      properties:
+        contactId:
+          format: int32
+          type: integer
+        createdDate:
+          format: date-time
+          type: string
+        createdDateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        company:
+          type: string
+        emailAddress:
+          type: string
+        emailAddressDomain:
+          type: string
+        contactAddress1:
+          type: string
+        contactAddress2:
+          type: string
+        contactAddress3:
+          type: string
+        contactCity:
+          type: string
+        contactStateProv:
+          type: string
+        contactZipPostalCode:
+          type: string
+        contactCountry:
+          type: string
+        businessPhone:
+          type: string
+        salesPerson:
+          type: string
+        mobilePhone:
+          type: string
+        fax:
+          type: string
+        title:
+          type: string
+        leadSourceMostRecent:
+          type: string
+        leadSourceOriginal:
+          type: string
+        territory:
+          type: string
+        accountID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountId:
+          format: int32
+          type: integer

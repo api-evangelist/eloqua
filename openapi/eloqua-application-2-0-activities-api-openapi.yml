@@ -1,0 +1,136 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Activities API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Activities
+  description: Activities API endpoint.
+paths:
+  /api/rest/2.0/data/activities/contact/{id}/{type}:
+    get:
+      operationId: GetActivitiesGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the contact whose activity to retrieve.
+        required: true
+        schema:
+          type: integer
+      - name: type
+        in: path
+        description: Type of the activity to retrieve.
+        required: true
+        schema:
+          type: string
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: true
+        schema:
+          type: integer
+      - name: endAt
+        in: query
+        description: The end date time for which the request will retrieve data, expressed in Unix time.
+        required: true
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: includePending
+        in: query
+        description: Include email clickthroughs that are still pending push to the contact activity. Can be set to <i>true</i> or <i>1</i> to return pending activities, and <i>false</i> or <i>0</i> to not return those activities.  Default is <i>false</i> if the parameter is not included in the query.
+        required: false
+        schema:
+          type: boolean
+      summary: Retrieve a list of activities.
+      description: Retrieves a list of contact activities specified by id and type parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultActivityRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Activities
+      x-internal-id: api-rest-2.0-data-activities-contact-{id}-{type}-get
+      x-filename-id: api-rest-2.0-data-activities-contact-id-type-get
+components:
+  schemas:
+    ActivityRest20:
+      title: Activity
+      properties:
+        type:
+          type: string
+          description: The type of activity.
+        id:
+          type: string
+          description: The unique identifier of the activity per activity type, except for EmailSend
+        contactId:
+          type: string
+          description: The ID of the contact who performed the activity
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time of the activity
+        assetId:
+          type: string
+          description: The ID of the asset associated with the activity
+        assetName:
+          type: string
+          description: The name of the asset associated with the activity
+        assetType:
+          type: string
+          description: The type of asset associated with the activity, such as email and form
+        isPending:
+          type: string
+          description: Activity_Field_IsPending_Description
+        fieldValues:
+          type: array
+          description: Array containing the details of the activity.
+          items:
+            type: object
+            additionalProperties:
+              type: string
+    QueryResultActivityRest20:
+      title: QueryResultActivity
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of Activity fields.
+          items:
+            $ref: '#/components/schemas/ActivityRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

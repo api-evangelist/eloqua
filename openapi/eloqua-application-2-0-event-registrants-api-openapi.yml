@@ -1,0 +1,356 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Event registrants API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Event registrants
+  description: "The event registration API is used to manage event registrants. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EventManagement'>Learn more about Event Management</a>."
+paths:
+  /api/rest/2.0/data/eventRegistration/{parentId}/instance:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent event.
+        required: true
+        schema:
+          type: integer
+      summary: Create an event registrant
+      description: Creates an event registrant that matches the criteria specified by the request body for the event specified by the <code>parentId</code> parameter.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventRegistrationDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Event registrants
+      x-internal-id: api-rest-2.0-data-eventRegistration-{parentId}-instance-post
+      x-filename-id: api-rest-2.0-data-eventregistration-parentid-instance-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventRegistrationDataRest20'
+        description: The request body defines the details of the event registrant to be created.
+        required: true
+  /api/rest/2.0/data/eventRegistration/{parentId}/instance/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent event.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the event registrant.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: This parameter is not used for this endpoint.
+        required: false
+        schema:
+          type: string
+      summary: Retrieve an event registrant
+      description: Retrieves the registrant for the event specified by the <code>parentId</code> and <code>id</code> parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventRegistrationDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Event registrants
+      x-internal-id: api-rest-2.0-data-eventRegistration-{parentId}-instance-{id}-get
+      x-filename-id: api-rest-2.0-data-eventregistration-parentid-instance-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent event.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the event registrant.
+        required: true
+        schema:
+          type: integer
+      summary: Update an event registrant
+      description: Updates an event registrant that matches the criteria specified by the request body for the event specified by the <code>parentId</code> parameter. The response will only include field values that have been updated in the request. The response will also only include <code>contactId</code> if it has been updated in the request.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventRegistrationDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Event registrants
+      x-internal-id: api-rest-2.0-data-eventRegistration-{parentId}-instance-{id}-put
+      x-filename-id: api-rest-2.0-data-eventregistration-parentid-instance-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventRegistrationDataRest20'
+        description: 'The request body defines the details of the event registrant to be updated. Note: Only <code>fieldValues</code> and <code>contactId</code> can be updated. <code>fieldValues</code> is required, even if not updating any fields. To update <code>contactId</code>, include <code>fieldValues</code> with an empty array.'
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent event.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: Id of the event registrant.
+        required: true
+        schema:
+          type: integer
+      summary: Delete an event registrant
+      description: Deletes registrant for the event specified by the <code>parentId</code> and <code>id</code> parameters
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Event registrants
+      x-internal-id: api-rest-2.0-data-eventRegistration-{parentId}-instance-{id}-delete
+      x-filename-id: api-rest-2.0-data-eventregistration-parentid-instance-id-delete
+  /api/rest/2.0/data/eventRegistration/{parentId}/instances:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: parentId
+        in: path
+        description: Id of the parent event.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: This parameter is not used for this endpoint.
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of event registrant to return (the count parameter defines the number of event registrant assets per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a list of event registrants
+      description: Retrieves the registrants (records) for an event specified by the <code>parentId</code> that match the criteria specified by the query parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultEventRegistrationDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Event registrants
+      x-internal-id: api-rest-2.0-data-eventRegistration-{parentId}-instances-get
+      x-filename-id: api-rest-2.0-data-eventregistration-parentid-instances-get
+components:
+  schemas:
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    EventRegistrationDataRest20:
+      title: EventRegistrationData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the event registrant. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used for event registrants.
+        name:
+          type: string
+          description: The name of the event registrant. This is a read-only property.
+        description:
+          type: string
+          description: This property is not used for event registrants.
+        permissions:
+          type: array
+          description: This property is not used for event registrants.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for event registrants.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for event registrants.
+        createdBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event registrants.
+        createdByName:
+          type: string
+          description: This property is not used for event registrants.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the event registrant was created, expressed in Unix time. This is a read-only property.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event registrants.
+        updatedByName:
+          type: string
+          description: This property is not used for event registrants.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the event registrant was last updated. This is a read-only property.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for event registrants.
+        depth:
+          type: string
+          readOnly: true
+          description: This property is not used for event registrants.
+        contactId:
+          type: string
+          description: The contact record Id associated to this event registrant. Use the desired contact's id as the value for this parameter.
+        accountId:
+          type: string
+          description: The account record Id associated to this event registrant. This is a read-only property.
+        uniqueCode:
+          type: string
+          description: The unique value associated to the event registrant. This is a read-only property.
+        customObjectRecordStatus:
+          type: string
+          description: The status of the event registrant. Only returned when creating or updating an event registrant. This is a read-only property.
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code>, <code>id</code>, and <code>value</code> for all of the fields associated with a given event registrant.
+          items:
+            $ref: '#/components/schemas/FieldValueRest20'
+        isMapped:
+          type: string
+          description: Whether or not the event registrant is mapped to a contact or account. This is a read-only property.
+    QueryResultEventRegistrationDataRest20:
+      title: QueryResultEventRegistrationData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of event field elements.
+          items:
+            $ref: '#/components/schemas/EventRegistrationDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

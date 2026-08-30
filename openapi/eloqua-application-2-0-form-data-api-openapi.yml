@@ -1,0 +1,579 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Form data API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Form data
+  description: "Form data are the submissions for a form.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn more about Forms</a>."
+paths:
+  /api/rest/2.0/data/form/{id}:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      summary: Create form data for a single form
+      description: Creates form data for the form that matches the criteria specified by the request body. This endpoint will only create form data that is specified in the request body. If a form field contains a static value, the field must be included in the request body to update the static value.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{id}-post
+      x-filename-id: api-rest-2.0-data-form-id-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormDataRest20'
+        description: The request body defines the details of the form data to be created.
+        required: true
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      - name: endAt
+        in: query
+        description: The latest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve processed form data for a single form
+      description: Retrieves the form data for the form specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultFormSubmissionRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{id}-get
+      x-filename-id: api-rest-2.0-data-form-id-get
+  /api/rest/2.0/data/form/{id}/datarow/{rowId}:
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      - name: rowId
+        in: path
+        description: The ID of the form data
+        required: true
+        schema:
+          type: integer
+      summary: Delete form data
+      description: Delete the form data of the form specified by the <code>id</code> parameter and row specified by the  <code>rowId</code> parameter.
+      responses:
+        '201':
+          description: Success
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{id}-datarow-{rowId}-delete
+      x-filename-id: api-rest-2.0-data-form-id-datarow-rowid-delete
+  /api/rest/2.0/data/form/{formId}/formData/{formSubmitJobId}:
+    get:
+      operationId: GetAsyncFormSubmissionGETRest20
+      parameters:
+      - name: formId
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: string
+      - name: formSubmitJobId
+        in: path
+        description: The ID of the asynchronous form submission job
+        required: true
+        schema:
+          type: string
+      summary: Retrieve a single form submit job
+      description: Retrieves asynchronous form submission data for a single form submit specified by the <code>formId</code> and <code>formSubmitJobId</code> parameters. This API endpoint is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/portal/'>My Oracle Support</a>.
+      responses:
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{formId}-formData-{formSubmitJobId}-get
+      x-filename-id: api-rest-2.0-data-form-formid-formdata-formsubmitjobid-get
+  /api/rest/2.0/data/form/{formId}/formData:
+    get:
+      operationId: SearchAsyncFormSubmissionGETRest20
+      parameters:
+      - name: formId
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve all form submit jobs for a single form
+      description: Retrieves all asynchronous form submissions for a form specified by the <code>formId</code>.
+      responses:
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{formId}-formData-get
+      x-filename-id: api-rest-2.0-data-form-formid-formdata-get
+  /api/rest/2.0/data/form/{formId}/formSpamData:
+    get:
+      operationId: SearchFormSpamSubmissionGETRest20
+      parameters:
+      - name: formId
+        in: path
+        description: ID of the form.
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve all spam form submit jobs for a single form
+      description: Retrieves all spam form submissions for a form specified by the <code>formId</code>. This API endpoint is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/epmos/faces/MosIndex.jspx'>My Oracle Support</a>.
+      responses:
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{formId}-formSpamData-get
+      x-filename-id: api-rest-2.0-data-form-formid-formspamdata-get
+  /api/rest/2.0/data/form/{id}/batch:
+    post:
+      operationId: CreateBatchRequestPOSTRest20
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Create form data in batch for a single form
+      description: Creates form data in batch for the form that matches the criteria specified by the request body. This endpoint will only create all form data specified in the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncFormSubmissionBatchRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{id}-batch-post
+      x-filename-id: api-rest-2.0-data-form-id-batch-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsyncFormSubmissionBatchRest20'
+        description: The request body defines the details of the form data in a batch to be created.
+        required: true
+  /api/rest/2.0/data/form/{formId}/batch/formData/{batchId}:
+    get:
+      operationId: GetAsyncFormSubmissionBatchByBatchIdGETRest20
+      parameters:
+      - name: formId
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      - name: batchId
+        in: path
+        description: The ID of the batch
+        required: true
+        schema:
+          type: string
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve batch form submission details by batchId
+      description: Retrieves batch form submission details for the specified <code>formId</code> and <code>batchId</code>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncFormSubmissionBatchRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{formId}-batch-formData-{batchId}-get
+      x-filename-id: api-rest-2.0-data-form-formid-batch-formdata-batchid-get
+  /api/rest/2.0/data/form/{formId}/batchCorrelation/formData/{batchCorrelationId}:
+    get:
+      operationId: GetAsyncFormSubmissionBatchByBatchCorrelationIdGETRest20
+      parameters:
+      - name: formId
+        in: path
+        description: The ID of the form
+        required: true
+        schema:
+          type: integer
+      - name: batchCorrelationId
+        in: path
+        description: The Correlation ID of the batch
+        required: true
+        schema:
+          type: string
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve batch form submission details by batchCorrelationId
+      description: Retrieves batch form submission details for the specified <code>formId</code> and <code>batchCorrelationId</code>
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncFormSubmissionBatchRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Form data
+      x-internal-id: api-rest-2.0-data-form-{formId}-batchCorrelation-formData-{batchCorrelationId}-get
+      x-filename-id: api-rest-2.0-data-form-formid-batchcorrelation-formdata-batchcorrelationid-get
+components:
+  schemas:
+    FormDataRest20:
+      title: FormData
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property
+        id:
+          type: string
+          readOnly: true
+          description: The ID of the form submit if synchronous or ID of the form submission job if asynchronous. This is a read-only property
+        currentStatus:
+          type: string
+          description: 'The current status of the form submission job. Possible values: Queued, InProgress, Error, and Success.'
+        submittedAt:
+          type: string
+          description: Unix timestamp for the date and time the form data was submitted. This is a read-only property
+        submittedByContactId:
+          type: string
+          description: The ID of the contact that submitted the form. This is a read-only property
+        fieldValues:
+          type: array
+          description: A list of key/value pairs identifying the form data (field name / value)
+          items:
+            $ref: '#/components/schemas/FieldValueRest20'
+        processingStepErrors:
+          type: array
+          description: A list of Processing Step Errors occurred in current form submission. This is a read-only property
+          items:
+            $ref: '#/components/schemas/ProcessingStepErrorRest20'
+        processedAt:
+          type: string
+          description: Unix timestamp for the date and time the form data was processed if submitted through asynchronous submission. This is a read-only property
+        rowId:
+          type: integer
+          description: In case of an asynchronous form submission if processed then submit ID of form submission. This is a read-only property
+        validationErrors:
+          type: array
+          description: Validation errors if any occured in form submission. This is a read-only property
+          items:
+            $ref: '#/components/schemas/ObjectValidationErrorRest20'
+        correlationId:
+          type: string
+          description: The unique identifier of form submission within the batch. Optional String field. If present, must be unique across created batches. If <code>correlationId</code> is not unique, then the entire batch will fail. The <code>correlationId</code> is persisted and could be used to identify the form submit.
+    ObjectKeyRest20:
+      title: ObjectKey
+      properties:
+        type:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest20'
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    ObjectValidationErrorRest20:
+      title: ObjectValidationError
+      properties:
+        type:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest20'
+        property:
+          type: string
+        value:
+          type: string
+        requirement:
+          $ref: '#/components/schemas/RequirementRest20'
+    ProcessingStepErrorRest20:
+      title: ProcessingStepError
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        processingStepId:
+          type: string
+          description: Processing step id during which error ocurred
+        processingStepTypeId:
+          type: string
+          description: Type of the processing step during which error ocurred
+        processingStepDisplayName:
+          type: string
+          description: DisplayName of the processing step including description (if configured)
+        errorCode:
+          type: integer
+          description: Unique Error Code for current error
+        errorMessage:
+          type: string
+          description: Error message for current error code
+        errorDescription:
+          type: string
+          description: Detailed information about current error
+    QueryResultFormSubmissionRest20:
+      title: QueryResultFormSubmission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form data elements.
+          items:
+            $ref: '#/components/schemas/FormDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    AsyncFormSubmissionBatchRest20:
+      title: AsyncFormSubmissionBatch
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property
+        id:
+          type: string
+          readOnly: true
+          description: The ID of the asynchronous form submission batch. This is a read-only property
+        currentStatus:
+          type: string
+          description: Current status of form submission batch when submitted through asynchronous submission
+        callbackUrl:
+          type: string
+          description: The URL to be called back once processing of form submisssion batch is completed
+        batchCorrelationId:
+          type: string
+          description: The unique identifier of the batch. Optional String field. If present, must be unique across created batches. If <code>batchCorrelationId</code> is not unique, then the entire batch will fail. The <code>batchCorrelationId</code> is persisted and could be used to retrieve form batch details.
+        depth:
+          type: string
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        elements:
+          type: array
+          description: A list of form data elements
+          items:
+            $ref: '#/components/schemas/FormDataRest20'
+        currentBatchStatus:
+          type: string
+          description: 'The current status of the batch. Possible values: Queued, InProgress, Warning, Error, Success. This is a read-only property.'
+        processingStatus:
+          type: string
+          description: The processing status of the batch. This is a read-only property.
+    RequirementRest20:
+      title: Requirement
+      properties:
+        type:
+          type: string

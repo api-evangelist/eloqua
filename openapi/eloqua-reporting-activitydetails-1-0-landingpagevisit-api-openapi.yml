@@ -1,0 +1,194 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Landing Page Visit API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/ActivityDetails/1.0/LandingPageVisit
+  description: The operations from the Reporting/ActivityDetails/1.0/LandingPageVisit category.
+paths:
+  /API/OData/ActivityDetails/1/LandingPageVisit:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/LandingPageVisit
+      summary: Get all Landing Page Activities
+      operationId: LandingPageVisit_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Landing Page Activity successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageVisit'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageVisit'
+      x-internal-id: API-OData-ActivityDetails-1-LandingPageVisit-get
+      x-filename-id: api-odata-activitydetails-1-landingpagevisit-get
+  /API/OData/ActivityDetails/1/LandingPageVisit/{key}:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/LandingPageVisit
+      summary: Get a single Landing Page Activity
+      operationId: LandingPageActivity_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: LandingPageActivityID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: LandingPageActivity was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageVisit'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageVisit'
+      x-internal-id: API-OData-ActivityDetails-1-LandingPageVisit-{key}-get
+      x-filename-id: api-odata-activitydetails-1-landingpagevisit-key-get
+components:
+  schemas:
+    LandingPageVisit:
+      type: object
+      properties:
+        landingPageViewID:
+          format: int64
+          type: integer
+        landingPageViewDateHour:
+          format: date-time
+          type: string
+        campaignID:
+          format: int32
+          type: integer
+        baseURLID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        visitorID:
+          format: int64
+          type: integer
+        sessionID:
+          format: int64
+          type: integer
+        referrerID:
+          format: int32
+          type: integer
+        landingPageTime:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer

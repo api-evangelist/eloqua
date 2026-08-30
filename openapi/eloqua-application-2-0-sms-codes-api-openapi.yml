@@ -1,0 +1,323 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/SMS codes API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/SMS codes
+  description: SMS sender codes API endpoints.
+paths:
+  /api/rest/2.0/assets/sms/senderCodes:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the sender code was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of sender codes
+      description: Retrieves all sender codes that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultSenderCodeRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/SMS codes
+      x-internal-id: api-rest-2.0-assets-sms-senderCodes-get
+      x-filename-id: api-rest-2.0-assets-sms-sendercodes-get
+components:
+  schemas:
+    QueryResultSenderCodeRest20:
+      title: QueryResultSenderCode
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of sender code fields.
+          items:
+            $ref: '#/components/schemas/SenderCodeRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    SenderCodeCountryRest20:
+      title: SenderCodeCountry
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the sender code country. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The sender code country current status. This is a read-only property.
+        name:
+          type: string
+          description: Name of the sender code country.
+        description:
+          type: string
+          description: Description of the sender code country.
+        permissions:
+          type: array
+          description: The permissions for the sender code country granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the sender code country.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the asset.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the sender code country.
+        createdByName:
+          type: string
+          description: The name of the user who created the sender code country.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the sender code country was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the sender code country.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the sender code country.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the sender code country.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        code:
+          type: string
+          description: Sender code in the sender code country
+    SenderCodeRest20:
+      title: SenderCode
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the sender code. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The sender code's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the sender code.
+        description:
+          type: string
+          description: The description of sender code.
+        permissions:
+          type: array
+          description: The permissions for the sender code granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the sender code.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the sender code.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the sender code.
+        createdByName:
+          type: string
+          description: The name of the user who created the sender code.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the sender code was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the sender code.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the sender code.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the sender code was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        senderCode:
+          type: string
+          description: Sender code.
+        senderName:
+          type: string
+          description: Sender name.
+        codeType:
+          type: string
+          description: Sender code type.
+        routeType:
+          type: string
+          description: Sender code route type.
+        aggregatorName:
+          type: string
+          description: Sender code Aggregator name.
+        keywords:
+          type: array
+          description: Keywords associated with the sender code.
+          items:
+            $ref: '#/components/schemas/KeywordRest20'
+        countries:
+          type: array
+          description: Countries associated with the sender code.
+          items:
+            $ref: '#/components/schemas/SenderCodeCountryRest20'
+    KeywordRest20:
+      title: Keyword
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the keyword. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The keyword's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the keyword.
+        description:
+          type: string
+          description: The description of the keyword.
+        permissions:
+          type: array
+          description: The permissions for the keyword granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the keyword.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the keyword.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the keyword.
+        createdByName:
+          type: string
+          description: The name of the user who created the keyword.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the keyword was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the keyword.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the keyword.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the keyword was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        keyword:
+          type: string
+          description: The name of the Keyword.
+        keywordType:
+          type: string
+          description: The type of the keyword.
+        keywordPosition:
+          type: string
+          description: Position of keyword.
+        senderCodeId:
+          type: integer
+          description: Id of the associated sender code.
+        countryCodes:
+          type: array
+          description: Countty codes associated with keyword.
+          items:
+            type: string

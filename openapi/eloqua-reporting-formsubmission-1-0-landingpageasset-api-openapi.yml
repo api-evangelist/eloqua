@@ -1,0 +1,451 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Form Submission/1.0/Landing Page Asset API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/FormSubmission/1.0/LandingPageAsset
+  description: The operations from the Reporting/FormSubmission/1.0/LandingPageAsset category.
+paths:
+  /API/OData/FormSubmission/1/LandingPageAsset:
+    get:
+      tags:
+      - Reporting/FormSubmission/1.0/LandingPageAsset
+      summary: Get all Landing Page Assets
+      operationId: LandingPageAsset_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: LandingPageAssets successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageAsset'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageAsset'
+      x-internal-id: API-OData-FormSubmission-1-LandingPageAsset-get
+      x-filename-id: api-odata-formsubmission-1-landingpageasset-get
+  /API/OData/FormSubmission/1/LandingPageAsset/{key}:
+    get:
+      tags:
+      - Reporting/FormSubmission/1.0/LandingPageAsset
+      summary: Get a single Landing Page Asset
+      operationId: LandingPageAsset_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: LandingPageAssetsID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: LandingPageAssets was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageAsset'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingPageAsset'
+      x-internal-id: API-OData-FormSubmission-1-LandingPageAsset-{key}-get
+      x-filename-id: api-odata-formsubmission-1-landingpageasset-key-get
+  /API/OData/FormSubmission/1/LandingPageAsset/{key}/FormSubmissionActivities:
+    get:
+      tags:
+      - Reporting/FormSubmission/1.0/LandingPageAsset
+      summary: Get Form Submission Activites for a specified Landing Page Asset
+      operationId: LandingPageAsset_GetFormSubmissionActivities
+      parameters:
+      - name: key
+        in: path
+        description: LandingPageAssetID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: FormSubmissionActivities were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FormSubmissionActivities'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FormSubmissionActivities'
+      x-internal-id: API-OData-FormSubmission-1-LandingPageAsset-{key}-FormSubmissionActivities-get
+      x-filename-id: api-odata-formsubmission-1-landingpageasset-key-formsubmissionactivities-get
+components:
+  schemas:
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+    FormSubmissionActivities:
+      type: object
+      properties:
+        fieldsCompletionRate:
+          format: double
+          type: number
+        fieldsIncompleteRate:
+          format: double
+          type: number
+        emailID:
+          format: int32
+          type: integer
+        formID:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        webPageID:
+          format: int32
+          type: integer
+        numberofFields:
+          format: int32
+          type: integer
+        formCompletedFields:
+          format: int32
+          type: integer
+        totalFormsSubmissions:
+          format: int32
+          type: integer
+        formSubmissionDateHour:
+          format: date-time
+          type: string
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        webPage:
+          $ref: '#/components/schemas/WebPage'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        emailAsset:
+          $ref: '#/components/schemas/EmailAsset'
+    WebPage:
+      type: object
+      properties:
+        webPageID:
+          format: int32
+          type: integer
+        webPageURL:
+          type: string
+        webPageDisplayName:
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        formSubmissionActivities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormSubmissionActivities'
+    Calendar:
+      type: object
+      properties:
+        dateHour:
+          format: date-time
+          type: string
+        calendarYear:
+          format: int32
+          type: integer
+        calendarYearDesc:
+          type: string
+        calendarQtr:
+          format: int32
+          type: integer
+        calendarQtrDesc:
+          type: string
+        calendarMonth:
+          format: int32
+          type: integer
+        calendarMonthDesc:
+          type: string
+        calendarWeek:
+          format: int32
+          type: integer
+        calendarWeekDesc:
+          type: string
+        dayOfYearNum:
+          format: int32
+          type: integer
+        dayOfWeekNum:
+          format: int32
+          type: integer
+        dayOfWeekDesc:
+          type: string
+        dayOfMonthNum:
+          format: int32
+          type: integer
+        displayDayOfWeek:
+          type: string
+        hourOfDayNum:
+          format: int32
+          type: integer
+        calendarMonthId:
+          format: int32
+          type: integer
+        calendarQtrId:
+          format: int32
+          type: integer
+        calendarWeekId:
+          format: int32
+          type: integer
+        calendarDayId:
+          format: date-time
+          type: string
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string

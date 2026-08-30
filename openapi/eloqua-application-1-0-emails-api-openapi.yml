@@ -1,0 +1,1078 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Emails API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Emails
+  description: 'Despite vast innovations and improvements to other channels of communication with prospects, emails are still central to many marketing campaigns. You can reach a large number of existing and potential customers efficiently and cheaply through email messages. Eloqua includes robust email marketing capabilities that you can weave into your marketing campaigns.
+
+
+    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Emails''>Learn more about emails</a>.'
+paths:
+  /api/rest/1.0/assets/email:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      summary: Create an email
+      description: Creates an email that matches the criteria specified by the request body for <code>htmlContent</code> with a type of <code>RawHtmlContent</code>.
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Emails
+      x-internal-id: api-rest-1.0-assets-email-post
+      x-filename-id: api-rest-1.0-assets-email-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailRest10'
+        description: The request body defines the details of the email to be created.
+        required: true
+  /api/rest/1.0/assets/email/{id}:
+    put:
+      operationId: UpdateIndividualPUTRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email.
+        required: true
+        schema:
+          type: integer
+      summary: Update an email
+      description: Updates the email specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Emails
+      x-internal-id: api-rest-1.0-assets-email-{id}-put
+      x-filename-id: api-rest-1.0-assets-email-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailRest10'
+        description: The request body defines the details of the email to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email.
+        required: true
+        schema:
+          type: integer
+      summary: Delete an email
+      description: Deletes the email specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Emails
+      x-internal-id: api-rest-1.0-assets-email-{id}-delete
+      x-filename-id: api-rest-1.0-assets-email-id-delete
+    get:
+      operationId: ReadIndividualGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: Id of the email.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve an email
+      description: Retrieves the email specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Emails
+      x-internal-id: api-rest-1.0-assets-email-{id}-get
+      x-filename-id: api-rest-1.0-assets-email-id-get
+  /api/rest/1.0/assets/emails:
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the email was last updated.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve a list of emails
+      description: Retrieves all emails that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultEmailRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Emails
+      x-internal-id: api-rest-1.0-assets-emails-get
+      x-filename-id: api-rest-1.0-assets-emails-get
+components:
+  schemas:
+    DynamicContentRuleRest10:
+      title: DynamicContentRule
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The Dynamic Content Rule 's current status.
+        id:
+          type: string
+          description: Id of the dynamic content rule. This is a read-only property.
+        depth:
+          type: string
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        contentSection:
+          $ref: '#/components/schemas/ContentSectionRest10'
+          description: A list of associated Content Section assets.
+        criteria:
+          type: array
+          description: The criteria of the dynamic content rule.
+          items:
+            $ref: '#/components/schemas/CriterionRest10'
+        statement:
+          type: string
+          description: The statement of the dynamic content rule.
+    FormProcessingStepRest10:
+      title: FormProcessingStep
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form processing step. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form processing step's current status.
+        name:
+          type: string
+          description: Name of the form processing step.
+        description:
+          type: string
+          description: The description of the form processing step.
+        permissions:
+          type: string
+          description: The permissions for the form processing step granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form processing step.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form processing step was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form processing step.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form processing step was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        execute:
+          type: string
+          description: 'The conditions for which this form processing step will execute. Possible values include: <code>always</code>, <code>conditionally</code>, and <code>never</code>.'
+        conditionalType:
+          type: string
+          description: 'The type of value the comparator is validating. Possible values include: ''form field'' or ''static value''.'
+        conditionalFieldId:
+          type: string
+          description: The form field id used to compare form fields within a form processing step condition.
+        conditionalComparator:
+          type: string
+          description: 'The comparator used to validate a condition. Possible values include: <code>exactly</code> or <code>not exactly</code>.'
+        isConditionallyNegated:
+          type: string
+          description: The conditions for which the processing step will execute. If <code>yes</code>, the processing step will execute when the conditions are met. If <code>no</code>, the processing step will execute when the conditions are not met.
+    HyperlinkRest10:
+      title: Hyperlink
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the hyperlink. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The hyperlink's current status.
+        name:
+          type: string
+          description: Name of the hyperlink.
+        description:
+          type: string
+          description: The description of the hyperlink.
+        permissions:
+          type: string
+          description: The permissions for the hyperlink granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the hyperlink.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the hyperlink was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the hyperlink.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the hyperlink was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        href:
+          type: string
+          description: Href value of the hyperlink.
+        hyperlinkType:
+          type: string
+          description: 'The type of hyperlink. Possible values include: ExternalURL, ICSCalendarURL, LandingPageURL, ReferrerURL, RSSURL, or TrackedExternalURL.'
+        referencedEntityId:
+          type: string
+          description: Id of the referenced entity.
+    EmailRest10:
+      title: Email
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the email. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The asset's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the email.
+        description:
+          type: string
+          description: The description of the email.
+        permissions:
+          type: string
+          description: The permissions for the email granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the email.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the email was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the email.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the email was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        subject:
+          type: string
+          description: The email's subject line text.
+        senderName:
+          type: string
+          description: The sender name recipients of the email will see.
+        senderEmail:
+          type: string
+          description: The address the email will appear to be sent from.
+        replyToName:
+          type: string
+          description: The sender name recipients of the email will see.
+        replyToEmail:
+          type: string
+          description: The email address targeted when recipients click "reply".
+        bounceBackEmail:
+          type: string
+          description: The email address which is notified if the email is undeliverable.
+        virtualMTAId:
+          type: string
+          description: The identifier of the email's Virtual MTA configuration for custom email sending options. Applicable only if your Eloqua instance has the Premium Branding and Deliverability package. <a href='https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/index.html#CSHID=EmailSettings'>Learn more</a>.
+        brandId:
+          type: string
+          description: The email's brand ID.
+        htmlContent:
+          $ref: '#/components/schemas/HtmlContentRest10'
+          description: The email's raw html content.
+        plainText:
+          type: string
+          description: The email's content in plain text.
+        isPlainTextEditable:
+          type: string
+          description: Whether or not the asset's text is editable.
+        sendPlainTextOnly:
+          type: string
+          description: Whether or not the sent email is plain text only.
+        isTracked:
+          type: string
+          description: Whether or not Eloqua will track the asset.
+        layout:
+          type: string
+          description: The email's main layout.
+        style:
+          type: string
+          description: The email's main layout style.
+        forms:
+          type: array
+          description: A list of associated Form assets.
+          items:
+            $ref: '#/components/schemas/FormRest10'
+        images:
+          type: array
+          description: A list of associated Image assets.
+          items:
+            $ref: '#/components/schemas/ImageFileRest10'
+        hyperlinks:
+          type: array
+          description: A list of hyperlinks contained within the email.
+          items:
+            $ref: '#/components/schemas/HyperlinkRest10'
+        contentSections:
+          type: array
+          description: A list of associated Content Section assets.
+          items:
+            $ref: '#/components/schemas/ContentSectionRest10'
+        dynamicContents:
+          type: array
+          description: A list of associated dynamic content.
+          items:
+            $ref: '#/components/schemas/DynamicContentRest10'
+        landingPages:
+          type: array
+          description: A list of associated landing page assets.
+          items:
+            $ref: '#/components/schemas/LandingPageRest10'
+        files:
+          type: array
+          description: A list of imported files.
+          items:
+            $ref: '#/components/schemas/ImportedFileRest10'
+        emailHeaderId:
+          type: string
+          description: Id of the email header.
+        emailFooterId:
+          type: string
+          description: Id of the email footer.
+        emailGroupId:
+          type: string
+          description: Id of the email group.
+        encodingId:
+          type: string
+          description: Id of the encoding used.
+        fieldMerges:
+          type: array
+          description: A list of associated Field Merges.
+          items:
+            $ref: '#/components/schemas/FieldMergeRest10'
+    SizeRest10:
+      title: Size
+      properties:
+        type:
+          type: string
+    CriterionRest10:
+      title: Criterion
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the criterion. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The criterion's current status. This is a read-only property.
+        name:
+          type: string
+          description: Name of the criterion.
+        description:
+          type: string
+          description: The description of the criterion.
+        permissions:
+          type: string
+          description: The permissions for the criterion granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the criterion.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the criterion was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the criterion.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the criterion was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+    HtmlContentRest10:
+      title: HtmlContent
+      properties:
+        type:
+          type: string
+    ContentSectionRest10:
+      title: ContentSection
+      properties:
+        type:
+          type: string
+          description: The content section's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the content section. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The content section's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the content section.
+        description:
+          type: string
+          description: The description of the content section.
+        permissions:
+          type: string
+          description: The permissions for the content section granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the content section.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the content section was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the content section.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the content section was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        contentHtml:
+          type: string
+          description: The content section's HTML content.
+        contentText:
+          type: string
+          description: The content section's text content.
+        scope:
+          type: string
+          description: 'The content sections''s scope: either <code>local</code> or <code>global</code>.'
+        forms:
+          type: array
+          description: A list of associated Form assets.
+          items:
+            $ref: '#/components/schemas/FormRest10'
+        images:
+          type: array
+          description: A list of associated Image assets.
+          items:
+            $ref: '#/components/schemas/ImageFileRest10'
+        hyperlinks:
+          type: array
+          description: A list of hyperlinks contained within the content section.
+          items:
+            $ref: '#/components/schemas/HyperlinkRest10'
+        size:
+          $ref: '#/components/schemas/SizeRest10'
+          description: 'Generally contains 3 fields: type, width and height. "type" should be set to "Size", and width and height can be set to the content section''s desired dimensions.'
+    ImageFileRest10:
+      title: ImageFile
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the image. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The image's current status.
+        name:
+          type: string
+          description: The name of the image.
+        description:
+          type: string
+          description: The description of the image.
+        permissions:
+          type: string
+          description: The permissions for the image granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the image.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the image was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the image.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the image was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fullImageUrl:
+          type: string
+          description: The image's complete URL. This is a read-only property.
+        size:
+          $ref: '#/components/schemas/SizeRest10'
+          description: 'The size of the image. Contains 3 fields: type, width and height. "type" should be set to "Size", and width and height can be set to the image''s desired dimensions.'
+        thumbnailUrl:
+          type: string
+          description: The image's thumbnail URL. This is a read-only property.
+    QueryResultEmailRest10:
+      title: QueryResultEmail
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of email fields.
+          items:
+            $ref: '#/components/schemas/EmailRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    DynamicContentRest10:
+      title: DynamicContent
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the dynamic content. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The dynamic content's current status.
+        name:
+          type: string
+          description: Name of the dynamic content.
+        description:
+          type: string
+          description: The description of the dynamic content.
+        permissions:
+          type: string
+          description: The permissions for the dynamic content granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the dynamic content.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the dynamic content was last accessed, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the dynamic content. This is a read-only property.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the dynamic content was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        defaultContentSection:
+          $ref: '#/components/schemas/ContentSectionRest10'
+          description: The default content section of the dynamic content.
+        rules:
+          type: array
+          description: The dynamic content's rules.
+          items:
+            $ref: '#/components/schemas/DynamicContentRuleRest10'
+    FormRest10:
+      title: Form
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form. This is a read-only property.
+        currentStatus:
+          type: string
+          description: 'The form''s current status. Example: draft, active, or complete.'
+        name:
+          type: string
+          description: The name of the form.
+        description:
+          type: string
+          description: The description of the form.
+        permissions:
+          type: string
+          description: The permissions for the form granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        htmlName:
+          type: string
+          description: The asset's raw HTML name.
+        processingType:
+          type: string
+          description: 'A list of the form''s processing types. For example: externalEmail, externalWebsite, internallyHosted, internalAgentProxyForm.'
+        emailAddressFormFieldId:
+          type: string
+          description: The email address form field entity's unique identifier.
+        submitFailedLandingPageId:
+          type: string
+          description: The landing page id of the failed submit.
+        html:
+          type: string
+          description: The asset's raw HTML content.
+        style:
+          type: string
+          description: The asset's main layout style.
+        elements:
+          type: array
+          description: Array consisting of form elements.
+          items:
+            $ref: '#/components/schemas/FormElementRest10'
+        processingSteps:
+          type: array
+          description: 'A list of the form''s processing steps. There is no limit to the number of processing steps that can be included. Possible values include: FormStepAddToCampaign, FormStepAddToContactList, FormStepAddToDataCanvas, FormStepAddToProgram, FormStepAssociateToCampaign, FormStepCancelRegistration, FormStepUpdateContactEmailAddress, FormStepCreateUpdateEventRegistration, FormStepCreateUpdate, FormStepCreateUpdateFromFormField, FormStepGlobalSubscribe, FormStepGlobalUnsubscribe, FormStepGroupSubscription, FormStepPostData, FormStepRedirectToWebPage, FormStepRemoveFromContactList, FormStepRunIntegrationRules, FormStepSendEmail, FormStepSendNotificationEmail, FormStepWebTracking, FormStepGlobalSubscribe, and FormStepSmsPhoneNumberOptInOptOut.'
+          items:
+            $ref: '#/components/schemas/FormProcessingStepRest10'
+        isHidden:
+          type: string
+          description: Whether the form is an internal form. If <code>true</code>, the form is not exposed outside of Eloqua and any form submissions to this form are deleted.
+        archived:
+          type: string
+          description: True if form is archived otherwise False. This is a read-only property.
+    LandingPageRest10:
+      title: LandingPage
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the landing page. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The landing page's current status. This is a read-only property.
+        name:
+          type: string
+          description: The name of the landing page.
+        description:
+          type: string
+          description: The description of the landing page.
+        permissions:
+          type: string
+          description: The permissions for the landing page granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the landing page.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the landing page was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the landing page.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the landing page was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        deployedAt:
+          type: string
+          description: Unix timestamp for the date and time the landing page was deployed. This is a read-only property.
+        micrositeId:
+          type: string
+          description: Id of the associated microsite.
+        refreshedAt:
+          type: string
+          description: Unix timestamp for the date and time the landing page was last refreshed. This is a read-only property.
+        htmlContent:
+          $ref: '#/components/schemas/HtmlContentRest10'
+          description: The landing page's raw html content.
+        layout:
+          type: string
+          description: The landing page's main layout.
+        style:
+          type: string
+          description: The landing page's main layout style.
+        forms:
+          type: array
+          description: A list of forms contained within the landing page.
+          items:
+            $ref: '#/components/schemas/FormRest10'
+        images:
+          type: array
+          description: A list of images contained within the landing page.
+          items:
+            $ref: '#/components/schemas/ImageFileRest10'
+        hyperlinks:
+          type: array
+          description: A list of hyperlinks contained within the landing page.
+          items:
+            $ref: '#/components/schemas/HyperlinkRest10'
+        contentSections:
+          type: array
+          description: A list of content sections contained within the landing page.
+          items:
+            $ref: '#/components/schemas/ContentSectionRest10'
+        dynamicContents:
+          type: array
+          description: A list of dynamic contents contained within the landing page.
+          items:
+            $ref: '#/components/schemas/DynamicContentRest10'
+        files:
+          type: array
+          description: A list of files contained within the landing page.
+          items:
+            $ref: '#/components/schemas/ImportedFileRest10'
+        autoRedirectUrl:
+          type: string
+          description: The landing page's auto re-direct URL.
+        autoRedirectWaitFor:
+          type: string
+          description: The amount of time the service will wait before redirecting to the auto re-direct URL.
+        autoCloseWaitFor:
+          type: string
+          description: The amount of time the service will wait before closing.
+        relativePath:
+          type: string
+          description: The relative path of the landing page.
+    FormElementRest10:
+      title: FormElement
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form element's current status.
+        name:
+          type: string
+          description: Name of the form element.
+        description:
+          type: string
+          description: The description of the form element.
+        permissions:
+          type: string
+          description: The permissions for the form element granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form element was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form element was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        instructions:
+          type: string
+          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
+        style:
+          type: string
+          description: The asset's main layout style.
+    FieldMergeRest10:
+      title: FieldMerge
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the field merge. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The field merge's current status.
+        name:
+          type: string
+          description: Name of the field merge.
+        description:
+          type: string
+          description: The description of the field merge.
+        permissions:
+          type: string
+          description: The permissions for the field merge granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the field merge.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the field merge was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the field merge.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the field merge was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        syntax:
+          type: string
+          description: The syntax of the field merge.
+        defaultValue:
+          type: string
+          description: The default value of the field merge.
+        contactFieldId:
+          type: string
+          description: Id of the associated contact field.
+        accountFieldId:
+          type: string
+          description: Id of the associated account field.
+        eventId:
+          type: string
+          description: Id of the associated event.
+        eventFieldId:
+          type: string
+          description: Id of the associated event field.
+        eventSessionFieldId:
+          type: string
+          description: Id of the associated event session field.
+        mergeType:
+          type: string
+          description: 'Type of the field merge. Possible values include: <code>contactField</code>, <code>accountField</code>, <code>eventField</code>, <code>eventSessionField</code>, and <code>customObjectField</code>.'
+    ImportedFileRest10:
+      title: ImportedFile
+      properties:
+        type:
+          type: string
+          description: The date and time the imported file was last accessed. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the imported file. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The imported file's current status.
+        name:
+          type: string
+          description: Name of the imported file.
+        description:
+          type: string
+          description: The description of the imported file.
+        permissions:
+          type: string
+          description: The permissions for the imported file granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the imported file.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the imported file was last accessed, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the imported file. This is a read-only property.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the imported file was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fileName:
+          type: string
+          description: The file name of the imported file.
+        link:
+          type: string
+          description: The imported file's complete URL. This is a read-only property.
+        trackedLink:
+          type: string
+          description: The imported file's tracked complete URL. This is a read-only property.
+        brandId:
+          type: string
+          description: ImportedFile_Field_BrandId_Description

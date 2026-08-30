@@ -1,0 +1,171 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign External Activity/1.0/External Activity Attributes API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes
+  description: The operations from the Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes category.
+paths:
+  /API/OData/CampaignExternalActivity/1/ExternalActivityAttributes:
+    get:
+      tags:
+      - Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes
+      summary: Get all External Activity Attributes
+      operationId: ExternalActivityAttributes_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: ExternalActivityAttributes successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalActivityAttributes'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalActivityAttributes'
+      x-internal-id: API-OData-CampaignExternalActivity-1-ExternalActivityAttributes-get
+      x-filename-id: api-odata-campaignexternalactivity-1-externalactivityattributes-get
+  /API/OData/CampaignExternalActivity/1/ExternalActivityAttributes/{key}:
+    get:
+      tags:
+      - Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes
+      summary: Get a single External Activity Attribute record
+      operationId: ExternalActivityAttributes_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: ExternalActivityAttributesID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: ExternalActivityAttributes was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalActivityAttributes'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalActivityAttributes'
+      x-internal-id: API-OData-CampaignExternalActivity-1-ExternalActivityAttributes-{key}-get
+      x-filename-id: api-odata-campaignexternalactivity-1-externalactivityattributes-key-get
+components:
+  schemas:
+    ExternalActivityAttributes:
+      type: object
+      properties:
+        externalAssetId:
+          format: int32
+          type: integer
+        externalAssetType:
+          format: int32
+          type: integer
+        externalAssetName:
+          type: string
+        externalAssetTypeName:
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string

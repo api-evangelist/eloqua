@@ -1,0 +1,318 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Form data API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/1.0/Form data
+  description: "Form data are the submissions for a form. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn more about forms</a>."
+paths:
+  /api/rest/1.0/data/form/{id}:
+    post:
+      operationId: CreateIndividualPOSTRest10
+      parameters:
+      - name: id
+        in: path
+        description: ID of the form.
+        required: true
+        schema:
+          type: integer
+      summary: Create form data for a single form
+      description: Creates form data for the form that matches the criteria specified by the request body. This endpoint will only create form data specified in the request body, including static values in form fields. If a form field contains a static value, the field must be included in the request body to update the static value.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormDataRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Form data
+      x-internal-id: api-rest-1.0-data-form-{id}-post
+      x-filename-id: api-rest-1.0-data-form-id-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormDataRest10'
+        description: The request body defines the details of the form data to be created.
+        required: true
+    get:
+      operationId: SearchGETRest10
+      parameters:
+      - name: id
+        in: path
+        description: ID of the form.
+        required: true
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      - name: endAt
+        in: query
+        description: The latest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve processed form data for a single form
+      description: Retrieves the form data for the form specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultFormSubmissionRest10'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Form data
+      x-internal-id: api-rest-1.0-data-form-{id}-get
+      x-filename-id: api-rest-1.0-data-form-id-get
+  /api/rest/1.0/data/form/{formId}/formData/{formSubmitJobId}:
+    get:
+      operationId: GetAsyncFormSubmissionGETRest10
+      parameters:
+      - name: formId
+        in: path
+        description: ID of the form.
+        required: true
+        schema:
+          type: string
+      - name: formSubmitJobId
+        in: path
+        description: ID of the asynchronous form submission job.
+        required: true
+        schema:
+          type: string
+      summary: Retrieve a single form submit job
+      description: Retrieves asynchronous form submission data for a single form submit specified by the <code>formId</code> and <code>formSubmitJobId</code> parameters. This API endpoint is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/epmos/faces/MosIndex.jspx'>My Oracle Support</a>.
+      responses:
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Form data
+      x-internal-id: api-rest-1.0-data-form-{formId}-formData-{formSubmitJobId}-get
+      x-filename-id: api-rest-1.0-data-form-formid-formdata-formsubmitjobid-get
+  /api/rest/1.0/data/form/{formId}/formData:
+    get:
+      operationId: SearchAsyncFormSubmissionGETRest10
+      parameters:
+      - name: formId
+        in: path
+        description: ID of the form.
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        description: The earliest date time for which the request will retrieve data, expressed in Unix time.
+        required: false
+        schema:
+          type: integer
+      summary: Retrieve all form submit jobs for a single form
+      description: Retrieves all asynchronous form submissions for a form specified by the <code>formId</code>. This API endpoint is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/epmos/faces/MosIndex.jspx'>My Oracle Support</a>.
+      responses:
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/1.0/Form data
+      x-internal-id: api-rest-1.0-data-form-{formId}-formData-get
+      x-filename-id: api-rest-1.0-data-form-formid-formdata-get
+components:
+  schemas:
+    ProcessingStepErrorRest10:
+      title: ProcessingStepError
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        processingStepId:
+          type: string
+          description: Processing step id during which error ocurred
+        processingStepTypeId:
+          type: string
+          description: Type of the processing step during which error ocurred
+        processingStepDisplayName:
+          type: string
+          description: DisplayName of the processing step including description (if configured)
+        errorCode:
+          type: integer
+          description: Unique Error Code for current error
+        errorMessage:
+          type: string
+          description: Error message for current error code
+        errorDescription:
+          type: string
+          description: Detailed information about current error
+    ObjectValidationErrorRest10:
+      title: ObjectValidationError
+      properties:
+        type:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+        property:
+          type: string
+        value:
+          type: string
+        requirement:
+          $ref: '#/components/schemas/RequirementRest10'
+    QueryResultFormSubmissionRest10:
+      title: QueryResultFormSubmission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form data elements.
+          items:
+            $ref: '#/components/schemas/FormDataRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FormDataRest10:
+      title: FormData
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property
+        id:
+          type: string
+          readOnly: true
+          description: ID of the form submit if synchronous or ID of the form submission job if async. This is a read-only property
+        currentStatus:
+          type: string
+          description: Current status of form submission when submitted through asynchronous submission
+        submittedAt:
+          type: string
+          description: Unix timestamp for the date and time the form data was submitted. This is a read-only property
+        submittedByContactId:
+          type: string
+          description: ID of the contact that submitted the form. This is a read-only property
+        fieldValues:
+          type: array
+          description: A list of key/value pairs identifying the form data (field name / value)
+          items:
+            $ref: '#/components/schemas/FieldValueRest10'
+        processingStepErrors:
+          type: array
+          description: A list of Processing Step Errors occurred in current form submission. This is a read-only property
+          items:
+            $ref: '#/components/schemas/ProcessingStepErrorRest10'
+        processedAt:
+          type: string
+          description: Unix timestamp for the date and time the form data was processed if submitted through asynchronous submission. This is a read-only property
+        rowId:
+          type: integer
+          description: In case of asynchronous form submission if processed then submit ID of form submission. This is a read-only property
+        validationErrors:
+          type: array
+          description: Validation errors if any occured in form submission. This is a read-only property
+          items:
+            $ref: '#/components/schemas/ObjectValidationErrorRest10'
+    RequirementRest10:
+      title: Requirement
+      properties:
+        type:
+          type: string
+    ObjectKeyRest10:
+      title: ObjectKey
+      properties:
+        type:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.

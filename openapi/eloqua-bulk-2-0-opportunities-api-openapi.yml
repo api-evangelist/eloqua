@@ -1,0 +1,2546 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/opportunities API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Bulk/2.0/opportunities
+  description: The operations from the Bulk/2.0/opportunities category.
+paths:
+  /api/bulk/2.0/opportunities/contacts/imports:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve a list of opportunity contact linkage import definitions
+      description: Retrieves a list of opportunity contact linkage import definitions. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityContactLinkageImportSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityContactLinkageImportSearchResponse
+                description: The response body contains information about the opportunity contact linkage import definitions.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items returned.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Import'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-get
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-get
+    post:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Create an opportunity contact linkage import definition
+      description: Creates an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: PostOpportunityContactLinkageImportIndividual
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityContactLinkageImportIndividualResponse
+                description: The response body includes information about the opportunity contact linkage import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  linkOpportunitiesCaseSensitiveMatchField:
+                    title: linkOpportunitiesCaseSensitiveMatchField
+                    description: Whether or not to perform a case sensitive search on the match field.
+                    type: boolean
+                  linkOpportunitiesCaseSensitiveSourceField:
+                    title: linkOpportunitiesCaseSensitiveSourceField
+                    description: Whether or not to perform a case sensitive search on the source field.
+                    type: boolean
+                  linkOpportunitiesEntityType:
+                    title: linkOpportunitiesEntityType
+                    description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                    type: string
+                  linkOpportunitiesMatchFieldName:
+                    title: linkOpportunitiesMatchFieldName
+                    description: Specifies the field name for matching.
+                    type: string
+                  linkOpportunitiesMultipleSourceMatches:
+                    title: linkOpportunitiesMultipleSourceMatches
+                    description: Whether or not imported data will be mapped to multiple matching records.
+                    type: boolean
+                  linkOpportunitiesSourceField:
+                    title: linkOpportunitiesSourceField
+                    description: Specifies the source field name for matching.
+                    type: string
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-post
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityContactLinkageImportIndividual
+              description: The request body defines details of the opportunity contact linkage import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                linkOpportunitiesCaseSensitiveMatchField:
+                  title: linkOpportunitiesCaseSensitiveMatchField
+                  description: Whether or not to perform a case sensitive search on the match field.
+                  type: boolean
+                linkOpportunitiesCaseSensitiveSourceField:
+                  title: linkOpportunitiesCaseSensitiveSourceField
+                  description: Whether or not to perform a case sensitive search on the source field.
+                  type: boolean
+                linkOpportunitiesEntityType:
+                  title: linkOpportunitiesEntityType
+                  description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                  type: string
+                linkOpportunitiesMatchFieldName:
+                  title: linkOpportunitiesMatchFieldName
+                  description: Specifies the field name for matching.
+                  type: string
+                linkOpportunitiesMultipleSourceMatches:
+                  title: linkOpportunitiesMultipleSourceMatches
+                  description: Whether or not imported data will be mapped to multiple matching records.
+                  type: boolean
+                linkOpportunitiesSourceField:
+                  title: linkOpportunitiesSourceField
+                  description: Specifies the source field name for matching.
+                  type: string
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityContactLinkageImportIndividual
+              description: The request body defines details of the opportunity contact linkage import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                linkOpportunitiesCaseSensitiveMatchField:
+                  title: linkOpportunitiesCaseSensitiveMatchField
+                  description: Whether or not to perform a case sensitive search on the match field.
+                  type: boolean
+                linkOpportunitiesCaseSensitiveSourceField:
+                  title: linkOpportunitiesCaseSensitiveSourceField
+                  description: Whether or not to perform a case sensitive search on the source field.
+                  type: boolean
+                linkOpportunitiesEntityType:
+                  title: linkOpportunitiesEntityType
+                  description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                  type: string
+                linkOpportunitiesMatchFieldName:
+                  title: linkOpportunitiesMatchFieldName
+                  description: Specifies the field name for matching.
+                  type: string
+                linkOpportunitiesMultipleSourceMatches:
+                  title: linkOpportunitiesMultipleSourceMatches
+                  description: Whether or not imported data will be mapped to multiple matching records.
+                  type: boolean
+                linkOpportunitiesSourceField:
+                  title: linkOpportunitiesSourceField
+                  description: Specifies the source field name for matching.
+                  type: string
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+        description: The request body contains details of the opportunity contact linkage import definition.
+        required: true
+  /api/bulk/2.0/opportunities/contacts/imports/{id}:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve an opportunity contact linkage import definition
+      description: Retrieves an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityContactLinkageImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity contact linkage import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityContactLinkageImportIndividualResponse
+                description: The response body includes information about the opportunity contact linkage import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  linkOpportunitiesCaseSensitiveMatchField:
+                    title: linkOpportunitiesCaseSensitiveMatchField
+                    description: Whether or not to perform a case sensitive search on the match field.
+                    type: boolean
+                  linkOpportunitiesCaseSensitiveSourceField:
+                    title: linkOpportunitiesCaseSensitiveSourceField
+                    description: Whether or not to perform a case sensitive search on the source field.
+                    type: boolean
+                  linkOpportunitiesEntityType:
+                    title: linkOpportunitiesEntityType
+                    description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                    type: string
+                  linkOpportunitiesMatchFieldName:
+                    title: linkOpportunitiesMatchFieldName
+                    description: Specifies the field name for matching.
+                    type: string
+                  linkOpportunitiesMultipleSourceMatches:
+                    title: linkOpportunitiesMultipleSourceMatches
+                    description: Whether or not imported data will be mapped to multiple matching records.
+                    type: boolean
+                  linkOpportunitiesSourceField:
+                    title: linkOpportunitiesSourceField
+                    description: Specifies the source field name for matching.
+                    type: string
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-{id}-get
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-id-get
+    put:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Update an opportunity contact linkage import definition
+      description: Updates an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: PutOpportunityContactLinkageImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity contact linkage import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityContactLinkageImportIndividualResponse
+                description: The response body includes information about the opportunity contact linkage import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  linkOpportunitiesCaseSensitiveMatchField:
+                    title: linkOpportunitiesCaseSensitiveMatchField
+                    description: Whether or not to perform a case sensitive search on the match field.
+                    type: boolean
+                  linkOpportunitiesCaseSensitiveSourceField:
+                    title: linkOpportunitiesCaseSensitiveSourceField
+                    description: Whether or not to perform a case sensitive search on the source field.
+                    type: boolean
+                  linkOpportunitiesEntityType:
+                    title: linkOpportunitiesEntityType
+                    description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                    type: string
+                  linkOpportunitiesMatchFieldName:
+                    title: linkOpportunitiesMatchFieldName
+                    description: Specifies the field name for matching.
+                    type: string
+                  linkOpportunitiesMultipleSourceMatches:
+                    title: linkOpportunitiesMultipleSourceMatches
+                    description: Whether or not imported data will be mapped to multiple matching records.
+                    type: boolean
+                  linkOpportunitiesSourceField:
+                    title: linkOpportunitiesSourceField
+                    description: Specifies the source field name for matching.
+                    type: string
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-{id}-put
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityContactLinkageImportIndividual
+              description: The request body defines details of the opportunity contact linkage import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                linkOpportunitiesCaseSensitiveMatchField:
+                  title: linkOpportunitiesCaseSensitiveMatchField
+                  description: Whether or not to perform a case sensitive search on the match field.
+                  type: boolean
+                linkOpportunitiesCaseSensitiveSourceField:
+                  title: linkOpportunitiesCaseSensitiveSourceField
+                  description: Whether or not to perform a case sensitive search on the source field.
+                  type: boolean
+                linkOpportunitiesEntityType:
+                  title: linkOpportunitiesEntityType
+                  description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                  type: string
+                linkOpportunitiesMatchFieldName:
+                  title: linkOpportunitiesMatchFieldName
+                  description: Specifies the field name for matching.
+                  type: string
+                linkOpportunitiesMultipleSourceMatches:
+                  title: linkOpportunitiesMultipleSourceMatches
+                  description: Whether or not imported data will be mapped to multiple matching records.
+                  type: boolean
+                linkOpportunitiesSourceField:
+                  title: linkOpportunitiesSourceField
+                  description: Specifies the source field name for matching.
+                  type: string
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityContactLinkageImportIndividual
+              description: The request body defines details of the opportunity contact linkage import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to false to update <code>Contact.Field(C_EmailAddress)</code>.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                linkOpportunitiesCaseSensitiveMatchField:
+                  title: linkOpportunitiesCaseSensitiveMatchField
+                  description: Whether or not to perform a case sensitive search on the match field.
+                  type: boolean
+                linkOpportunitiesCaseSensitiveSourceField:
+                  title: linkOpportunitiesCaseSensitiveSourceField
+                  description: Whether or not to perform a case sensitive search on the source field.
+                  type: boolean
+                linkOpportunitiesEntityType:
+                  title: linkOpportunitiesEntityType
+                  description: Specifies the entity of the contact linkage import. Allowed values are "Contact" or "Account".
+                  type: string
+                linkOpportunitiesMatchFieldName:
+                  title: linkOpportunitiesMatchFieldName
+                  description: Specifies the field name for matching.
+                  type: string
+                linkOpportunitiesMultipleSourceMatches:
+                  title: linkOpportunitiesMultipleSourceMatches
+                  description: Whether or not imported data will be mapped to multiple matching records.
+                  type: boolean
+                linkOpportunitiesSourceField:
+                  title: linkOpportunitiesSourceField
+                  description: Specifies the source field name for matching.
+                  type: string
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+        description: The request body contains details of the opportunity contact linkage import definition.
+        required: true
+    delete:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Delete an opportunity contact linkage import definition
+      description: Deletes an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: DeleteOpportunityContactLinkageImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity contact linkage import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-{id}-delete
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-id-delete
+  /api/bulk/2.0/opportunities/contacts/imports/{id}/data:
+    post:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Upload data for an opportunity contact linkage import definition
+      description: Uploads data for an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: PostOpportunityContactLinkageImportData
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity contact linkage import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityContactLinkageImportDataResponse
+                description: Sync response when POSTing opportunity contact linkage import data, and isSyncTriggeredOnImport = true on the import definition.
+                properties:
+                  callbackUrl:
+                    title: callbackUrl
+                    description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  status:
+                    $ref: '#/components/schemas/SyncStatusType'
+                  syncedInstanceUri:
+                    title: syncedInstanceUri
+                    description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                    type: string
+                  syncEndedAt:
+                    format: date-time
+                    title: syncEndedAt
+                    description: The date and time the sync ended. This is a read-only property.
+                    type: string
+                  syncStartedAt:
+                    format: date-time
+                    title: syncStartedAt
+                    description: The date and time the sync started. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-{id}-data-post
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-id-data-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityContactLinkageImportData
+              type: array
+              items:
+                title: OpportunityContactLinkageImportDataItem
+                type: object
+                items:
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityContactLinkageImportData
+              type: array
+              items:
+                title: OpportunityContactLinkageImportDataItem
+                type: object
+                items:
+                  type: string
+        description: The request body contains details of the opportunity contact linkage import data.
+        required: true
+    delete:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Delete the synced data for an opportunity contact linkage import definition
+      description: Deletes the synced data for an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: DeleteOpportunityContactLinkageImportData
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity contact linkage import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-contacts-imports-{id}-data-delete
+      x-filename-id: api-bulk-2.0-opportunities-contacts-imports-id-data-delete
+  /api/bulk/2.0/opportunities/fields/{id}:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve an opportunity field definition
+      description: Retrieves an opportunity field definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityFieldIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity field definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityFieldIndividualResponse
+                description: The response body contains information about the opportunity field definition.
+                properties:
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataType:
+                    $ref: '#/components/schemas/DataType'
+                  defaultValue:
+                    title: defaultValue
+                    description: The opportunity field's default value.
+                    type: string
+                  hasNotNullConstraint:
+                    title: hasNotNullConstraint
+                    description: Indicates whether the field can have null values (i.e. empty).
+                    type: boolean
+                  hasReadOnlyConstraint:
+                    title: hasReadOnlyConstraint
+                    description: Indicates whether the field can be written to.
+                    type: boolean
+                  hasUniquenessConstraint:
+                    title: hasUniquenessConstraint
+                    description: Indicates whether the field must have a unique value.
+                    type: boolean
+                  internalName:
+                    title: internalName
+                    description: The field's internal name (used to uniquely identify it).
+                    type: string
+                  name:
+                    title: name
+                    description: The opportunity field's name.
+                    type: string
+                  statement:
+                    title: statement
+                    description: The markup language statement used to reference the field in an import or export mapping.
+                    type: string
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-fields-{id}-get
+      x-filename-id: api-bulk-2.0-opportunities-fields-id-get
+  /api/bulk/2.0/opportunities/fields:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve a list of opportunity fields
+      description: Retrieves a list of opportunity fields. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityFieldSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityFieldSearchResponse
+                description: The response body contains information about the opportunity contact linkage import definitions.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items returned.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OpportunityField'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-fields-get
+      x-filename-id: api-bulk-2.0-opportunities-fields-get
+  /api/bulk/2.0/opportunities/imports:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve a list of opportunity import definitions
+      description: Retrieves a list of opportunity import definitions. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityImportSearch
+      parameters:
+      - name: limit
+        in: query
+        description: 'A URL parameter that specifies the maximum number of records to return. This can be any positive integer between 1 and 1000 inclusive. If not specified, the default is 1000. Example: <code>?limit=5</code>.'
+        schema:
+          type: integer
+      - name: links
+        in: query
+        description: The links section in a resource return all the links by default. The client side might be only interested in a particular link. To satisfy that requirement, a "links" query parameter might be supported. The value of this query parameter is a list of relations separated by comma ",". For example, ?links=canonical, next will only return the links with "rel" property be canonical or next.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: 'Specifies an offset that allows you to retrieve the next batch of records. Any positive integer. For example, if your limit is 1000, specifying an offset of 1000 will return records 1000 through 2000. If not specified, the default is 0. Example: <code>?offset=1000</code>.'
+        schema:
+          type: integer
+      - name: orderBy
+        in: query
+        description: 'Specifies the name of the property to order the results by. The <code>orderBy</code> format is <code>term</code> ASC | DESC. Example: <code>?orderBy=name ASC</code>.'
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'A URL parameter that specifies query criteria used to filter results. The <code>q</code> format is <code>term</code><code>operator</code><code>value</code>. Use "*" for wildcard values. Example: <code>?q="name=*Test*"</code> will find all the entities where the "name" field contains the string "Test".'
+        schema:
+          type: string
+      - name: totalResults
+        in: query
+        description: Whether or not the total results are shown, and factored into the <code>hasMore</code> property in the response. When set to <code>false</code>, the <code>totalResults</code> property will not be returned, and the <code>hasMore</code> property will be determined based on returned events that match the criteria specified in the URL parameters. If not specified, the default is <code>true</code>.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityImportSearchResponse
+                description: The response body contains information about the opportunity import definitions.
+                properties:
+                  count:
+                    title: count
+                    description: Number of results returned in the request.
+                    type: integer
+                  hasMore:
+                    title: hasMore
+                    description: Indicates if there are more results.
+                    type: boolean
+                  items:
+                    title: items
+                    description: The collection of items returned.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Import'
+                  limit:
+                    title: limit
+                    description: The maximum number of records returned. Set with the <code>limit</code> URL parameter, and defaults to 1000 if not specified.
+                    type: integer
+                  offset:
+                    title: offset
+                    description: The requested index from which records are returned. Set with the <code>offset</code> URL parameter, and defaults to 0 if not specified.
+                    type: integer
+                  totalResults:
+                    format: int64
+                    title: totalResults
+                    description: Number of total results. Returned when the <code>totalResults</code> URL parameter is not set to <code>false</code>.
+                    type: integer
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-get
+      x-filename-id: api-bulk-2.0-opportunities-imports-get
+    post:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Create an opportunity import definition
+      description: Creates an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: PostOpportunityImportIndividual
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityImportIndividualResponse
+                description: The response body includes information about the opportunity import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isIdentifierFieldCaseSensitive:
+                    title: isIdentifierFieldCaseSensitive
+                    description: Whether or not to perform a case sensitive search on the identifier field.
+                    type: boolean
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not multiple matched records are being updated.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-post
+      x-filename-id: api-bulk-2.0-opportunities-imports-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityImportIndividual
+              description: The request body defines the details of the opportunity import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isIdentifierFieldCaseSensitive:
+                  title: isIdentifierFieldCaseSensitive
+                  description: Whether or not to perform a case sensitive search on the identifier field.
+                  type: boolean
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not multiple matched records are being updated.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityImportIndividual
+              description: The request body defines the details of the opportunity import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isIdentifierFieldCaseSensitive:
+                  title: isIdentifierFieldCaseSensitive
+                  description: Whether or not to perform a case sensitive search on the identifier field.
+                  type: boolean
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not multiple matched records are being updated.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+        description: The request body contains details of the opportunity import definition.
+        required: true
+  /api/bulk/2.0/opportunities/imports/{id}:
+    get:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Retrieve an opportunity import definition
+      description: Retrieves a single opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: GetOpportunityImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityImportIndividualResponse
+                description: The response body includes information about the opportunity import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isIdentifierFieldCaseSensitive:
+                    title: isIdentifierFieldCaseSensitive
+                    description: Whether or not to perform a case sensitive search on the identifier field.
+                    type: boolean
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not multiple matched records are being updated.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-{id}-get
+      x-filename-id: api-bulk-2.0-opportunities-imports-id-get
+    put:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Update an opportunity import definition
+      description: Updates an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: PutOpportunityImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityImportIndividualResponse
+                description: The response body includes information about the opportunity import definition.
+                properties:
+                  autoDeleteDuration:
+                    title: autoDeleteDuration
+                    description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  dataRetentionDuration:
+                    title: dataRetentionDuration
+                    description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                    type: string
+                  externalSystemId:
+                    title: externalSystemId
+                    description: The id of the external system.
+                    type: integer
+                  fields:
+                    title: fields
+                    description: List of fields to be included in the operation.
+                    type: object
+                  identifierFieldName:
+                    title: identifierFieldName
+                    description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                    type: string
+                  importPriorityUri:
+                    title: importPriorityUri
+                    description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                    type: string
+                  importRule:
+                    $ref: '#/components/schemas/ImportRuleType'
+                  isIdentifierFieldCaseSensitive:
+                    title: isIdentifierFieldCaseSensitive
+                    description: Whether or not to perform a case sensitive search on the identifier field.
+                    type: boolean
+                  isSyncTriggeredOnImport:
+                    title: isSyncTriggeredOnImport
+                    description: Whether or not the sync is triggered on import.
+                    type: boolean
+                  isUpdatingMultipleMatchedRecords:
+                    title: isUpdatingMultipleMatchedRecords
+                    description: Whether or not multiple matched records are being updated.
+                    type: boolean
+                  kbUsed:
+                    format: int64
+                    title: kbUsed
+                    description: The amount of space used in kilobytes. This is a read-only property.
+                    type: integer
+                  name:
+                    title: name
+                    description: The name of the import definition.
+                    type: string
+                  nullIdentifierFieldName:
+                    title: nullIdentifierFieldName
+                    description: Whether or not to null the identifier field.
+                    type: boolean
+                  updatedAt:
+                    format: date-time
+                    title: updatedAt
+                    description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  updatedBy:
+                    title: updatedBy
+                    description: The login id of the user that last updated the entity. This is a read-only property.
+                    type: string
+                  updateRule:
+                    $ref: '#/components/schemas/RuleType'
+                  updateRuleByField:
+                    title: updateRuleByField
+                    description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                    type: object
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-{id}-put
+      x-filename-id: api-bulk-2.0-opportunities-imports-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityImportIndividual
+              description: The request body defines the details of the opportunity import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isIdentifierFieldCaseSensitive:
+                  title: isIdentifierFieldCaseSensitive
+                  description: Whether or not to perform a case sensitive search on the identifier field.
+                  type: boolean
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not multiple matched records are being updated.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityImportIndividual
+              description: The request body defines the details of the opportunity import definition.
+              properties:
+                autoDeleteDuration:
+                  title: autoDeleteDuration
+                  description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+                  type: string
+                createdAt:
+                  format: date-time
+                  title: createdAt
+                  description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                createdBy:
+                  title: createdBy
+                  description: The login id of the user who created the entity. This is a read-only property.
+                  type: string
+                dataRetentionDuration:
+                  title: dataRetentionDuration
+                  description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+                  type: string
+                externalSystemId:
+                  title: externalSystemId
+                  description: The id of the external system.
+                  type: integer
+                fields:
+                  title: fields
+                  description: List of fields to be included in the operation.
+                  type: object
+                identifierFieldName:
+                  title: identifierFieldName
+                  description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+                  type: string
+                importPriorityUri:
+                  title: importPriorityUri
+                  description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+                  type: string
+                importRule:
+                  $ref: '#/components/schemas/ImportRuleType'
+                isIdentifierFieldCaseSensitive:
+                  title: isIdentifierFieldCaseSensitive
+                  description: Whether or not to perform a case sensitive search on the identifier field.
+                  type: boolean
+                isSyncTriggeredOnImport:
+                  title: isSyncTriggeredOnImport
+                  description: Whether or not the sync is triggered on import.
+                  type: boolean
+                isUpdatingMultipleMatchedRecords:
+                  title: isUpdatingMultipleMatchedRecords
+                  description: Whether or not multiple matched records are being updated.
+                  type: boolean
+                kbUsed:
+                  format: int64
+                  title: kbUsed
+                  description: The amount of space used in kilobytes. This is a read-only property.
+                  type: integer
+                name:
+                  title: name
+                  description: The name of the import definition.
+                  type: string
+                nullIdentifierFieldName:
+                  title: nullIdentifierFieldName
+                  description: Whether or not to null the identifier field.
+                  type: boolean
+                updatedAt:
+                  format: date-time
+                  title: updatedAt
+                  description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+                  type: string
+                updatedBy:
+                  title: updatedBy
+                  description: The login id of the user that last updated the entity. This is a read-only property.
+                  type: string
+                updateRule:
+                  $ref: '#/components/schemas/RuleType'
+                updateRuleByField:
+                  title: updateRuleByField
+                  description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+                  type: object
+                uri:
+                  title: uri
+                  description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                  type: string
+        description: The request body contains details of the opportunity import definition.
+        required: true
+    delete:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Delete an opportunity import definition
+      description: Deletes an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: DeleteOpportunityImportIndividual
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-{id}-delete
+      x-filename-id: api-bulk-2.0-opportunities-imports-id-delete
+  /api/bulk/2.0/opportunities/imports/{id}/data:
+    post:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Upload data for an opportunity import definition
+      description: Uploads data for an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>. When uploading data, Eloqua expects that data to be encoded with UTF-8.
+      operationId: PostOpportunityImportData
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                title: OpportunityImportDataResponse
+                description: Sync response when POSTing opportunity import data, and isSyncTriggeredOnImport = true on the import definition.
+                properties:
+                  callbackUrl:
+                    title: callbackUrl
+                    description: When a sync completes, Eloqua will make a call to the URL specified in this parameter. The callback can occur during sync creation, before the sync creation response, or immediately after.
+                    type: string
+                  createdAt:
+                    format: date-time
+                    title: createdAt
+                    description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+                    type: string
+                  createdBy:
+                    title: createdBy
+                    description: The login id of the user who created the entity. This is a read-only property.
+                    type: string
+                  status:
+                    $ref: '#/components/schemas/SyncStatusType'
+                  syncedInstanceUri:
+                    title: syncedInstanceUri
+                    description: This value should be the uri for the export/import definition you wish to sync. When you create an import/export definition, Eloqua will respond with a "uri" parameter, the value of which should be used here.
+                    type: string
+                  syncEndedAt:
+                    format: date-time
+                    title: syncEndedAt
+                    description: The date and time the sync ended. This is a read-only property.
+                    type: string
+                  syncStartedAt:
+                    format: date-time
+                    title: syncStartedAt
+                    description: The date and time the sync started. This is a read-only property.
+                    type: string
+                  uri:
+                    title: uri
+                    description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+                    type: string
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-{id}-data-post
+      x-filename-id: api-bulk-2.0-opportunities-imports-id-data-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: OpportunityImportData
+              type: array
+              items:
+                title: OpportunityImportDataItem
+                type: object
+                items:
+                  type: string
+          text/csv:
+            schema:
+              title: OpportunityImportData
+              type: array
+              items:
+                title: OpportunityImportDataItem
+                type: object
+                items:
+                  type: string
+        description: The request body contains details of the opportunity data.
+        required: true
+    delete:
+      tags:
+      - Bulk/2.0/opportunities
+      summary: Delete the synced data for an opportunity import definition
+      description: Deletes the synced data for an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      operationId: DeleteOpportunityImportData
+      parameters:
+      - name: id
+        in: path
+        description: The opportunity import definition's resource identification number.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '409':
+          description: There was a conflict. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '410':
+          description: The requested resource is no longer available. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '412':
+          description: The resource you are attempting to delete has dependencies, and cannot be deleted. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '413':
+          description: Storage space exceeded. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an internal server error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '503':
+          description: There was a timeout processing the request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      deprecated: false
+      x-internal-id: api-bulk-2.0-opportunities-imports-{id}-data-delete
+      x-filename-id: api-bulk-2.0-opportunities-imports-id-data-delete
+components:
+  schemas:
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
+    Import:
+      title: Import
+      description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
+      properties:
+        autoDeleteDuration:
+          title: autoDeleteDuration
+          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        dataRetentionDuration:
+          title: dataRetentionDuration
+          description: The length of time that unsync'd data from this import should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to P7D (7 days) if not explicitly set during import definition creation.
+          type: string
+        externalSystemId:
+          title: externalSystemId
+          description: The id of the external system.
+          type: integer
+        fields:
+          title: fields
+          description: List of fields to be included in the operation.
+          type: object
+        identifierFieldName:
+          title: identifierFieldName
+          description: 'The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long. The following field types are not supported: Large Text, Date, and Boolean.'
+          type: string
+        importPriorityUri:
+          title: importPriorityUri
+          description: Must reference an existing <code>/imports/priorities/{id}</code>. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+          type: string
+        importRule:
+          $ref: '#/components/schemas/ImportRuleType'
+        isSyncTriggeredOnImport:
+          title: isSyncTriggeredOnImport
+          description: Whether or not the sync is triggered on import.
+          type: boolean
+        isUpdatingMultipleMatchedRecords:
+          title: isUpdatingMultipleMatchedRecords
+          description: Whether or not imported data will be mapped to multiple existing records. For contact imports, the <code>isUpdatingMultipleMatchedRecords</code> property must be set to <code>false</code> to update <code>Contact.Field(C_EmailAddress)</code>.
+          type: boolean
+        kbUsed:
+          format: int64
+          title: kbUsed
+          description: The amount of space used in kilobytes. This is a read-only property.
+          type: integer
+        name:
+          title: name
+          description: The name of the import definition.
+          type: string
+        nullIdentifierFieldName:
+          title: nullIdentifierFieldName
+          description: Whether or not to null the identifier field.
+          type: boolean
+        syncActions:
+          title: syncActions
+          description: 'Specifies operations to perform during the sync with a maximum of 10 actions. See <a href=''http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions''>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams''>Oracle Eloqua Developer Help Center</a>.
+
+
+            There currently are not any sync actions available for Events.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        updateRule:
+          $ref: '#/components/schemas/RuleType'
+        updateRuleByField:
+          title: updateRuleByField
+          description: The rule by field used when doing updates on existing data. Each pair is a field name mapped to a rule type.
+          type: object
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
+    RuleType:
+      title: RuleType
+      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+      default: always
+      enum:
+      - always
+      - ifNewIsNotNull
+      - ifExistingIsNull
+      - useFieldRule
+      type: string
+    OpportunityField:
+      title: OpportunityField
+      description: The definition of a field on all opportunities in the system.
+      properties:
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        dataType:
+          $ref: '#/components/schemas/DataType'
+        defaultValue:
+          title: defaultValue
+          description: The opportunity field's default value.
+          type: string
+        hasNotNullConstraint:
+          title: hasNotNullConstraint
+          description: Indicates whether the field can have null values (i.e. empty).
+          type: boolean
+        hasReadOnlyConstraint:
+          title: hasReadOnlyConstraint
+          description: Indicates whether the field can be written to.
+          type: boolean
+        hasUniquenessConstraint:
+          title: hasUniquenessConstraint
+          description: Indicates whether the field must have a unique value.
+          type: boolean
+        internalName:
+          title: internalName
+          description: The field's internal name (used to uniquely identify it).
+          type: string
+        name:
+          title: name
+          description: The opportunity field's name.
+          type: string
+        statement:
+          title: statement
+          description: The markup language statement used to reference the field in an import or export mapping.
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    DataType:
+      title: DataType
+      description: The type of data, used for field definitions.
+      default: number
+      enum:
+      - number
+      - string
+      - boolean
+      - date
+      - emailAddress
+      type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    SyncStatusType:
+      title: SyncStatusType
+      description: The status of the synchronization. This is a read-only property.
+      default: pending
+      enum:
+      - pending
+      - active
+      - success
+      - warning
+      - error
+      type: string

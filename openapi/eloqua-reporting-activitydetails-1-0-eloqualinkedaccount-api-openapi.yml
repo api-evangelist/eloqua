@@ -1,0 +1,185 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Eloqua Linked Account API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/ActivityDetails/1.0/EloquaLinkedAccount
+  description: The operations from the Reporting/ActivityDetails/1.0/EloquaLinkedAccount category.
+paths:
+  /API/OData/ActivityDetails/1/EloquaLinkedAccount:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EloquaLinkedAccount
+      summary: Get Eloqua Linked Accounts
+      operationId: EloquaLinkedAccount_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EloquaLinkedAccounts successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EloquaLinkedAccount'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EloquaLinkedAccount'
+      x-internal-id: API-OData-ActivityDetails-1-EloquaLinkedAccount-get
+      x-filename-id: api-odata-activitydetails-1-eloqualinkedaccount-get
+  /API/OData/ActivityDetails/1/EloquaLinkedAccount/{key}:
+    get:
+      tags:
+      - Reporting/ActivityDetails/1.0/EloquaLinkedAccount
+      summary: Get the Eloqua Linked Account by EloquaLinkedAccountID
+      operationId: EloquaLinkedAccount_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: EloquaLinkedAccountID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: EloquaLinkedAccount was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EloquaLinkedAccount'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EloquaLinkedAccount'
+      x-internal-id: API-OData-ActivityDetails-1-EloquaLinkedAccount-{key}-get
+      x-filename-id: api-odata-activitydetails-1-eloqualinkedaccount-key-get
+components:
+  schemas:
+    EloquaLinkedAccount:
+      type: object
+      properties:
+        eloquaLinkedAccountId:
+          format: int32
+          type: integer
+        accountName:
+          type: string
+        accountBusinessPhone:
+          type: string
+        accountAddress1:
+          type: string
+        accountAddress2:
+          type: string
+        accountAddress3:
+          type: string
+        accountCity:
+          type: string
+        accountStateProvince:
+          type: string
+        accountCountry:
+          type: string
+        accountZipPostCode:
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        createdDate:
+          format: date-time
+          type: string

@@ -1,0 +1,163 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Visitors API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Visitors
+  description: A visitor is a data entity that represents a unique cookie. The tracked activity data from that cookie is associated with the Visitor. There can be multiple visitors linked to a single contact.
+paths:
+  /api/rest/2.0/data/visitors:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of visitors to return (the <code>count</code> parameter defines the number of visitors per page). If the <code>page</code> parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: 'Specifies the field by which list results are ordered. Possible values include:  <code>visitorId</code>, <code>contactId</code>, <code>externalId</code>, <code>customerGuid</code>, <code>v_IPAddress</code>, and <code>v_LastVisitDateAndTime</code>.'
+        required: false
+        schema:
+          type: string
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve visitor data
+      description: Retrieves all visitor data that matches the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultVisitorViewDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Visitors
+      x-internal-id: api-rest-2.0-data-visitors-get
+      x-filename-id: api-rest-2.0-data-visitors-get
+    post:
+      operationId: SearchPostSEARCHRest20
+      parameters:
+      - name: X-HTTP-Method-Override
+        in: header
+        description: The request header <code>X-HTTP-Method-Override</code> must be set with value <code>SEARCH</code>.
+        required: true
+        schema:
+          type: string
+          format: string
+          default: SEARCH
+      summary: Retrieve visitor data by visitor GUID
+      description: Retrieves visitor data for up to 200 visitors, searched by visitor GUID, aka <code>externalId</code>. Use the <code>depth</code> parameter when making the request to specify the visitor information returned in the response.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultVisitorViewDataRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Visitors
+      x-internal-id: api-rest-2.0-data-visitors-post
+      x-filename-id: api-rest-2.0-data-visitors-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntitySearchByExternalIdsRest20'
+        description: The request body defines the details of the request.
+        required: true
+components:
+  schemas:
+    QueryResultVisitorViewDataRest20:
+      title: QueryResultVisitorViewData
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of visitor data.
+          items:
+            $ref: '#/components/schemas/Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
+      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
+      properties:
+        type:
+          type: string
+          description: The visitor's type in Eloqua.
+        visitorId:
+          type: string
+          description: The Id of the visitor profile.
+        createdAt:
+          type: string
+          description: The date and time the visitor was created, expressed in Unix time.
+        contactId:
+          type: string
+          description: The contact record Id associated to this profile, if any.
+        id:
+          type: integer
+          description: The id of the visitor.
+    EntitySearchByExternalIdsRest20:
+      title: EntitySearchByExternalIds
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
+        externalIds:
+          type: array
+          description: The external ids to retrieve. Maximum of 200 external ids per request. If the array exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
+          items:
+            type: string

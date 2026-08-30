@@ -1,0 +1,797 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Forms API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Forms
+  description: "Forms API endpoints.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn more about Forms</a>."
+paths:
+  /api/rest/2.0/assets/form:
+    post:
+      operationId: CreateIndividualPOSTRest20
+      summary: Create a form
+      description: Creates a form that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-post
+      x-filename-id: api-rest-2.0-assets-form-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormRest20'
+        description: The request body defines the details of the form to be created.
+        required: true
+  /api/rest/2.0/assets/form/{id}:
+    get:
+      operationId: ReadIndividualGETRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the form.
+        required: true
+        schema:
+          type: integer
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        required: false
+        schema:
+          type: string
+      summary: Retrieve a form
+      description: Retrieves the form specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-get
+      x-filename-id: api-rest-2.0-assets-form-id-get
+    put:
+      operationId: UpdateIndividualPUTRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the form.
+        required: true
+        schema:
+          type: integer
+      summary: Update a form
+      description: Updates the form specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-put
+      x-filename-id: api-rest-2.0-assets-form-id-put
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormRest20'
+        description: The request body defines the details of the form to be updated.
+        required: true
+    patch:
+      operationId: PatchContentPATCHRest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the form.
+        required: true
+        schema:
+          type: integer
+      summary: Partially update a form
+      description: Partially updates the form specified by the <code>id</code> parameter. Only properties included in the request body will be modified.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-patch
+      x-filename-id: api-rest-2.0-assets-form-id-patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormRest20'
+        description: The request body defines the details of the form for which properties are to be updated.
+        required: true
+    delete:
+      operationId: DeleteIndividualDELETERest20
+      parameters:
+      - name: id
+        in: path
+        description: Id of the form.
+        required: true
+        schema:
+          type: integer
+      summary: Delete a form
+      description: Deletes the form specified by the <code>id</code> parameter.
+      responses:
+        '200':
+          description: OK.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-delete
+      x-filename-id: api-rest-2.0-assets-form-id-delete
+  /api/rest/2.0/assets/form/{id}/archive:
+    post:
+      operationId: ArchiveIndividualPOSTRest20
+      parameters:
+      - name: id
+        in: path
+        description: ID of the form to be archived.
+        required: true
+        schema:
+          type: integer
+      summary: Archive a form
+      description: Archives the form specified by the <code>id</code> parameter.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '304':
+          description: Not Modified. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-archive-post
+      x-filename-id: api-rest-2.0-assets-form-id-archive-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveParameterRest20'
+        description: The request body defines the parameters for archiving the form.
+        required: true
+  /api/rest/2.0/assets/form/{id}/unarchive:
+    post:
+      operationId: UnarchiveIndividualPOSTRest20
+      parameters:
+      - name: id
+        in: path
+        description: ID of the form to be unarchived.
+        required: true
+        schema:
+          type: integer
+      summary: Unarchive a form
+      description: Unarchives the form specified by the <code>id</code> parameter.
+      responses:
+        '201':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormRest20'
+        '304':
+          description: Not Modified. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-form-{id}-unarchive-post
+      x-filename-id: api-rest-2.0-assets-form-id-unarchive-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveParameterRest20'
+        description: The request body defines the parameters for unarchiving the form.
+        required: true
+  /api/rest/2.0/assets/forms:
+    get:
+      operationId: SearchGETRest20
+      parameters:
+      - name: depth
+        in: query
+        description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>minimal</code> by default.'
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Maximum number of entities to return. Must be less than or equal to 1000 and greater than or equal to 1.
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Specifies which page of entities to return (the count parameter defines the number of entities per page). If the page parameter is not supplied, 1 will be used by default.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Specifies the search criteria used to retrieve entities. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SearchParam'>tutorial</a> for information about using this parameter.
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: Specifies the field by which list results are ordered.
+        required: false
+        schema:
+          type: string
+      - name: lastUpdatedAt
+        in: query
+        description: The date and time the form was last updated.
+        required: false
+        schema:
+          type: integer
+      - name: includeAvailable
+        in: query
+        description: Specifies whether to include unarchived forms in the results, considered true if not specified.
+        required: false
+        schema:
+          type: boolean
+      - name: includeArchived
+        in: query
+        description: Specifies whether to include archived forms in the results, considered false if not specified.
+        required: false
+        schema:
+          type: boolean
+      summary: Retrieve a list of forms
+      description: Retrieves all forms that match the criteria specified by the request parameters.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultFormRest20'
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Forms
+      x-internal-id: api-rest-2.0-assets-forms-get
+      x-filename-id: api-rest-2.0-assets-forms-get
+components:
+  schemas:
+    ProcessingStepConditionRest20:
+      title: ProcessingStepCondition
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        isConditionallyNegated:
+          type: string
+          description: The conditions for which the processing step will execute. If yes, the processing step will execute when the conditions are met. If no, the processing step will execute when the conditions are not met.
+        conditionalFieldCriteria:
+          type: array
+          description: The conditional field criteria for the form processing step condition.
+          items:
+            $ref: '#/components/schemas/FieldComparisonCriteriaRest20'
+    ArchiveParameterRest20:
+      title: ArchiveParameter
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        targetFolderId:
+          type: string
+          description: The target folder to which the asset should be moved upon archive/unarchive. If not passed, the root folder will be used.
+    FormElementRest20:
+      title: FormElement
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: The ID of the form element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form element's current status.
+        name:
+          type: string
+          description: Name of the form element.
+        description:
+          type: string
+          description: The description of the form element.
+        permissions:
+          type: array
+          description: The permissions for the form element granted to your current instance.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The ID of the associated folder.
+        sourceTemplateId:
+          type: string
+          description: The ID of the form element.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user who created the form element.
+        createdByName:
+          type: string
+          description: The name of the user who created the form element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form element was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user that last updated the form element.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form element was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the form element is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'' target=''_blank''>Request depth</a>.'
+        instructions:
+          type: string
+          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
+        style:
+          type: string
+          description: The asset's main layout style.
+    QueryResultFormRest20:
+      title: QueryResultForm
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form elements.
+          items:
+            $ref: '#/components/schemas/FormRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FormFieldUpdateMappingRest20:
+      title: FormFieldUpdateMapping
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form field update mapping.
+        currentStatus:
+          type: string
+          description: The form field update mapping's current status.
+        name:
+          type: string
+          description: The name of the form field update mapping.
+        description:
+          type: string
+          description: The description of the field comparison criteria.
+        permissions:
+          type: array
+          description: The permissions for the form field update mapping granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the folder. This is a read-only property.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form field update mapping.
+        createdByName:
+          type: string
+          description: The name of the user who created the form field update mapping.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form field update mapping was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form field update mapping.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form field update mapping.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form field update mapping was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date and time the form field update mapping is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        sourceFormFieldId:
+          type: string
+          description: 'Id of the source form field. '
+        updateType:
+          type: string
+          description: The update type of the form field update mapping.
+        targetEntityFieldId:
+          type: string
+          description: Id of the target field.
+    FormRest20:
+      title: Form
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form.
+        currentStatus:
+          type: string
+          description: 'The form''s current status. Example: draft, active, or complete.'
+        name:
+          type: string
+          description: The name of the form.
+        description:
+          type: string
+          description: The description of the form.
+        permissions:
+          type: array
+          description: The permissions for the form granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The ID of the containing folder.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user who created the form.
+        createdByName:
+          type: string
+          description: The name of the user who created the form.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user that last updated the form.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        htmlName:
+          type: string
+          description: The asset's raw HTML name.
+        processingType:
+          type: string
+          description: 'A list of the form''s processing types. For example: externalEmail, externalWebsite, internallyHosted, internalAgentProxyForm.'
+        submitFailedLandingPageId:
+          type: string
+          description: The landing page ID of the failed submit.
+        size:
+          $ref: '#/components/schemas/SizeRest20'
+          description: The size dimensions of the form.
+        html:
+          type: string
+          description: The asset's raw HTML content.
+        style:
+          type: string
+          description: The asset's main layout style.
+        elements:
+          type: array
+          description: Array consisting of form elements.
+          items:
+            $ref: '#/components/schemas/FormElementRest20'
+        processingSteps:
+          type: array
+          description: 'A list of the form''s processing steps. There is no limit to the number of processing steps that can be included. Possible values include: FormStepAddToCampaign, FormStepAddToContactList, FormStepAddToDataCanvas, FormStepAddToProgram, FormStepAssociateToCampaign, FormStepCancelRegistration, FormStepUpdateContactEmailAddress, FormStepCreateUpdateEventRegistration, FormStepCreateUpdate, FormStepCreateUpdateFromFormField, FormStepGlobalSubscribe, FormStepGlobalUnsubscribe, FormStepGroupSubscription, FormStepPostData, FormStepRedirectToWebPage, FormStepRemoveFromContactList, FormStepRunIntegrationRules, FormStepSendEmail, FormStepSendNotificationEmail, FormStepWebTracking, FormStepGlobalSubscribe, and FormStepSmsPhoneNumberOptInOptOut.'
+          items:
+            $ref: '#/components/schemas/FormProcessingStepRest20'
+        defaultKeyFieldMapping:
+          $ref: '#/components/schemas/FormFieldUpdateMappingRest20'
+          description: The default key field mapping for the form.
+        externalIntegrationUrl:
+          type: string
+          description: The external integration URL used for integrating external forms.
+        customCSS:
+          type: string
+          description: The custom style applied to the form.
+        isHidden:
+          type: string
+          description: Whether the form is an internal form. If true, the form is not exposed outside of Eloqua and any form submissions to this form are deleted.
+        formJson:
+          type: string
+          description: Form metadata in JSON. Applicable only to responsive forms. Not required to be set when creating and updating forms. We recommend omitting this parameter when creating and updating forms, and letting Eloqua set it by default. When creating a form and including this parameter, this must be set to <code>{\"type\":\"responsiveForm\",\"version\":\"1\"}</code>.
+        isResponsive:
+          type: string
+          description: Indicates whether the form is responsive. Returns <code>true</code> for a responsive form, <code>false</code> for a legacy form. Avoid sending this property when creating and updating forms. This is a read-only property.
+        archived:
+          type: string
+          description: True if form is archived otherwise False. This is a read-only property.
+        isFormSpamProtectionEnabled:
+          type: string
+          description: Indicates whether spam protection is enabled on the form.
+    SizeRest20:
+      title: Size
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property. The type for this property is 'size'.
+        width:
+          type: string
+          description: The width dimensions of the asset expressed in pixels.
+        height:
+          type: string
+          description: The height dimensions of the asset expressed in pixels.
+    ConditionRest20:
+      title: Condition
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+    FieldComparisonCriteriaRest20:
+      title: FieldComparisonCriteria
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the field comparison criteria.
+        currentStatus:
+          type: string
+          description: The field comparison criteria's current status.
+        name:
+          type: string
+          description: The name of the field comparison criteria.
+        description:
+          type: string
+          description: The description of the field comparison criteria.
+        permissions:
+          type: array
+          description: The permissions for the field comparison criteria granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the folder. This is a read-only property.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the field comparison criteria.
+        createdByName:
+          type: string
+          description: The name of the user who created the field comparison criteria.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the field comparison criteria was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the field comparison criteria.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the field comparison criteria.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the field comparison criteria was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date and time the field comparison criteria is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fieldId:
+          type: string
+          description: The id of the field comparison criteria.
+        condition:
+          $ref: '#/components/schemas/ConditionRest20'
+          description: The condition of the field comparison criteria.
+    FormProcessingStepRest20:
+      title: FormProcessingStep
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form processing step. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form processing step's current status.
+        name:
+          type: string
+          description: Name of the form processing step.
+        permissions:
+          type: array
+          description: The permissions for the form processing step granted to your current instance.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the associated folder.
+        sourceTemplateId:
+          type: string
+          description: The ID of the source template.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user who created the form processing step.
+        createdByName:
+          type: string
+          description: The name of the user who created the form processing step.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form processing step was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user that last updated the form processing step.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form processing step.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form processing step was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the form processing step is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        execute:
+          type: string
+          description: 'The conditions for which this form processing step will execute. Possible values include: <code>always</code>, <code>conditionally</code>, and <code>never</code>.'
+        condition:
+          $ref: '#/components/schemas/ProcessingStepConditionRest20'
+          description: ProcessingStep_Field_ProcessingStepCondition_Description
+        description:
+          type: string
+          description: The description of the form processing step.
+        hasValidationIssue:
+          type: string
+          description: ProcessingStep_Field_HasValidationIssue_Description

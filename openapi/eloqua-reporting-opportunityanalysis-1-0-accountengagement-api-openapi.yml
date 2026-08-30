@@ -1,0 +1,200 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Opportunity Analysis/1.0/Account Engagement API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Reporting/OpportunityAnalysis/1.0/AccountEngagement
+  description: The operations from the Reporting/OpportunityAnalysis/1.0/AccountEngagement category.
+paths:
+  /API/OData/OpportunityAnalysis/1/AccountEngagement:
+    get:
+      tags:
+      - Reporting/OpportunityAnalysis/1.0/AccountEngagement
+      summary: Get all Account Engagements
+      operationId: AccountEngagement_Get
+      parameters:
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: AccountsEngagements successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountEngagement'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountEngagement'
+      x-internal-id: API-OData-OpportunityAnalysis-1-AccountEngagement-get
+      x-filename-id: api-odata-opportunityanalysis-1-accountengagement-get
+  /API/OData/OpportunityAnalysis/1/AccountEngagement/{key}:
+    get:
+      tags:
+      - Reporting/OpportunityAnalysis/1.0/AccountEngagement
+      summary: Get a single AccountEngagement
+      operationId: AccountEngagement_Get_By_ID
+      parameters:
+      - name: key
+        in: path
+        description: Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        required: false
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 2.
+        required: false
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        required: false
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        required: false
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection. The maximum value is 20000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: AccountEngagement was successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountEngagement'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountEngagement'
+      x-internal-id: API-OData-OpportunityAnalysis-1-AccountEngagement-{key}-get
+      x-filename-id: api-odata-opportunityanalysis-1-accountengagement-key-get
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        accountName:
+          type: string
+        companyId:
+          format: int32
+          type: integer
+        accountSource:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        accountEngagement:
+          $ref: '#/components/schemas/AccountEngagement'
+    AccountEngagement:
+      type: object
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        accountContacts:
+          format: int32
+          type: integer
+        engagementScore:
+          format: double
+          type: number
+        engagementScorePrev:
+          format: double
+          type: number
+        engagedContacts:
+          format: int32
+          type: integer
+        reachableContacts:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        account:
+          $ref: '#/components/schemas/Account'

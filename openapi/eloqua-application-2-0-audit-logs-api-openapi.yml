@@ -1,0 +1,80 @@
+openapi: 3.2.0
+info:
+  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Audit logs API
+  description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+  version: 2026.08.07
+  x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
+tags:
+- name: Application/2.0/Audit logs
+  description: The Audit Log API endpoint enables initiating a request for <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EloquaAuditing'>Eloqua audit log</a> exports using the Application API.  Specify the type of audit log you want to export within a specified date and time range. If the request is successful, a report will be sent to the email address specified in the request.
+paths:
+  /api/rest/2.0/data/auditLog/reportExport:
+    post:
+      operationId: QueueReportExportPOSTRest20
+      summary: Initiate an audit log export
+      description: Creates a request for an audit log export that matches the criteria specified by the request body.
+      responses:
+        '201':
+          description: Request for the audit log has been registered. An email containing a link to the exported data will be sent to the email address for export notification
+        '400':
+          description: Bad request. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '401':
+          description: Unauthorized. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '403':
+          description: Forbidden. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '404':
+          description: The requested resource was not found. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+        '500':
+          description: The service has encountered an error. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>Status Codes</a> for information about other possible HTTP status codes.
+      tags:
+      - Application/2.0/Audit logs
+      x-internal-id: api-rest-2.0-data-auditLog-reportExport-post
+      x-filename-id: api-rest-2.0-data-auditlog-reportexport-post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditLogReportRequestRest20'
+        description: Audit log export request
+        required: true
+components:
+  schemas:
+    AuditLogReportRequestRest20:
+      title: AuditLogReportRequest
+      properties:
+        type:
+          type: string
+          description: This property is not used.
+        auditReportType:
+          type: string
+          description: 'Specifies the Audit Report Type to generate. Possible values include: <code>assets</code> (asset history), <code>securityGroup</code> (security group history), <code>userProfile</code> (user profile history), <code>userLogin</code> (user login history), <code>dataExport</code> (export history), and <code>dataUpload</code> (upload history).'
+        startDate:
+          type: string
+          description: The start date and time (10 digit integer Unix time). This property is required.
+        endDate:
+          type: string
+          description: The end date and time (10 digit integer Unix time). This property is required.
+        notificationEmail:
+          type: string
+          description: Email address for export notification. This property is required.
+        fileFormat:
+          type: string
+          description: 'File format to be exported. Possible values include: <code>delimitedFile</code> or <code>Excel2007</code>.'
+        assetTypes:
+          type: string
+          description: 'The asset type for the Audit log. Required if <code>auditReportType</code> is set to <code>assets</code>. Possible values include: <code>forms</code>, <code>programs</code>, <code>campaigns</code>, <code>emails</code>, and <code>landingPages</code>. Specify multiple asset types by comma separating values.'
+        actionName:
+          type: string
+          description: 'The event action to filter for the audit log. Possible values include: <code>all</code>, <code>create</code>, <code>modify</code>, <code>delete</code>, <code>archive</code> and <code>unarchive</code>. For campaigns, possible values also include: <code>activated</code>, <code>deactivated</code>, <code>pause</code>, and <code>scheduleForActivation</code>. If not specified, defaults to <code>all</code>.'
+        status:
+          type: string
+          description: 'For <code>dataUpload</code> and <code>dataExport</code> audit reports, you can filter on the status. Possible values include: <code>completed</code>, <code>in progress</code>, <code>queued</code>, <code>waiting</code>, <code>failed</code>, and <code>inactive</code>.'
+        userName:
+          type: string
+          description: The user name to filter on.
+        userId:
+          $ref: '#/components/schemas/System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20'
+          description: AuditLogReportRequest_Field_UserId_Description
+    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
+      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+      properties: {}
