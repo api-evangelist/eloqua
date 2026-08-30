@@ -2724,7 +2724,8 @@ apis:
     The operations from the Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes category.
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
-  tags:
+  tags: []
+  tags_raw:
   - Reporting/CampaignExternalActivity/1.0/ExternalActivityAttributes
   properties:
   - type: OpenAPI
