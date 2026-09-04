@@ -1,17 +1,17 @@
 ---
 kin_checks:
   slug: eloqua
-  schema_version: 0.17.2
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T063623
+  schema_version: 0.18.2
+  scored_at: '2026-09-04'
+  run_ts: 2026-09-04T062714
   note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.17.2.yml; counts below let you verify that.
+    in rubric/scoring-0.18.2.yml; counts below let you verify that.
   counts:
-    total: 130
+    total: 132
     earned: 40
     partial: 23
     missed: 43
-    na: 24
+    na: 26
   checks:
   - id: maintainer_present
     status: missed
@@ -112,7 +112,7 @@ kin_checks:
     detail: 22 of 158 openapi documents pass
   - id: servers_resolvable
     status: partial
-    earned: 4.78
+    earned: 0.7
   - id: operations_description_coverage
     status: partial
     earned: 3.91
