@@ -296,6 +296,8 @@ apis:
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
+  - Email
+  tags_raw:
   - Emails
   properties:
   - type: OpenAPI
@@ -356,6 +358,8 @@ apis:
   humanURL: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/
   baseURL: https://secure.p01.eloqua.com/API/REST/2.0/
   tags:
+  - Sync
+  tags_raw:
   - Syncs
   properties:
   - type: OpenAPI
