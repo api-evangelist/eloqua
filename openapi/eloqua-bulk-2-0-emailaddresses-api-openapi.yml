@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/email Addresses API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -1033,22 +1033,41 @@ paths:
       x-filename-id: api-bulk-2.0-emailaddresses-imports-id-data-delete
 components:
   schemas:
-    SyncAction:
-      title: SyncAction
-      description: The definition of the action to take at time of syncronization.
-      properties:
-        action:
-          $ref: '#/components/schemas/SyncActionType'
-        destination:
-          title: destination
-          description: The ML statement used to reference an object used by the action.
-          type: string
-        status:
-          $ref: '#/components/schemas/MemberStatus'
-        updateAll:
-          title: updateAll
-          description: Update status of all records in an execution.
-          type: boolean
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
     Import:
       title: Import
       description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
@@ -1137,23 +1156,22 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
     RuleType:
       title: RuleType
       description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
@@ -1163,24 +1181,6 @@ components:
       - ifNewIsNotNull
       - ifExistingIsNull
       - useFieldRule
-      type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
       type: string
     SyncStatusType:
       title: SyncStatusType

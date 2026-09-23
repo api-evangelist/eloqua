@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Email footers API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Email footers are used to customize the look and feel of the bottom of your email.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailFooters''>Learn more about email footers</a>.'
+    Learn more about email footers.'
 paths:
   /api/rest/1.0/assets/email/footer:
     post:
@@ -61,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an email footer
-      description: Retrieves the email footer specified by the <code>id</code> parameter.
+      description: Retrieves the email footer specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -93,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update an email footer
-      description: Updates the email footer specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the email footer specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -132,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete an email footer
-      description: Deletes the email footer specified by the <code>id</code> parameter.
+      description: Deletes the email footer specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -215,64 +215,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-email-footers-get
 components:
   schemas:
-    EmailFooterRest10:
-      title: EmailFooter
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the email footer. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The email footer's current status.
-        name:
-          type: string
-          description: The name of the email footer.
-        description:
-          type: string
-          description: The description of the email footer.
-        permissions:
-          type: string
-          description: The permissions for the email footer granted to your current instance. This is a read-only property.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the email footer.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the email footer was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the email footer.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the email footer was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        body:
-          type: string
-          description: The email footers's html text content.
-        text:
-          type: string
-          description: The raw text from the "body" parameter.
-        fieldMerges:
-          type: array
-          description: A list of associated Field Merges.
-          items:
-            $ref: '#/components/schemas/FieldMergeRest10'
-        hyperlinks:
-          type: array
-          description: A list of hyperlinks contained within the email footer.
-          items:
-            $ref: '#/components/schemas/HyperlinkRest10'
     FieldMergeRest10:
       title: FieldMerge
       properties:
@@ -410,3 +352,61 @@ components:
         referencedEntityId:
           type: string
           description: Id of the referenced entity.
+    EmailFooterRest10:
+      title: EmailFooter
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the email footer. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The email footer's current status.
+        name:
+          type: string
+          description: The name of the email footer.
+        description:
+          type: string
+          description: The description of the email footer.
+        permissions:
+          type: string
+          description: The permissions for the email footer granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the email footer.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the email footer was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the email footer.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the email footer was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        body:
+          type: string
+          description: The email footers's html text content.
+        text:
+          type: string
+          description: The raw text from the "body" parameter.
+        fieldMerges:
+          type: array
+          description: A list of associated Field Merges.
+          items:
+            $ref: '#/components/schemas/FieldMergeRest10'
+        hyperlinks:
+          type: array
+          description: A list of hyperlinks contained within the email footer.
+          items:
+            $ref: '#/components/schemas/HyperlinkRest10'

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Landing Page Analysis/1.0/Landing Page Activity API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -78,6 +78,36 @@ paths:
       x-filename-id: api-odata-landingpageanalysis-1-landingpageactivity-get
 components:
   schemas:
+    LandingPageActivity:
+      type: object
+      properties:
+        averageLandingPageTime:
+          format: double
+          type: number
+          readOnly: true
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageTime:
+          format: double
+          type: number
+        landingPageViews:
+          format: int32
+          type: integer
+        webClickDateHour:
+          format: date-time
+          type: string
+        totalVisitors:
+          format: int32
+          type: integer
+        totalVisits:
+          format: int32
+          type: integer
+        calendar:
+          $ref: '#/components/schemas/Calendar'
     Calendar:
       type: object
       properties:
@@ -132,33 +162,3 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    LandingPageActivity:
-      type: object
-      properties:
-        averageLandingPageTime:
-          format: double
-          type: number
-          readOnly: true
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageTime:
-          format: double
-          type: number
-        landingPageViews:
-          format: int32
-          type: integer
-        webClickDateHour:
-          format: date-time
-          type: string
-        totalVisitors:
-          format: int32
-          type: integer
-        totalVisits:
-          format: int32
-          type: integer
-        calendar:
-          $ref: '#/components/schemas/Calendar'

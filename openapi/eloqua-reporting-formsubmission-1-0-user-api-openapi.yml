@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Form Submission/1.0/User API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -303,21 +303,6 @@ paths:
       x-filename-id: api-odata-formsubmission-1-user-key-emailassets-get
 components:
   schemas:
-    User:
-      type: object
-      properties:
-        userID:
-          format: int32
-          type: integer
-        userName:
-          type: string
-        userEmailAddress:
-          type: string
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-        isDeleted:
-          type: boolean
     EmailAsset:
       type: object
       properties:
@@ -399,3 +384,18 @@ components:
         budgetedCost:
           format: double
           type: number
+    User:
+      type: object
+      properties:
+        userID:
+          format: int32
+          type: integer
+        userName:
+          type: string
+        userEmailAddress:
+          type: string
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+        isDeleted:
+          type: boolean

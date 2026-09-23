@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Signature Rules API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -25,7 +25,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a signature rule
-      description: Retrieves the signature rule specified by the <code>id</code> parameter.
+      description: Retrieves the signature rule specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -57,11 +57,11 @@ paths:
         schema:
           type: integer
       summary: Update a signature rule
-      description: 'Updates the signature rule specified by the <code>id</code> parameter.
+      description: 'Updates the signature rule specified by the id parameter.
 
         All properties should be included in PUT requests, as some properties will be considered blank if not included.
 
-        The settings for <code>contactFieldId</code>, <code>customObjectFieldId </code>, and <code>eventRegistrationId </code> are exclusive. Providing more than one of these values will result in an error.'
+        The settings for contactFieldId, customObjectFieldId , and eventRegistrationId are exclusive. Providing more than one of these values will result in an error.'
       responses:
         '200':
           description: OK.
@@ -100,7 +100,7 @@ paths:
         schema:
           type: integer
       summary: Delete a signature rule
-      description: Deletes a signature rule specified by the <code>id</code> parameter.
+      description: Deletes a signature rule specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -187,7 +187,7 @@ paths:
       summary: Create a signature rule
       description: 'Creates a signature rule with the provided settings.
 
-        The settings for <code>contactFieldId</code>, <code>customObjectFieldId </code>, and <code>eventRegistrationId </code> are exclusive. Providing more than one of these values will result in an error.'
+        The settings for contactFieldId, customObjectFieldId , and eventRegistrationId are exclusive. Providing more than one of these values will result in an error.'
       responses:
         '201':
           description: Success.

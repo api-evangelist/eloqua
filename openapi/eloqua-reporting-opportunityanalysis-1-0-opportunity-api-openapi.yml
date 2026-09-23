@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Opportunity Analysis/1.0/Opportunity API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -228,63 +228,6 @@ paths:
       x-filename-id: api-odata-opportunityanalysis-1-opportunity-key-opportunityrevenues-get
 components:
   schemas:
-    OpportunityRevenue:
-      type: object
-      properties:
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        opportunityID:
-          format: int32
-          type: integer
-        attributedRevenue:
-          format: double
-          type: number
-        influencedRevenue:
-          format: double
-          type: number
-        lastModifiedDate:
-          format: date-time
-          type: string
-        opportunity:
-          $ref: '#/components/schemas/Opportunity'
-    Opportunity:
-      type: object
-      properties:
-        opportunityID:
-          format: int32
-          type: integer
-        opportunityName:
-          type: string
-        stageStatus:
-          type: string
-        opportunityClosedDateHour:
-          format: date-time
-          type: string
-        createdDate:
-          format: date-time
-          type: string
-        territory:
-          type: string
-        stage:
-          type: string
-        totalOpportunityAmount:
-          format: double
-          type: number
-        lastModifiedDate:
-          format: date-time
-          type: string
-        primaryContactID:
-          format: int32
-          type: integer
-        crmCampaignID:
-          type: string
-        opportunityRevenues:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpportunityRevenue'
-        contact:
-          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -346,3 +289,60 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    Opportunity:
+      type: object
+      properties:
+        opportunityID:
+          format: int32
+          type: integer
+        opportunityName:
+          type: string
+        stageStatus:
+          type: string
+        opportunityClosedDateHour:
+          format: date-time
+          type: string
+        createdDate:
+          format: date-time
+          type: string
+        territory:
+          type: string
+        stage:
+          type: string
+        totalOpportunityAmount:
+          format: double
+          type: number
+        lastModifiedDate:
+          format: date-time
+          type: string
+        primaryContactID:
+          format: int32
+          type: integer
+        crmCampaignID:
+          type: string
+        opportunityRevenues:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpportunityRevenue'
+        contact:
+          $ref: '#/components/schemas/Contact'
+    OpportunityRevenue:
+      type: object
+      properties:
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        opportunityID:
+          format: int32
+          type: integer
+        attributedRevenue:
+          format: double
+          type: number
+        influencedRevenue:
+          format: double
+          type: number
+        lastModifiedDate:
+          format: date-time
+          type: string
+        opportunity:
+          $ref: '#/components/schemas/Opportunity'

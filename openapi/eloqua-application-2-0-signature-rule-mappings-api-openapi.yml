@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Signature Rule Mappings API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -55,7 +55,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve a list of signature rule mappings
-      description: Retrieves all signature rule mappings for the signature rule specified by the <code>id</code> parameter that match the criteria specified by the request parameters.
+      description: Retrieves all signature rule mappings for the signature rule specified by the id parameter that match the criteria specified by the request parameters.
       responses:
         '200':
           description: OK.
@@ -87,7 +87,7 @@ paths:
         schema:
           type: integer
       summary: Create signature rule mappings
-      description: 'Create signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+      description: 'Create signature rule mappings for the signature rule specified by the id parameter.
 
         A maximum of 75000 mappings can be provided.'
       responses:
@@ -130,7 +130,7 @@ paths:
         schema:
           type: integer
       summary: Update signature rule mappings
-      description: 'Update signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+      description: 'Update signature rule mappings for the signature rule specified by the id parameter.
 
         All mappings should be included in PUT requests as any missing mappings will be removed with the update.
 
@@ -175,7 +175,7 @@ paths:
         schema:
           type: integer
       summary: Delete signature rule mappings
-      description: Delete signature rule mappings for the signature rule specified by the <code>id</code> parameter.
+      description: Delete signature rule mappings for the signature rule specified by the id parameter.
       responses:
         '200':
           description: OK.

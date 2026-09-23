@@ -1,18 +1,21 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Forms API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
 tags:
 - name: Application/1.0/Forms
-  description: "Form data are the submissions for a form. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Forms'>Learn more about Forms</a>."
+  description: 'Form data are the submissions for a form.
+
+
+    Learn more about Forms.'
 paths:
   /api/rest/1.0/assets/form:
     post:
       operationId: CreateIndividualPOSTRest10
       summary: Create a form
-      description: 'Creates a form that matches the criteria specified by the request body. <b>Note</b>: You can also create a form via REST 2.0 by using the endpoint <code>REST/2.0/assets/form</code>.'
+      description: 'Creates a form that matches the criteria specified by the request body. Note: You can also create a form via REST 2.0 by using the endpoint REST/2.0/assets/form.'
       responses:
         '201':
           description: Success.
@@ -58,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a form
-      description: 'Retrieves the form specified by the <code>id</code> parameter. <b>Note</b>: You can also retrieve a form via REST 2.0 by using the endpoint <code>REST/2.0/assets/form/{id}</code>.'
+      description: 'Retrieves the form specified by the id parameter. Note: You can also retrieve a form via REST 2.0 by using the endpoint REST/2.0/assets/form/{id}.'
       responses:
         '200':
           description: OK.
@@ -90,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update a form
-      description: Updates the form specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the form specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -129,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete a form
-      description: 'Deletes the form specified by the <code>id</code> parameter. <b>Note</b>: You can also delete a form via REST 2.0 by using the endpoint <code>REST/2.0/assets/form/{id}</code>.'
+      description: 'Deletes the form specified by the id parameter. Note: You can also delete a form via REST 2.0 by using the endpoint REST/2.0/assets/form/{id}.'
       responses:
         '200':
           description: OK.
@@ -188,7 +191,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve a list of forms
-      description: 'Retrieves all forms that match the criteria specified by the request parameters.  <b>Note</b>: You can also retrieve a list of forms via REST 2.0 by using the endpoint <code>REST/2.0/assets/forms</code>.'
+      description: 'Retrieves all forms that match the criteria specified by the request parameters. Note: You can also retrieve a list of forms via REST 2.0 by using the endpoint REST/2.0/assets/forms.'
       responses:
         '200':
           description: OK.
@@ -212,54 +215,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-forms-get
 components:
   schemas:
-    FormElementRest10:
-      title: FormElement
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the form element. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The form element's current status.
-        name:
-          type: string
-          description: Name of the form element.
-        description:
-          type: string
-          description: The description of the form element.
-        permissions:
-          type: string
-          description: The permissions for the form element granted to your current instance.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the form element.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the form element was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the form element.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the form element was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        instructions:
-          type: string
-          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
-        style:
-          type: string
-          description: The asset's main layout style.
     FormRest10:
       title: Form
       properties:
@@ -336,6 +291,26 @@ components:
         archived:
           type: string
           description: True if form is archived otherwise False. This is a read-only property.
+    QueryResultFormRest10:
+      title: QueryResultForm
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form fields.
+          items:
+            $ref: '#/components/schemas/FormRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     FormProcessingStepRest10:
       title: FormProcessingStep
       properties:
@@ -393,23 +368,51 @@ components:
         isConditionallyNegated:
           type: string
           description: The conditions for which the processing step will execute. If <code>yes</code>, the processing step will execute when the conditions are met. If <code>no</code>, the processing step will execute when the conditions are not met.
-    QueryResultFormRest10:
-      title: QueryResultForm
+    FormElementRest10:
+      title: FormElement
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of form fields.
-          items:
-            $ref: '#/components/schemas/FormRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form element's current status.
+        name:
+          type: string
+          description: Name of the form element.
+        description:
+          type: string
+          description: The description of the form element.
+        permissions:
+          type: string
+          description: The permissions for the form element granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form element was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form element was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        instructions:
+          type: string
+          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
+        style:
+          type: string
+          description: The asset's main layout style.

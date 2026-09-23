@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Visitors API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -77,7 +77,7 @@ paths:
           format: string
           default: SEARCH
       summary: Retrieve visitor data by visitor GUID
-      description: Retrieves visitor data for up to 200 visitors, searched by visitor GUID, aka <code>externalId</code>. Use the <code>depth</code> parameter when making the request to specify the visitor information returned in the response.
+      description: Retrieves visitor data for up to 200 visitors, searched by visitor GUID, aka externalId. Use the depth parameter when making the request to specify the visitor information returned in the response.
       responses:
         '200':
           description: OK.
@@ -108,6 +108,24 @@ paths:
         required: true
 components:
   schemas:
+    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
+      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
+      properties:
+        type:
+          type: string
+          description: The visitor's type in Eloqua.
+        visitorId:
+          type: string
+          description: The Id of the visitor profile.
+        createdAt:
+          type: string
+          description: The date and time the visitor was created, expressed in Unix time.
+        contactId:
+          type: string
+          description: The contact record Id associated to this profile, if any.
+        id:
+          type: integer
+          description: The id of the visitor.
     QueryResultVisitorViewDataRest20:
       title: QueryResultVisitorViewData
       properties:
@@ -128,24 +146,6 @@ components:
         page:
           type: integer
           description: The specified page.
-    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
-      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
-      properties:
-        type:
-          type: string
-          description: The visitor's type in Eloqua.
-        visitorId:
-          type: string
-          description: The Id of the visitor profile.
-        createdAt:
-          type: string
-          description: The date and time the visitor was created, expressed in Unix time.
-        contactId:
-          type: string
-          description: The contact record Id associated to this profile, if any.
-        id:
-          type: integer
-          description: The id of the visitor.
     EntitySearchByExternalIdsRest20:
       title: EntitySearchByExternalIds
       properties:

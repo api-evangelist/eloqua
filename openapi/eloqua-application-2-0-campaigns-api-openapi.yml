@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Campaigns API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Marketing campaigns are at the center of the Eloqua application, campaigns are comprised of different elements (such as segments, emails, landing pages, etc.) that are used to perform a variety of functions. You can combine the different elements in a number of ways to customize your campaign flow.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Campaigns''>Learn more about campaigns</a>.'
+    Learn more about campaigns.'
 paths:
   /api/rest/2.0/assets/campaign:
     post:
@@ -80,7 +80,7 @@ paths:
         schema:
           type: boolean
       summary: Retrieve a campaign
-      description: Retrieves a single campaign specified by the <code>id</code> parameter.
+      description: Retrieves a single campaign specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -118,7 +118,7 @@ paths:
         schema:
           type: integer
       summary: Update a campaign
-      description: Updates a campaign specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates a campaign specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -157,7 +157,7 @@ paths:
         schema:
           type: integer
       summary: Delete a campaign
-      description: Deletes a campaign specified by the <code>id</code> parameter.
+      description: Deletes a campaign specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -204,7 +204,7 @@ paths:
         schema:
           type: boolean
       summary: Activate a campaign
-      description: Activates a campaign specified by the <code>id</code> parameter.
+      description: Activates a campaign specified by the id parameter.
       responses:
         '201':
           description: Success
@@ -237,7 +237,7 @@ paths:
         schema:
           type: integer
       summary: Deactivate a campaign
-      description: Deactivates a campaign specified by the <code>id</code> parameter.
+      description: Deactivates a campaign specified by the id parameter.
       responses:
         '201':
           description: Success
@@ -336,6 +336,35 @@ paths:
       x-filename-id: api-rest-2.0-assets-campaigns-get
 components:
   schemas:
+    ExternalCampaignMappingRest20:
+      title: ExternalCampaignMapping
+      properties:
+        type:
+          type: string
+        externalSystemId:
+          type: integer
+        value:
+          type: string
+    QueryResultCampaignRest20:
+      title: QueryResultCampaign
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of campaign fields.
+          items:
+            $ref: '#/components/schemas/CampaignRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     CampaignOutputTerminalRest20:
       title: CampaignOutputTerminal
       properties:
@@ -406,51 +435,6 @@ components:
         connectedId:
           type: string
           description: The connected id of the campaign output terminal. This is a read-only property.
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
-    ExternalCampaignMappingRest20:
-      title: ExternalCampaignMapping
-      properties:
-        type:
-          type: string
-        externalSystemId:
-          type: integer
-        value:
-          type: string
-    QueryResultCampaignRest20:
-      title: QueryResultCampaign
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of campaign fields.
-          items:
-            $ref: '#/components/schemas/CampaignRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     CampaignElementRest20:
       title: CampaignElement
       properties:
@@ -691,3 +675,19 @@ components:
         y:
           type: string
           description: The position of the campaign element on the y axis.
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.

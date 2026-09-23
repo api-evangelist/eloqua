@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/events API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -13,7 +13,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Retrieve an event
-      description: Retrieves an event for the event <code>id</code> provided.
+      description: Retrieves an event for the event id provided.
       operationId: GetEventIndividual
       parameters:
       - name: id
@@ -97,7 +97,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Retrieve a list of export definitions for an event
-      description: Retrieves the list of export definitions for the event with the specified <code>id</code>.
+      description: Retrieves the list of export definitions for the event with the specified id.
       operationId: GetEventExportSearch
       parameters:
       - name: id
@@ -200,7 +200,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Retrieve a list of the fields for an event
-      description: Retrieves a list of the fields for the event with the given <code>id</code>.
+      description: Retrieves a list of the fields for the event with the given id.
       operationId: GetEventFieldSearch
       parameters:
       - name: id
@@ -303,7 +303,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Retrieve a list of import definitions for an event
-      description: Retrieves the list of import definitions for the event with the specified <code>id</code>.
+      description: Retrieves the list of import definitions for the event with the specified id.
       operationId: GetEventImportSearch
       parameters:
       - name: id
@@ -406,7 +406,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Create an export definition for an event
-      description: Creates a new export definition for the specified event. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkExport'>tutorial</a> for details on how to export data.
+      description: Creates a new export definition for the specified event. See the tutorial for details on how to export data.
       operationId: PostEventExportIndividual
       parameters:
       - name: parentId
@@ -1139,7 +1139,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Retrieve the synced data for an event export definition
-      description: Retrieves the synced data for an event export definition. It's recommended to use the sync URI's <a href='op-api-bulk-2.0-syncs-id-data-get.html'>data endpoint</a> to retrieve export data.
+      description: Retrieves the synced data for an event export definition. It's recommended to use the sync URI's data endpoint to retrieve export data.
       operationId: GetEventExportDataQuery
       parameters:
       - name: parentId
@@ -1387,7 +1387,7 @@ paths:
       tags:
       - Bulk/2.0/events
       summary: Create an import definition for an event
-      description: Creates a new import definition for the specified event. See the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkImport'>tutorial</a> for details on how to import data.
+      description: Creates a new import definition for the specified event. See the tutorial for details on how to import data.
       operationId: PostEventImportIndividual
       parameters:
       - name: parentId
@@ -2615,22 +2615,185 @@ paths:
       x-filename-id: api-bulk-2.0-events-get
 components:
   schemas:
-    SyncAction:
-      title: SyncAction
-      description: The definition of the action to take at time of syncronization.
+    EventField:
+      title: EventField
+      description: The definition of a field on the referenced Event object.
       properties:
-        action:
-          $ref: '#/components/schemas/SyncActionType'
-        destination:
-          title: destination
-          description: The ML statement used to reference an object used by the action.
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard.
           type: string
-        status:
-          $ref: '#/components/schemas/MemberStatus'
-        updateAll:
-          title: updateAll
-          description: Update status of all records in an execution.
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity.
+          type: string
+        dataType:
+          $ref: '#/components/schemas/DataType'
+        defaultValue:
+          title: defaultValue
+          description: The field's default value.
+          type: string
+        hasNotNullConstraint:
+          title: hasNotNullConstraint
+          description: Indicates whether the field can have null values (i.e. empty).
           type: boolean
+        hasReadOnlyConstraint:
+          title: hasReadOnlyConstraint
+          description: Indicates whether the field can be written to.
+          type: boolean
+        hasUniquenessConstraint:
+          title: hasUniquenessConstraint
+          description: Indicates whether the field must have a unique value.
+          type: boolean
+        internalName:
+          title: internalName
+          description: The field's internal name (used to uniquely identify it).
+          type: string
+        name:
+          title: name
+          description: The name of the custom object definition.
+          type: string
+        statement:
+          title: statement
+          description: The markup language statement used to reference the field in an import or export mapping.
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    Export:
+      title: Export
+      description: The request body defines the details of the export definition. The following table displays properties for creating export definitions.
+      properties:
+        areSystemTimestampsInUTC:
+          title: areSystemTimestampsInUTC
+          description: Whether or not <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SystemTimestamps'>system timestamps</a> will be exported in UTC. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>Filtering tutorial</a> for an example of filtering when <code>areSystemTimestampsInUTC</code> is set to <code>true</code>.
+          type: boolean
+        autoDeleteDuration:
+          title: autoDeleteDuration
+          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        crmAccountIdField:
+          title: crmAccountIdField
+          description: The ML statement for an existing contact field which addresses the CRM account ID.
+          type: string
+        dataRetentionDuration:
+          title: dataRetentionDuration
+          description: The length of time exported data should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to PT12H (12 hours) if not explicitly set during export definition creation.
+          type: string
+        externalSystemId:
+          title: externalSystemId
+          description: The external system ID is used when exporting data containing CRM fields.
+          type: integer
+        fields:
+          title: fields
+          description: List of fields to be included in the operation.
+          type: object
+        filter:
+          title: filter
+          description: The filter parameter uses Eloqua Markup Language to only return certain results. Learn more about <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>filters</a>.
+          type: string
+        kbUsed:
+          format: int64
+          title: kbUsed
+          description: The amount of space used in kilobytes. This is a read-only property.
+          type: integer
+        maxRecords:
+          title: maxRecords
+          description: The maximum amount of records.
+          type: integer
+        name:
+          title: name
+          description: The name of the export definition.
+          type: string
+        productIdField:
+          title: productIdField
+          description: The ML statement for an existing campaign field which addresses the product ID.
+          type: string
+        syncActions:
+          title: syncActions
+          description: Specifies operations to perform during the sync with a maximum of 10 actions. See <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions'>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
+    DataType:
+      title: DataType
+      description: The type of data, used for field definitions.
+      default: number
+      enum:
+      - number
+      - string
+      - boolean
+      - date
+      - emailAddress
+      type: string
     Import:
       title: Import
       description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
@@ -2719,23 +2882,22 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
     RuleType:
       title: RuleType
       description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
@@ -2746,103 +2908,6 @@ components:
       - ifExistingIsNull
       - useFieldRule
       type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    DataType:
-      title: DataType
-      description: The type of data, used for field definitions.
-      default: number
-      enum:
-      - number
-      - string
-      - boolean
-      - date
-      - emailAddress
-      type: string
-    Export:
-      title: Export
-      description: The request body defines the details of the export definition. The following table displays properties for creating export definitions.
-      properties:
-        areSystemTimestampsInUTC:
-          title: areSystemTimestampsInUTC
-          description: Whether or not <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SystemTimestamps'>system timestamps</a> will be exported in UTC. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>Filtering tutorial</a> for an example of filtering when <code>areSystemTimestampsInUTC</code> is set to <code>true</code>.
-          type: boolean
-        autoDeleteDuration:
-          title: autoDeleteDuration
-          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
-          type: string
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the entity. This is a read-only property.
-          type: string
-        crmAccountIdField:
-          title: crmAccountIdField
-          description: The ML statement for an existing contact field which addresses the CRM account ID.
-          type: string
-        dataRetentionDuration:
-          title: dataRetentionDuration
-          description: The length of time exported data should remain in the staging area. Bulk API 2.0 uses the ISO-8601 standard for specifying all durations. Valid values are anything from PT1H (1 hour) to P14D (2 weeks). This setting will default to PT12H (12 hours) if not explicitly set during export definition creation.
-          type: string
-        externalSystemId:
-          title: externalSystemId
-          description: The external system ID is used when exporting data containing CRM fields.
-          type: integer
-        fields:
-          title: fields
-          description: List of fields to be included in the operation.
-          type: object
-        filter:
-          title: filter
-          description: The filter parameter uses Eloqua Markup Language to only return certain results. Learn more about <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=BulkFiltering'>filters</a>.
-          type: string
-        kbUsed:
-          format: int64
-          title: kbUsed
-          description: The amount of space used in kilobytes. This is a read-only property.
-          type: integer
-        maxRecords:
-          title: maxRecords
-          description: The maximum amount of records.
-          type: integer
-        name:
-          title: name
-          description: The name of the export definition.
-          type: string
-        productIdField:
-          title: productIdField
-          description: The ML statement for an existing campaign field which addresses the product ID.
-          type: string
-        syncActions:
-          title: syncActions
-          description: Specifies operations to perform during the sync with a maximum of 10 actions. See <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions'>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
-          type: array
-          items:
-            $ref: '#/components/schemas/SyncAction'
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
-          type: string
     Event:
       title: Event
       description: The definition of an Event. Eloqua Event Management simplifies the process of marketing event registration.
@@ -2884,71 +2949,6 @@ components:
         uri:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing.
-          type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
-      type: string
-    EventField:
-      title: EventField
-      description: The definition of a field on the referenced Event object.
-      properties:
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the entity.
-          type: string
-        dataType:
-          $ref: '#/components/schemas/DataType'
-        defaultValue:
-          title: defaultValue
-          description: The field's default value.
-          type: string
-        hasNotNullConstraint:
-          title: hasNotNullConstraint
-          description: Indicates whether the field can have null values (i.e. empty).
-          type: boolean
-        hasReadOnlyConstraint:
-          title: hasReadOnlyConstraint
-          description: Indicates whether the field can be written to.
-          type: boolean
-        hasUniquenessConstraint:
-          title: hasUniquenessConstraint
-          description: Indicates whether the field must have a unique value.
-          type: boolean
-        internalName:
-          title: internalName
-          description: The field's internal name (used to uniquely identify it).
-          type: string
-        name:
-          title: name
-          description: The name of the custom object definition.
-          type: string
-        statement:
-          title: statement
-          description: The markup language statement used to reference the field in an import or export mapping.
-          type: string
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
     SyncStatusType:
       title: SyncStatusType

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Activities API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -49,7 +49,7 @@ paths:
         schema:
           type: boolean
       summary: Retrieve a list of activities
-      description: Retrieves all activities that match the criteria specified by the request parameters. Note that the query parameters <code>endDate</code>, <code>startDate</code>, and <code>type</code> are required. See <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ActivityDetailValues'>activity detail values</a> for more information about the different activity detail values for each asset type.
+      description: Retrieves all activities that match the criteria specified by the request parameters. Note that the query parameters endDate, startDate, and type are required. See activity detail values for more information about the different activity detail values for each asset type.
       responses:
         '200':
           description: OK

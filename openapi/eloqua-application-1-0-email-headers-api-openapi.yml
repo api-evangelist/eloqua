@@ -1,15 +1,12 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Email headers API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
 tags:
 - name: Application/1.0/Email headers
-  description: 'Email headers are used to customize the look and feel of the top of your email. Headers can be used in your emails for branding purposes (your company''s logo), to provide links to other (external) resources, or to display the link for a contact to view the email in a browser. Email headers are automatically added to your email after selecting and saving the email group to which it belongs, but you can also select a different header on a per-email basis from the email header chooser.
-
-
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailHeaders''>Learn more about email headers</a>.'
+  description: Email headers are used to customize the look and feel of the top of your email.
 paths:
   /api/rest/1.0/assets/email/header:
     post:
@@ -61,7 +58,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an email header
-      description: Retrieves the email header specified by the <code>id</code> parameter.
+      description: Retrieves the email header specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -93,7 +90,7 @@ paths:
         schema:
           type: integer
       summary: Update an email header
-      description: Updates the email header specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the email header specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -132,7 +129,7 @@ paths:
         schema:
           type: integer
       summary: Delete an email header
-      description: Deletes the email header specified by the <code>id</code> parameter.
+      description: Deletes the email header specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -215,6 +212,57 @@ paths:
       x-filename-id: api-rest-1.0-assets-email-headers-get
 components:
   schemas:
+    HyperlinkRest10:
+      title: Hyperlink
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the hyperlink. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The hyperlink's current status.
+        name:
+          type: string
+          description: Name of the hyperlink.
+        description:
+          type: string
+          description: The description of the hyperlink.
+        permissions:
+          type: string
+          description: The permissions for the hyperlink granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the hyperlink.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the hyperlink was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the hyperlink.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the hyperlink was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        href:
+          type: string
+          description: Href value of the hyperlink.
+        hyperlinkType:
+          type: string
+          description: 'The type of hyperlink. Possible values include: ExternalURL, ICSCalendarURL, LandingPageURL, ReferrerURL, RSSURL, or TrackedExternalURL.'
+        referencedEntityId:
+          type: string
+          description: Id of the referenced entity.
     FieldMergeRest10:
       title: FieldMerge
       properties:
@@ -359,54 +407,3 @@ components:
         page:
           type: integer
           description: The specified page.
-    HyperlinkRest10:
-      title: Hyperlink
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the hyperlink. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The hyperlink's current status.
-        name:
-          type: string
-          description: Name of the hyperlink.
-        description:
-          type: string
-          description: The description of the hyperlink.
-        permissions:
-          type: string
-          description: The permissions for the hyperlink granted to your current instance.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the hyperlink.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the hyperlink was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the hyperlink.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the hyperlink was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        href:
-          type: string
-          description: Href value of the hyperlink.
-        hyperlinkType:
-          type: string
-          description: 'The type of hyperlink. Possible values include: ExternalURL, ICSCalendarURL, LandingPageURL, ReferrerURL, RSSURL, or TrackedExternalURL.'
-        referencedEntityId:
-          type: string
-          description: Id of the referenced entity.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Images API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Image assets to be used in places such as emails or landing pages.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Images''>Learn more about images</a>.'
+    Learn more about images.'
 paths:
   /api/rest/1.0/assets/image/{id}:
     get:
@@ -28,7 +28,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an image
-      description: Retrieves the image specified by the <code>id</code> parameter.
+      description: Retrieves the image specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -60,7 +60,7 @@ paths:
         schema:
           type: integer
       summary: Update an image
-      description: Updates the image specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the image specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -99,7 +99,7 @@ paths:
         schema:
           type: integer
       summary: Delete an image
-      description: Deletes the image specified by the <code>id</code> parameter.
+      description: Deletes the image specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -211,11 +211,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-images-get
 components:
   schemas:
-    SizeRest10:
-      title: Size
-      properties:
-        type:
-          type: string
     QueryResultImageRest10:
       title: QueryResultImage
       properties:
@@ -287,3 +282,8 @@ components:
         thumbnailUrl:
           type: string
           description: The image's thumbnail URL. This is a read-only property.
+    SizeRest10:
+      title: Size
+      properties:
+        type:
+          type: string

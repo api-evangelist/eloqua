@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Activity Details/1.0/Email Unsubscribe API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -153,38 +153,6 @@ paths:
       x-filename-id: api-odata-activitydetails-1-emailunsubscribe-key-get
 components:
   schemas:
-    EmailUnsubscribe:
-      type: object
-      properties:
-        emailUnsubscriptionId:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        accountID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        eloquaLinkedAccountID:
-          format: int32
-          type: integer
-        emailID:
-          format: int32
-          type: integer
-        segmentID:
-          format: int32
-          type: integer
-        sentDateHour:
-          format: date-time
-          type: string
-        unsubscribedDateHour:
-          format: date-time
-          type: string
-        contact:
-          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -246,3 +214,35 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    EmailUnsubscribe:
+      type: object
+      properties:
+        emailUnsubscriptionId:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        unsubscribedDateHour:
+          format: date-time
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'

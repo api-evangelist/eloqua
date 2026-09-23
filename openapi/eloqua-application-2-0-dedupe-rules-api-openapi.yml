@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Dedupe Rules API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -183,7 +183,7 @@ paths:
         required: true
         schema:
           type: integer
-      summary: 'Get single Dedupe Rule or Match Rule '
+      summary: Get single Dedupe Rule or Match Rule
       description: Get single Dedupe Rule or Match Rule by ID
       responses:
         '200':
@@ -208,6 +208,59 @@ paths:
       x-filename-id: api-rest-2.0-assets-deduperule-ruleid-get
 components:
   schemas:
+    DedupeRuleRest20:
+      title: DedupeRule
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        sourceEntityType:
+          type: string
+        targetEntityType:
+          type: string
+        isMatchRule:
+          type: string
+        isCompleted:
+          type: string
     QueryResultDedupeRuleHandlerSetRest20:
       title: QueryResultDedupeRuleHandlerSet
       properties:
@@ -296,57 +349,4 @@ components:
         deletePermanentlyFromDestination:
           type: string
         isNonMatchesDestination:
-          type: string
-    DedupeRuleRest20:
-      title: DedupeRule
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        currentStatus:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-        sourceTemplateId:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdByName:
-          type: string
-        createdAt:
-          type: string
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedByName:
-          type: string
-        updatedAt:
-          type: string
-          readOnly: true
-        scheduledFor:
-          type: string
-          readOnly: true
-        depth:
-          type: string
-          readOnly: true
-        sourceEntityType:
-          type: string
-        targetEntityType:
-          type: string
-        isMatchRule:
-          type: string
-        isCompleted:
           type: string

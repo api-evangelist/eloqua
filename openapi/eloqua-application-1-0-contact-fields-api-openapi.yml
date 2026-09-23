@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Contact fields API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Contact fields are the fields associated with a specific contact asset.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ContactFields''>Learn more about contact fields</a>.'
+    Learn more about contact fields.'
 paths:
   /api/rest/1.0/assets/contact/field/{id}:
     get:
@@ -28,7 +28,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a contact field
-      description: Retrieves the contact field specified by the <code>id</code> parameter.
+      description: Retrieves the contact field specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -60,7 +60,7 @@ paths:
         schema:
           type: integer
       summary: Update a contact field
-      description: Updates the contact field specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the contact field specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -99,7 +99,7 @@ paths:
         schema:
           type: integer
       summary: Delete a contact field
-      description: Deletes the contact field specified by the <code>id</code> parameter.
+      description: Deletes the contact field specified by the id parameter.
       responses:
         '204':
           description: No matching contact fields were found in the search.
@@ -219,26 +219,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-contact-fields-get
 components:
   schemas:
-    QueryResultContactFieldRest10:
-      title: QueryResultContactField
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of contact fields.
-          items:
-            $ref: '#/components/schemas/ContactFieldRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     ContactFieldRest10:
       title: ContactField
       properties:
@@ -323,3 +303,23 @@ components:
         isPhoneValidationRequired:
           type: string
           description: ContactField_Field_IsPhoneValidationRequired_Description
+    QueryResultContactFieldRest10:
+      title: QueryResultContactField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of contact fields.
+          items:
+            $ref: '#/components/schemas/ContactFieldRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

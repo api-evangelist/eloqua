@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Campaign fields API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,12 +9,12 @@ tags:
   description: 'Campaign fields are the fields associated with a specific campaign asset.
 
 
-    <a href=''https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/Administration/Tasks/ConfiguringCustomCampaignFields.htm''>Learn more about campaign fields</a>.'
+    Learn more about campaign fields.'
 paths:
   /api/rest/2.0/assets/campaign/field:
     post:
       operationId: CreateIndividualPOSTRest20
-      summary: Create a campaign field.
+      summary: Create a campaign field
       description: Creates a campaign field that matches the criteria specified by the request body.
       responses:
         '201':
@@ -60,8 +60,8 @@ paths:
         required: false
         schema:
           type: string
-      summary: Retrieve a campaign field.
-      description: Retrieves the campaign field specified by the <code>id</code> parameter.
+      summary: Retrieve a campaign field
+      description: Retrieves the campaign field specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -92,8 +92,8 @@ paths:
         required: true
         schema:
           type: integer
-      summary: Update a Campaign field.
-      description: Updates the campaign field specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      summary: Update a Campaign field
+      description: Updates the campaign field specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -131,8 +131,8 @@ paths:
         required: true
         schema:
           type: integer
-      summary: Delete a campaign field.
-      description: Deletes the campaign field specified by the <code>id</code> parameter.
+      summary: Delete a campaign field
+      description: Deletes the campaign field specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -190,7 +190,7 @@ paths:
         required: false
         schema:
           type: integer
-      summary: Retrieve a list of campaign fields.
+      summary: Retrieve a list of campaign fields
       description: Retrieves all campaign fields that match the criteria specified by the request parameters.
       responses:
         '200':
@@ -215,6 +215,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-campaign-fields-get
 components:
   schemas:
+    QueryResultCampaignFieldRest20:
+      title: QueryResultCampaignField
+      properties:
+        type:
+          type: string
+          description: QueryResult1CampaignField_Field_Type_Description
+        elements:
+          type: array
+          description: QueryResult1CampaignField_Field_Elements_Description
+          items:
+            $ref: '#/components/schemas/CampaignFieldRest20'
+        total:
+          type: integer
+          description: QueryResult1CampaignField_Field_TotalElements_Description
+        pageSize:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageSize_Description
+        page:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageIndex_Description
     CampaignFieldRest20:
       title: CampaignField
       properties:
@@ -297,23 +317,3 @@ components:
         displayIndex:
           type: string
           description: The campaign field's display index.
-    QueryResultCampaignFieldRest20:
-      title: QueryResultCampaignField
-      properties:
-        type:
-          type: string
-          description: QueryResult1CampaignField_Field_Type_Description
-        elements:
-          type: array
-          description: QueryResult1CampaignField_Field_Elements_Description
-          items:
-            $ref: '#/components/schemas/CampaignFieldRest20'
-        total:
-          type: integer
-          description: QueryResult1CampaignField_Field_TotalElements_Description
-        pageSize:
-          type: integer
-          description: QueryResult1CampaignField_Field_PageSize_Description
-        page:
-          type: integer
-          description: QueryResult1CampaignField_Field_PageIndex_Description

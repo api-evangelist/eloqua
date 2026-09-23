@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oracle Eloqua Bulk Account Exports Contact Lists API
-  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  title: Oracle Eloqua REST Contact Lists API
+  description: The primary REST API for Oracle Eloqua Marketing Cloud Service, providing access to marketing automation assets and data including contacts, accounts, campaigns, emails, forms, landing pages, custom objects, and more.
   version: '2.0'
   contact:
     name: Oracle Support
     url: https://support.oracle.com/
   termsOfService: https://www.oracle.com/legal/terms.html
 servers:
-- url: https://secure.p01.eloqua.com/API/Bulk/2.0
-  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+- url: https://secure.p01.eloqua.com/API/REST/2.0
+  description: Eloqua REST API v2.0 (pod may vary per instance)
 security:
 - basicAuth: []
 - oAuth2: []
@@ -141,10 +141,11 @@ paths:
           description: Contact list not found
 components:
   parameters:
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
       schema:
         type: string
     count:
@@ -155,6 +156,18 @@ components:
         type: integer
         minimum: 1
         maximum: 1000
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
     depth:
       name: depth
       in: query
@@ -174,19 +187,6 @@ components:
         type: integer
         minimum: 1
         default: 1
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
   schemas:
     ContactList:
       type: object
@@ -250,5 +250,5 @@ components:
           scopes:
             full: Full access to all Eloqua resources
 externalDocs:
-  description: Oracle Eloqua Bulk API Documentation
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+  description: Oracle Eloqua REST API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/

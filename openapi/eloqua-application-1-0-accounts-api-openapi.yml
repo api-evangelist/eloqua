@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Accounts API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'An Oracle Eloqua Account provides group contact information.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Accounts''>Learn more about accounts</a>.'
+    Learn more about accounts.'
 paths:
   /api/rest/1.0/data/account:
     post:
@@ -67,7 +67,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve an account
-      description: Retrieves the account specified by the <code>id</code> parameter
+      description: Retrieves the account specified by the id parameter
       responses:
         '200':
           description: OK
@@ -99,7 +99,7 @@ paths:
         schema:
           type: integer
       summary: Update an account
-      description: Updates the account specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the account specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -138,7 +138,7 @@ paths:
         schema:
           type: integer
       summary: Delete an account
-      description: Deletes the account specified by the <code>id</code> parameter.
+      description: Deletes the account specified by the id parameter.
       responses:
         '204':
           description: OK.
@@ -237,26 +237,6 @@ paths:
       x-filename-id: api-rest-1.0-data-accounts-get
 components:
   schemas:
-    QueryResultAccountRest10:
-      title: QueryResultAccount
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of account fields.
-          items:
-            $ref: '#/components/schemas/AccountRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FieldValueRest10:
       title: FieldValue
       properties:
@@ -391,3 +371,23 @@ components:
             This property is also only returned when the request depth is <code>complete</code>.'
           items:
             $ref: '#/components/schemas/CrmSystemMappingRest10'
+    QueryResultAccountRest10:
+      title: QueryResultAccount
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of account fields.
+          items:
+            $ref: '#/components/schemas/AccountRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

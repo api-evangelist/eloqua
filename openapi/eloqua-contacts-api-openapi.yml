@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oracle Eloqua Bulk Account Exports Contacts API
-  description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
+  title: Oracle Eloqua REST Contacts API
+  description: The primary REST API for Oracle Eloqua Marketing Cloud Service, providing access to marketing automation assets and data including contacts, accounts, campaigns, emails, forms, landing pages, custom objects, and more.
   version: '2.0'
   contact:
     name: Oracle Support
     url: https://support.oracle.com/
   termsOfService: https://www.oracle.com/legal/terms.html
 servers:
-- url: https://secure.p01.eloqua.com/API/Bulk/2.0
-  description: Eloqua Bulk API v2.0 (pod may vary per instance)
+- url: https://secure.p01.eloqua.com/API/REST/2.0
+  description: Eloqua REST API v2.0 (pod may vary per instance)
 security:
 - basicAuth: []
 - oAuth2: []
@@ -140,21 +140,60 @@ paths:
         '404':
           description: Contact not found
 components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    lastUpdatedAt:
+      name: lastUpdatedAt
+      in: query
+      description: Unix timestamp to filter entities updated after this time
+      schema:
+        type: integer
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
   schemas:
-    FieldValue:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Field identifier
-          readOnly: true
-        type:
-          type: string
-          description: Field type
-          readOnly: true
-        value:
-          type: string
-          description: Field value (dates are returned as Unix timestamps)
     Contact:
       type: object
       properties:
@@ -261,6 +300,20 @@ components:
           type: integer
         total:
           type: integer
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
     ContactList:
       type: object
       properties:
@@ -308,59 +361,6 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
-  parameters:
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    lastUpdatedAt:
-      name: lastUpdatedAt
-      in: query
-      description: Unix timestamp to filter entities updated after this time
-      schema:
-        type: integer
-    count:
-      name: count
-      in: query
-      description: Maximum number of entities to return (1-1000)
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-    depth:
-      name: depth
-      in: query
-      description: Level of detail returned for the entity
-      schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http
@@ -376,5 +376,5 @@ components:
           scopes:
             full: Full access to all Eloqua resources
 externalDocs:
-  description: Oracle Eloqua Bulk API Documentation
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/BulkAPI.html
+  description: Oracle Eloqua REST API Documentation
+  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/

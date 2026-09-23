@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Custom objects API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Custom objects are a complement to the standard Data Entities (i.e. Contacts, Companies). Essentially, custom objects are used for two main functions: linking directly to a Contact and performing actions based on information collected without duplication.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects''>Learn more about custom objects</a>.'
+    Learn more about custom objects.'
 paths:
   /api/rest/2.0/assets/customObject:
     post:
@@ -61,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a custom object
-      description: Retrieves the custom object specified by the <code>id</code> parameter.
+      description: Retrieves the custom object specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -93,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update a custom object
-      description: Updates the custom object specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the custom object specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -132,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete a custom object
-      description: Deletes the custom object specified by the <code>id</code> parameter.
+      description: Deletes the custom object specified by the id parameter.
       responses:
         '200':
           description: OK.

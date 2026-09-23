@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Hyperlink folders API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -58,7 +58,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a folder
-      description: Retrieves the folder specified by the <code>id</code> parameter.
+      description: Retrieves the folder specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -129,7 +129,7 @@ paths:
         schema:
           type: integer
       summary: Delete a folder
-      description: Deletes the folder specified by the <code>id</code> parameter.
+      description: Deletes the folder specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -283,7 +283,7 @@ paths:
         schema:
           type: string
       summary: Add content to a folder
-      description: Places all content into the folder specified by the <code>id</code> parameter.
+      description: Places all content into the folder specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -571,46 +571,6 @@ components:
           readOnly: true
         name:
           type: string
-    QueryResultContractObjectRest20:
-      title: QueryResultContractObject
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of generic objects.
-          items:
-            $ref: '#/components/schemas/MinimalRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    QueryResultFolderRest20:
-      title: QueryResultFolder
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of folders.
-          items:
-            $ref: '#/components/schemas/FolderRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FolderRest20:
       title: Folder
       properties:
@@ -679,3 +639,43 @@ components:
         archive:
           type: string
           description: Whether or not the folder is archived.
+    QueryResultFolderRest20:
+      title: QueryResultFolder
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of folders.
+          items:
+            $ref: '#/components/schemas/FolderRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultContractObjectRest20:
+      title: QueryResultContractObject
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of generic objects.
+          items:
+            $ref: '#/components/schemas/MinimalRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Custom object data API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Custom object data are the records of custom object instances.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects''>Learn more about custom objects</a>.'
+    Learn more about custom objects.'
 paths:
   /api/rest/1.0/data/customObject/{id}:
     post:
@@ -91,7 +91,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve a list of custom object data
-      description: Retrieves the data for the custom object specified by the <code>id</code> parameter.
+      description: Retrieves the data for the custom object specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -117,26 +117,6 @@ paths:
       x-filename-id: api-rest-1.0-data-customobject-id-get
 components:
   schemas:
-    QueryResultCustomObjectDataRest10:
-      title: QueryResultCustomObjectData
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of custom object field elements.
-          items:
-            $ref: '#/components/schemas/CustomObjectDataRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FieldValueRest10:
       title: FieldValue
       properties:
@@ -171,3 +151,23 @@ components:
           description: Array containing <code>type</code> and <code>id</code> values for all of the fields associated with a given custom object data asset. Custom object date field values must be in Unix time format.
           items:
             $ref: '#/components/schemas/FieldValueRest10'
+    QueryResultCustomObjectDataRest10:
+      title: QueryResultCustomObjectData
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of custom object field elements.
+          items:
+            $ref: '#/components/schemas/CustomObjectDataRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

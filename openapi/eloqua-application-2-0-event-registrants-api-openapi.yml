@@ -1,12 +1,15 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Event registrants API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
 tags:
 - name: Application/2.0/Event registrants
-  description: "The event registration API is used to manage event registrants. \n\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EventManagement'>Learn more about Event Management</a>."
+  description: 'The event registration API is used to manage event registrants.
+
+
+    Learn more about Event Management.'
 paths:
   /api/rest/2.0/data/eventRegistration/{parentId}/instance:
     post:
@@ -19,7 +22,7 @@ paths:
         schema:
           type: integer
       summary: Create an event registrant
-      description: Creates an event registrant that matches the criteria specified by the request body for the event specified by the <code>parentId</code> parameter.
+      description: Creates an event registrant that matches the criteria specified by the request body for the event specified by the parentId parameter.
       responses:
         '201':
           description: Success.
@@ -71,7 +74,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an event registrant
-      description: Retrieves the registrant for the event specified by the <code>parentId</code> and <code>id</code> parameters.
+      description: Retrieves the registrant for the event specified by the parentId and id parameters.
       responses:
         '200':
           description: OK.
@@ -109,7 +112,7 @@ paths:
         schema:
           type: integer
       summary: Update an event registrant
-      description: Updates an event registrant that matches the criteria specified by the request body for the event specified by the <code>parentId</code> parameter. The response will only include field values that have been updated in the request. The response will also only include <code>contactId</code> if it has been updated in the request.
+      description: Updates an event registrant that matches the criteria specified by the request body for the event specified by the parentId parameter. The response will only include field values that have been updated in the request. The response will also only include contactId if it has been updated in the request.
       responses:
         '200':
           description: OK.
@@ -154,7 +157,7 @@ paths:
         schema:
           type: integer
       summary: Delete an event registrant
-      description: Deletes registrant for the event specified by the <code>parentId</code> and <code>id</code> parameters
+      description: Deletes registrant for the event specified by the parentId and id parameters
       responses:
         '200':
           description: OK.
@@ -213,7 +216,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a list of event registrants
-      description: Retrieves the registrants (records) for an event specified by the <code>parentId</code> that match the criteria specified by the query parameters.
+      description: Retrieves the registrants (records) for an event specified by the parentId that match the criteria specified by the query parameters.
       responses:
         '200':
           description: OK.
@@ -253,6 +256,26 @@ components:
         name:
           type: string
           description: Name of the field value.
+    QueryResultEventRegistrationDataRest20:
+      title: QueryResultEventRegistrationData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of event field elements.
+          items:
+            $ref: '#/components/schemas/EventRegistrationDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     EventRegistrationDataRest20:
       title: EventRegistrationData
       properties:
@@ -334,23 +357,3 @@ components:
         isMapped:
           type: string
           description: Whether or not the event registrant is mapped to a contact or account. This is a read-only property.
-    QueryResultEventRegistrationDataRest20:
-      title: QueryResultEventRegistrationData
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. '
-        elements:
-          type: array
-          description: Array of event field elements.
-          items:
-            $ref: '#/components/schemas/EventRegistrationDataRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

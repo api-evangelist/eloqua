@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign Analysis/1.0/Web Activities API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -153,60 +153,6 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-webactivities-key-get
 components:
   schemas:
-    Calendar:
-      type: object
-      properties:
-        dateHour:
-          format: date-time
-          type: string
-        calendarYear:
-          format: int32
-          type: integer
-        calendarYearDesc:
-          type: string
-        calendarQtr:
-          format: int32
-          type: integer
-        calendarQtrDesc:
-          type: string
-        calendarMonth:
-          format: int32
-          type: integer
-        calendarMonthDesc:
-          type: string
-        calendarWeek:
-          format: int32
-          type: integer
-        calendarWeekDesc:
-          type: string
-        dayOfYearNum:
-          format: int32
-          type: integer
-        dayOfWeekNum:
-          format: int32
-          type: integer
-        dayOfWeekDesc:
-          type: string
-        dayOfMonthNum:
-          format: int32
-          type: integer
-        displayDayOfWeek:
-          type: string
-        hourOfDayNum:
-          format: int32
-          type: integer
-        calendarMonthId:
-          format: int32
-          type: integer
-        calendarQtrId:
-          format: int32
-          type: integer
-        calendarWeekId:
-          format: int32
-          type: integer
-        calendarDayId:
-          format: date-time
-          type: string
     Campaign:
       type: object
       properties:
@@ -284,3 +230,57 @@ components:
           $ref: '#/components/schemas/Campaign'
         calendar:
           $ref: '#/components/schemas/Calendar'
+    Calendar:
+      type: object
+      properties:
+        dateHour:
+          format: date-time
+          type: string
+        calendarYear:
+          format: int32
+          type: integer
+        calendarYearDesc:
+          type: string
+        calendarQtr:
+          format: int32
+          type: integer
+        calendarQtrDesc:
+          type: string
+        calendarMonth:
+          format: int32
+          type: integer
+        calendarMonthDesc:
+          type: string
+        calendarWeek:
+          format: int32
+          type: integer
+        calendarWeekDesc:
+          type: string
+        dayOfYearNum:
+          format: int32
+          type: integer
+        dayOfWeekNum:
+          format: int32
+          type: integer
+        dayOfWeekDesc:
+          type: string
+        dayOfMonthNum:
+          format: int32
+          type: integer
+        displayDayOfWeek:
+          type: string
+        hourOfDayNum:
+          format: int32
+          type: integer
+        calendarMonthId:
+          format: int32
+          type: integer
+        calendarQtrId:
+          format: int32
+          type: integer
+        calendarWeekId:
+          format: int32
+          type: integer
+        calendarDayId:
+          format: date-time
+          type: string

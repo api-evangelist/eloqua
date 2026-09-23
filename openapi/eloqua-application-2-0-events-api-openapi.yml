@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Events API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'The events API is used to manage events.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EventManagement''>Learn more about Event Management</a>.'
+    Learn more about Event Management.'
 paths:
   /api/rest/2.0/assets/eventRegistration:
     post:
@@ -61,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an event
-      description: Retrieves the event specified by the <code>id</code> parameter.
+      description: Retrieves the event specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -93,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update an event
-      description: Updates the event specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the event specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -132,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete an event
-      description: Deletes the event specified by the <code>id</code> parameter.
+      description: Deletes the event specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -215,76 +215,6 @@ paths:
       x-filename-id: api-rest-2.0-assets-eventregistrations-get
 components:
   schemas:
-    EventSessionFieldValueRest20:
-      title: EventSessionFieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        id:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        currentStatus:
-          type: string
-          description: This property is not used for event session field values.
-        name:
-          type: string
-          description: This property is not used for event session field values.
-        description:
-          type: string
-          description: This property is not used for event session field values.
-        permissions:
-          type: array
-          description: This property is not used.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for event session field values.
-        createdBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        createdByName:
-          type: string
-          description: This property is not used for event session field values.
-        createdAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        updatedByName:
-          type: string
-          description: This property is not used for event session field values.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        depth:
-          type: string
-          readOnly: true
-          description: This property is not used for event session field values.
-        sessionId:
-          type: string
-          description: The SessionId of the session within an event for which field value is passed.
-        sessionFieldId:
-          type: string
-          description: The SessionFieldId of the field. The session field must be created first before creating session field values.
-        value:
-          type: string
-          description: The value for the event session field.
     QueryResultEventRegistrationRest20:
       title: QueryResultEventRegistration
       properties:
@@ -387,6 +317,220 @@ components:
         uncheckedValue:
           type: string
           description: The unchecked value of a checkbox custom object field.
+    EventSessionFieldValueRest20:
+      title: EventSessionFieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        id:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        currentStatus:
+          type: string
+          description: This property is not used for event session field values.
+        name:
+          type: string
+          description: This property is not used for event session field values.
+        description:
+          type: string
+          description: This property is not used for event session field values.
+        permissions:
+          type: array
+          description: This property is not used.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for event session field values.
+        createdBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        createdByName:
+          type: string
+          description: This property is not used for event session field values.
+        createdAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        updatedByName:
+          type: string
+          description: This property is not used for event session field values.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        depth:
+          type: string
+          readOnly: true
+          description: This property is not used for event session field values.
+        sessionId:
+          type: string
+          description: The SessionId of the session within an event for which field value is passed.
+        sessionFieldId:
+          type: string
+          description: The SessionFieldId of the field. The session field must be created first before creating session field values.
+        value:
+          type: string
+          description: The value for the event session field.
+    EventSessionRest20:
+      title: EventSession
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the event session. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used for event sessions.
+        name:
+          type: string
+          description: The name of the session.
+        description:
+          type: string
+          description: This property is not used for event sessions.
+        permissions:
+          type: array
+          description: This property is not used.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for event sessions.
+        createdBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        createdByName:
+          type: string
+          description: This property is not used for event sessions.
+        createdAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        updatedByName:
+          type: string
+          description: This property is not used for event sessions.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        depth:
+          type: string
+          readOnly: true
+          description: This property is not used for event sessions.
+        participantsLimit:
+          type: integer
+          description: The maximum number of participants per session.
+    EventSessionFieldRest20:
+      title: EventSessionField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the event session field. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used for event session fields.
+        name:
+          type: string
+          description: The name of the session field within an event.
+        description:
+          type: string
+          description: This property is not used for event session fields.
+        permissions:
+          type: array
+          description: This property is not used.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for event session fields.
+        createdBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        createdByName:
+          type: string
+          description: This property is not used for event session fields.
+        createdAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        updatedByName:
+          type: string
+          description: This property is not used for event session fields.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        depth:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        dataType:
+          type: string
+          description: The DataType of the session field.
+        outputFormat:
+          $ref: '#/components/schemas/FieldOutputFormatRest20'
+          description: The output format for number, date / time, and numeric custom object fields. Only the display format???s id is required. See list of default display formats <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=DisplayFormats'>here</a>. If using custom display formats, these should be set in Eloqua.
+    FieldOutputFormatRest20:
+      title: FieldOutputFormat
+      properties:
+        type:
+          type: string
+        currentStatus:
+          type: string
+        id:
+          type: string
+        format:
+          type: string
+        dataType:
+          type: string
     EventRegistrationRest20:
       title: EventRegistration
       properties:
@@ -477,147 +621,3 @@ components:
         eventGroupByFieldId:
           type: string
           description: The id of the field used to organize multiple sessions. Use the desired custom object field's negative id as the value for this parameter.
-    FieldOutputFormatRest20:
-      title: FieldOutputFormat
-      properties:
-        type:
-          type: string
-        currentStatus:
-          type: string
-        id:
-          type: string
-        format:
-          type: string
-        dataType:
-          type: string
-    EventSessionFieldRest20:
-      title: EventSessionField
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the event session field. This is a read-only property.
-        currentStatus:
-          type: string
-          description: This property is not used for event session fields.
-        name:
-          type: string
-          description: The name of the session field within an event.
-        description:
-          type: string
-          description: This property is not used for event session fields.
-        permissions:
-          type: array
-          description: This property is not used.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for event session fields.
-        createdBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        createdByName:
-          type: string
-          description: This property is not used for event session fields.
-        createdAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        updatedByName:
-          type: string
-          description: This property is not used for event session fields.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        depth:
-          type: string
-          readOnly: true
-          description: This property is not used for event session fields.
-        dataType:
-          type: string
-          description: The DataType of the session field.
-        outputFormat:
-          $ref: '#/components/schemas/FieldOutputFormatRest20'
-          description: The output format for number, date / time, and numeric custom object fields. Only the display format???s id is required. See list of default display formats <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=DisplayFormats'>here</a>. If using custom display formats, these should be set in Eloqua.
-    EventSessionRest20:
-      title: EventSession
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the event session. This is a read-only property.
-        currentStatus:
-          type: string
-          description: This property is not used for event sessions.
-        name:
-          type: string
-          description: The name of the session.
-        description:
-          type: string
-          description: This property is not used for event sessions.
-        permissions:
-          type: array
-          description: This property is not used.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for event sessions.
-        createdBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        createdByName:
-          type: string
-          description: This property is not used for event sessions.
-        createdAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        updatedByName:
-          type: string
-          description: This property is not used for event sessions.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        depth:
-          type: string
-          readOnly: true
-          description: This property is not used for event sessions.
-        participantsLimit:
-          type: integer
-          description: The maximum number of participants per session.

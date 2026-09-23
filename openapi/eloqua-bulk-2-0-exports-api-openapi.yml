@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/exports API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -165,22 +165,23 @@ components:
       - remove
       - setStatus
       type: string
-    SyncAction:
-      title: SyncAction
-      description: The definition of the action to take at time of syncronization.
-      properties:
-        action:
-          $ref: '#/components/schemas/SyncActionType'
-        destination:
-          title: destination
-          description: The ML statement used to reference an object used by the action.
-          type: string
-        status:
-          $ref: '#/components/schemas/MemberStatus'
-        updateAll:
-          title: updateAll
-          description: Update status of all records in an execution.
-          type: boolean
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
     Export:
       title: Export
       description: The request body defines the details of the export definition. The following table displays properties for creating export definitions.
@@ -258,20 +259,19 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean

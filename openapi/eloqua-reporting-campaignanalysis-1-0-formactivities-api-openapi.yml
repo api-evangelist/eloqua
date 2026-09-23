@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign Analysis/1.0/Form Activities API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -153,6 +153,58 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-formactivities-key-get
 components:
   schemas:
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
     Calendar:
       type: object
       properties:
@@ -207,58 +259,6 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    Campaign:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
-          format: int32
-          type: integer
-        lastActivatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
     FormActivities:
       type: object
       properties:

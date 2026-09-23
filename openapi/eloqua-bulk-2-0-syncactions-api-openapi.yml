@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/sync Actions API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -107,6 +107,32 @@ paths:
       x-filename-id: api-bulk-2.0-syncactions-get
 components:
   schemas:
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
     SyncActionOperation:
       title: SyncActionOperation
       description: The request body defines the details of the sync action definition. The following table displays properties for creating sync action definitions.
@@ -189,29 +215,3 @@ components:
           title: updateAll
           description: Update status of all records in an execution.
           type: boolean
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string

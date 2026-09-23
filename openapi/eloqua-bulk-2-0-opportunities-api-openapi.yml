@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/opportunities API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -13,7 +13,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve a list of opportunity contact linkage import definitions
-      description: Retrieves a list of opportunity contact linkage import definitions. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves a list of opportunity contact linkage import definitions. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityContactLinkageImportSearch
       parameters:
       - name: limit
@@ -109,7 +109,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Create an opportunity contact linkage import definition
-      description: Creates an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Creates an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: PostOpportunityContactLinkageImportIndividual
       responses:
         '201':
@@ -459,7 +459,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve an opportunity contact linkage import definition
-      description: Retrieves an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityContactLinkageImportIndividual
       parameters:
       - name: id
@@ -603,7 +603,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Update an opportunity contact linkage import definition
-      description: Updates an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Updates an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: PutOpportunityContactLinkageImportIndividual
       parameters:
       - name: id
@@ -959,7 +959,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Delete an opportunity contact linkage import definition
-      description: Deletes an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Deletes an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: DeleteOpportunityContactLinkageImportIndividual
       parameters:
       - name: id
@@ -999,7 +999,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Upload data for an opportunity contact linkage import definition
-      description: Uploads data for an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Uploads data for an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: PostOpportunityContactLinkageImportData
       parameters:
       - name: id
@@ -1099,7 +1099,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Delete the synced data for an opportunity contact linkage import definition
-      description: Deletes the synced data for an opportunity contact linkage import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Deletes the synced data for an opportunity contact linkage import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: DeleteOpportunityContactLinkageImportData
       parameters:
       - name: id
@@ -1139,7 +1139,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve an opportunity field definition
-      description: Retrieves an opportunity field definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves an opportunity field definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityFieldIndividual
       parameters:
       - name: id
@@ -1237,7 +1237,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve a list of opportunity fields
-      description: Retrieves a list of opportunity fields. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves a list of opportunity fields. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityFieldSearch
       parameters:
       - name: limit
@@ -1334,7 +1334,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve a list of opportunity import definitions
-      description: Retrieves a list of opportunity import definitions. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves a list of opportunity import definitions. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityImportSearch
       parameters:
       - name: limit
@@ -1430,7 +1430,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Create an opportunity import definition
-      description: Creates an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Creates an opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: PostOpportunityImportIndividual
       responses:
         '201':
@@ -1720,7 +1720,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Retrieve an opportunity import definition
-      description: Retrieves a single opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Retrieves a single opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: GetOpportunityImportIndividual
       parameters:
       - name: id
@@ -1844,7 +1844,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Update an opportunity import definition
-      description: Updates an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Updates an opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: PutOpportunityImportIndividual
       parameters:
       - name: id
@@ -2140,7 +2140,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Delete an opportunity import definition
-      description: Deletes an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Deletes an opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: DeleteOpportunityImportIndividual
       parameters:
       - name: id
@@ -2180,7 +2180,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Upload data for an opportunity import definition
-      description: Uploads data for an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>. When uploading data, Eloqua expects that data to be encoded with UTF-8.
+      description: Uploads data for an opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints. When uploading data, Eloqua expects that data to be encoded with UTF-8.
       operationId: PostOpportunityImportData
       parameters:
       - name: id
@@ -2280,7 +2280,7 @@ paths:
       tags:
       - Bulk/2.0/opportunities
       summary: Delete the synced data for an opportunity import definition
-      description: Deletes the synced data for an opportunity import definition. For more information about using these endpoints, see, <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=Opportunities'>using the opportunities endpoints</a>.
+      description: Deletes the synced data for an opportunity import definition. For more information about using these endpoints, see, using the opportunities endpoints.
       operationId: DeleteOpportunityImportData
       parameters:
       - name: id
@@ -2317,22 +2317,52 @@ paths:
       x-filename-id: api-bulk-2.0-opportunities-imports-id-data-delete
 components:
   schemas:
-    SyncAction:
-      title: SyncAction
-      description: The definition of the action to take at time of syncronization.
-      properties:
-        action:
-          $ref: '#/components/schemas/SyncActionType'
-        destination:
-          title: destination
-          description: The ML statement used to reference an object used by the action.
-          type: string
-        status:
-          $ref: '#/components/schemas/MemberStatus'
-        updateAll:
-          title: updateAll
-          description: Update status of all records in an execution.
-          type: boolean
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    DataType:
+      title: DataType
+      description: The type of data, used for field definitions.
+      default: number
+      enum:
+      - number
+      - string
+      - boolean
+      - date
+      - emailAddress
+      type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
     Import:
       title: Import
       description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
@@ -2421,23 +2451,22 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
     RuleType:
       title: RuleType
       description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
@@ -2504,35 +2533,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    DataType:
-      title: DataType
-      description: The type of data, used for field definitions.
-      default: number
-      enum:
-      - number
-      - string
-      - boolean
-      - date
-      - emailAddress
-      type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
-      type: string
     SyncStatusType:
       title: SyncStatusType
       description: The status of the synchronization. This is a read-only property.

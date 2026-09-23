@@ -1,12 +1,12 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Audit logs API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
 tags:
 - name: Application/2.0/Audit logs
-  description: The Audit Log API endpoint enables initiating a request for <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EloquaAuditing'>Eloqua audit log</a> exports using the Application API.  Specify the type of audit log you want to export within a specified date and time range. If the request is successful, a report will be sent to the email address specified in the request.
+  description: The Audit Log API endpoint enables initiating a request for Eloqua audit log exports using the Application API. Specify the type of audit log you want to export within a specified date and time range. If the request is successful, a report will be sent to the email address specified in the request.
 paths:
   /api/rest/2.0/data/auditLog/reportExport:
     post:

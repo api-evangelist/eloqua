@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Option lists API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Option lists are usually referred to on the marketers'' side as select lists or pick lists.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=PickLists''>Learn more about option lists</a>.'
+    Learn more about option lists.'
 paths:
   /api/rest/1.0/assets/optionList/{id}:
     get:
@@ -28,7 +28,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an option list
-      description: Retrieves the option list specified by the <code>id</code> parameter.
+      description: Retrieves the option list specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -60,7 +60,7 @@ paths:
         schema:
           type: integer
       summary: Update an option list
-      description: Updates the option list specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the option list specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -99,7 +99,7 @@ paths:
         schema:
           type: integer
       summary: Delete an option list
-      description: Deletes the option list specified by the <code>id</code> parameter.
+      description: Deletes the option list specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -227,26 +227,6 @@ components:
         value:
           type: string
           description: The option's internal value. This value is not displayed externally.
-    QueryResultOptionListRest10:
-      title: QueryResultOptionList
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of option list fields.
-          items:
-            $ref: '#/components/schemas/OptionListRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     OptionListRest10:
       title: OptionList
       properties:
@@ -294,3 +274,23 @@ components:
           description: A list of option elements.
           items:
             $ref: '#/components/schemas/OptionRest10'
+    QueryResultOptionListRest10:
+      title: QueryResultOptionList
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of option list fields.
+          items:
+            $ref: '#/components/schemas/OptionListRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

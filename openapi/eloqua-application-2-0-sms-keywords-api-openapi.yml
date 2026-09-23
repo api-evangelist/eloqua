@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/SMS keywords API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -88,7 +88,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a keyword
-      description: Retrieves the Keyword specified by the <code>id</code> parameter.
+      description: Retrieves the Keyword specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -120,7 +120,7 @@ paths:
         schema:
           type: integer
       summary: Delete a keyword
-      description: Deletes the Keyword specified by the <code>id</code> parameter.
+      description: Deletes the Keyword specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -173,26 +173,6 @@ paths:
         required: true
 components:
   schemas:
-    QueryResultKeywordRest20:
-      title: QueryResultKeyword
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of keyword fields.
-          items:
-            $ref: '#/components/schemas/KeywordRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     KeywordRest20:
       title: Keyword
       properties:
@@ -271,3 +251,23 @@ components:
           description: Countty codes associated with keyword.
           items:
             type: string
+    QueryResultKeywordRest20:
+      title: QueryResultKeyword
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of keyword fields.
+          items:
+            $ref: '#/components/schemas/KeywordRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/External activities API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -12,7 +12,7 @@ tags:
     External asset types is the ''umbrella'' (top-level) classification for something that your contacts or prospects are performing, for example, a Tradeshow.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets''>Learn more about external assets</a>.'
+    Learn more about external assets.'
 paths:
   /api/rest/2.0/data/activity:
     post:
@@ -58,7 +58,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve an external activity
-      description: Retrieves the external activity data specified by the <code>id</code> parameter. Ids are not consecutive.
+      description: Retrieves the external activity data specified by the id parameter. Ids are not consecutive.
       responses:
         '200':
           description: OK.

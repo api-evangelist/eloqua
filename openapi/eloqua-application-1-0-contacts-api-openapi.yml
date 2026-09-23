@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Contacts API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'A contact is a data entity that contains the explicit data around an individual person in the database.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=Contacts''>Learn more about contacts</a>.'
+    Learn more about contacts.'
 paths:
   /api/rest/1.0/data/contact:
     post:
@@ -67,7 +67,7 @@ paths:
         schema:
           type: integer
       summary: Retrieve a contact
-      description: Retrieves the contact specified by the <code>id</code> parameter.
+      description: Retrieves the contact specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -99,7 +99,7 @@ paths:
         schema:
           type: integer
       summary: Update a contact
-      description: Updates the contact specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the contact specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -138,7 +138,7 @@ paths:
         schema:
           type: integer
       summary: Delete a contact
-      description: Deletes a contact specified by the <code>id</code> parameter
+      description: Deletes a contact specified by the id parameter
       responses:
         '204':
           description: No matching contacts were found in the search
@@ -231,6 +231,19 @@ paths:
       x-filename-id: api-rest-1.0-data-contacts-get
 components:
   schemas:
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
     ContactRest10:
       title: Contact
       properties:
@@ -367,16 +380,3 @@ components:
         page:
           type: integer
           description: The specified page.
-    FieldValueRest10:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.

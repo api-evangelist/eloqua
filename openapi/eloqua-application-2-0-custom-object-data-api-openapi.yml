@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Custom object data API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Custom object data are the records of custom object instances.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=CustomObjects''>Learn more about custom objects</a>.'
+    Learn more about custom objects.'
 paths:
   /api/rest/2.0/data/customObject/{parentId}/instance:
     post:
@@ -74,7 +74,7 @@ paths:
         schema:
           type: string
       summary: Retrieve custom object data
-      description: Retrieves the data (records) for the custom object specified by the {parentId} and <code>id</code> parameters.
+      description: Retrieves the data (records) for the custom object specified by the {parentId} and id parameters.
       responses:
         '200':
           description: OK.
@@ -112,7 +112,7 @@ paths:
         schema:
           type: integer
       summary: Update custom object data
-      description: Updates custom object data specified by the <code>id</code> parameter.
+      description: Updates custom object data specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -157,7 +157,7 @@ paths:
         schema:
           type: integer
       summary: Delete custom object data
-      description: Deletes custom object data specified by the <code>id</code> parameter.
+      description: Deletes custom object data specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -240,42 +240,6 @@ paths:
       x-filename-id: api-rest-2.0-data-customobject-parentid-instances-get
 components:
   schemas:
-    QueryResultCustomObjectDataRest20:
-      title: QueryResultCustomObjectData
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. '
-        elements:
-          type: array
-          description: Array of custom object field elements.
-          items:
-            $ref: '#/components/schemas/CustomObjectDataRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
     CustomObjectDataRest20:
       title: CustomObjectData
       properties:
@@ -357,3 +321,39 @@ components:
         isMapped:
           type: string
           description: Whether or not the custom object data is mapped to a custom object.
+    QueryResultCustomObjectDataRest20:
+      title: QueryResultCustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of custom object field elements.
+          items:
+            $ref: '#/components/schemas/CustomObjectDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.

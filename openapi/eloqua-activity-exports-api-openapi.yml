@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oracle Eloqua Bulk Account Exports Activity Exports API
+  title: Oracle Eloqua Bulk Activity Exports API
   description: The Bulk API for Oracle Eloqua Marketing Cloud Service, designed for high-volume data operations including imports, exports, and synchronization of large datasets for contacts, accounts, activities, and custom objects.
   version: '2.0'
   contact:
@@ -95,22 +95,32 @@ paths:
         '404':
           description: Export definition not found
 components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
   schemas:
-    ExportList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExportDefinition'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     ExportDefinition:
       type: object
       required:
@@ -163,31 +173,21 @@ components:
           type: string
           description: Status of the export definition
           readOnly: true
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
+    ExportList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportDefinition'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
   securitySchemes:
     basicAuth:
       type: http

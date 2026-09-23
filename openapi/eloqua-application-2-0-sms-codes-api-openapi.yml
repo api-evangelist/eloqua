@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/SMS codes API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -73,90 +73,6 @@ paths:
       x-filename-id: api-rest-2.0-assets-sms-sendercodes-get
 components:
   schemas:
-    QueryResultSenderCodeRest20:
-      title: QueryResultSenderCode
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of sender code fields.
-          items:
-            $ref: '#/components/schemas/SenderCodeRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    SenderCodeCountryRest20:
-      title: SenderCodeCountry
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the sender code country. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The sender code country current status. This is a read-only property.
-        name:
-          type: string
-          description: Name of the sender code country.
-        description:
-          type: string
-          description: Description of the sender code country.
-        permissions:
-          type: array
-          description: The permissions for the sender code country granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The folder id of the folder which contains the sender code country.
-        sourceTemplateId:
-          type: string
-          description: Id of the template used to create the asset.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the sender code country.
-        createdByName:
-          type: string
-          description: The name of the user who created the sender code country.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the sender code country was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the sender code country.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the sender code country.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the sender code country.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        code:
-          type: string
-          description: Sender code in the sender code country
     SenderCodeRest20:
       title: SenderCode
       properties:
@@ -321,3 +237,87 @@ components:
           description: Countty codes associated with keyword.
           items:
             type: string
+    SenderCodeCountryRest20:
+      title: SenderCodeCountry
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the sender code country. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The sender code country current status. This is a read-only property.
+        name:
+          type: string
+          description: Name of the sender code country.
+        description:
+          type: string
+          description: Description of the sender code country.
+        permissions:
+          type: array
+          description: The permissions for the sender code country granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the sender code country.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the asset.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the sender code country.
+        createdByName:
+          type: string
+          description: The name of the user who created the sender code country.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the sender code country was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the sender code country.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the sender code country.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the sender code country.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        code:
+          type: string
+          description: Sender code in the sender code country
+    QueryResultSenderCodeRest20:
+      title: QueryResultSenderCode
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of sender code fields.
+          items:
+            $ref: '#/components/schemas/SenderCodeRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Users API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Users API endpoints. The API allows you to modify such things as a user''s time preference.
 
 
-    <a href=''https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/UserManagement/UserManagement.htm''>Learn more about user management</a>.'
+    Learn more about user management.'
 paths:
   /api/rest/1.0/system/user/{id}:
     get:
@@ -28,7 +28,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a user
-      description: Retrieves the user specified by the <code>id</code> parameter. For security purposes, full user details are only displayed in a response if the user profile being retrieved via the API is the same user performing the request.
+      description: Retrieves the user specified by the id parameter. For security purposes, full user details are only displayed in a response if the user profile being retrieved via the API is the same user performing the request.
       responses:
         '200':
           description: OK.
@@ -60,7 +60,7 @@ paths:
         schema:
           type: integer
       summary: Update a user
-      description: Updates the user specified by the <code>id</code> parameter.
+      description: Updates the user specified by the id parameter.
       responses:
         '200':
           description: OK.

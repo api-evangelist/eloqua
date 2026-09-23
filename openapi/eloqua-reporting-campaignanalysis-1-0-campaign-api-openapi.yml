@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign Analysis/1.0/Campaign API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -528,85 +528,84 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-campaign-key-landingpageactivities-get
 components:
   schemas:
-    FormActivities:
+    WebActivities:
       type: object
       properties:
-        formSubmitAggKey:
+        webActivitiesId:
           format: int32
           type: integer
-        totalFormSubmissions:
+        eloquaCampaignId:
           format: int32
           type: integer
-        eloquaCampaignID:
+        totalPageViews:
           format: int32
           type: integer
-        segmentId:
+        totalVisitors:
           format: int32
           type: integer
-        dateHour:
+        lastModifiedDate:
           format: date-time
           type: string
-        lastModifiedDate:
+        dateHour:
           format: date-time
           type: string
         campaign:
           $ref: '#/components/schemas/Campaign'
         calendar:
           $ref: '#/components/schemas/Calendar'
-        segment:
-          $ref: '#/components/schemas/Segment'
-    Campaign:
+    LandingPageAsset:
       type: object
       properties:
-        eloquaCampaignId:
+        landingPageID:
           format: int32
           type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
+        landingPageName:
           type: string
         isDeleted:
           type: boolean
-        campaignStartDate:
-          format: date-time
+        landingPageDescription:
           type: string
-        campaignEndDate:
-          format: date-time
+        relativePath:
           type: string
-        campaignCreatedByUserId:
+        landingPageCreatedByUserID:
           format: int32
           type: integer
-        lastActivatedByUserId:
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+    LandingPageActivities:
+      type: object
+      properties:
+        landingPageTime:
+          format: double
+          type: number
+        landingPageActivitiesId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        landingPageViews:
           format: int32
           type: integer
         lastModifiedDate:
           format: date-time
           type: string
-        campaignClassification:
+        dateHour:
+          format: date-time
           type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
+        assetId:
+          format: int32
+          type: integer
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
     EmailActivities:
       type: object
       properties:
@@ -687,26 +686,101 @@ components:
           $ref: '#/components/schemas/Calendar'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
-    LeadActivities:
+    FormActivities:
+      type: object
+      properties:
+        formSubmitAggKey:
+          format: int32
+          type: integer
+        totalFormSubmissions:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        segmentId:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        segment:
+          $ref: '#/components/schemas/Segment'
+    Campaign:
       type: object
       properties:
         eloquaCampaignId:
           format: int32
           type: integer
-        leadResponseDateHour:
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
           format: date-time
           type: string
-        newContacts:
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
           format: int32
           type: integer
-        newLeads:
+        lastActivatedByUserId:
           format: int32
           type: integer
-        totalResponses:
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
+    Segment:
+      type: object
+      properties:
+        segmentId:
           format: int32
           type: integer
-        campaign:
-          $ref: '#/components/schemas/Campaign'
+        segment:
+          type: string
+        segmentDescription:
+          type: string
+        segmentCreatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     EmailAsset:
       type: object
       properties:
@@ -736,31 +810,26 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
-    WebActivities:
+    LeadActivities:
       type: object
       properties:
-        webActivitiesId:
-          format: int32
-          type: integer
         eloquaCampaignId:
           format: int32
           type: integer
-        totalPageViews:
-          format: int32
-          type: integer
-        totalVisitors:
-          format: int32
-          type: integer
-        lastModifiedDate:
+        leadResponseDateHour:
           format: date-time
           type: string
-        dateHour:
-          format: date-time
-          type: string
+        newContacts:
+          format: int32
+          type: integer
+        newLeads:
+          format: int32
+          type: integer
+        totalResponses:
+          format: int32
+          type: integer
         campaign:
           $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
     Calendar:
       type: object
       properties:
@@ -813,74 +882,5 @@ components:
           format: int32
           type: integer
         calendarDayId:
-          format: date-time
-          type: string
-    LandingPageAsset:
-      type: object
-      properties:
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageName:
-          type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
-          type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-    LandingPageActivities:
-      type: object
-      properties:
-        landingPageTime:
-          format: double
-          type: number
-        landingPageActivitiesId:
-          format: int32
-          type: integer
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        landingPageViews:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        dateHour:
-          format: date-time
-          type: string
-        assetId:
-          format: int32
-          type: integer
-        landingPageAsset:
-          $ref: '#/components/schemas/LandingPageAsset'
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-    Segment:
-      type: object
-      properties:
-        segmentId:
-          format: int32
-          type: integer
-        segment:
-          type: string
-        segmentDescription:
-          type: string
-        segmentCreatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
           format: date-time
           type: string

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/SMS invalid keyword messages API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -88,7 +88,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a message
-      description: Retrieves the message specified by the <code>id</code> parameter.
+      description: Retrieves the message specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -159,7 +159,7 @@ paths:
         schema:
           type: integer
       summary: Delete a message
-      description: Deletes the message specified by the <code>id</code> parameter.
+      description: Deletes the message specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -212,26 +212,6 @@ paths:
         required: true
 components:
   schemas:
-    QueryResultInvalidResponseMessageRest20:
-      title: QueryResultInvalidResponseMessage
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of invalid response message fields.
-          items:
-            $ref: '#/components/schemas/InvalidResponseMessageRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     InvalidResponseMessageRest20:
       title: InvalidResponseMessage
       properties:
@@ -304,3 +284,23 @@ components:
           description: Country codes associated with invalid response message.
           items:
             type: string
+    QueryResultInvalidResponseMessageRest20:
+      title: QueryResultInvalidResponseMessage
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of invalid response message fields.
+          items:
+            $ref: '#/components/schemas/InvalidResponseMessageRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

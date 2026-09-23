@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Lookup tables API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -24,8 +24,8 @@ paths:
         required: false
         schema:
           type: string
-      summary: Retrieve a lookup table.
-      description: Retrieves a single lookup table specified by the <code>id</code> parameter.
+      summary: Retrieve a lookup table
+      description: Retrieves a single lookup table specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -88,7 +88,6 @@ paths:
         schema:
           type: integer
       summary: Search for a Lookup table by Name field
-      description: 'Search for a Lookup table by Name field '
       responses:
         '200':
           description: OK
@@ -139,7 +138,6 @@ paths:
         schema:
           type: string
       summary: Search for Lookup table Entries by Lookup or Replacement field
-      description: Search for Lookup table Entries by Lookup or Replacement field
       responses:
         '200':
           description: OK
@@ -178,7 +176,6 @@ paths:
         schema:
           type: integer
       summary: Delete Lookup Table Entry by ID
-      description: Delete Lookup Table Entry by ID
       responses:
         '200':
           description: OK
@@ -212,7 +209,6 @@ paths:
         schema:
           type: integer
       summary: Update existing Lookup Table Entry
-      description: Update existing Lookup Table Entry
       responses:
         '200':
           description: OK
@@ -252,7 +248,6 @@ paths:
         schema:
           type: integer
       summary: Add lookup table Entry for an existing lookup table
-      description: Add lookup table Entry for an existing lookup table
       responses:
         '201':
           description: Success
@@ -283,25 +278,6 @@ paths:
         required: true
 components:
   schemas:
-    LookupTableEntryRest20:
-      title: LookupTableEntry
-      properties:
-        type:
-          type: string
-          description: The lookup table entry type.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the lookup table entry. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The status of the lookup table entry.
-        key:
-          type: string
-          description: The Key of each lookup table entry.
-        value:
-          type: string
-          description: The Value of each lookup table entry.
     QueryResultLookupTableEntryRest20:
       title: QueryResultLookupTableEntry
       properties:
@@ -322,6 +298,45 @@ components:
         page:
           type: integer
           description: The specified page.
+    QueryResultLookupTableRest20:
+      title: QueryResultLookupTable
+      properties:
+        type:
+          type: string
+          description: The lookup table field's type in Eloqua.
+        elements:
+          type: array
+          description: Array of the lookup table fields.
+          items:
+            $ref: '#/components/schemas/LookupTableRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    LookupTableEntryRest20:
+      title: LookupTableEntry
+      properties:
+        type:
+          type: string
+          description: The lookup table entry type.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the lookup table entry. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The status of the lookup table entry.
+        key:
+          type: string
+          description: The Key of each lookup table entry.
+        value:
+          type: string
+          description: The Value of each lookup table entry.
     LookupTableRest20:
       title: LookupTable
       properties:
@@ -392,23 +407,3 @@ components:
         valuesAreCaseSensitive:
           type: string
           description: While compare lookup field with case sensitive rule or not.
-    QueryResultLookupTableRest20:
-      title: QueryResultLookupTable
-      properties:
-        type:
-          type: string
-          description: The lookup table field's type in Eloqua.
-        elements:
-          type: array
-          description: Array of the lookup table fields.
-          items:
-            $ref: '#/components/schemas/LookupTableRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/1.0/Email groups API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'Email Groups are used to control default settings for similar types of emails. For instance, you can set the default header, footer, subscription landing page, and unsubscribe landing page for a set of email newsletters. Then your contacts can subscribe or unsubscribe at the group level to simplify subscription management. As an administrator, you can add or delete groups as required to control email subscriptions.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=EmailGroups''>Learn more about email groups</a>.'
+    Learn more about email groups.'
 paths:
   /api/rest/1.0/assets/email/group:
     post:
@@ -61,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an email group
-      description: Retrieves the email group specified by the <code>id</code> parameter.
+      description: Retrieves the email group specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -93,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update an email group
-      description: Updates the email group specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the email group specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK.
@@ -132,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete an email group
-      description: Deletes the email group specified by the <code>id</code> parameter.
+      description: Deletes the email group specified by the id parameter.
       responses:
         '200':
           description: OK.

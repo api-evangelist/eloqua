@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Account Activity/1.0/Account API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -215,25 +215,6 @@ paths:
       x-filename-id: api-odata-accountactivity-1-account-accountidbycompanyname-companynamecompanyname-get
 components:
   schemas:
-    Account:
-      type: object
-      properties:
-        accountId:
-          format: int32
-          type: integer
-        accountName:
-          type: string
-        companyId:
-          format: int32
-          type: integer
-        accountSource:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        accountEngagement:
-          $ref: '#/components/schemas/AccountEngagement'
     AccountEngagement:
       type: object
       properties:
@@ -260,3 +241,22 @@ components:
           type: string
         account:
           $ref: '#/components/schemas/Account'
+    Account:
+      type: object
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        accountName:
+          type: string
+        companyId:
+          format: int32
+          type: integer
+        accountSource:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        accountEngagement:
+          $ref: '#/components/schemas/AccountEngagement'

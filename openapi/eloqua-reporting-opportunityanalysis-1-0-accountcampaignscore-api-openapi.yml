@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Opportunity Analysis/1.0/Account Campaign Score API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -12,9 +12,7 @@ paths:
     get:
       tags:
       - Reporting/OpportunityAnalysis/1.0/AccountCampaignScore
-      summary: 'Get all Account Campaign Scores
-
-        This endpoint is only available for Guided Campaign customers.'
+      summary: Get all Account Campaign Scores This endpoint is only available for Guided…
       operationId: AccountCampaignScore_Get
       parameters:
       - name: $select
@@ -88,9 +86,7 @@ paths:
     get:
       tags:
       - Reporting/OpportunityAnalysis/1.0/AccountCampaignScore
-      summary: 'Get a single Account
-
-        This endpoint is only available for Guided Campaign customers.'
+      summary: Get a single Account This endpoint is only available for Guided Campaign…
       operationId: AccountCampaignScore_Get_By_ID
       parameters:
       - name: key
@@ -169,25 +165,6 @@ paths:
       x-filename-id: api-odata-opportunityanalysis-1-accountcampaignscore-key-get
 components:
   schemas:
-    Account:
-      type: object
-      properties:
-        accountId:
-          format: int32
-          type: integer
-        accountName:
-          type: string
-        companyId:
-          format: int32
-          type: integer
-        accountSource:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        accountEngagement:
-          $ref: '#/components/schemas/AccountEngagement'
     AccountEngagement:
       type: object
       properties:
@@ -214,6 +191,25 @@ components:
           type: string
         account:
           $ref: '#/components/schemas/Account'
+    Account:
+      type: object
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        accountName:
+          type: string
+        companyId:
+          format: int32
+          type: integer
+        accountSource:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        accountEngagement:
+          $ref: '#/components/schemas/AccountEngagement'
     AccountCampaignScore:
       type: object
       properties:

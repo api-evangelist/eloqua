@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/External assets API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -9,7 +9,7 @@ tags:
   description: 'External assets are non-Eloqua (that is, offline) activities performed by your contacts or prospects. These assets can be imported for use in Eloqua campaign reporting.
 
 
-    <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ExternalAssets''>Learn more about external assets</a>.'
+    Learn more about external assets.'
 paths:
   /api/rest/2.0/assets/external:
     post:
@@ -63,7 +63,7 @@ paths:
         schema:
           type: string
       summary: Retrieve an external asset
-      description: Retrieves the external asset specified by the <code>id</code> parameter.
+      description: Retrieves the external asset specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -95,7 +95,7 @@ paths:
         schema:
           type: integer
       summary: Update an external asset
-      description: Updates the external asset specified by the <code>id</code> parameter.
+      description: Updates the external asset specified by the id parameter.
       responses:
         '200':
           description: OK.
@@ -136,7 +136,7 @@ paths:
         schema:
           type: integer
       summary: Delete an external asset
-      description: Deletes the external asset specified by the <code>id</code> parameter.
+      description: Deletes the external asset specified by the id parameter.
       responses:
         '200':
           description: OK.

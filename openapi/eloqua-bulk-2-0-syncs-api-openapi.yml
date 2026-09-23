@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Bulk/2.0/syncs API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -432,7 +432,7 @@ paths:
       tags:
       - Bulk/2.0/syncs
       summary: Delete sync data
-      description: Deletes sync data for the sync specified by the <code>id</code> parameter.
+      description: Deletes sync data for the sync specified by the id parameter.
       operationId: DeleteSyncDataQuery
       parameters:
       - name: id
@@ -675,32 +675,31 @@ paths:
       x-filename-id: api-bulk-2.0-syncs-id-rejects-get
 components:
   schemas:
-    SyncLog:
-      title: SyncLog
-      description: The detailed information about the sychronization.
+    SyncReject:
+      title: SyncReject
+      description: The detailed information about the import sychronization data.
       properties:
-        count:
-          title: count
-          description: Number of results returned in the request.
-          type: integer
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
+        fieldValues:
+          title: fieldValues
+          description: The sync's field values.
+          type: object
+        invalidFields:
+          title: invalidFields
+          description: The sync's invalid fields.
+          type: array
+          items:
+            type: string
         message:
           title: message
-          description: The status message.
+          description: The sync's message.
           type: string
-        severity:
-          $ref: '#/components/schemas/SyncResultSeverity'
+        recordIndex:
+          title: recordIndex
+          description: The sync's record index.
+          type: integer
         statusCode:
           title: statusCode
-          description: The Eloqua status code.
-          type: string
-        syncUri:
-          title: syncUri
-          description: The sync's uri address.
+          description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
           type: string
     Sync:
       title: Sync
@@ -739,32 +738,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    SyncReject:
-      title: SyncReject
-      description: The detailed information about the import sychronization data.
-      properties:
-        fieldValues:
-          title: fieldValues
-          description: The sync's field values.
-          type: object
-        invalidFields:
-          title: invalidFields
-          description: The sync's invalid fields.
-          type: array
-          items:
-            type: string
-        message:
-          title: message
-          description: The sync's message.
-          type: string
-        recordIndex:
-          title: recordIndex
-          description: The sync's record index.
-          type: integer
-        statusCode:
-          title: statusCode
-          description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
-          type: string
     SyncResultSeverity:
       title: SyncResultSeverity
       description: The severity of the sync result.
@@ -774,6 +747,33 @@ components:
       - warning
       - error
       type: string
+    SyncLog:
+      title: SyncLog
+      description: The detailed information about the sychronization.
+      properties:
+        count:
+          title: count
+          description: Number of results returned in the request.
+          type: integer
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        message:
+          title: message
+          description: The status message.
+          type: string
+        severity:
+          $ref: '#/components/schemas/SyncResultSeverity'
+        statusCode:
+          title: statusCode
+          description: The Eloqua status code.
+          type: string
+        syncUri:
+          title: syncUri
+          description: The sync's uri address.
+          type: string
     SyncStatusType:
       title: SyncStatusType
       description: The status of the synchronization. This is a read-only property.

@@ -1,12 +1,15 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Programs API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
 tags:
 - name: Application/2.0/Programs
-  description: "Programs API endpoints.\n\t\n<a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#CSHID=ProgramCanvas'>Learn more about Programs</a>."
+  description: 'Programs API endpoints.
+
+
+    Learn more about Programs.'
 paths:
   /api/rest/2.0/assets/program:
     post:
@@ -58,7 +61,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a program
-      description: Retrieves the program specified by the <code>id</code> parameter.
+      description: Retrieves the program specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -90,7 +93,7 @@ paths:
         schema:
           type: integer
       summary: Update a program
-      description: Updates the program specified by the <code>id</code> parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
+      description: Updates the program specified by the id parameter. All properties should be included in PUT requests, as some properties will be considered blank if not included.
       responses:
         '200':
           description: OK
@@ -129,7 +132,7 @@ paths:
         schema:
           type: integer
       summary: Delete a program
-      description: Deletes the program specified by the <code>id</code> parameter.
+      description: Deletes the program specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -170,7 +173,7 @@ paths:
         schema:
           type: integer
       summary: Activate a program
-      description: Activates the program specified by the <code>id</code> parameter.
+      description: Activates the program specified by the id parameter.
       responses:
         '201':
           description: Created
@@ -203,7 +206,7 @@ paths:
         schema:
           type: integer
       summary: Deactivate a program
-      description: Deactivates the program specified by the <code>id</code> parameter.
+      description: Deactivates the program specified by the id parameter.
       responses:
         '201':
           description: Created
@@ -236,7 +239,7 @@ paths:
         schema:
           type: integer
       summary: Pause a program
-      description: Pauses the program specified by the <code>id</code> parameter.
+      description: Pauses the program specified by the id parameter.
       responses:
         '201':
           description: Success
@@ -323,6 +326,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-programs-get
 components:
   schemas:
+    QueryResultProgramRest20:
+      title: QueryResultProgram
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of program fields.
+          items:
+            $ref: '#/components/schemas/ProgramRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     CampaignOutputTerminalRest20:
       title: CampaignOutputTerminal
       properties:
@@ -468,6 +491,18 @@ components:
         memberErrorCount:
           type: string
           description: Amount of members within the campaign element in errored status. This is a read-only property.
+    PositionRest20:
+      title: Position
+      properties:
+        type:
+          type: string
+          description: The campaign element's type. This is a read-only property.
+        x:
+          type: string
+          description: The position of the campaign element on the x axis.
+        y:
+          type: string
+          description: The position of the campaign element on the y axis.
     ProgramRest20:
       title: Program
       properties:
@@ -555,35 +590,3 @@ components:
         defaultEntityId:
           type: string
           description: The id of the custom object data set. Only used for custom object programs.
-    PositionRest20:
-      title: Position
-      properties:
-        type:
-          type: string
-          description: The campaign element's type. This is a read-only property.
-        x:
-          type: string
-          description: The position of the campaign element on the x axis.
-        y:
-          type: string
-          description: The position of the campaign element on the y axis.
-    QueryResultProgramRest20:
-      title: QueryResultProgram
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of program fields.
-          items:
-            $ref: '#/components/schemas/ProgramRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

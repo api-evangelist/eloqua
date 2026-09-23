@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Application/2.0/Users API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -60,7 +60,7 @@ paths:
         schema:
           type: string
       summary: Retrieve a user
-      description: Retrieves the user specified by the <code>id</code> parameter.
+      description: Retrieves the user specified by the id parameter.
       responses:
         '200':
           description: OK
@@ -92,7 +92,7 @@ paths:
         schema:
           type: integer
       summary: Update a user
-      description: Updates the user specified by the <code>id</code> parameter. Users without the "ManageUsers" action permission can only update their own user account.
+      description: Updates the user specified by the id parameter. Users without the "ManageUsers" action permission can only update their own user account.
       responses:
         '200':
           description: OK
@@ -229,7 +229,7 @@ paths:
         schema:
           type: integer
       summary: Enable or disable a user
-      description: Enables or disables the user's account specified by the <code>id</code> parameter. Users without the "ManageUsers" action permission can only enable or disable their own account.
+      description: Enables or disables the user's account specified by the id parameter. Users without the "ManageUsers" action permission can only enable or disable their own account.
       responses:
         '200':
           description: OK
@@ -323,15 +323,6 @@ paths:
       x-filename-id: api-rest-2.0-system-users-get
 components:
   schemas:
-    UserEnabledRest20:
-      title: UserEnabled
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        enabled:
-          type: string
-          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
     QueryResultUserRest20:
       title: QueryResultUser
       properties:
@@ -352,38 +343,6 @@ components:
         page:
           type: integer
           description: The specified page.
-    TypePermissionsRest20:
-      title: TypePermissions
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-    InterfacePermissionRest20:
-      title: InterfacePermission
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        interfaceCode:
-          type: string
-          description: ''
-        nestedInterfacePermissions:
-          type: array
-          description: ''
-          items:
-            $ref: '#/components/schemas/InterfacePermissionRest20'
-        name:
-          type: string
-          description: ''
-    ProductPermissionRest20:
-      title: ProductPermission
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        productCode:
-          type: string
-          description: ''
     TypePermissionRest20:
       title: TypePermission
       properties:
@@ -395,33 +354,6 @@ components:
           description: ''
         permissions:
           $ref: '#/components/schemas/TypePermissionsRest20'
-          description: ''
-    UserPasswordRest20:
-      title: UserPassword
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        password:
-          type: string
-          description: The user's password.
-        mustChangePassword:
-          type: string
-          description: Boolean to determine whether the user must change their password upon logging in.
-    crmUserNamesRest20:
-      title: crmUserNames
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        SFDCUserName:
-          type: string
-          description: ''
-        MSDUserName:
-          type: string
-          description: ''
-        SODUserName:
-          type: string
           description: ''
     UserRest20:
       title: User
@@ -631,15 +563,6 @@ components:
         isAssetManager:
           type: string
           description: User_Field_IsAssetManager_Description
-    UserPreferencesRest20:
-      title: UserPreferences
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        timezoneId:
-          type: string
-          description: The ID of the user's timezone in Eloqua.
     SecurityGroupRest20:
       title: SecurityGroup
       properties:
@@ -693,3 +616,80 @@ components:
           type: string
           readOnly: true
           description: Indicates if the security group is effective.
+    UserPasswordRest20:
+      title: UserPassword
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        password:
+          type: string
+          description: The user's password.
+        mustChangePassword:
+          type: string
+          description: Boolean to determine whether the user must change their password upon logging in.
+    UserEnabledRest20:
+      title: UserEnabled
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        enabled:
+          type: string
+          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
+    UserPreferencesRest20:
+      title: UserPreferences
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        timezoneId:
+          type: string
+          description: The ID of the user's timezone in Eloqua.
+    ProductPermissionRest20:
+      title: ProductPermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        productCode:
+          type: string
+          description: ''
+    TypePermissionsRest20:
+      title: TypePermissions
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+    crmUserNamesRest20:
+      title: crmUserNames
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        SFDCUserName:
+          type: string
+          description: ''
+        MSDUserName:
+          type: string
+          description: ''
+        SODUserName:
+          type: string
+          description: ''
+    InterfacePermissionRest20:
+      title: InterfacePermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        interfaceCode:
+          type: string
+          description: ''
+        nestedInterfacePermissions:
+          type: array
+          description: ''
+          items:
+            $ref: '#/components/schemas/InterfacePermissionRest20'
+        name:
+          type: string
+          description: ''

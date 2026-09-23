@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Campaign Analysis/1.0/Email Asset API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -228,58 +228,6 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-emailasset-key-emailactivities-get
 components:
   schemas:
-    Campaign:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
-          format: int32
-          type: integer
-        lastActivatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
     EmailActivities:
       type: object
       properties:
@@ -360,6 +308,74 @@ components:
           $ref: '#/components/schemas/Calendar'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
+    Segment:
+      type: object
+      properties:
+        segmentId:
+          format: int32
+          type: integer
+        segment:
+          type: string
+        segmentDescription:
+          type: string
+        segmentCreatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     EmailAsset:
       type: object
       properties:
@@ -441,21 +457,5 @@ components:
           format: int32
           type: integer
         calendarDayId:
-          format: date-time
-          type: string
-    Segment:
-      type: object
-      properties:
-        segmentId:
-          format: int32
-          type: integer
-        segment:
-          type: string
-        segmentDescription:
-          type: string
-        segmentCreatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
           format: date-time
           type: string

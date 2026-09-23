@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: REST API for Oracle Eloqua Marketing Cloud Service Reporting/Form Submission/1.0/Campaign API
+  title: REST API for Oracle Eloqua Marketing Cloud Service…
   description: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
   version: 2026.08.07
   x-summary: The Oracle Eloqua Marketing Cloud Service REST APIs enable you to extend the functionality of the product, build Apps, and perform high volume data transfers.
@@ -228,6 +228,75 @@ paths:
       x-filename-id: api-odata-formsubmission-1-campaign-key-formsubmissionactivities-get
 components:
   schemas:
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+    FormSubmissionActivities:
+      type: object
+      properties:
+        fieldsCompletionRate:
+          format: double
+          type: number
+        fieldsIncompleteRate:
+          format: double
+          type: number
+        emailID:
+          format: int32
+          type: integer
+        formID:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        webPageID:
+          format: int32
+          type: integer
+        numberofFields:
+          format: int32
+          type: integer
+        formCompletedFields:
+          format: int32
+          type: integer
+        totalFormsSubmissions:
+          format: int32
+          type: integer
+        formSubmissionDateHour:
+          format: date-time
+          type: string
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        webPage:
+          $ref: '#/components/schemas/WebPage'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        emailAsset:
+          $ref: '#/components/schemas/EmailAsset'
     Campaign:
       type: object
       properties:
@@ -309,69 +378,6 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
-    FormSubmissionActivities:
-      type: object
-      properties:
-        fieldsCompletionRate:
-          format: double
-          type: number
-        fieldsIncompleteRate:
-          format: double
-          type: number
-        emailID:
-          format: int32
-          type: integer
-        formID:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        landingPageID:
-          format: int32
-          type: integer
-        webPageID:
-          format: int32
-          type: integer
-        numberofFields:
-          format: int32
-          type: integer
-        formCompletedFields:
-          format: int32
-          type: integer
-        totalFormsSubmissions:
-          format: int32
-          type: integer
-        formSubmissionDateHour:
-          format: date-time
-          type: string
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-        landingPageAsset:
-          $ref: '#/components/schemas/LandingPageAsset'
-        webPage:
-          $ref: '#/components/schemas/WebPage'
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        emailAsset:
-          $ref: '#/components/schemas/EmailAsset'
-    WebPage:
-      type: object
-      properties:
-        webPageID:
-          format: int32
-          type: integer
-        webPageURL:
-          type: string
-        webPageDisplayName:
-          type: string
-        lastModifiedDate:
-          format: date-time
-          type: string
-        formSubmissionActivities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FormSubmissionActivities'
     Calendar:
       type: object
       properties:
@@ -426,26 +432,20 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    LandingPageAsset:
+    WebPage:
       type: object
       properties:
-        landingPageID:
+        webPageID:
           format: int32
           type: integer
-        landingPageName:
+        webPageURL:
           type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
+        webPageDisplayName:
           type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
+        lastModifiedDate:
           format: date-time
           type: string
+        formSubmissionActivities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormSubmissionActivities'
