@@ -78,75 +78,6 @@ paths:
       x-filename-id: api-odata-formsubmission-1-formsubmissionactivities-get
 components:
   schemas:
-    LandingPageAsset:
-      type: object
-      properties:
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageName:
-          type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
-          type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-    FormSubmissionActivities:
-      type: object
-      properties:
-        fieldsCompletionRate:
-          format: double
-          type: number
-        fieldsIncompleteRate:
-          format: double
-          type: number
-        emailID:
-          format: int32
-          type: integer
-        formID:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        landingPageID:
-          format: int32
-          type: integer
-        webPageID:
-          format: int32
-          type: integer
-        numberofFields:
-          format: int32
-          type: integer
-        formCompletedFields:
-          format: int32
-          type: integer
-        totalFormsSubmissions:
-          format: int32
-          type: integer
-        formSubmissionDateHour:
-          format: date-time
-          type: string
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-        landingPageAsset:
-          $ref: '#/components/schemas/LandingPageAsset'
-        webPage:
-          $ref: '#/components/schemas/WebPage'
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        emailAsset:
-          $ref: '#/components/schemas/EmailAsset'
     Campaign:
       type: object
       properties:
@@ -199,6 +130,75 @@ components:
         budgetedCost:
           format: double
           type: number
+    FormSubmissionActivities:
+      type: object
+      properties:
+        fieldsCompletionRate:
+          format: double
+          type: number
+        fieldsIncompleteRate:
+          format: double
+          type: number
+        emailID:
+          format: int32
+          type: integer
+        formID:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        webPageID:
+          format: int32
+          type: integer
+        numberofFields:
+          format: int32
+          type: integer
+        formCompletedFields:
+          format: int32
+          type: integer
+        totalFormsSubmissions:
+          format: int32
+          type: integer
+        formSubmissionDateHour:
+          format: date-time
+          type: string
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        webPage:
+          $ref: '#/components/schemas/WebPage'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        emailAsset:
+          $ref: '#/components/schemas/EmailAsset'
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
     EmailAsset:
       type: object
       properties:
@@ -228,6 +228,23 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
+    WebPage:
+      type: object
+      properties:
+        webPageID:
+          format: int32
+          type: integer
+        webPageURL:
+          type: string
+        webPageDisplayName:
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        formSubmissionActivities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormSubmissionActivities'
     Calendar:
       type: object
       properties:
@@ -282,20 +299,3 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    WebPage:
-      type: object
-      properties:
-        webPageID:
-          format: int32
-          type: integer
-        webPageURL:
-          type: string
-        webPageDisplayName:
-          type: string
-        lastModifiedDate:
-          format: date-time
-          type: string
-        formSubmissionActivities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FormSubmissionActivities'

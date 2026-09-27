@@ -350,6 +350,73 @@ paths:
       x-filename-id: api-rest-2.0-assets-forms-get
 components:
   schemas:
+    FieldComparisonCriteriaRest20:
+      title: FieldComparisonCriteria
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the field comparison criteria.
+        currentStatus:
+          type: string
+          description: The field comparison criteria's current status.
+        name:
+          type: string
+          description: The name of the field comparison criteria.
+        description:
+          type: string
+          description: The description of the field comparison criteria.
+        permissions:
+          type: array
+          description: The permissions for the field comparison criteria granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the folder. This is a read-only property.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the field comparison criteria.
+        createdByName:
+          type: string
+          description: The name of the user who created the field comparison criteria.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the field comparison criteria was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the field comparison criteria.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the field comparison criteria.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the field comparison criteria was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date and time the field comparison criteria is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fieldId:
+          type: string
+          description: The id of the field comparison criteria.
+        condition:
+          $ref: '#/components/schemas/ConditionRest20'
+          description: The condition of the field comparison criteria.
     FormProcessingStepRest20:
       title: FormProcessingStep
       properties:
@@ -420,140 +487,6 @@ components:
         hasValidationIssue:
           type: string
           description: ProcessingStep_Field_HasValidationIssue_Description
-    FormElementRest20:
-      title: FormElement
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: The ID of the form element. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The form element's current status.
-        name:
-          type: string
-          description: Name of the form element.
-        description:
-          type: string
-          description: The description of the form element.
-        permissions:
-          type: array
-          description: The permissions for the form element granted to your current instance.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The ID of the associated folder.
-        sourceTemplateId:
-          type: string
-          description: The ID of the form element.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login ID of the user who created the form element.
-        createdByName:
-          type: string
-          description: The name of the user who created the form element.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the form element was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login ID of the user that last updated the form element.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the form element.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the form element was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date the form element is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'' target=''_blank''>Request depth</a>.'
-        instructions:
-          type: string
-          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
-        style:
-          type: string
-          description: The asset's main layout style.
-    FieldComparisonCriteriaRest20:
-      title: FieldComparisonCriteria
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the field comparison criteria.
-        currentStatus:
-          type: string
-          description: The field comparison criteria's current status.
-        name:
-          type: string
-          description: The name of the field comparison criteria.
-        description:
-          type: string
-          description: The description of the field comparison criteria.
-        permissions:
-          type: array
-          description: The permissions for the field comparison criteria granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: Id of the folder. This is a read-only property.
-        sourceTemplateId:
-          type: string
-          description: Id of the source template. This is a read-only property.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the field comparison criteria.
-        createdByName:
-          type: string
-          description: The name of the user who created the field comparison criteria.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the field comparison criteria was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the field comparison criteria.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the field comparison criteria.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the field comparison criteria was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date and time the field comparison criteria is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        fieldId:
-          type: string
-          description: The id of the field comparison criteria.
-        condition:
-          $ref: '#/components/schemas/ConditionRest20'
-          description: The condition of the field comparison criteria.
     ArchiveParameterRest20:
       title: ArchiveParameter
       properties:
@@ -575,76 +508,26 @@ components:
         height:
           type: string
           description: The height dimensions of the asset expressed in pixels.
-    FormFieldUpdateMappingRest20:
-      title: FormFieldUpdateMapping
+    ProcessingStepConditionRest20:
+      title: ProcessingStepCondition
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        id:
+        isConditionallyNegated:
           type: string
-          readOnly: true
-          description: Id of the form field update mapping.
-        currentStatus:
-          type: string
-          description: The form field update mapping's current status.
-        name:
-          type: string
-          description: The name of the form field update mapping.
-        description:
-          type: string
-          description: The description of the field comparison criteria.
-        permissions:
+          description: The conditions for which the processing step will execute. If yes, the processing step will execute when the conditions are met. If no, the processing step will execute when the conditions are not met.
+        conditionalFieldCriteria:
           type: array
-          description: The permissions for the form field update mapping granted to your current instance. This is a read-only property.
+          description: The conditional field criteria for the form processing step condition.
           items:
-            type: string
-        folderId:
+            $ref: '#/components/schemas/FieldComparisonCriteriaRest20'
+    ConditionRest20:
+      title: Condition
+      properties:
+        type:
           type: string
-          readOnly: true
-          description: Id of the folder. This is a read-only property.
-        sourceTemplateId:
-          type: string
-          description: Id of the source template. This is a read-only property.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the form field update mapping.
-        createdByName:
-          type: string
-          description: The name of the user who created the form field update mapping.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the form field update mapping was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the form field update mapping.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the form field update mapping.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the form field update mapping was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date and time the form field update mapping is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        sourceFormFieldId:
-          type: string
-          description: 'Id of the source form field. '
-        updateType:
-          type: string
-          description: The update type of the form field update mapping.
-        targetEntityFieldId:
-          type: string
-          description: Id of the target field.
+          description: The asset's type in Eloqua. This is a read-only property.
     FormRest20:
       title: Form
       properties:
@@ -758,12 +641,73 @@ components:
         isFormSpamProtectionEnabled:
           type: string
           description: Indicates whether spam protection is enabled on the form.
-    ConditionRest20:
-      title: Condition
+    FormElementRest20:
+      title: FormElement
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: The ID of the form element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form element's current status.
+        name:
+          type: string
+          description: Name of the form element.
+        description:
+          type: string
+          description: The description of the form element.
+        permissions:
+          type: array
+          description: The permissions for the form element granted to your current instance.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The ID of the associated folder.
+        sourceTemplateId:
+          type: string
+          description: The ID of the form element.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user who created the form element.
+        createdByName:
+          type: string
+          description: The name of the user who created the form element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form element was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login ID of the user that last updated the form element.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form element was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the form element is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'' target=''_blank''>Request depth</a>.'
+        instructions:
+          type: string
+          description: The form element's field instructions. Field instructions are optional instructions that help users fill in fields.
+        style:
+          type: string
+          description: The asset's main layout style.
     QueryResultFormRest20:
       title: QueryResultForm
       properties:
@@ -784,17 +728,73 @@ components:
         page:
           type: integer
           description: The specified page.
-    ProcessingStepConditionRest20:
-      title: ProcessingStepCondition
+    FormFieldUpdateMappingRest20:
+      title: FormFieldUpdateMapping
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        isConditionallyNegated:
+        id:
           type: string
-          description: The conditions for which the processing step will execute. If yes, the processing step will execute when the conditions are met. If no, the processing step will execute when the conditions are not met.
-        conditionalFieldCriteria:
+          readOnly: true
+          description: Id of the form field update mapping.
+        currentStatus:
+          type: string
+          description: The form field update mapping's current status.
+        name:
+          type: string
+          description: The name of the form field update mapping.
+        description:
+          type: string
+          description: The description of the field comparison criteria.
+        permissions:
           type: array
-          description: The conditional field criteria for the form processing step condition.
+          description: The permissions for the form field update mapping granted to your current instance. This is a read-only property.
           items:
-            $ref: '#/components/schemas/FieldComparisonCriteriaRest20'
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the folder. This is a read-only property.
+        sourceTemplateId:
+          type: string
+          description: Id of the source template. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form field update mapping.
+        createdByName:
+          type: string
+          description: The name of the user who created the form field update mapping.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form field update mapping was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form field update mapping.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the form field update mapping.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form field update mapping was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date and time the form field update mapping is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        sourceFormFieldId:
+          type: string
+          description: 'Id of the source form field. '
+        updateType:
+          type: string
+          description: The update type of the form field update mapping.
+        targetEntityFieldId:
+          type: string
+          description: Id of the target field.

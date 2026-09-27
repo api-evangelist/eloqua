@@ -38,21 +38,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    FieldList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkField'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     BulkField:
       type: object
       properties:
@@ -80,6 +65,21 @@ components:
         statement:
           type: string
           description: Eloqua Markup Language (EML) statement for the field (e.g., "{{Contact.Field(C_EmailAddress)}}")
+    FieldList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkField'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
   parameters:
     offset:
       name: offset

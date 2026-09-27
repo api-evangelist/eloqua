@@ -244,6 +244,26 @@ components:
           type: string
           readOnly: true
           description: The id of the field to be set to the corresponding value.
+    QueryResultContactRest10:
+      title: QueryResultContact
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of contact fields.
+          items:
+            $ref: '#/components/schemas/ContactRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     ContactRest10:
       title: Contact
       properties:
@@ -360,23 +380,3 @@ components:
         salesPerson:
           type: string
           description: The contact's account representative.
-    QueryResultContactRest10:
-      title: QueryResultContact
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of contact fields.
-          items:
-            $ref: '#/components/schemas/ContactRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

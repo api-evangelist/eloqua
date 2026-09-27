@@ -178,6 +178,37 @@ paths:
           description: Program not found
 components:
   parameters:
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
     id:
       name: id
       in: path
@@ -193,38 +224,20 @@ components:
         type: integer
         minimum: 1
         maximum: 1000
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    depth:
-      name: depth
-      in: query
-      description: Level of detail returned for the entity
-      schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
+    QueryResultProgram:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Program'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
     Program:
       type: object
       properties:
@@ -283,19 +296,6 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
-    QueryResultProgram:
-      type: object
-      properties:
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Program'
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        total:
-          type: integer
   securitySchemes:
     basicAuth:
       type: http

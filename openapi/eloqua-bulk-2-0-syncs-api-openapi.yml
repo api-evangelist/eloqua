@@ -701,6 +701,26 @@ components:
           title: statusCode
           description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
           type: string
+    SyncResultSeverity:
+      title: SyncResultSeverity
+      description: The severity of the sync result.
+      default: information
+      enum:
+      - information
+      - warning
+      - error
+      type: string
+    SyncStatusType:
+      title: SyncStatusType
+      description: The status of the synchronization. This is a read-only property.
+      default: pending
+      enum:
+      - pending
+      - active
+      - success
+      - warning
+      - error
+      type: string
     Sync:
       title: Sync
       description: The definition of a sychronization. A synchronization is used to move data from the import staging area to the marketing database, or from the marketing database to the export staging area.
@@ -738,15 +758,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    SyncResultSeverity:
-      title: SyncResultSeverity
-      description: The severity of the sync result.
-      default: information
-      enum:
-      - information
-      - warning
-      - error
-      type: string
     SyncLog:
       title: SyncLog
       description: The detailed information about the sychronization.
@@ -774,14 +785,3 @@ components:
           title: syncUri
           description: The sync's uri address.
           type: string
-    SyncStatusType:
-      title: SyncStatusType
-      description: The status of the synchronization. This is a read-only property.
-      default: pending
-      enum:
-      - pending
-      - active
-      - success
-      - warning
-      - error
-      type: string

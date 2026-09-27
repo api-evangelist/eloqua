@@ -228,29 +228,6 @@ paths:
       x-filename-id: api-odata-formsubmission-1-landingpageasset-key-formsubmissionactivities-get
 components:
   schemas:
-    LandingPageAsset:
-      type: object
-      properties:
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageName:
-          type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
-          type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
-          format: date-time
-          type: string
     FormSubmissionActivities:
       type: object
       properties:
@@ -297,87 +274,6 @@ components:
           $ref: '#/components/schemas/Campaign'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
-    Campaign:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
-          format: int32
-          type: integer
-        lastActivatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
-    EmailAsset:
-      type: object
-      properties:
-        emailID:
-          format: int32
-          type: integer
-        emailName:
-          type: string
-        subjectLine:
-          type: string
-        emailGroupID:
-          format: int32
-          type: integer
-        emailGroup:
-          type: string
-        emailGroupDescription:
-          type: string
-        emailGroupIsDeleted:
-          type: boolean
-        isDeleted:
-          type: boolean
-        isArchived:
-          type: boolean
-        emailCreatedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
     Calendar:
       type: object
       properties:
@@ -432,6 +328,58 @@ components:
         calendarDayId:
           format: date-time
           type: string
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     WebPage:
       type: object
       properties:
@@ -449,3 +397,55 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FormSubmissionActivities'
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number

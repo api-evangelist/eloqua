@@ -279,68 +279,7 @@ paths:
         '404':
           description: Instance not found
 components:
-  parameters:
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    count:
-      name: count
-      in: query
-      description: Maximum number of entities to return (1-1000)
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    depth:
-      name: depth
-      in: query
-      description: Level of detail returned for the entity
-      schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
-    FieldValue:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Field identifier
-          readOnly: true
-        type:
-          type: string
-          description: Field type
-          readOnly: true
-        value:
-          type: string
-          description: Field value (dates are returned as Unix timestamps)
     CustomObjectData:
       type: object
       properties:
@@ -373,19 +312,20 @@ components:
           type: string
           description: Last update timestamp (Unix time)
           readOnly: true
-    QueryResultCustomObject:
+    FieldValue:
       type: object
       properties:
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomObject'
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        total:
-          type: integer
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
     CustomObject:
       type: object
       properties:
@@ -437,6 +377,66 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
+    QueryResultCustomObject:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObject'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
   securitySchemes:
     basicAuth:
       type: http

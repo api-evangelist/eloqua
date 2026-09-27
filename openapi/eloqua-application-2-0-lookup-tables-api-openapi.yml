@@ -278,65 +278,6 @@ paths:
         required: true
 components:
   schemas:
-    QueryResultLookupTableEntryRest20:
-      title: QueryResultLookupTableEntry
-      properties:
-        type:
-          type: string
-          description: The lookup table entry field's type in Eloqua.
-        elements:
-          type: array
-          description: Array of the lookup table element fields.
-          items:
-            $ref: '#/components/schemas/LookupTableEntryRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    QueryResultLookupTableRest20:
-      title: QueryResultLookupTable
-      properties:
-        type:
-          type: string
-          description: The lookup table field's type in Eloqua.
-        elements:
-          type: array
-          description: Array of the lookup table fields.
-          items:
-            $ref: '#/components/schemas/LookupTableRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    LookupTableEntryRest20:
-      title: LookupTableEntry
-      properties:
-        type:
-          type: string
-          description: The lookup table entry type.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the lookup table entry. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The status of the lookup table entry.
-        key:
-          type: string
-          description: The Key of each lookup table entry.
-        value:
-          type: string
-          description: The Value of each lookup table entry.
     LookupTableRest20:
       title: LookupTable
       properties:
@@ -407,3 +348,62 @@ components:
         valuesAreCaseSensitive:
           type: string
           description: While compare lookup field with case sensitive rule or not.
+    QueryResultLookupTableRest20:
+      title: QueryResultLookupTable
+      properties:
+        type:
+          type: string
+          description: The lookup table field's type in Eloqua.
+        elements:
+          type: array
+          description: Array of the lookup table fields.
+          items:
+            $ref: '#/components/schemas/LookupTableRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultLookupTableEntryRest20:
+      title: QueryResultLookupTableEntry
+      properties:
+        type:
+          type: string
+          description: The lookup table entry field's type in Eloqua.
+        elements:
+          type: array
+          description: Array of the lookup table element fields.
+          items:
+            $ref: '#/components/schemas/LookupTableEntryRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    LookupTableEntryRest20:
+      title: LookupTableEntry
+      properties:
+        type:
+          type: string
+          description: The lookup table entry type.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the lookup table entry. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The status of the lookup table entry.
+        key:
+          type: string
+          description: The Key of each lookup table entry.
+        value:
+          type: string
+          description: The Value of each lookup table entry.

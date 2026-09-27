@@ -153,6 +153,22 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-formactivities-key-get
 components:
   schemas:
+    Segment:
+      type: object
+      properties:
+        segmentId:
+          format: int32
+          type: integer
+        segment:
+          type: string
+        segmentDescription:
+          type: string
+        segmentCreatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     Campaign:
       type: object
       properties:
@@ -286,19 +302,3 @@ components:
           $ref: '#/components/schemas/Calendar'
         segment:
           $ref: '#/components/schemas/Segment'
-    Segment:
-      type: object
-      properties:
-        segmentId:
-          format: int32
-          type: integer
-        segment:
-          type: string
-        segmentDescription:
-          type: string
-        segmentCreatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string

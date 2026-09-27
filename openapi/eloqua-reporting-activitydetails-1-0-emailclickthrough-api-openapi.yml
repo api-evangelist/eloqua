@@ -153,48 +153,6 @@ paths:
       x-filename-id: api-odata-activitydetails-1-emailclickthrough-key-get
 components:
   schemas:
-    EmailClickthrough:
-      type: object
-      properties:
-        emailClickthroughId:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        accountID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        eloquaLinkedAccountID:
-          format: int32
-          type: integer
-        emailID:
-          format: int32
-          type: integer
-        segmentID:
-          format: int32
-          type: integer
-        sentDateHour:
-          format: date-time
-          type: string
-        baseUrlId:
-          format: int32
-          type: integer
-        clickDateHour:
-          format: date-time
-          type: string
-        firstClick:
-          format: int32
-          type: integer
-        clickThroughLink:
-          type: string
-        clickthroughQueryStringValue:
-          type: string
-        contact:
-          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -256,3 +214,45 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    EmailClickthrough:
+      type: object
+      properties:
+        emailClickthroughId:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        baseUrlId:
+          format: int32
+          type: integer
+        clickDateHour:
+          format: date-time
+          type: string
+        firstClick:
+          format: int32
+          type: integer
+        clickThroughLink:
+          type: string
+        clickthroughQueryStringValue:
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'

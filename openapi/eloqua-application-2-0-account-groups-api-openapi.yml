@@ -215,6 +215,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-account-groups-get
 components:
   schemas:
+    QueryResultAccountGroupRest20:
+      title: QueryResultAccountGroup
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of account group fields.
+          items:
+            $ref: '#/components/schemas/AccountGroupRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     AccountGroupRest20:
       title: AccountGroup
       properties:
@@ -282,23 +302,3 @@ components:
         isArchived:
           type: string
           description: The account group is archived or not. This is a read-only property.
-    QueryResultAccountGroupRest20:
-      title: QueryResultAccountGroup
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of account group fields.
-          items:
-            $ref: '#/components/schemas/AccountGroupRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

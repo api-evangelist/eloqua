@@ -78,22 +78,6 @@ paths:
       x-filename-id: api-odata-activitydetails-1-emailgroupsubscriptionstatus-get
 components:
   schemas:
-    EmailGroupSubscriptionStatus:
-      type: object
-      properties:
-        emailGroupID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        isSubscribed:
-          type: boolean
-        contact:
-          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -155,3 +139,19 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    EmailGroupSubscriptionStatus:
+      type: object
+      properties:
+        emailGroupID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        isSubscribed:
+          type: boolean
+        contact:
+          $ref: '#/components/schemas/Contact'

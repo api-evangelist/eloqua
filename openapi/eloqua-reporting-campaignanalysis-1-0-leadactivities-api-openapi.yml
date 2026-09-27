@@ -78,26 +78,6 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-leadactivities-get
 components:
   schemas:
-    LeadActivities:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        leadResponseDateHour:
-          format: date-time
-          type: string
-        newContacts:
-          format: int32
-          type: integer
-        newLeads:
-          format: int32
-          type: integer
-        totalResponses:
-          format: int32
-          type: integer
-        campaign:
-          $ref: '#/components/schemas/Campaign'
     Campaign:
       type: object
       properties:
@@ -150,3 +130,23 @@ components:
         budgetedCost:
           format: double
           type: number
+    LeadActivities:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        leadResponseDateHour:
+          format: date-time
+          type: string
+        newContacts:
+          format: int32
+          type: integer
+        newLeads:
+          format: int32
+          type: integer
+        totalResponses:
+          format: int32
+          type: integer
+        campaign:
+          $ref: '#/components/schemas/Campaign'

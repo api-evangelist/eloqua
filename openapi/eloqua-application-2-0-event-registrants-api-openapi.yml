@@ -240,42 +240,6 @@ paths:
       x-filename-id: api-rest-2.0-data-eventregistration-parentid-instances-get
 components:
   schemas:
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
-    QueryResultEventRegistrationDataRest20:
-      title: QueryResultEventRegistrationData
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. '
-        elements:
-          type: array
-          description: Array of event field elements.
-          items:
-            $ref: '#/components/schemas/EventRegistrationDataRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     EventRegistrationDataRest20:
       title: EventRegistrationData
       properties:
@@ -357,3 +321,39 @@ components:
         isMapped:
           type: string
           description: Whether or not the event registrant is mapped to a contact or account. This is a read-only property.
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    QueryResultEventRegistrationDataRest20:
+      title: QueryResultEventRegistrationData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of event field elements.
+          items:
+            $ref: '#/components/schemas/EventRegistrationDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

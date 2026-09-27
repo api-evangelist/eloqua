@@ -68,31 +68,7 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
   schemas:
-    SyncAction:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - add
-          - remove
-          - setStatus
-          description: The action to perform
-        destination:
-          type: string
-          description: The destination for the action (e.g., a contact list URI or subscription status)
-        status:
-          type: string
-          description: The status to set (when action is setStatus)
     ImportDefinition:
       type: object
       required:
@@ -152,6 +128,30 @@ components:
           type: string
           description: Status of the import definition
           readOnly: true
+    SyncAction:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - add
+          - remove
+          - setStatus
+          description: The action to perform
+        destination:
+          type: string
+          description: The destination for the action (e.g., a contact list URI or subscription status)
+        status:
+          type: string
+          description: The status to set (when action is setStatus)
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

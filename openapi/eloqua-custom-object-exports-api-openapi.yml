@@ -105,6 +105,13 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    parentId:
+      name: parentId
+      in: path
+      required: true
+      description: The parent custom object identifier
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -114,13 +121,6 @@ components:
         minimum: 1
         maximum: 50000
         default: 1000
-    parentId:
-      name: parentId
-      in: path
-      required: true
-      description: The parent custom object identifier
-      schema:
-        type: string
     offset:
       name: offset
       in: query

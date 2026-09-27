@@ -156,15 +156,6 @@ paths:
       x-filename-id: api-bulk-2.0-exports-get
 components:
   schemas:
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
     MemberStatus:
       title: MemberStatus
       description: The status of members.
@@ -259,6 +250,15 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
     SyncAction:
       title: SyncAction
       description: The definition of the action to take at time of syncronization.

@@ -153,6 +153,44 @@ paths:
       x-filename-id: api-odata-activitydetails-1-emailautoopen-key-get
 components:
   schemas:
+    EmailAutoOpen:
+      type: object
+      properties:
+        emailAutoOpenID:
+          format: int64
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        firstOpen:
+          format: int32
+          type: integer
+        openDateHour:
+          format: date-time
+          type: string
+        deviceInfoId:
+          format: int32
+          type: integer
+        contact:
+          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -214,41 +252,3 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
-    EmailAutoOpen:
-      type: object
-      properties:
-        emailAutoOpenID:
-          format: int64
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        accountID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        eloquaLinkedAccountID:
-          format: int32
-          type: integer
-        emailID:
-          format: int32
-          type: integer
-        segmentID:
-          format: int32
-          type: integer
-        sentDateHour:
-          format: date-time
-          type: string
-        firstOpen:
-          format: int32
-          type: integer
-        openDateHour:
-          format: date-time
-          type: string
-        deviceInfoId:
-          format: int32
-          type: integer
-        contact:
-          $ref: '#/components/schemas/Contact'

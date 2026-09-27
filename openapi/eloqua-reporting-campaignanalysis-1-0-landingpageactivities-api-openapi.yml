@@ -153,6 +153,60 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-landingpageactivities-key-get
 components:
   schemas:
+    Calendar:
+      type: object
+      properties:
+        dateHour:
+          format: date-time
+          type: string
+        calendarYear:
+          format: int32
+          type: integer
+        calendarYearDesc:
+          type: string
+        calendarQtr:
+          format: int32
+          type: integer
+        calendarQtrDesc:
+          type: string
+        calendarMonth:
+          format: int32
+          type: integer
+        calendarMonthDesc:
+          type: string
+        calendarWeek:
+          format: int32
+          type: integer
+        calendarWeekDesc:
+          type: string
+        dayOfYearNum:
+          format: int32
+          type: integer
+        dayOfWeekNum:
+          format: int32
+          type: integer
+        dayOfWeekDesc:
+          type: string
+        dayOfMonthNum:
+          format: int32
+          type: integer
+        displayDayOfWeek:
+          type: string
+        hourOfDayNum:
+          format: int32
+          type: integer
+        calendarMonthId:
+          format: int32
+          type: integer
+        calendarQtrId:
+          format: int32
+          type: integer
+        calendarWeekId:
+          format: int32
+          type: integer
+        calendarDayId:
+          format: date-time
+          type: string
     Campaign:
       type: object
       properties:
@@ -235,60 +289,6 @@ components:
           $ref: '#/components/schemas/Campaign'
         calendar:
           $ref: '#/components/schemas/Calendar'
-    Calendar:
-      type: object
-      properties:
-        dateHour:
-          format: date-time
-          type: string
-        calendarYear:
-          format: int32
-          type: integer
-        calendarYearDesc:
-          type: string
-        calendarQtr:
-          format: int32
-          type: integer
-        calendarQtrDesc:
-          type: string
-        calendarMonth:
-          format: int32
-          type: integer
-        calendarMonthDesc:
-          type: string
-        calendarWeek:
-          format: int32
-          type: integer
-        calendarWeekDesc:
-          type: string
-        dayOfYearNum:
-          format: int32
-          type: integer
-        dayOfWeekNum:
-          format: int32
-          type: integer
-        dayOfWeekDesc:
-          type: string
-        dayOfMonthNum:
-          format: int32
-          type: integer
-        displayDayOfWeek:
-          type: string
-        hourOfDayNum:
-          format: int32
-          type: integer
-        calendarMonthId:
-          format: int32
-          type: integer
-        calendarQtrId:
-          format: int32
-          type: integer
-        calendarWeekId:
-          format: int32
-          type: integer
-        calendarDayId:
-          format: date-time
-          type: string
     LandingPageAsset:
       type: object
       properties:

@@ -237,58 +237,6 @@ paths:
       x-filename-id: api-rest-1.0-data-accounts-get
 components:
   schemas:
-    FieldValueRest10:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-    CrmSystemMappingRest10:
-      title: CrmSystemMapping
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        currentStatus:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        permissions:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdAt:
-          type: string
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          readOnly: true
-        depth:
-          type: string
-          readOnly: true
-        loginName:
-          type: string
-        MSDUserName:
-          type: string
-        SFDCUserName:
-          type: string
-        SODUserName:
-          type: string
     AccountRest10:
       title: Account
       properties:
@@ -371,6 +319,45 @@ components:
             This property is also only returned when the request depth is <code>complete</code>.'
           items:
             $ref: '#/components/schemas/CrmSystemMappingRest10'
+    CrmSystemMappingRest10:
+      title: CrmSystemMapping
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        loginName:
+          type: string
+        MSDUserName:
+          type: string
+        SFDCUserName:
+          type: string
+        SODUserName:
+          type: string
     QueryResultAccountRest10:
       title: QueryResultAccount
       properties:
@@ -391,3 +378,16 @@ components:
         page:
           type: integer
           description: The specified page.
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.

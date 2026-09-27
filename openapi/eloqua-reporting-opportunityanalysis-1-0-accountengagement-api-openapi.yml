@@ -153,25 +153,6 @@ paths:
       x-filename-id: api-odata-opportunityanalysis-1-accountengagement-key-get
 components:
   schemas:
-    Account:
-      type: object
-      properties:
-        accountId:
-          format: int32
-          type: integer
-        accountName:
-          type: string
-        companyId:
-          format: int32
-          type: integer
-        accountSource:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        accountEngagement:
-          $ref: '#/components/schemas/AccountEngagement'
     AccountEngagement:
       type: object
       properties:
@@ -198,3 +179,22 @@ components:
           type: string
         account:
           $ref: '#/components/schemas/Account'
+    Account:
+      type: object
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        accountName:
+          type: string
+        companyId:
+          format: int32
+          type: integer
+        accountSource:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        accountEngagement:
+          $ref: '#/components/schemas/AccountEngagement'

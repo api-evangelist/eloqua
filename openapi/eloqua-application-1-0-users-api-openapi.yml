@@ -156,15 +156,6 @@ paths:
       x-filename-id: api-rest-1.0-system-users-get
 components:
   schemas:
-    UserPreferencesRest10:
-      title: UserPreferences
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        timezoneId:
-          type: string
-          description: The ID of the user's timezone in Eloqua. This is a read-only property.
     UserRest10:
       title: User
       properties:
@@ -225,6 +216,15 @@ components:
         defaultAccountViewId:
           type: string
           description: The user's default account view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
+    UserPreferencesRest10:
+      title: UserPreferences
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        timezoneId:
+          type: string
+          description: The ID of the user's timezone in Eloqua. This is a read-only property.
     QueryResultUserRest10:
       title: QueryResultUser
       properties:

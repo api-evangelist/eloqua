@@ -215,6 +215,104 @@ paths:
       x-filename-id: api-rest-2.0-assets-customobjects-get
 components:
   schemas:
+    CustomObjectRest20:
+      title: CustomObject
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the custom object.
+        currentStatus:
+          type: string
+          description: This property is not used for custom objects.
+        name:
+          type: string
+          description: The name of the custom object.
+        description:
+          type: string
+          description: The description of the custom object.
+        permissions:
+          type: array
+          description: The permissions for the custom object granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for custom objects.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for custom objects.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the custom object.
+        createdByName:
+          type: string
+          description: The name of the user who created the custom object.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the custom object was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the custom object.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the custom object.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the custom object was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for custom objects.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fields:
+          type: array
+          description: Array consisting of custom object field properties.
+          items:
+            $ref: '#/components/schemas/CustomObjectFieldRest20'
+        emailAddressFieldId:
+          type: string
+          description: For your custom object record to have an email address field, you must create a custom object field which will act as an email address. You can then use the desired custom object field's id as the value for this parameter.
+        displayNameFieldId:
+          type: string
+          description: For your custom object record to have a meaningful name field, you must create a custom object field which will act as a name. You can then use the desired custom object field's id as the value for this parameter.
+        uniqueCodeFieldId:
+          type: string
+          description: For your custom object record to have a unique identifier, you must create a <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/RESTAPI/2.0%20Endpoints/Custom%20objects/Custom-object-fields.htm'>custom object field</a> which will act as a GUID. You can then use the desired custom object field's id as the value for this parameter.
+        deleteLinkedCustomObjectData:
+          type: string
+          description: Whether or not custom object records are deleted when linked contact records are deleted. Does not apply to records that are unmapped or account deletion. Deleting records is irreversible and data cannot be recovered. The default value is <code>false</code>. This feature is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/epmos/faces/MosIndex.jspx'>My Oracle Support</a>.
+    QueryResultCustomObjectRest20:
+      title: QueryResultCustomObject
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of custom object fields.
+          items:
+            $ref: '#/components/schemas/CustomObjectRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     CustomObjectFieldRest20:
       title: CustomObjectField
       properties:
@@ -297,101 +395,3 @@ components:
         uncheckedValue:
           type: string
           description: The unchecked value of a checkbox custom object field.
-    QueryResultCustomObjectRest20:
-      title: QueryResultCustomObject
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of custom object fields.
-          items:
-            $ref: '#/components/schemas/CustomObjectRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    CustomObjectRest20:
-      title: CustomObject
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the custom object.
-        currentStatus:
-          type: string
-          description: This property is not used for custom objects.
-        name:
-          type: string
-          description: The name of the custom object.
-        description:
-          type: string
-          description: The description of the custom object.
-        permissions:
-          type: array
-          description: The permissions for the custom object granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: This property is not used for custom objects.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for custom objects.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the custom object.
-        createdByName:
-          type: string
-          description: The name of the user who created the custom object.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the custom object was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the custom object.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the custom object.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the custom object was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for custom objects.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        fields:
-          type: array
-          description: Array consisting of custom object field properties.
-          items:
-            $ref: '#/components/schemas/CustomObjectFieldRest20'
-        emailAddressFieldId:
-          type: string
-          description: For your custom object record to have an email address field, you must create a custom object field which will act as an email address. You can then use the desired custom object field's id as the value for this parameter.
-        displayNameFieldId:
-          type: string
-          description: For your custom object record to have a meaningful name field, you must create a custom object field which will act as a name. You can then use the desired custom object field's id as the value for this parameter.
-        uniqueCodeFieldId:
-          type: string
-          description: For your custom object record to have a unique identifier, you must create a <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/RESTAPI/2.0%20Endpoints/Custom%20objects/Custom-object-fields.htm'>custom object field</a> which will act as a GUID. You can then use the desired custom object field's id as the value for this parameter.
-        deleteLinkedCustomObjectData:
-          type: string
-          description: Whether or not custom object records are deleted when linked contact records are deleted. Does not apply to records that are unmapped or account deletion. Deleting records is irreversible and data cannot be recovered. The default value is <code>false</code>. This feature is released under our Controlled Availability program. You can request access to this feature by submitting a request to <a href='https://support.oracle.com/epmos/faces/MosIndex.jspx'>My Oracle Support</a>.

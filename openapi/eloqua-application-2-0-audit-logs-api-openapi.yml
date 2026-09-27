@@ -39,6 +39,9 @@ paths:
         required: true
 components:
   schemas:
+    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
+      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+      properties: {}
     AuditLogReportRequestRest20:
       title: AuditLogReportRequest
       properties:
@@ -75,6 +78,3 @@ components:
         userId:
           $ref: '#/components/schemas/System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20'
           description: AuditLogReportRequest_Field_UserId_Description
-    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
-      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-      properties: {}

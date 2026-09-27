@@ -286,26 +286,27 @@ paths:
         required: true
 components:
   schemas:
-    QueryResultSecurityGroupUserRest20:
-      title: QueryResultSecurityGroupUser
+    SecurityGroupUserRest20:
+      title: SecurityGroupUser
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of security group user data.
-          items:
-            $ref: '#/components/schemas/SecurityGroupUserRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+          description: The asset's type in Eloqua. This is a read-only property.
+        patchMethod:
+          type: string
+          description: The patch method to perform
+        user:
+          $ref: '#/components/schemas/UserRest20'
+          description: User object
+    ProductPermissionRest20:
+      title: ProductPermission
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        productCode:
+          type: string
+          description: ''
     TypePermissionRest20:
       title: TypePermission
       properties:
@@ -526,6 +527,32 @@ components:
         isAssetManager:
           type: string
           description: User_Field_IsAssetManager_Description
+    TypePermissionsRest20:
+      title: TypePermissions
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+    QueryResultSecurityGroupRest20:
+      title: QueryResultSecurityGroup
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of security group fields.
+          items:
+            $ref: '#/components/schemas/SecurityGroupRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     SecurityGroupRest20:
       title: SecurityGroup
       properties:
@@ -579,6 +606,26 @@ components:
           type: string
           readOnly: true
           description: Indicates if the security group is effective.
+    QueryResultSecurityGroupUserRest20:
+      title: QueryResultSecurityGroupUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of security group user data.
+          items:
+            $ref: '#/components/schemas/SecurityGroupUserRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     UserPreferencesRest20:
       title: UserPreferences
       properties:
@@ -588,48 +635,6 @@ components:
         timezoneId:
           type: string
           description: The ID of the user's timezone in Eloqua.
-    ProductPermissionRest20:
-      title: ProductPermission
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        productCode:
-          type: string
-          description: ''
-    TypePermissionsRest20:
-      title: TypePermissions
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-    SecurityGroupUserRest20:
-      title: SecurityGroupUser
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        patchMethod:
-          type: string
-          description: The patch method to perform
-        user:
-          $ref: '#/components/schemas/UserRest20'
-          description: User object
-    crmUserNamesRest20:
-      title: crmUserNames
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        SFDCUserName:
-          type: string
-          description: ''
-        MSDUserName:
-          type: string
-          description: ''
-        SODUserName:
-          type: string
-          description: ''
     InterfacePermissionRest20:
       title: InterfacePermission
       properties:
@@ -647,23 +652,18 @@ components:
         name:
           type: string
           description: ''
-    QueryResultSecurityGroupRest20:
-      title: QueryResultSecurityGroup
+    crmUserNamesRest20:
+      title: crmUserNames
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of security group fields.
-          items:
-            $ref: '#/components/schemas/SecurityGroupRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+          description: The asset's type in Eloqua. This is a read-only property.
+        SFDCUserName:
+          type: string
+          description: ''
+        MSDUserName:
+          type: string
+          description: ''
+        SODUserName:
+          type: string
+          description: ''

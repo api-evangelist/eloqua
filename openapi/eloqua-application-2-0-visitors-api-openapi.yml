@@ -108,24 +108,6 @@ paths:
         required: true
 components:
   schemas:
-    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
-      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
-      properties:
-        type:
-          type: string
-          description: The visitor's type in Eloqua.
-        visitorId:
-          type: string
-          description: The Id of the visitor profile.
-        createdAt:
-          type: string
-          description: The date and time the visitor was created, expressed in Unix time.
-        contactId:
-          type: string
-          description: The contact record Id associated to this profile, if any.
-        id:
-          type: integer
-          description: The id of the visitor.
     QueryResultVisitorViewDataRest20:
       title: QueryResultVisitorViewData
       properties:
@@ -161,3 +143,21 @@ components:
           description: The external ids to retrieve. Maximum of 200 external ids per request. If the array exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
           items:
             type: string
+    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
+      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
+      properties:
+        type:
+          type: string
+          description: The visitor's type in Eloqua.
+        visitorId:
+          type: string
+          description: The Id of the visitor profile.
+        createdAt:
+          type: string
+          description: The date and time the visitor was created, expressed in Unix time.
+        contactId:
+          type: string
+          description: The contact record Id associated to this profile, if any.
+        id:
+          type: integer
+          description: The id of the visitor.

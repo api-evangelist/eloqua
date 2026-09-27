@@ -323,26 +323,15 @@ paths:
       x-filename-id: api-rest-2.0-system-users-get
 components:
   schemas:
-    QueryResultUserRest20:
-      title: QueryResultUser
+    ProductPermissionRest20:
+      title: ProductPermission
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of user fields.
-          items:
-            $ref: '#/components/schemas/UserRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+          description: The asset's type in Eloqua. This is a read-only property.
+        productCode:
+          type: string
+          description: ''
     TypePermissionRest20:
       title: TypePermission
       properties:
@@ -563,6 +552,12 @@ components:
         isAssetManager:
           type: string
           description: User_Field_IsAssetManager_Description
+    TypePermissionsRest20:
+      title: TypePermissions
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
     SecurityGroupRest20:
       title: SecurityGroup
       properties:
@@ -628,15 +623,6 @@ components:
         mustChangePassword:
           type: string
           description: Boolean to determine whether the user must change their password upon logging in.
-    UserEnabledRest20:
-      title: UserEnabled
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        enabled:
-          type: string
-          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
     UserPreferencesRest20:
       title: UserPreferences
       properties:
@@ -646,36 +632,15 @@ components:
         timezoneId:
           type: string
           description: The ID of the user's timezone in Eloqua.
-    ProductPermissionRest20:
-      title: ProductPermission
+    UserEnabledRest20:
+      title: UserEnabled
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        productCode:
+        enabled:
           type: string
-          description: ''
-    TypePermissionsRest20:
-      title: TypePermissions
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-    crmUserNamesRest20:
-      title: crmUserNames
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        SFDCUserName:
-          type: string
-          description: ''
-        MSDUserName:
-          type: string
-          description: ''
-        SODUserName:
-          type: string
-          description: ''
+          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
     InterfacePermissionRest20:
       title: InterfacePermission
       properties:
@@ -693,3 +658,38 @@ components:
         name:
           type: string
           description: ''
+    crmUserNamesRest20:
+      title: crmUserNames
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        SFDCUserName:
+          type: string
+          description: ''
+        MSDUserName:
+          type: string
+          description: ''
+        SODUserName:
+          type: string
+          description: ''
+    QueryResultUserRest20:
+      title: QueryResultUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of user fields.
+          items:
+            $ref: '#/components/schemas/UserRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

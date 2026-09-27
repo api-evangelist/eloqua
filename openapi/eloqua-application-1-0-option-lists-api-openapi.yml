@@ -215,18 +215,6 @@ paths:
         required: true
 components:
   schemas:
-    OptionRest10:
-      title: Option
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property. This asset is an "Option".
-        displayName:
-          type: string
-          description: The display name for the option that is displayed within the option list.
-        value:
-          type: string
-          description: The option's internal value. This value is not displayed externally.
     OptionListRest10:
       title: OptionList
       properties:
@@ -294,3 +282,15 @@ components:
         page:
           type: integer
           description: The specified page.
+    OptionRest10:
+      title: Option
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property. This asset is an "Option".
+        displayName:
+          type: string
+          description: The display name for the option that is displayed within the option list.
+        value:
+          type: string
+          description: The option's internal value. This value is not displayed externally.

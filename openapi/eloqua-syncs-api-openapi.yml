@@ -162,38 +162,37 @@ paths:
         '404':
           description: Sync not found
 components:
-  parameters:
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
   schemas:
+    SyncLogList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncLog'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    SyncList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sync'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
     Sync:
       type: object
       required:
@@ -235,39 +234,6 @@ components:
           type: string
           description: User who created the sync
           readOnly: true
-    SyncLogList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SyncLog'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
-    BulkDataResult:
-      type: object
-      properties:
-        items:
-          type: array
-          description: Array of data records
-          items:
-            type: object
-            additionalProperties:
-              type: string
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     SyncLog:
       type: object
       properties:
@@ -288,13 +254,16 @@ components:
           type: string
           format: date-time
           description: Log entry timestamp
-    SyncList:
+    BulkDataResult:
       type: object
       properties:
         items:
           type: array
+          description: Array of data records
           items:
-            $ref: '#/components/schemas/Sync'
+            type: object
+            additionalProperties:
+              type: string
         totalResults:
           type: integer
         limit:
@@ -303,6 +272,37 @@ components:
           type: integer
         hasMore:
           type: boolean
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

@@ -153,6 +153,26 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-marketingactivities-key-get
 components:
   schemas:
+    MarketingActivities:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        totalOutboundActivities:
+          format: int32
+          type: integer
+        totalInboundActivities:
+          format: int32
+          type: integer
+        campaignMembers:
+          format: int32
+          type: integer
+        dateHourKey:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
     Campaign:
       type: object
       properties:
@@ -205,23 +225,3 @@ components:
         budgetedCost:
           format: double
           type: number
-    MarketingActivities:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        totalOutboundActivities:
-          format: int32
-          type: integer
-        totalInboundActivities:
-          format: int32
-          type: integer
-        campaignMembers:
-          format: int32
-          type: integer
-        dateHourKey:
-          format: date-time
-          type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'

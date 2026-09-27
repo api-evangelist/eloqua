@@ -289,6 +289,26 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    OpportunityRevenue:
+      type: object
+      properties:
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        opportunityID:
+          format: int32
+          type: integer
+        attributedRevenue:
+          format: double
+          type: number
+        influencedRevenue:
+          format: double
+          type: number
+        lastModifiedDate:
+          format: date-time
+          type: string
+        opportunity:
+          $ref: '#/components/schemas/Opportunity'
     Opportunity:
       type: object
       properties:
@@ -326,23 +346,3 @@ components:
             $ref: '#/components/schemas/OpportunityRevenue'
         contact:
           $ref: '#/components/schemas/Contact'
-    OpportunityRevenue:
-      type: object
-      properties:
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        opportunityID:
-          format: int32
-          type: integer
-        attributedRevenue:
-          format: double
-          type: number
-        influencedRevenue:
-          format: double
-          type: number
-        lastModifiedDate:
-          format: date-time
-          type: string
-        opportunity:
-          $ref: '#/components/schemas/Opportunity'

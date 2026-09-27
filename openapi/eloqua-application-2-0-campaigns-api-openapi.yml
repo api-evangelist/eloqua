@@ -336,105 +336,18 @@ paths:
       x-filename-id: api-rest-2.0-assets-campaigns-get
 components:
   schemas:
-    ExternalCampaignMappingRest20:
-      title: ExternalCampaignMapping
+    PositionRest20:
+      title: Position
       properties:
         type:
           type: string
-        externalSystemId:
-          type: integer
-        value:
+          description: The campaign element's type. This is a read-only property.
+        x:
           type: string
-    QueryResultCampaignRest20:
-      title: QueryResultCampaign
-      properties:
-        type:
+          description: The position of the campaign element on the x axis.
+        y:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of campaign fields.
-          items:
-            $ref: '#/components/schemas/CampaignRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    CampaignOutputTerminalRest20:
-      title: CampaignOutputTerminal
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the campaign output terminal. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The campaign output terminal's current status.
-        name:
-          type: string
-          description: Name of the campaign output terminal.
-        description:
-          type: string
-          description: The description of the campaign output terminal.
-        permissions:
-          type: array
-          description: The permissions for the campaign output terminal granted to your current instance.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: Id of the associated folder.
-        sourceTemplateId:
-          type: string
-          description: The id of the source template.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the campaign output terminal.
-        createdByName:
-          type: string
-          description: The name of the user who created the campaign output terminal.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the campaign output terminal was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the campaign output terminal.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the campaign output terminal.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the campaign output terminal was last updated. This is a read-only property.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date the campaign output terminal is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        terminalType:
-          type: string
-          description: The campaign output terminal type. This is a read-only property.
-        connectedType:
-          type: string
-          description: The campaign output terminal's connection type. This is a read-only property.
-        connectedId:
-          type: string
-          description: The connected id of the campaign output terminal. This is a read-only property.
+          description: The position of the campaign element on the y axis.
     CampaignElementRest20:
       title: CampaignElement
       properties:
@@ -510,6 +423,101 @@ components:
         memberErrorCount:
           type: string
           description: Amount of members within the campaign element in errored status. This is a read-only property.
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    CampaignOutputTerminalRest20:
+      title: CampaignOutputTerminal
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the campaign output terminal. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The campaign output terminal's current status.
+        name:
+          type: string
+          description: Name of the campaign output terminal.
+        description:
+          type: string
+          description: The description of the campaign output terminal.
+        permissions:
+          type: array
+          description: The permissions for the campaign output terminal granted to your current instance.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the associated folder.
+        sourceTemplateId:
+          type: string
+          description: The id of the source template.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the campaign output terminal.
+        createdByName:
+          type: string
+          description: The name of the user who created the campaign output terminal.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the campaign output terminal was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the campaign output terminal.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the campaign output terminal.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the campaign output terminal was last updated. This is a read-only property.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the campaign output terminal is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        terminalType:
+          type: string
+          description: The campaign output terminal type. This is a read-only property.
+        connectedType:
+          type: string
+          description: The campaign output terminal's connection type. This is a read-only property.
+        connectedId:
+          type: string
+          description: The connected id of the campaign output terminal. This is a read-only property.
+    ExternalCampaignMappingRest20:
+      title: ExternalCampaignMapping
+      properties:
+        type:
+          type: string
+        externalSystemId:
+          type: integer
+        value:
+          type: string
     CampaignRest20:
       title: Campaign
       properties:
@@ -663,31 +671,23 @@ components:
         isUpdatingCrmId:
           type: string
           description: Campaign_Field_IsUpdatingCrmId_Description
-    PositionRest20:
-      title: Position
+    QueryResultCampaignRest20:
+      title: QueryResultCampaign
       properties:
         type:
           type: string
-          description: The campaign element's type. This is a read-only property.
-        x:
-          type: string
-          description: The position of the campaign element on the x axis.
-        y:
-          type: string
-          description: The position of the campaign element on the y axis.
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of campaign fields.
+          items:
+            $ref: '#/components/schemas/CampaignRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

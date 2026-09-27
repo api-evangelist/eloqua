@@ -378,6 +378,22 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-user-key-emailassets-get
 components:
   schemas:
+    Segment:
+      type: object
+      properties:
+        segmentId:
+          format: int32
+          type: integer
+        segment:
+          type: string
+        segmentDescription:
+          type: string
+        segmentCreatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     EmailAsset:
       type: object
       properties:
@@ -474,19 +490,3 @@ components:
           type: string
         isDeleted:
           type: boolean
-    Segment:
-      type: object
-      properties:
-        segmentId:
-          format: int32
-          type: integer
-        segment:
-          type: string
-        segmentDescription:
-          type: string
-        segmentCreatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
