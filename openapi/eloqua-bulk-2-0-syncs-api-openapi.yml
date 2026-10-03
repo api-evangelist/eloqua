@@ -675,41 +675,33 @@ paths:
       x-filename-id: api-bulk-2.0-syncs-id-rejects-get
 components:
   schemas:
-    SyncReject:
-      title: SyncReject
-      description: The detailed information about the import sychronization data.
+    SyncLog:
+      title: SyncLog
+      description: The detailed information about the sychronization.
       properties:
-        fieldValues:
-          title: fieldValues
-          description: The sync's field values.
-          type: object
-        invalidFields:
-          title: invalidFields
-          description: The sync's invalid fields.
-          type: array
-          items:
-            type: string
+        count:
+          title: count
+          description: Number of results returned in the request.
+          type: integer
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
         message:
           title: message
-          description: The sync's message.
+          description: The status message.
           type: string
-        recordIndex:
-          title: recordIndex
-          description: The sync's record index.
-          type: integer
+        severity:
+          $ref: '#/components/schemas/SyncResultSeverity'
         statusCode:
           title: statusCode
-          description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
+          description: The Eloqua status code.
           type: string
-    SyncResultSeverity:
-      title: SyncResultSeverity
-      description: The severity of the sync result.
-      default: information
-      enum:
-      - information
-      - warning
-      - error
-      type: string
+        syncUri:
+          title: syncUri
+          description: The sync's uri address.
+          type: string
     SyncStatusType:
       title: SyncStatusType
       description: The status of the synchronization. This is a read-only property.
@@ -718,6 +710,15 @@ components:
       - pending
       - active
       - success
+      - warning
+      - error
+      type: string
+    SyncResultSeverity:
+      title: SyncResultSeverity
+      description: The severity of the sync result.
+      default: information
+      enum:
+      - information
       - warning
       - error
       type: string
@@ -758,30 +759,29 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    SyncLog:
-      title: SyncLog
-      description: The detailed information about the sychronization.
+    SyncReject:
+      title: SyncReject
+      description: The detailed information about the import sychronization data.
       properties:
-        count:
-          title: count
-          description: Number of results returned in the request.
-          type: integer
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
+        fieldValues:
+          title: fieldValues
+          description: The sync's field values.
+          type: object
+        invalidFields:
+          title: invalidFields
+          description: The sync's invalid fields.
+          type: array
+          items:
+            type: string
         message:
           title: message
-          description: The status message.
+          description: The sync's message.
           type: string
-        severity:
-          $ref: '#/components/schemas/SyncResultSeverity'
+        recordIndex:
+          title: recordIndex
+          description: The sync's record index.
+          type: integer
         statusCode:
           title: statusCode
-          description: The Eloqua status code.
-          type: string
-        syncUri:
-          title: syncUri
-          description: The sync's uri address.
+          description: The Eloqua <a href='APIRequests_EloquaStatusCodes.html'>status code</a>.
           type: string

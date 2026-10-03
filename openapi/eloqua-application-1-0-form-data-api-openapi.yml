@@ -198,19 +198,6 @@ components:
       properties:
         type:
           type: string
-    ObjectValidationErrorRest10:
-      title: ObjectValidationError
-      properties:
-        type:
-          type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest10'
-        property:
-          type: string
-        value:
-          type: string
-        requirement:
-          $ref: '#/components/schemas/RequirementRest10'
     ProcessingStepErrorRest10:
       title: ProcessingStepError
       properties:
@@ -235,30 +222,6 @@ components:
         errorDescription:
           type: string
           description: Detailed information about current error
-    ObjectKeyRest10:
-      title: ObjectKey
-      properties:
-        type:
-          type: string
-        objectType:
-          type: string
-        objectId:
-          type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest10'
-    FieldValueRest10:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
     QueryResultFormSubmissionRest10:
       title: QueryResultFormSubmission
       properties:
@@ -319,3 +282,40 @@ components:
           description: Validation errors if any occured in form submission. This is a read-only property
           items:
             $ref: '#/components/schemas/ObjectValidationErrorRest10'
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+    ObjectKeyRest10:
+      title: ObjectKey
+      properties:
+        type:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+    ObjectValidationErrorRest10:
+      title: ObjectValidationError
+      properties:
+        type:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+        property:
+          type: string
+        value:
+          type: string
+        requirement:
+          $ref: '#/components/schemas/RequirementRest10'

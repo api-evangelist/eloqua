@@ -156,6 +156,35 @@ paths:
       x-filename-id: api-rest-1.0-system-users-get
 components:
   schemas:
+    QueryResultUserRest10:
+      title: QueryResultUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of user fields.
+          items:
+            $ref: '#/components/schemas/UserRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    UserPreferencesRest10:
+      title: UserPreferences
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        timezoneId:
+          type: string
+          description: The ID of the user's timezone in Eloqua. This is a read-only property.
     UserRest10:
       title: User
       properties:
@@ -216,32 +245,3 @@ components:
         defaultAccountViewId:
           type: string
           description: The user's default account view identifier. This property is only included in a response if the user being retrieved is the same user submitting the request.
-    UserPreferencesRest10:
-      title: UserPreferences
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        timezoneId:
-          type: string
-          description: The ID of the user's timezone in Eloqua. This is a read-only property.
-    QueryResultUserRest10:
-      title: QueryResultUser
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of user fields.
-          items:
-            $ref: '#/components/schemas/UserRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

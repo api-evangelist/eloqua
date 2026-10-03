@@ -153,6 +153,38 @@ paths:
       x-filename-id: api-odata-activitydetails-1-spamunsubscribesbyemail-key-get
 components:
   schemas:
+    SpamUnsubscribesByEmail:
+      type: object
+      properties:
+        emailUnsubscriptionId:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        spamUnsubscribedDateHour:
+          format: date-time
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -214,35 +246,3 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
-    SpamUnsubscribesByEmail:
-      type: object
-      properties:
-        emailUnsubscriptionId:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        accountID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        eloquaLinkedAccountID:
-          format: int32
-          type: integer
-        emailID:
-          format: int32
-          type: integer
-        segmentID:
-          format: int32
-          type: integer
-        sentDateHour:
-          format: date-time
-          type: string
-        spamUnsubscribedDateHour:
-          format: date-time
-          type: string
-        contact:
-          $ref: '#/components/schemas/Contact'

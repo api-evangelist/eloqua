@@ -329,6 +329,65 @@ paths:
       x-filename-id: api-bulk-2.0-imports-get
 components:
   schemas:
+    SyncAction:
+      title: SyncAction
+      description: The definition of the action to take at time of syncronization.
+      properties:
+        action:
+          $ref: '#/components/schemas/SyncActionType'
+        destination:
+          title: destination
+          description: The ML statement used to reference an object used by the action.
+          type: string
+        status:
+          $ref: '#/components/schemas/MemberStatus'
+        updateAll:
+          title: updateAll
+          description: Update status of all records in an execution.
+          type: boolean
+    ImportPriority:
+      title: ImportPriority
+      description: The definition of the import priority, for management of data source priority.
+      properties:
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        name:
+          title: name
+          description: The asset's name.
+          type: string
+        priority:
+          title: priority
+          description: The import's queue position. This is a read-only property.
+          type: integer
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
     MemberStatus:
       title: MemberStatus
       description: The status of members.
@@ -346,14 +405,14 @@ components:
       - invalid
       - permission
       type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
       enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
+      - add
+      - remove
+      - setStatus
       type: string
     Import:
       title: Import
@@ -443,49 +502,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    ImportPriority:
-      title: ImportPriority
-      description: The definition of the import priority, for management of data source priority.
-      properties:
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the entity. This is a read-only property.
-          type: string
-        name:
-          title: name
-          description: The asset's name.
-          type: string
-        priority:
-          title: priority
-          description: The import's queue position. This is a read-only property.
-          type: integer
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
-          type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
     RuleType:
       title: RuleType
       description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
@@ -496,19 +512,3 @@ components:
       - ifExistingIsNull
       - useFieldRule
       type: string
-    SyncAction:
-      title: SyncAction
-      description: The definition of the action to take at time of syncronization.
-      properties:
-        action:
-          $ref: '#/components/schemas/SyncActionType'
-        destination:
-          title: destination
-          description: The ML statement used to reference an object used by the action.
-          type: string
-        status:
-          $ref: '#/components/schemas/MemberStatus'
-        updateAll:
-          title: updateAll
-          description: Update status of all records in an execution.
-          type: boolean

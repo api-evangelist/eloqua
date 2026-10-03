@@ -215,6 +215,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-campaign-fields-get
 components:
   schemas:
+    QueryResultCampaignFieldRest20:
+      title: QueryResultCampaignField
+      properties:
+        type:
+          type: string
+          description: QueryResult1CampaignField_Field_Type_Description
+        elements:
+          type: array
+          description: QueryResult1CampaignField_Field_Elements_Description
+          items:
+            $ref: '#/components/schemas/CampaignFieldRest20'
+        total:
+          type: integer
+          description: QueryResult1CampaignField_Field_TotalElements_Description
+        pageSize:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageSize_Description
+        page:
+          type: integer
+          description: QueryResult1CampaignField_Field_PageIndex_Description
     CampaignFieldRest20:
       title: CampaignField
       properties:
@@ -297,23 +317,3 @@ components:
         displayIndex:
           type: string
           description: The campaign field's display index.
-    QueryResultCampaignFieldRest20:
-      title: QueryResultCampaignField
-      properties:
-        type:
-          type: string
-          description: QueryResult1CampaignField_Field_Type_Description
-        elements:
-          type: array
-          description: QueryResult1CampaignField_Field_Elements_Description
-          items:
-            $ref: '#/components/schemas/CampaignFieldRest20'
-        total:
-          type: integer
-          description: QueryResult1CampaignField_Field_TotalElements_Description
-        pageSize:
-          type: integer
-          description: QueryResult1CampaignField_Field_PageSize_Description
-        page:
-          type: integer
-          description: QueryResult1CampaignField_Field_PageIndex_Description

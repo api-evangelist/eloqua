@@ -415,59 +415,6 @@ paths:
       x-filename-id: api-rest-2.0-data-form-formid-batchcorrelation-formdata-batchcorrelationid-get
 components:
   schemas:
-    AsyncFormSubmissionBatchRest20:
-      title: AsyncFormSubmissionBatch
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property
-        id:
-          type: string
-          readOnly: true
-          description: The ID of the asynchronous form submission batch. This is a read-only property
-        currentStatus:
-          type: string
-          description: Current status of form submission batch when submitted through asynchronous submission
-        callbackUrl:
-          type: string
-          description: The URL to be called back once processing of form submisssion batch is completed
-        batchCorrelationId:
-          type: string
-          description: The unique identifier of the batch. Optional String field. If present, must be unique across created batches. If <code>batchCorrelationId</code> is not unique, then the entire batch will fail. The <code>batchCorrelationId</code> is persisted and could be used to retrieve form batch details.
-        depth:
-          type: string
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        elements:
-          type: array
-          description: A list of form data elements
-          items:
-            $ref: '#/components/schemas/FormDataRest20'
-        currentBatchStatus:
-          type: string
-          description: 'The current status of the batch. Possible values: Queued, InProgress, Warning, Error, Success. This is a read-only property.'
-        processingStatus:
-          type: string
-          description: The processing status of the batch. This is a read-only property.
-    QueryResultFormSubmissionRest20:
-      title: QueryResultFormSubmission
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of form data elements.
-          items:
-            $ref: '#/components/schemas/FormDataRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FormDataRest20:
       title: FormData
       properties:
@@ -527,11 +474,26 @@ components:
         name:
           type: string
           description: Name of the field value.
-    RequirementRest20:
-      title: Requirement
+    QueryResultFormSubmissionRest20:
+      title: QueryResultFormSubmission
       properties:
         type:
           type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form data elements.
+          items:
+            $ref: '#/components/schemas/FormDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     ProcessingStepErrorRest20:
       title: ProcessingStepError
       properties:
@@ -556,6 +518,44 @@ components:
         errorDescription:
           type: string
           description: Detailed information about current error
+    RequirementRest20:
+      title: Requirement
+      properties:
+        type:
+          type: string
+    AsyncFormSubmissionBatchRest20:
+      title: AsyncFormSubmissionBatch
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property
+        id:
+          type: string
+          readOnly: true
+          description: The ID of the asynchronous form submission batch. This is a read-only property
+        currentStatus:
+          type: string
+          description: Current status of form submission batch when submitted through asynchronous submission
+        callbackUrl:
+          type: string
+          description: The URL to be called back once processing of form submisssion batch is completed
+        batchCorrelationId:
+          type: string
+          description: The unique identifier of the batch. Optional String field. If present, must be unique across created batches. If <code>batchCorrelationId</code> is not unique, then the entire batch will fail. The <code>batchCorrelationId</code> is persisted and could be used to retrieve form batch details.
+        depth:
+          type: string
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        elements:
+          type: array
+          description: A list of form data elements
+          items:
+            $ref: '#/components/schemas/FormDataRest20'
+        currentBatchStatus:
+          type: string
+          description: 'The current status of the batch. Possible values: Queued, InProgress, Warning, Error, Success. This is a read-only property.'
+        processingStatus:
+          type: string
+          description: The processing status of the batch. This is a read-only property.
     ObjectValidationErrorRest20:
       title: ObjectValidationError
       properties:

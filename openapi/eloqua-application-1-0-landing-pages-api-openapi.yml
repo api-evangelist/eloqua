@@ -212,8 +212,8 @@ paths:
       x-filename-id: api-rest-1.0-assets-landingpages-get
 components:
   schemas:
-    DynamicContentRest10:
-      title: DynamicContent
+    CriterionRest10:
+      title: Criterion
       properties:
         type:
           type: string
@@ -221,47 +221,39 @@ components:
         id:
           type: string
           readOnly: true
-          description: Id of the dynamic content. This is a read-only property.
+          description: Id of the criterion. This is a read-only property.
         currentStatus:
           type: string
-          description: The dynamic content's current status.
+          description: The criterion's current status. This is a read-only property.
         name:
           type: string
-          description: Name of the dynamic content.
+          description: Name of the criterion.
         description:
           type: string
-          description: The description of the dynamic content.
+          description: The description of the criterion.
         permissions:
           type: string
-          description: The permissions for the dynamic content granted to your current instance. This is a read-only property.
+          description: The permissions for the criterion granted to your current instance.
         createdBy:
           type: string
           readOnly: true
-          description: The login id of the user who created the dynamic content.
+          description: The login id of the user who created the criterion.
         createdAt:
           type: string
           readOnly: true
-          description: The date and time the dynamic content was last accessed, expressed in Unix time.
+          description: The date and time the criterion was created, expressed in Unix time.
         updatedBy:
           type: string
           readOnly: true
-          description: The login id of the user that last updated the dynamic content. This is a read-only property.
+          description: The login id of the user that last updated the criterion.
         updatedAt:
           type: string
           readOnly: true
-          description: Unix timestamp for the date and time the dynamic content was last updated. This is a read-only property.
+          description: Unix timestamp for the date and time the criterion was last updated.
         depth:
           type: string
           readOnly: true
           description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        defaultContentSection:
-          $ref: '#/components/schemas/ContentSectionRest10'
-          description: The default content section of the dynamic content.
-        rules:
-          type: array
-          description: The dynamic content's rules.
-          items:
-            $ref: '#/components/schemas/DynamicContentRuleRest10'
     ContentSectionRest10:
       title: ContentSection
       properties:
@@ -382,60 +374,82 @@ components:
         thumbnailUrl:
           type: string
           description: The image's thumbnail URL. This is a read-only property.
-    ImportedFileRest10:
-      title: ImportedFile
+    FormRest10:
+      title: Form
       properties:
         type:
           type: string
-          description: The date and time the imported file was last accessed. This is a read-only property.
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
         id:
           type: string
           readOnly: true
-          description: Id of the imported file. This is a read-only property.
+          description: Id of the form. This is a read-only property.
         currentStatus:
           type: string
-          description: The imported file's current status.
+          description: 'The form''s current status. Example: draft, active, or complete.'
         name:
           type: string
-          description: Name of the imported file.
+          description: The name of the form.
         description:
           type: string
-          description: The description of the imported file.
+          description: The description of the form.
         permissions:
           type: string
-          description: The permissions for the imported file granted to your current instance.
+          description: The permissions for the form granted to your current instance. This is a read-only property.
         createdBy:
           type: string
           readOnly: true
-          description: The login id of the user who created the imported file.
+          description: The login id of the user who created the form.
         createdAt:
           type: string
           readOnly: true
-          description: The date and time the imported file was last accessed, expressed in Unix time.
+          description: The date and time the form was created, expressed in Unix time.
         updatedBy:
           type: string
           readOnly: true
-          description: The login id of the user that last updated the imported file. This is a read-only property.
+          description: The login id of the user that last updated the form.
         updatedAt:
           type: string
           readOnly: true
-          description: Unix timestamp for the date and time the imported file was last updated. This is a read-only property.
+          description: Unix timestamp for the date and time the form was last updated.
         depth:
           type: string
           readOnly: true
           description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        fileName:
+        htmlName:
           type: string
-          description: The file name of the imported file.
-        link:
+          description: The asset's raw HTML name.
+        processingType:
           type: string
-          description: The imported file's complete URL. This is a read-only property.
-        trackedLink:
+          description: 'A list of the form''s processing types. For example: externalEmail, externalWebsite, internallyHosted, internalAgentProxyForm.'
+        emailAddressFormFieldId:
           type: string
-          description: The imported file's tracked complete URL. This is a read-only property.
-        brandId:
+          description: The email address form field entity's unique identifier.
+        submitFailedLandingPageId:
           type: string
-          description: ImportedFile_Field_BrandId_Description
+          description: The landing page id of the failed submit.
+        html:
+          type: string
+          description: The asset's raw HTML content.
+        style:
+          type: string
+          description: The asset's main layout style.
+        elements:
+          type: array
+          description: Array consisting of form elements.
+          items:
+            $ref: '#/components/schemas/FormElementRest10'
+        processingSteps:
+          type: array
+          description: 'A list of the form''s processing steps. There is no limit to the number of processing steps that can be included. Possible values include: FormStepAddToCampaign, FormStepAddToContactList, FormStepAddToDataCanvas, FormStepAddToProgram, FormStepAssociateToCampaign, FormStepCancelRegistration, FormStepUpdateContactEmailAddress, FormStepCreateUpdateEventRegistration, FormStepCreateUpdate, FormStepCreateUpdateFromFormField, FormStepGlobalSubscribe, FormStepGlobalUnsubscribe, FormStepGroupSubscription, FormStepPostData, FormStepRedirectToWebPage, FormStepRemoveFromContactList, FormStepRunIntegrationRules, FormStepSendEmail, FormStepSendNotificationEmail, FormStepWebTracking, FormStepGlobalSubscribe, and FormStepSmsPhoneNumberOptInOptOut.'
+          items:
+            $ref: '#/components/schemas/FormProcessingStepRest10'
+        isHidden:
+          type: string
+          description: Whether the form is an internal form. If <code>true</code>, the form is not exposed outside of Eloqua and any form submissions to this form are deleted.
+        archived:
+          type: string
+          description: True if form is archived otherwise False. This is a read-only property.
     HyperlinkRest10:
       title: Hyperlink
       properties:
@@ -487,6 +501,143 @@ components:
         referencedEntityId:
           type: string
           description: Id of the referenced entity.
+    DynamicContentRest10:
+      title: DynamicContent
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the dynamic content. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The dynamic content's current status.
+        name:
+          type: string
+          description: Name of the dynamic content.
+        description:
+          type: string
+          description: The description of the dynamic content.
+        permissions:
+          type: string
+          description: The permissions for the dynamic content granted to your current instance. This is a read-only property.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the dynamic content.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the dynamic content was last accessed, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the dynamic content. This is a read-only property.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the dynamic content was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        defaultContentSection:
+          $ref: '#/components/schemas/ContentSectionRest10'
+          description: The default content section of the dynamic content.
+        rules:
+          type: array
+          description: The dynamic content's rules.
+          items:
+            $ref: '#/components/schemas/DynamicContentRuleRest10'
+    SizeRest10:
+      title: Size
+      properties:
+        type:
+          type: string
+    QueryResultLandingPageRest10:
+      title: QueryResultLandingPage
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of landing page fields.
+          items:
+            $ref: '#/components/schemas/LandingPageRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    HtmlContentRest10:
+      title: HtmlContent
+      properties:
+        type:
+          type: string
+    FormProcessingStepRest10:
+      title: FormProcessingStep
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the form processing step. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The form processing step's current status.
+        name:
+          type: string
+          description: Name of the form processing step.
+        description:
+          type: string
+          description: The description of the form processing step.
+        permissions:
+          type: string
+          description: The permissions for the form processing step granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the form processing step.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the form processing step was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the form processing step.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the form processing step was last updated.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        execute:
+          type: string
+          description: 'The conditions for which this form processing step will execute. Possible values include: <code>always</code>, <code>conditionally</code>, and <code>never</code>.'
+        conditionalType:
+          type: string
+          description: 'The type of value the comparator is validating. Possible values include: ''form field'' or ''static value''.'
+        conditionalFieldId:
+          type: string
+          description: The form field id used to compare form fields within a form processing step condition.
+        conditionalComparator:
+          type: string
+          description: 'The comparator used to validate a condition. Possible values include: <code>exactly</code> or <code>not exactly</code>.'
+        isConditionallyNegated:
+          type: string
+          description: The conditions for which the processing step will execute. If <code>yes</code>, the processing step will execute when the conditions are met. If <code>no</code>, the processing step will execute when the conditions are not met.
     LandingPageRest10:
       title: LandingPage
       properties:
@@ -589,6 +740,60 @@ components:
         relativePath:
           type: string
           description: The relative path of the landing page.
+    ImportedFileRest10:
+      title: ImportedFile
+      properties:
+        type:
+          type: string
+          description: The date and time the imported file was last accessed. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the imported file. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The imported file's current status.
+        name:
+          type: string
+          description: Name of the imported file.
+        description:
+          type: string
+          description: The description of the imported file.
+        permissions:
+          type: string
+          description: The permissions for the imported file granted to your current instance.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the imported file.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the imported file was last accessed, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the imported file. This is a read-only property.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the imported file was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        fileName:
+          type: string
+          description: The file name of the imported file.
+        link:
+          type: string
+          description: The imported file's complete URL. This is a read-only property.
+        trackedLink:
+          type: string
+          description: The imported file's tracked complete URL. This is a read-only property.
+        brandId:
+          type: string
+          description: ImportedFile_Field_BrandId_Description
     DynamicContentRuleRest10:
       title: DynamicContentRule
       properties:
@@ -615,129 +820,6 @@ components:
         statement:
           type: string
           description: The statement of the dynamic content rule.
-    SizeRest10:
-      title: Size
-      properties:
-        type:
-          type: string
-    FormRest10:
-      title: Form
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the form. This is a read-only property.
-        currentStatus:
-          type: string
-          description: 'The form''s current status. Example: draft, active, or complete.'
-        name:
-          type: string
-          description: The name of the form.
-        description:
-          type: string
-          description: The description of the form.
-        permissions:
-          type: string
-          description: The permissions for the form granted to your current instance. This is a read-only property.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the form.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the form was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the form.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the form was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        htmlName:
-          type: string
-          description: The asset's raw HTML name.
-        processingType:
-          type: string
-          description: 'A list of the form''s processing types. For example: externalEmail, externalWebsite, internallyHosted, internalAgentProxyForm.'
-        emailAddressFormFieldId:
-          type: string
-          description: The email address form field entity's unique identifier.
-        submitFailedLandingPageId:
-          type: string
-          description: The landing page id of the failed submit.
-        html:
-          type: string
-          description: The asset's raw HTML content.
-        style:
-          type: string
-          description: The asset's main layout style.
-        elements:
-          type: array
-          description: Array consisting of form elements.
-          items:
-            $ref: '#/components/schemas/FormElementRest10'
-        processingSteps:
-          type: array
-          description: 'A list of the form''s processing steps. There is no limit to the number of processing steps that can be included. Possible values include: FormStepAddToCampaign, FormStepAddToContactList, FormStepAddToDataCanvas, FormStepAddToProgram, FormStepAssociateToCampaign, FormStepCancelRegistration, FormStepUpdateContactEmailAddress, FormStepCreateUpdateEventRegistration, FormStepCreateUpdate, FormStepCreateUpdateFromFormField, FormStepGlobalSubscribe, FormStepGlobalUnsubscribe, FormStepGroupSubscription, FormStepPostData, FormStepRedirectToWebPage, FormStepRemoveFromContactList, FormStepRunIntegrationRules, FormStepSendEmail, FormStepSendNotificationEmail, FormStepWebTracking, FormStepGlobalSubscribe, and FormStepSmsPhoneNumberOptInOptOut.'
-          items:
-            $ref: '#/components/schemas/FormProcessingStepRest10'
-        isHidden:
-          type: string
-          description: Whether the form is an internal form. If <code>true</code>, the form is not exposed outside of Eloqua and any form submissions to this form are deleted.
-        archived:
-          type: string
-          description: True if form is archived otherwise False. This is a read-only property.
-    CriterionRest10:
-      title: Criterion
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the criterion. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The criterion's current status. This is a read-only property.
-        name:
-          type: string
-          description: Name of the criterion.
-        description:
-          type: string
-          description: The description of the criterion.
-        permissions:
-          type: string
-          description: The permissions for the criterion granted to your current instance.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the criterion.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the criterion was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the criterion.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the criterion was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
     FormElementRest10:
       title: FormElement
       properties:
@@ -786,85 +868,3 @@ components:
         style:
           type: string
           description: The asset's main layout style.
-    FormProcessingStepRest10:
-      title: FormProcessingStep
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the form processing step. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The form processing step's current status.
-        name:
-          type: string
-          description: Name of the form processing step.
-        description:
-          type: string
-          description: The description of the form processing step.
-        permissions:
-          type: string
-          description: The permissions for the form processing step granted to your current instance.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the form processing step.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the form processing step was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the form processing step.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the form processing step was last updated.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        execute:
-          type: string
-          description: 'The conditions for which this form processing step will execute. Possible values include: <code>always</code>, <code>conditionally</code>, and <code>never</code>.'
-        conditionalType:
-          type: string
-          description: 'The type of value the comparator is validating. Possible values include: ''form field'' or ''static value''.'
-        conditionalFieldId:
-          type: string
-          description: The form field id used to compare form fields within a form processing step condition.
-        conditionalComparator:
-          type: string
-          description: 'The comparator used to validate a condition. Possible values include: <code>exactly</code> or <code>not exactly</code>.'
-        isConditionallyNegated:
-          type: string
-          description: The conditions for which the processing step will execute. If <code>yes</code>, the processing step will execute when the conditions are met. If <code>no</code>, the processing step will execute when the conditions are not met.
-    HtmlContentRest10:
-      title: HtmlContent
-      properties:
-        type:
-          type: string
-    QueryResultLandingPageRest10:
-      title: QueryResultLandingPage
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of landing page fields.
-          items:
-            $ref: '#/components/schemas/LandingPageRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

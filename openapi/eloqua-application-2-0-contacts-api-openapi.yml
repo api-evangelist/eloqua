@@ -192,21 +192,6 @@ components:
         name:
           type: string
           description: Name of the field value.
-    EntitySearchByIdsRest20:
-      title: EntitySearchByIds
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        depth:
-          type: string
-          readOnly: true
-          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
-        ids:
-          type: array
-          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
-          items:
-            type: integer
     ContactListRest20:
       title: ContactList
       properties:
@@ -288,6 +273,21 @@ components:
         dataLookupId:
           type: string
           description: The contact list's data lookup Id. This is a read-only property.
+    EntitySearchByIdsRest20:
+      title: EntitySearchByIds
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
+        ids:
+          type: array
+          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
+          items:
+            type: integer
     ContactRest20:
       title: Contact
       properties:

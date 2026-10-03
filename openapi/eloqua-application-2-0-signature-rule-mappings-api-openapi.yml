@@ -195,6 +195,18 @@ paths:
       x-filename-id: api-rest-2.0-assets-email-signature-rule-ruleid-mappings-delete
 components:
   schemas:
+    EmailSignatureRuleMappingRest20:
+      title: EmailSignatureRuleMapping
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        matchValue:
+          type: string
+          description: The value to be used for comparison.
+        senderId:
+          type: string
+          description: The id of the user that will be used as the sender if the contact's field value matches the match value.
     QueryResultRuleMappingRest20:
       title: QueryResultRuleMapping
       properties:
@@ -215,15 +227,3 @@ components:
         page:
           type: integer
           description: The specified page.
-    EmailSignatureRuleMappingRest20:
-      title: EmailSignatureRuleMapping
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        matchValue:
-          type: string
-          description: The value to be used for comparison.
-        senderId:
-          type: string
-          description: The id of the user that will be used as the sender if the contact's field value matches the match value.

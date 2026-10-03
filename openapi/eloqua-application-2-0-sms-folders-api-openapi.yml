@@ -538,6 +538,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-sms-folders-get
 components:
   schemas:
+    QueryResultContractObjectRest20:
+      title: QueryResultContractObject
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of generic objects.
+          items:
+            $ref: '#/components/schemas/MinimalRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     QueryResultFolderRest20:
       title: QueryResultFolder
       properties:
@@ -558,51 +578,6 @@ components:
         page:
           type: integer
           description: The specified page.
-    MinimalRest20:
-      title: Minimal
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        currentStatus:
-          type: string
-        description:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-        sourceTemplateId:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdByName:
-          type: string
-        createdAt:
-          type: string
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedByName:
-          type: string
-        updatedAt:
-          type: string
-          readOnly: true
-        scheduledFor:
-          type: string
-          readOnly: true
-        depth:
-          type: string
-          readOnly: true
-        name:
-          type: string
     FolderRest20:
       title: Folder
       properties:
@@ -671,23 +646,48 @@ components:
         archive:
           type: string
           description: Whether or not the folder is archived.
-    QueryResultContractObjectRest20:
-      title: QueryResultContractObject
+    MinimalRest20:
+      title: Minimal
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        description:
+          type: string
+        permissions:
           type: array
-          description: Array of generic objects.
           items:
-            $ref: '#/components/schemas/MinimalRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        name:
+          type: string

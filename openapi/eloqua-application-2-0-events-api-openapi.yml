@@ -285,26 +285,6 @@ components:
         value:
           type: string
           description: The value for the event session field.
-    QueryResultEventRegistrationRest20:
-      title: QueryResultEventRegistration
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. '
-        elements:
-          type: array
-          description: Array of event field elements.
-          items:
-            $ref: '#/components/schemas/EventRegistrationRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FieldOutputFormatRest20:
       title: FieldOutputFormat
       properties:
@@ -318,6 +298,73 @@ components:
           type: string
         dataType:
           type: string
+    EventSessionFieldRest20:
+      title: EventSessionField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the event session field. This is a read-only property.
+        currentStatus:
+          type: string
+          description: This property is not used for event session fields.
+        name:
+          type: string
+          description: The name of the session field within an event.
+        description:
+          type: string
+          description: This property is not used for event session fields.
+        permissions:
+          type: array
+          description: This property is not used.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for event session fields.
+        createdBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        createdByName:
+          type: string
+          description: This property is not used for event session fields.
+        createdAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        updatedByName:
+          type: string
+          description: This property is not used for event session fields.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        depth:
+          type: string
+          readOnly: true
+          description: This property is not used for event session fields.
+        dataType:
+          type: string
+          description: The DataType of the session field.
+        outputFormat:
+          $ref: '#/components/schemas/FieldOutputFormatRest20'
+          description: The output format for number, date / time, and numeric custom object fields. Only the display format???s id is required. See list of default display formats <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=DisplayFormats'>here</a>. If using custom display formats, these should be set in Eloqua.
     EventSessionRest20:
       title: EventSession
       properties:
@@ -382,88 +429,6 @@ components:
         participantsLimit:
           type: integer
           description: The maximum number of participants per session.
-    CustomObjectFieldRest20:
-      title: CustomObjectField
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the custom object field. This is a read-only property. Use negative ids in order to reference custom object fields for other properties (e.g. emailAddressFieldId or uniqueCodeFieldId). See example.
-        currentStatus:
-          type: string
-          description: This property is not used for custom object fields.
-        description:
-          type: string
-          description: This property is not used for custom object fields.
-        permissions:
-          type: array
-          description: This property is not used.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for custom object fields.
-        createdBy:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        createdByName:
-          type: string
-          description: This property is not used for custom object fields.
-        createdAt:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        updatedByName:
-          type: string
-          description: This property is not used for custom object fields.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for custom object fields.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        name:
-          type: string
-          description: The name of the custom object field.
-        displayType:
-          type: string
-          description: The custom object field's display type.
-        dataType:
-          type: string
-          description: The custom object field's data type.
-        defaultValue:
-          type: string
-          description: The custom object field's default value.
-        internalName:
-          type: string
-          description: The custom object field's internal name. This is a read-only property.
-        optionListId:
-          type: string
-          description: The option list id for a single select custom object field.
-        checkedValue:
-          type: string
-          description: The checked value of a checkbox custom object field.
-        uncheckedValue:
-          type: string
-          description: The unchecked value of a checkbox custom object field.
     EventRegistrationRest20:
       title: EventRegistration
       properties:
@@ -554,25 +519,42 @@ components:
         eventGroupByFieldId:
           type: string
           description: The id of the field used to organize multiple sessions. Use the desired custom object field's negative id as the value for this parameter.
-    EventSessionFieldRest20:
-      title: EventSessionField
+    QueryResultEventRegistrationRest20:
+      title: QueryResultEventRegistration
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of event field elements.
+          items:
+            $ref: '#/components/schemas/EventRegistrationRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    CustomObjectFieldRest20:
+      title: CustomObjectField
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
         id:
           type: string
           readOnly: true
-          description: Id of the event session field. This is a read-only property.
+          description: Id of the custom object field. This is a read-only property. Use negative ids in order to reference custom object fields for other properties (e.g. emailAddressFieldId or uniqueCodeFieldId). See example.
         currentStatus:
           type: string
-          description: This property is not used for event session fields.
-        name:
-          type: string
-          description: The name of the session field within an event.
+          description: This property is not used for custom object fields.
         description:
           type: string
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         permissions:
           type: array
           description: This property is not used.
@@ -581,43 +563,61 @@ components:
         folderId:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         sourceTemplateId:
           type: string
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         createdBy:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         createdByName:
           type: string
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         createdAt:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         updatedBy:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         updatedByName:
           type: string
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         updatedAt:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         scheduledFor:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: This property is not used for custom object fields.
         depth:
           type: string
           readOnly: true
-          description: This property is not used for event session fields.
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        name:
+          type: string
+          description: The name of the custom object field.
+        displayType:
+          type: string
+          description: The custom object field's display type.
         dataType:
           type: string
-          description: The DataType of the session field.
-        outputFormat:
-          $ref: '#/components/schemas/FieldOutputFormatRest20'
-          description: The output format for number, date / time, and numeric custom object fields. Only the display format???s id is required. See list of default display formats <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=DisplayFormats'>here</a>. If using custom display formats, these should be set in Eloqua.
+          description: The custom object field's data type.
+        defaultValue:
+          type: string
+          description: The custom object field's default value.
+        internalName:
+          type: string
+          description: The custom object field's internal name. This is a read-only property.
+        optionListId:
+          type: string
+          description: The option list id for a single select custom object field.
+        checkedValue:
+          type: string
+          description: The checked value of a checkbox custom object field.
+        uncheckedValue:
+          type: string
+          description: The unchecked value of a checkbox custom object field.

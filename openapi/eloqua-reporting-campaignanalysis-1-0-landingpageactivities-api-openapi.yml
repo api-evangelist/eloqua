@@ -153,6 +153,59 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-landingpageactivities-key-get
 components:
   schemas:
+    LandingPageActivities:
+      type: object
+      properties:
+        landingPageTime:
+          format: double
+          type: number
+        landingPageActivitiesId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        landingPageViews:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        dateHour:
+          format: date-time
+          type: string
+        assetId:
+          format: int32
+          type: integer
+        landingPageAsset:
+          $ref: '#/components/schemas/LandingPageAsset'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string
     Calendar:
       type: object
       properties:
@@ -259,56 +312,3 @@ components:
         budgetedCost:
           format: double
           type: number
-    LandingPageActivities:
-      type: object
-      properties:
-        landingPageTime:
-          format: double
-          type: number
-        landingPageActivitiesId:
-          format: int32
-          type: integer
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        landingPageViews:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        dateHour:
-          format: date-time
-          type: string
-        assetId:
-          format: int32
-          type: integer
-        landingPageAsset:
-          $ref: '#/components/schemas/LandingPageAsset'
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-    LandingPageAsset:
-      type: object
-      properties:
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageName:
-          type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
-          type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
-          format: date-time
-          type: string

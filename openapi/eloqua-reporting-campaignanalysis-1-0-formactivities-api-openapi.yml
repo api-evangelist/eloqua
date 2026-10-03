@@ -169,58 +169,33 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
-    Campaign:
+    FormActivities:
       type: object
       properties:
-        eloquaCampaignId:
+        formSubmitAggKey:
           format: int32
           type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
+        totalFormSubmissions:
           format: int32
           type: integer
-        lastActivatedByUserId:
+        eloquaCampaignID:
           format: int32
           type: integer
+        segmentId:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
         lastModifiedDate:
           format: date-time
           type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        segment:
+          $ref: '#/components/schemas/Segment'
     Calendar:
       type: object
       properties:
@@ -275,30 +250,55 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    FormActivities:
+    Campaign:
       type: object
       properties:
-        formSubmitAggKey:
+        eloquaCampaignId:
           format: int32
           type: integer
-        totalFormSubmissions:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        segmentId:
-          format: int32
-          type: integer
-        dateHour:
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
           format: date-time
           type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
         lastModifiedDate:
           format: date-time
           type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-        segment:
-          $ref: '#/components/schemas/Segment'
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number

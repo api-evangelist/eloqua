@@ -211,6 +211,11 @@ paths:
       x-filename-id: api-rest-1.0-assets-images-get
 components:
   schemas:
+    SizeRest10:
+      title: Size
+      properties:
+        type:
+          type: string
     ImageFileRest10:
       title: ImageFile
       properties:
@@ -282,8 +287,3 @@ components:
         page:
           type: integer
           description: The specified page.
-    SizeRest10:
-      title: Size
-      properties:
-        type:
-          type: string

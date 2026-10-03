@@ -336,18 +336,31 @@ paths:
       x-filename-id: api-rest-2.0-assets-campaigns-get
 components:
   schemas:
-    PositionRest20:
-      title: Position
+    ExternalCampaignMappingRest20:
+      title: ExternalCampaignMapping
       properties:
         type:
           type: string
-          description: The campaign element's type. This is a read-only property.
-        x:
+        externalSystemId:
+          type: integer
+        value:
           type: string
-          description: The position of the campaign element on the x axis.
-        y:
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
           type: string
-          description: The position of the campaign element on the y axis.
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
     CampaignElementRest20:
       title: CampaignElement
       properties:
@@ -423,22 +436,6 @@ components:
         memberErrorCount:
           type: string
           description: Amount of members within the campaign element in errored status. This is a read-only property.
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
     CampaignOutputTerminalRest20:
       title: CampaignOutputTerminal
       properties:
@@ -509,15 +506,38 @@ components:
         connectedId:
           type: string
           description: The connected id of the campaign output terminal. This is a read-only property.
-    ExternalCampaignMappingRest20:
-      title: ExternalCampaignMapping
+    QueryResultCampaignRest20:
+      title: QueryResultCampaign
       properties:
         type:
           type: string
-        externalSystemId:
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of campaign fields.
+          items:
+            $ref: '#/components/schemas/CampaignRest20'
+        total:
           type: integer
-        value:
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    PositionRest20:
+      title: Position
+      properties:
+        type:
           type: string
+          description: The campaign element's type. This is a read-only property.
+        x:
+          type: string
+          description: The position of the campaign element on the x axis.
+        y:
+          type: string
+          description: The position of the campaign element on the y axis.
     CampaignRest20:
       title: Campaign
       properties:
@@ -671,23 +691,3 @@ components:
         isUpdatingCrmId:
           type: string
           description: Campaign_Field_IsUpdatingCrmId_Description
-    QueryResultCampaignRest20:
-      title: QueryResultCampaign
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of campaign fields.
-          items:
-            $ref: '#/components/schemas/CampaignRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

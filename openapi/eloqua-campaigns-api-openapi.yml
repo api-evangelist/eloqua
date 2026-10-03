@@ -171,6 +171,19 @@ paths:
           description: Campaign not found
 components:
   parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
     page:
       name: page
       in: query
@@ -179,6 +192,26 @@ components:
         type: integer
         minimum: 1
         default: 1
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    lastUpdatedAt:
+      name: lastUpdatedAt
+      in: query
+      description: Unix timestamp to filter entities updated after this time
+      schema:
+        type: integer
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
     depth:
       name: depth
       in: query
@@ -190,53 +223,7 @@ components:
         - partial
         - complete
         default: minimal
-    lastUpdatedAt:
-      name: lastUpdatedAt
-      in: query
-      description: Unix timestamp to filter entities updated after this time
-      schema:
-        type: integer
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    count:
-      name: count
-      in: query
-      description: Maximum number of entities to return (1-1000)
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
   schemas:
-    QueryResultCampaign:
-      type: object
-      properties:
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Campaign'
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        total:
-          type: integer
     Campaign:
       type: object
       properties:
@@ -303,6 +290,19 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
+    QueryResultCampaign:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Campaign'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
   securitySchemes:
     basicAuth:
       type: http

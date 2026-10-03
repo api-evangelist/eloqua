@@ -153,58 +153,31 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-webactivities-key-get
 components:
   schemas:
-    Campaign:
+    WebActivities:
       type: object
       properties:
+        webActivitiesId:
+          format: int32
+          type: integer
         eloquaCampaignId:
           format: int32
           type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
+        totalPageViews:
           format: int32
           type: integer
-        lastActivatedByUserId:
+        totalVisitors:
           format: int32
           type: integer
         lastModifiedDate:
           format: date-time
           type: string
-        campaignClassification:
+        dateHour:
+          format: date-time
           type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
     Calendar:
       type: object
       properties:
@@ -259,28 +232,55 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    WebActivities:
+    Campaign:
       type: object
       properties:
-        webActivitiesId:
-          format: int32
-          type: integer
         eloquaCampaignId:
           format: int32
           type: integer
-        totalPageViews:
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
           format: int32
           type: integer
-        totalVisitors:
+        lastActivatedByUserId:
           format: int32
           type: integer
         lastModifiedDate:
           format: date-time
           type: string
-        dateHour:
-          format: date-time
+        campaignClassification:
           type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number

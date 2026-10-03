@@ -219,26 +219,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-contact-fields-get
 components:
   schemas:
-    QueryResultContactFieldRest10:
-      title: QueryResultContactField
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of contact fields.
-          items:
-            $ref: '#/components/schemas/ContactFieldRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     ContactFieldRest10:
       title: ContactField
       properties:
@@ -323,3 +303,23 @@ components:
         isPhoneValidationRequired:
           type: string
           description: ContactField_Field_IsPhoneValidationRequired_Description
+    QueryResultContactFieldRest10:
+      title: QueryResultContactField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of contact fields.
+          items:
+            $ref: '#/components/schemas/ContactFieldRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

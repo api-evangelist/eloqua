@@ -122,6 +122,22 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    SyncAction:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - add
+          - remove
+          - setStatus
+          description: The action to perform
+        destination:
+          type: string
+          description: The destination for the action (e.g., a contact list URI or subscription status)
+        status:
+          type: string
+          description: The status to set (when action is setStatus)
     ImportDefinition:
       type: object
       required:
@@ -196,23 +212,22 @@ components:
           type: integer
         hasMore:
           type: boolean
-    SyncAction:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - add
-          - remove
-          - setStatus
-          description: The action to perform
-        destination:
-          type: string
-          description: The destination for the action (e.g., a contact list URI or subscription status)
-        status:
-          type: string
-          description: The status to set (when action is setStatus)
   parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
     limit:
       name: limit
       in: query
@@ -222,21 +237,6 @@ components:
         minimum: 1
         maximum: 50000
         default: 1000
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http

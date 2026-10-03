@@ -86,6 +86,21 @@ paths:
         required: true
 components:
   schemas:
+    PhoneNumberSubscriptionSearchRest20:
+      title: PhoneNumberSubscriptionSearch
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscriptionSearch_Field_Type_Description
+        depth:
+          type: string
+          readOnly: true
+          description: PhoneNumberSubscriptionSearch_Field_Depth_Description
+        phoneNumbers:
+          type: array
+          description: PhoneNumberSubscriptionSearch_Field_PhoneNumbers_Description
+          items:
+            type: string
     System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
       title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
       properties: {}
@@ -112,6 +127,27 @@ components:
           description: PhoneNumberSubscription_Field_History_Description
           items:
             $ref: '#/components/schemas/PhoneNumberSubscriptionHistoryRest20'
+    PhoneNumberSubscriptionDetailsRest20:
+      title: PhoneNumberSubscriptionDetails
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_Type_Description
+        isSubscribed:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_IsSubscribed_Description
+        phoneNumber:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_PhoneNumber_Description
+        entityId:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityId_Description
+        entityType:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityType_Description
+        entityFieldId:
+          type: string
+          description: PhoneNumberSubscriptionDetails_Field_EntityFieldId_Description
     PhoneNumberSubscriptionHistoryRest20:
       title: PhoneNumberSubscriptionHistory
       properties:
@@ -142,39 +178,3 @@ components:
           - SmsSubscriptionDataImport
           - SmsReply
           - Visitor
-    PhoneNumberSubscriptionDetailsRest20:
-      title: PhoneNumberSubscriptionDetails
-      properties:
-        type:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_Type_Description
-        isSubscribed:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_IsSubscribed_Description
-        phoneNumber:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_PhoneNumber_Description
-        entityId:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_EntityId_Description
-        entityType:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_EntityType_Description
-        entityFieldId:
-          type: string
-          description: PhoneNumberSubscriptionDetails_Field_EntityFieldId_Description
-    PhoneNumberSubscriptionSearchRest20:
-      title: PhoneNumberSubscriptionSearch
-      properties:
-        type:
-          type: string
-          description: PhoneNumberSubscriptionSearch_Field_Type_Description
-        depth:
-          type: string
-          readOnly: true
-          description: PhoneNumberSubscriptionSearch_Field_Depth_Description
-        phoneNumbers:
-          type: array
-          description: PhoneNumberSubscriptionSearch_Field_PhoneNumbers_Description
-          items:
-            type: string

@@ -303,6 +303,21 @@ paths:
       x-filename-id: api-odata-formsubmission-1-user-key-emailassets-get
 components:
   schemas:
+    User:
+      type: object
+      properties:
+        userID:
+          format: int32
+          type: integer
+        userName:
+          type: string
+        userEmailAddress:
+          type: string
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+        isDeleted:
+          type: boolean
     EmailAsset:
       type: object
       properties:
@@ -384,18 +399,3 @@ components:
         budgetedCost:
           format: double
           type: number
-    User:
-      type: object
-      properties:
-        userID:
-          format: int32
-          type: integer
-        userName:
-          type: string
-        userEmailAddress:
-          type: string
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-        isDeleted:
-          type: boolean

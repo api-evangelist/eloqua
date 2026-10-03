@@ -96,6 +96,21 @@ paths:
           description: Export definition not found
 components:
   parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
     limit:
       name: limit
       in: query
@@ -105,21 +120,6 @@ components:
         minimum: 1
         maximum: 50000
         default: 1000
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
   schemas:
     ExportList:
       type: object
