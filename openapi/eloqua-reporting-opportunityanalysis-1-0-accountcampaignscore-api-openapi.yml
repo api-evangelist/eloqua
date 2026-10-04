@@ -165,26 +165,6 @@ paths:
       x-filename-id: api-odata-opportunityanalysis-1-accountcampaignscore-key-get
 components:
   schemas:
-    AccountCampaignScore:
-      type: object
-      properties:
-        accountCampaignScoreId:
-          format: int32
-          type: integer
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        accountId:
-          format: int32
-          type: integer
-        score:
-          format: double
-          type: number
-        lastModifiedDate:
-          format: date-time
-          type: string
-        account:
-          $ref: '#/components/schemas/Account'
     AccountEngagement:
       type: object
       properties:
@@ -206,6 +186,26 @@ components:
         reachableContacts:
           format: int32
           type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        account:
+          $ref: '#/components/schemas/Account'
+    AccountCampaignScore:
+      type: object
+      properties:
+        accountCampaignScoreId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        accountId:
+          format: int32
+          type: integer
+        score:
+          format: double
+          type: number
         lastModifiedDate:
           format: date-time
           type: string

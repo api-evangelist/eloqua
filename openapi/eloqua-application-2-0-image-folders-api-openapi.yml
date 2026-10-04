@@ -526,6 +526,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-image-folder-id-folders-get
 components:
   schemas:
+    QueryResultFolderRest20:
+      title: QueryResultFolder
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of folders.
+          items:
+            $ref: '#/components/schemas/FolderRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     QueryResultContractObjectRest20:
       title: QueryResultContractObject
       properties:
@@ -614,26 +634,6 @@ components:
         archive:
           type: string
           description: Whether or not the folder is archived.
-    QueryResultFolderRest20:
-      title: QueryResultFolder
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of folders.
-          items:
-            $ref: '#/components/schemas/FolderRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     MinimalRest20:
       title: Minimal
       properties:

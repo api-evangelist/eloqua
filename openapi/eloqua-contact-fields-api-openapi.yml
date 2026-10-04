@@ -37,6 +37,24 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
   schemas:
     BulkField:
       type: object
@@ -80,24 +98,6 @@ components:
           type: integer
         hasMore:
           type: boolean
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
   securitySchemes:
     basicAuth:
       type: http

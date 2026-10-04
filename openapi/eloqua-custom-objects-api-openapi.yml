@@ -312,6 +312,19 @@ components:
           type: string
           description: Last update timestamp (Unix time)
           readOnly: true
+    QueryResultCustomObject:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObject'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
     CustomObject:
       type: object
       properties:
@@ -363,19 +376,6 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
-    QueryResultCustomObject:
-      type: object
-      properties:
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomObject'
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        total:
-          type: integer
     FieldValue:
       type: object
       properties:
@@ -391,6 +391,23 @@ components:
           type: string
           description: Field value (dates are returned as Unix timestamps)
   parameters:
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
     id:
       name: id
       in: path
@@ -398,20 +415,6 @@ components:
       description: The unique identifier of the resource
       schema:
         type: string
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
     count:
       name: count
       in: query
@@ -426,17 +429,14 @@ components:
       description: Search criteria for filtering results
       schema:
         type: string
-    depth:
-      name: depth
+    page:
+      name: page
       in: query
-      description: Level of detail returned for the entity
+      description: Page number to return (starts at 1)
       schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
+        type: integer
+        minimum: 1
+        default: 1
   securitySchemes:
     basicAuth:
       type: http

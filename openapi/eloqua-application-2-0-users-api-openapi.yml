@@ -323,76 +323,68 @@ paths:
       x-filename-id: api-rest-2.0-system-users-get
 components:
   schemas:
-    InterfacePermissionRest20:
-      title: InterfacePermission
+    ProductPermissionRest20:
+      title: ProductPermission
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        interfaceCode:
+        productCode:
           type: string
           description: ''
-        nestedInterfacePermissions:
+    crmUserNamesRest20:
+      title: crmUserNames
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        SFDCUserName:
+          type: string
+          description: ''
+        MSDUserName:
+          type: string
+          description: ''
+        SODUserName:
+          type: string
+          description: ''
+    QueryResultUserRest20:
+      title: QueryResultUser
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
           type: array
-          description: ''
+          description: Array of user fields.
           items:
-            $ref: '#/components/schemas/InterfacePermissionRest20'
-        name:
-          type: string
-          description: ''
-    SecurityGroupRest20:
-      title: SecurityGroup
+            $ref: '#/components/schemas/UserRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    TypePermissionsRest20:
+      title: TypePermissions
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        id:
+    UserPasswordRest20:
+      title: UserPassword
+      properties:
+        type:
           type: string
-          readOnly: true
-          description: Id of the security group.
-        description:
+          description: The asset's type in Eloqua. This is a read-only property.
+        password:
           type: string
-          description: The description of the security group.
-        createdBy:
+          description: The user's password.
+        mustChangePassword:
           type: string
-          readOnly: true
-          description: The login id of the user who created the security group.
-        createdByName:
-          type: string
-          description: The name of the user who created the security group.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the security group was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the security group. This is a read-only property.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the security group.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the security group was last updated. This is a read-only property.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        name:
-          type: string
-          description: The name of the security group.
-        acronym:
-          type: string
-          description: Acronym for the security group
-        isReadOnly:
-          type: string
-          readOnly: true
-          description: Indicates if the security group is read only.
-        isEffective:
-          type: string
-          readOnly: true
-          description: Indicates if the security group is effective.
+          description: Boolean to determine whether the user must change their password upon logging in.
     UserRest20:
       title: User
       properties:
@@ -601,21 +593,15 @@ components:
         isAssetManager:
           type: string
           description: User_Field_IsAssetManager_Description
-    ProductPermissionRest20:
-      title: ProductPermission
+    UserEnabledRest20:
+      title: UserEnabled
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        productCode:
+        enabled:
           type: string
-          description: ''
-    TypePermissionsRest20:
-      title: TypePermissions
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
+          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
     UserPreferencesRest20:
       title: UserPreferences
       properties:
@@ -637,59 +623,73 @@ components:
         permissions:
           $ref: '#/components/schemas/TypePermissionsRest20'
           description: ''
-    QueryResultUserRest20:
-      title: QueryResultUser
+    InterfacePermissionRest20:
+      title: InterfacePermission
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
+          description: The asset's type in Eloqua. This is a read-only property.
+        interfaceCode:
+          type: string
+          description: ''
+        nestedInterfacePermissions:
           type: array
-          description: Array of user fields.
+          description: ''
           items:
-            $ref: '#/components/schemas/UserRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    UserPasswordRest20:
-      title: UserPassword
+            $ref: '#/components/schemas/InterfacePermissionRest20'
+        name:
+          type: string
+          description: ''
+    SecurityGroupRest20:
+      title: SecurityGroup
       properties:
         type:
           type: string
           description: The asset's type in Eloqua. This is a read-only property.
-        password:
+        id:
           type: string
-          description: The user's password.
-        mustChangePassword:
+          readOnly: true
+          description: Id of the security group.
+        description:
           type: string
-          description: Boolean to determine whether the user must change their password upon logging in.
-    UserEnabledRest20:
-      title: UserEnabled
-      properties:
-        type:
+          description: The description of the security group.
+        createdBy:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        enabled:
+          readOnly: true
+          description: The login id of the user who created the security group.
+        createdByName:
           type: string
-          description: Whether or not the user's account is enabled or disabled. Set <code>{\"enabled\":true}</code> to enable a user, otherwise <code>{\"enabled\":false}</code>.
-    crmUserNamesRest20:
-      title: crmUserNames
-      properties:
-        type:
+          description: The name of the user who created the security group.
+        createdAt:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        SFDCUserName:
+          readOnly: true
+          description: The date and time the security group was created, expressed in Unix time.
+        updatedBy:
           type: string
-          description: ''
-        MSDUserName:
+          readOnly: true
+          description: The login id of the user that last updated the security group. This is a read-only property.
+        updatedByName:
           type: string
-          description: ''
-        SODUserName:
+          description: The name of the user who last updated the security group.
+        updatedAt:
           type: string
-          description: ''
+          readOnly: true
+          description: Unix timestamp for the date and time the security group was last updated. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        name:
+          type: string
+          description: The name of the security group.
+        acronym:
+          type: string
+          description: Acronym for the security group
+        isReadOnly:
+          type: string
+          readOnly: true
+          description: Indicates if the security group is read only.
+        isEffective:
+          type: string
+          readOnly: true
+          description: Indicates if the security group is effective.

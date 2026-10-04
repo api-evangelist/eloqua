@@ -130,6 +130,23 @@ paths:
           description: Landing page not found
 components:
   parameters:
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
     id:
       name: id
       in: path
@@ -137,20 +154,6 @@ components:
       description: The unique identifier of the resource
       schema:
         type: string
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
-      schema:
-        type: string
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
     count:
       name: count
       in: query
@@ -165,17 +168,14 @@ components:
       description: Search criteria for filtering results
       schema:
         type: string
-    depth:
-      name: depth
+    page:
+      name: page
       in: query
-      description: Level of detail returned for the entity
+      description: Page number to return (starts at 1)
       schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
+        type: integer
+        minimum: 1
+        default: 1
   schemas:
     QueryResultLandingPage:
       type: object

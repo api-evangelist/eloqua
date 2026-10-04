@@ -215,26 +215,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-forms-get
 components:
   schemas:
-    QueryResultFormRest10:
-      title: QueryResultForm
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of form fields.
-          items:
-            $ref: '#/components/schemas/FormRest10'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     FormProcessingStepRest10:
       title: FormProcessingStep
       properties:
@@ -340,6 +320,26 @@ components:
         style:
           type: string
           description: The asset's main layout style.
+    QueryResultFormRest10:
+      title: QueryResultForm
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of form fields.
+          items:
+            $ref: '#/components/schemas/FormRest10'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     FormRest10:
       title: Form
       properties:

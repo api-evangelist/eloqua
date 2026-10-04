@@ -326,26 +326,81 @@ paths:
       x-filename-id: api-rest-2.0-assets-programs-get
 components:
   schemas:
-    QueryResultProgramRest20:
-      title: QueryResultProgram
+    CampaignElementRest20:
+      title: CampaignElement
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        elements:
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the campaign element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The campaign element's current status.
+        name:
+          type: string
+          description: Name of the campaign element. This is a read-only property.
+        description:
+          type: string
+          description: The description of the campaign element.
+        permissions:
           type: array
-          description: Array of program fields.
+          description: The permissions for the campaign element granted to your current instance. This is a read-only property.
           items:
-            $ref: '#/components/schemas/ProgramRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: Id of the associated folder.
+        sourceTemplateId:
+          type: string
+          description: The id of the source template.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the campaign element.
+        createdByName:
+          type: string
+          description: The name of the user who created the campaign element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: 'The date and time the campaign element was created, expressed in Unix time. '
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the campaign element.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the campaign element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the campaign element was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the campaign element is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        position:
+          $ref: '#/components/schemas/PositionRest20'
+          description: Array of campaign element position fields.
+        outputTerminals:
+          type: array
+          description: A list of the campaign element ids within the campaign. This is a read-only property.
+          items:
+            $ref: '#/components/schemas/CampaignOutputTerminalRest20'
+        memberCount:
+          type: string
+          description: Amount of members within the campaign element. This is a read-only property.
+        memberErrorCount:
+          type: string
+          description: Amount of members within the campaign element in errored status. This is a read-only property.
     ProgramRest20:
       title: Program
       properties:
@@ -433,81 +488,6 @@ components:
         defaultEntityId:
           type: string
           description: The id of the custom object data set. Only used for custom object programs.
-    CampaignElementRest20:
-      title: CampaignElement
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the campaign element. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The campaign element's current status.
-        name:
-          type: string
-          description: Name of the campaign element. This is a read-only property.
-        description:
-          type: string
-          description: The description of the campaign element.
-        permissions:
-          type: array
-          description: The permissions for the campaign element granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: Id of the associated folder.
-        sourceTemplateId:
-          type: string
-          description: The id of the source template.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the campaign element.
-        createdByName:
-          type: string
-          description: The name of the user who created the campaign element.
-        createdAt:
-          type: string
-          readOnly: true
-          description: 'The date and time the campaign element was created, expressed in Unix time. '
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the campaign element.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the campaign element.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the campaign element was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date the campaign element is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        position:
-          $ref: '#/components/schemas/PositionRest20'
-          description: Array of campaign element position fields.
-        outputTerminals:
-          type: array
-          description: A list of the campaign element ids within the campaign. This is a read-only property.
-          items:
-            $ref: '#/components/schemas/CampaignOutputTerminalRest20'
-        memberCount:
-          type: string
-          description: Amount of members within the campaign element. This is a read-only property.
-        memberErrorCount:
-          type: string
-          description: Amount of members within the campaign element in errored status. This is a read-only property.
     CampaignOutputTerminalRest20:
       title: CampaignOutputTerminal
       properties:
@@ -590,3 +570,23 @@ components:
         y:
           type: string
           description: The position of the campaign element on the y axis.
+    QueryResultProgramRest20:
+      title: QueryResultProgram
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of program fields.
+          items:
+            $ref: '#/components/schemas/ProgramRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

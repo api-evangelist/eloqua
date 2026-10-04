@@ -255,76 +255,6 @@ paths:
       x-filename-id: api-rest-2.0-assets-contact-segments-get
 components:
   schemas:
-    SegmentElementRest20:
-      title: SegmentElement
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the contact segment element. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The contact segment element's current status. This is a read-only property.
-        name:
-          type: string
-          description: This property is not used for contact segment elements.
-        description:
-          type: string
-          description: This property is not used for contact segment elements.
-        permissions:
-          type: array
-          description: The permissions for the contact segment element granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The folder id of the folder which contains the contact segment element.
-        sourceTemplateId:
-          type: string
-          description: This property is not used for contact segment elements.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the contact segment element.
-        createdByName:
-          type: string
-          description: The name of the user who created the contact segment element.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the contact segment element was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the contact segment element.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the contact segment element.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the contact segment element was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used for contact segment elements.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        isIncluded:
-          type: string
-          description: The total amount of contacts within the segment element.
-        count:
-          type: string
-          description: The number of contacts in the contact segment element. This is a read-only property.
-        lastCalculatedAt:
-          type: string
-          description: The date and time the contact segment element was last calculated. This is a read-only property.
     QueryResultSegmentRest20:
       title: QueryResultSegment
       properties:
@@ -423,3 +353,73 @@ components:
         dependencyName:
           type: string
           description: Segment_Field_DependencyName_Description
+    SegmentElementRest20:
+      title: SegmentElement
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the contact segment element. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The contact segment element's current status. This is a read-only property.
+        name:
+          type: string
+          description: This property is not used for contact segment elements.
+        description:
+          type: string
+          description: This property is not used for contact segment elements.
+        permissions:
+          type: array
+          description: The permissions for the contact segment element granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the contact segment element.
+        sourceTemplateId:
+          type: string
+          description: This property is not used for contact segment elements.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the contact segment element.
+        createdByName:
+          type: string
+          description: The name of the user who created the contact segment element.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the contact segment element was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the contact segment element.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the contact segment element.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the contact segment element was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used for contact segment elements.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        isIncluded:
+          type: string
+          description: The total amount of contacts within the segment element.
+        count:
+          type: string
+          description: The number of contacts in the contact segment element. This is a read-only property.
+        lastCalculatedAt:
+          type: string
+          description: The date and time the contact segment element was last calculated. This is a read-only property.

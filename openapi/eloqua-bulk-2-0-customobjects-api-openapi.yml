@@ -3527,6 +3527,73 @@ paths:
       x-filename-id: api-bulk-2.0-customobjects-get
 components:
   schemas:
+    SyncStatusType:
+      title: SyncStatusType
+      description: The status of the synchronization. This is a read-only property.
+      default: pending
+      enum:
+      - pending
+      - active
+      - success
+      - warning
+      - error
+      type: string
+    CustomObjectField:
+      title: CustomObjectField
+      description: The definition of a field on the referenced custom object.
+      properties:
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        dataType:
+          $ref: '#/components/schemas/DataType'
+        defaultValue:
+          title: defaultValue
+          description: The field's default value.
+          type: string
+        hasNotNullConstraint:
+          title: hasNotNullConstraint
+          description: Indicates whether the field can have null values (i.e. empty).
+          type: boolean
+        hasReadOnlyConstraint:
+          title: hasReadOnlyConstraint
+          description: Indicates whether the field can be written to.
+          type: boolean
+        hasUniquenessConstraint:
+          title: hasUniquenessConstraint
+          description: Indicates whether the field must have a unique value.
+          type: boolean
+        internalName:
+          title: internalName
+          description: The field's internal name (used to uniquely identify it).
+          type: string
+        name:
+          title: name
+          description: The name of the custom object definition.
+          type: string
+        statement:
+          title: statement
+          description: The markup language statement used to reference the field in an import or export mapping.
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
     SyncAction:
       title: SyncAction
       description: The definition of the action to take at time of syncronization.
@@ -3543,109 +3610,6 @@ components:
           title: updateAll
           description: Update status of all records in an execution.
           type: boolean
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
-      type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
-    DataType:
-      title: DataType
-      description: The type of data, used for field definitions.
-      default: number
-      enum:
-      - number
-      - string
-      - boolean
-      - date
-      - emailAddress
-      type: string
-    SyncActionOperation:
-      title: SyncActionOperation
-      description: The request body defines the details of the sync action definition. The following table displays properties for creating sync action definitions.
-      properties:
-        autoDeleteDuration:
-          title: autoDeleteDuration
-          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
-          type: string
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the sync action. This is a read-only property.
-          type: string
-        fields:
-          title: fields
-          description: 'The field name and statement that will be used to identify the account, contact, or custom object. Must contain only one field.
-
-
-            Allowed field statement values to identify a contact are: {{Contact.Field(C_EmailAddress)}}, {{Contact.Field(ContactIDExt)}}, or {{Contact.Id}}.
-
-
-            Allowed field statement values to identify an account are: {{Account.Field(CompanyIDExt)}}, {{Account.Field(M_CompanyName)}}, or {{Account.Id}}.
-
-
-            Allowed field statement values to identify a custom object are: {{CustomObject[{id}].ExternalId}}.'
-          type: object
-        identifierFieldName:
-          title: identifierFieldName
-          description: The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long.
-          type: string
-        isSyncTriggeredOnImport:
-          title: isSyncTriggeredOnImport
-          description: Whether or not the sync is triggered upon uploading data.
-          type: boolean
-        kbUsed:
-          format: int64
-          title: kbUsed
-          description: The amount of space used in kb. This is a read-only property.
-          type: integer
-        name:
-          title: name
-          description: The name of the sync action definition.
-          type: string
-        syncActions:
-          title: syncActions
-          description: "Specifies operations to perform during the sync with a maximum of 10 actions. See <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions'>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>. \nThere currently are not any sync actions available for Events."
-          type: array
-          items:
-            $ref: '#/components/schemas/SyncAction'
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
-          type: string
     CustomObject:
       title: CustomObject
       description: 'The definition of a custom object. Custom Objects are used to store data that may be related to a Contact or Company''s record. Some examples of data you might store in a custom object include: Product Purchase history, Registrations, Warranty Expiry. Custom objects can be synchronized with your CRM system on a scheduled basis.'
@@ -3688,26 +3652,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    SyncStatusType:
-      title: SyncStatusType
-      description: The status of the synchronization. This is a read-only property.
-      default: pending
-      enum:
-      - pending
-      - active
-      - success
-      - warning
-      - error
-      type: string
     Export:
       title: Export
       description: The request body defines the details of the export definition. The following table displays properties for creating export definitions.
@@ -3785,6 +3729,117 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    SyncActionOperation:
+      title: SyncActionOperation
+      description: The request body defines the details of the sync action definition. The following table displays properties for creating sync action definitions.
+      properties:
+        autoDeleteDuration:
+          title: autoDeleteDuration
+          description: Time until the definition will be deleted, expressed using the ISO-8601 standard.
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the sync action. This is a read-only property.
+          type: string
+        fields:
+          title: fields
+          description: 'The field name and statement that will be used to identify the account, contact, or custom object. Must contain only one field.
+
+
+            Allowed field statement values to identify a contact are: {{Contact.Field(C_EmailAddress)}}, {{Contact.Field(ContactIDExt)}}, or {{Contact.Id}}.
+
+
+            Allowed field statement values to identify an account are: {{Account.Field(CompanyIDExt)}}, {{Account.Field(M_CompanyName)}}, or {{Account.Id}}.
+
+
+            Allowed field statement values to identify a custom object are: {{CustomObject[{id}].ExternalId}}.'
+          type: object
+        identifierFieldName:
+          title: identifierFieldName
+          description: The field which will be used to identify the entity. Must be a string value, at least 1 character and at most 100 characters long.
+          type: string
+        isSyncTriggeredOnImport:
+          title: isSyncTriggeredOnImport
+          description: Whether or not the sync is triggered upon uploading data.
+          type: boolean
+        kbUsed:
+          format: int64
+          title: kbUsed
+          description: The amount of space used in kb. This is a read-only property.
+          type: integer
+        name:
+          title: name
+          description: The name of the sync action definition.
+          type: string
+        syncActions:
+          title: syncActions
+          description: "Specifies operations to perform during the sync with a maximum of 10 actions. See <a href='http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=SyncActions'>Sync actions parameters</a> for a list of sync actions. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>. \nThere currently are not any sync actions available for Events."
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncAction'
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    RuleType:
+      title: RuleType
+      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+      default: always
+      enum:
+      - always
+      - ifNewIsNotNull
+      - ifExistingIsNull
+      - useFieldRule
+      type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
     Import:
       title: Import
       description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
@@ -3873,69 +3928,14 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    CustomObjectField:
-      title: CustomObjectField
-      description: The definition of a field on the referenced custom object.
-      properties:
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the entity. This is a read-only property.
-          type: string
-        dataType:
-          $ref: '#/components/schemas/DataType'
-        defaultValue:
-          title: defaultValue
-          description: The field's default value.
-          type: string
-        hasNotNullConstraint:
-          title: hasNotNullConstraint
-          description: Indicates whether the field can have null values (i.e. empty).
-          type: boolean
-        hasReadOnlyConstraint:
-          title: hasReadOnlyConstraint
-          description: Indicates whether the field can be written to.
-          type: boolean
-        hasUniquenessConstraint:
-          title: hasUniquenessConstraint
-          description: Indicates whether the field must have a unique value.
-          type: boolean
-        internalName:
-          title: internalName
-          description: The field's internal name (used to uniquely identify it).
-          type: string
-        name:
-          title: name
-          description: The name of the custom object definition.
-          type: string
-        statement:
-          title: statement
-          description: The markup language statement used to reference the field in an import or export mapping.
-          type: string
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
-          type: string
-    RuleType:
-      title: RuleType
-      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
-      default: always
+    DataType:
+      title: DataType
+      description: The type of data, used for field definitions.
+      default: number
       enum:
-      - always
-      - ifNewIsNotNull
-      - ifExistingIsNull
-      - useFieldRule
+      - number
+      - string
+      - boolean
+      - date
+      - emailAddress
       type: string

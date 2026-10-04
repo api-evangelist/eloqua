@@ -198,30 +198,43 @@ components:
       properties:
         type:
           type: string
-    ProcessingStepErrorRest10:
-      title: ProcessingStepError
+    ObjectValidationErrorRest10:
+      title: ObjectValidationError
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua.
-        processingStepId:
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+        property:
           type: string
-          description: Processing step id during which error ocurred
-        processingStepTypeId:
+        value:
           type: string
-          description: Type of the processing step during which error ocurred
-        processingStepDisplayName:
+        requirement:
+          $ref: '#/components/schemas/RequirementRest10'
+    ObjectKeyRest10:
+      title: ObjectKey
+      properties:
+        type:
           type: string
-          description: DisplayName of the processing step including description (if configured)
-        errorCode:
-          type: integer
-          description: Unique Error Code for current error
-        errorMessage:
+        objectType:
           type: string
-          description: Error message for current error code
-        errorDescription:
+        objectId:
           type: string
-          description: Detailed information about current error
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest10'
+    FieldValueRest10:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
     QueryResultFormSubmissionRest10:
       title: QueryResultFormSubmission
       properties:
@@ -282,40 +295,27 @@ components:
           description: Validation errors if any occured in form submission. This is a read-only property
           items:
             $ref: '#/components/schemas/ObjectValidationErrorRest10'
-    FieldValueRest10:
-      title: FieldValue
+    ProcessingStepErrorRest10:
+      title: ProcessingStepError
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
+          description: The asset's type in Eloqua.
+        processingStepId:
           type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
+          description: Processing step id during which error ocurred
+        processingStepTypeId:
           type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-    ObjectKeyRest10:
-      title: ObjectKey
-      properties:
-        type:
+          description: Type of the processing step during which error ocurred
+        processingStepDisplayName:
           type: string
-        objectType:
+          description: DisplayName of the processing step including description (if configured)
+        errorCode:
+          type: integer
+          description: Unique Error Code for current error
+        errorMessage:
           type: string
-        objectId:
+          description: Error message for current error code
+        errorDescription:
           type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest10'
-    ObjectValidationErrorRest10:
-      title: ObjectValidationError
-      properties:
-        type:
-          type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest10'
-        property:
-          type: string
-        value:
-          type: string
-        requirement:
-          $ref: '#/components/schemas/RequirementRest10'
+          description: Detailed information about current error

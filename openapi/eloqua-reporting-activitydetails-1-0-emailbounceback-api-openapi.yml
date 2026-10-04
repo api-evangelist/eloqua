@@ -153,54 +153,6 @@ paths:
       x-filename-id: api-odata-activitydetails-1-emailbounceback-key-get
 components:
   schemas:
-    EmailBounceback:
-      type: object
-      properties:
-        emailBouncebackId:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        accountID:
-          format: int32
-          type: integer
-        contactID:
-          format: int32
-          type: integer
-        eloquaLinkedAccountID:
-          format: int32
-          type: integer
-        emailID:
-          format: int32
-          type: integer
-        segmentID:
-          format: int32
-          type: integer
-        sentDateHour:
-          format: date-time
-          type: string
-        emailSendId:
-          format: int64
-          type: integer
-        bounceBackDateHour:
-          format: date-time
-          type: string
-        firstBounceback:
-          format: int32
-          type: integer
-        isHardBounceback:
-          type: boolean
-        smtpReplyCode:
-          type: string
-        smtpErrorCode:
-          type: string
-        bounceBackMessage:
-          type: string
-        bouncebackFromAddress:
-          type: string
-        contact:
-          $ref: '#/components/schemas/Contact'
     Contact:
       type: object
       properties:
@@ -262,3 +214,51 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
+    EmailBounceback:
+      type: object
+      properties:
+        emailBouncebackId:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        accountID:
+          format: int32
+          type: integer
+        contactID:
+          format: int32
+          type: integer
+        eloquaLinkedAccountID:
+          format: int32
+          type: integer
+        emailID:
+          format: int32
+          type: integer
+        segmentID:
+          format: int32
+          type: integer
+        sentDateHour:
+          format: date-time
+          type: string
+        emailSendId:
+          format: int64
+          type: integer
+        bounceBackDateHour:
+          format: date-time
+          type: string
+        firstBounceback:
+          format: int32
+          type: integer
+        isHardBounceback:
+          type: boolean
+        smtpReplyCode:
+          type: string
+        smtpErrorCode:
+          type: string
+        bounceBackMessage:
+          type: string
+        bouncebackFromAddress:
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'

@@ -303,168 +303,6 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-segment-key-emailactivities-get
 components:
   schemas:
-    Calendar:
-      type: object
-      properties:
-        dateHour:
-          format: date-time
-          type: string
-        calendarYear:
-          format: int32
-          type: integer
-        calendarYearDesc:
-          type: string
-        calendarQtr:
-          format: int32
-          type: integer
-        calendarQtrDesc:
-          type: string
-        calendarMonth:
-          format: int32
-          type: integer
-        calendarMonthDesc:
-          type: string
-        calendarWeek:
-          format: int32
-          type: integer
-        calendarWeekDesc:
-          type: string
-        dayOfYearNum:
-          format: int32
-          type: integer
-        dayOfWeekNum:
-          format: int32
-          type: integer
-        dayOfWeekDesc:
-          type: string
-        dayOfMonthNum:
-          format: int32
-          type: integer
-        displayDayOfWeek:
-          type: string
-        hourOfDayNum:
-          format: int32
-          type: integer
-        calendarMonthId:
-          format: int32
-          type: integer
-        calendarQtrId:
-          format: int32
-          type: integer
-        calendarWeekId:
-          format: int32
-          type: integer
-        calendarDayId:
-          format: date-time
-          type: string
-    Campaign:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
-          format: int32
-          type: integer
-        lastActivatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
-    EmailAsset:
-      type: object
-      properties:
-        emailID:
-          format: int32
-          type: integer
-        emailName:
-          type: string
-        subjectLine:
-          type: string
-        emailGroupID:
-          format: int32
-          type: integer
-        emailGroup:
-          type: string
-        emailGroupDescription:
-          type: string
-        emailGroupIsDeleted:
-          type: boolean
-        isDeleted:
-          type: boolean
-        isArchived:
-          type: boolean
-        emailCreatedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-    FormActivities:
-      type: object
-      properties:
-        formSubmitAggKey:
-          format: int32
-          type: integer
-        totalFormSubmissions:
-          format: int32
-          type: integer
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        segmentId:
-          format: int32
-          type: integer
-        dateHour:
-          format: date-time
-          type: string
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
-        segment:
-          $ref: '#/components/schemas/Segment'
     EmailActivities:
       type: object
       properties:
@@ -545,6 +383,116 @@ components:
           $ref: '#/components/schemas/Calendar'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
+    FormActivities:
+      type: object
+      properties:
+        formSubmitAggKey:
+          format: int32
+          type: integer
+        totalFormSubmissions:
+          format: int32
+          type: integer
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        segmentId:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        segment:
+          $ref: '#/components/schemas/Segment'
+    Calendar:
+      type: object
+      properties:
+        dateHour:
+          format: date-time
+          type: string
+        calendarYear:
+          format: int32
+          type: integer
+        calendarYearDesc:
+          type: string
+        calendarQtr:
+          format: int32
+          type: integer
+        calendarQtrDesc:
+          type: string
+        calendarMonth:
+          format: int32
+          type: integer
+        calendarMonthDesc:
+          type: string
+        calendarWeek:
+          format: int32
+          type: integer
+        calendarWeekDesc:
+          type: string
+        dayOfYearNum:
+          format: int32
+          type: integer
+        dayOfWeekNum:
+          format: int32
+          type: integer
+        dayOfWeekDesc:
+          type: string
+        dayOfMonthNum:
+          format: int32
+          type: integer
+        displayDayOfWeek:
+          type: string
+        hourOfDayNum:
+          format: int32
+          type: integer
+        calendarMonthId:
+          format: int32
+          type: integer
+        calendarQtrId:
+          format: int32
+          type: integer
+        calendarWeekId:
+          format: int32
+          type: integer
+        calendarDayId:
+          format: date-time
+          type: string
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     Segment:
       type: object
       properties:
@@ -561,3 +509,55 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
+    Campaign:
+      type: object
+      properties:
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        campaignName:
+          type: string
+        crmCampaignId:
+          type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number

@@ -162,91 +162,7 @@ paths:
         '404':
           description: Sync not found
 components:
-  parameters:
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
   schemas:
-    BulkDataResult:
-      type: object
-      properties:
-        items:
-          type: array
-          description: Array of data records
-          items:
-            type: object
-            additionalProperties:
-              type: string
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
-    SyncLog:
-      type: object
-      properties:
-        severity:
-          type: string
-          enum:
-          - information
-          - warning
-          - error
-          description: Severity of the log entry
-        message:
-          type: string
-          description: Log message text
-        count:
-          type: integer
-          description: Number of records affected
-        createdAt:
-          type: string
-          format: date-time
-          description: Log entry timestamp
-    SyncLogList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SyncLog'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     Sync:
       type: object
       required:
@@ -288,6 +204,44 @@ components:
           type: string
           description: User who created the sync
           readOnly: true
+    SyncLog:
+      type: object
+      properties:
+        severity:
+          type: string
+          enum:
+          - information
+          - warning
+          - error
+          description: Severity of the log entry
+        message:
+          type: string
+          description: Log message text
+        count:
+          type: integer
+          description: Number of records affected
+        createdAt:
+          type: string
+          format: date-time
+          description: Log entry timestamp
+    BulkDataResult:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of data records
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
     SyncList:
       type: object
       properties:
@@ -303,6 +257,52 @@ components:
           type: integer
         hasMore:
           type: boolean
+    SyncLogList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncLog'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
+      schema:
+        type: string
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
   securitySchemes:
     basicAuth:
       type: http

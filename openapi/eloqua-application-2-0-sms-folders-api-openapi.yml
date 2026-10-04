@@ -538,26 +538,6 @@ paths:
       x-filename-id: api-rest-2.0-assets-sms-folders-get
 components:
   schemas:
-    QueryResultContractObjectRest20:
-      title: QueryResultContractObject
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of generic objects.
-          items:
-            $ref: '#/components/schemas/MinimalRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     QueryResultFolderRest20:
       title: QueryResultFolder
       properties:
@@ -569,6 +549,26 @@ components:
           description: Array of folders.
           items:
             $ref: '#/components/schemas/FolderRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultContractObjectRest20:
+      title: QueryResultContractObject
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of generic objects.
+          items:
+            $ref: '#/components/schemas/MinimalRest20'
         total:
           type: integer
           description: The total amount of results.

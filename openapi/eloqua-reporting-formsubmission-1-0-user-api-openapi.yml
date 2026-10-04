@@ -303,50 +303,6 @@ paths:
       x-filename-id: api-odata-formsubmission-1-user-key-emailassets-get
 components:
   schemas:
-    User:
-      type: object
-      properties:
-        userID:
-          format: int32
-          type: integer
-        userName:
-          type: string
-        userEmailAddress:
-          type: string
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-        isDeleted:
-          type: boolean
-    EmailAsset:
-      type: object
-      properties:
-        emailID:
-          format: int32
-          type: integer
-        emailName:
-          type: string
-        subjectLine:
-          type: string
-        emailGroupID:
-          format: int32
-          type: integer
-        emailGroup:
-          type: string
-        emailGroupDescription:
-          type: string
-        emailGroupIsDeleted:
-          type: boolean
-        isDeleted:
-          type: boolean
-        isArchived:
-          type: boolean
-        emailCreatedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
     Campaign:
       type: object
       properties:
@@ -399,3 +355,47 @@ components:
         budgetedCost:
           format: double
           type: number
+    User:
+      type: object
+      properties:
+        userID:
+          format: int32
+          type: integer
+        userName:
+          type: string
+        userEmailAddress:
+          type: string
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+        isDeleted:
+          type: boolean
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string

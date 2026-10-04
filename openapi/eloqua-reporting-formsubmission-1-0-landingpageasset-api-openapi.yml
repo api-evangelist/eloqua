@@ -257,58 +257,6 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
-    Campaign:
-      type: object
-      properties:
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        campaignName:
-          type: string
-        crmCampaignId:
-          type: string
-        campaignDescription:
-          type: string
-        campaignCreatedDateTime:
-          format: date-time
-          type: string
-        campaignProduct:
-          type: string
-        campaignRegion:
-          type: string
-        campaignType:
-          type: string
-        campaignStatus:
-          type: string
-        isDeleted:
-          type: boolean
-        campaignStartDate:
-          format: date-time
-          type: string
-        campaignEndDate:
-          format: date-time
-          type: string
-        campaignCreatedByUserId:
-          format: int32
-          type: integer
-        lastActivatedByUserId:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaignClassification:
-          type: string
-        adCampaignId:
-          type: string
-        referenceProduct:
-          type: string
-        actualCost:
-          format: double
-          type: number
-        budgetedCost:
-          format: double
-          type: number
     Calendar:
       type: object
       properties:
@@ -363,29 +311,23 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    LandingPageAsset:
+    WebPage:
       type: object
       properties:
-        landingPageID:
+        webPageID:
           format: int32
           type: integer
-        landingPageName:
+        webPageURL:
           type: string
-        isDeleted:
-          type: boolean
-        landingPageDescription:
+        webPageDisplayName:
           type: string
-        relativePath:
-          type: string
-        landingPageCreatedByUserID:
-          format: int32
-          type: integer
-        landingPageModifiedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDateTime:
+        lastModifiedDate:
           format: date-time
           type: string
+        formSubmissionActivities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormSubmissionActivities'
     FormSubmissionActivities:
       type: object
       properties:
@@ -432,20 +374,78 @@ components:
           $ref: '#/components/schemas/Campaign'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
-    WebPage:
+    Campaign:
       type: object
       properties:
-        webPageID:
+        eloquaCampaignId:
           format: int32
           type: integer
-        webPageURL:
+        campaignName:
           type: string
-        webPageDisplayName:
+        crmCampaignId:
           type: string
+        campaignDescription:
+          type: string
+        campaignCreatedDateTime:
+          format: date-time
+          type: string
+        campaignProduct:
+          type: string
+        campaignRegion:
+          type: string
+        campaignType:
+          type: string
+        campaignStatus:
+          type: string
+        isDeleted:
+          type: boolean
+        campaignStartDate:
+          format: date-time
+          type: string
+        campaignEndDate:
+          format: date-time
+          type: string
+        campaignCreatedByUserId:
+          format: int32
+          type: integer
+        lastActivatedByUserId:
+          format: int32
+          type: integer
         lastModifiedDate:
           format: date-time
           type: string
-        formSubmissionActivities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FormSubmissionActivities'
+        campaignClassification:
+          type: string
+        adCampaignId:
+          type: string
+        referenceProduct:
+          type: string
+        actualCost:
+          format: double
+          type: number
+        budgetedCost:
+          format: double
+          type: number
+    LandingPageAsset:
+      type: object
+      properties:
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageName:
+          type: string
+        isDeleted:
+          type: boolean
+        landingPageDescription:
+          type: string
+        relativePath:
+          type: string
+        landingPageCreatedByUserID:
+          format: int32
+          type: integer
+        landingPageModifiedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDateTime:
+          format: date-time
+          type: string

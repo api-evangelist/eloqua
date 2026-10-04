@@ -86,24 +86,6 @@ paths:
         required: true
 components:
   schemas:
-    PhoneNumberSubscriptionSearchRest20:
-      title: PhoneNumberSubscriptionSearch
-      properties:
-        type:
-          type: string
-          description: PhoneNumberSubscriptionSearch_Field_Type_Description
-        depth:
-          type: string
-          readOnly: true
-          description: PhoneNumberSubscriptionSearch_Field_Depth_Description
-        phoneNumbers:
-          type: array
-          description: PhoneNumberSubscriptionSearch_Field_PhoneNumbers_Description
-          items:
-            type: string
-    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
-      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-      properties: {}
     PhoneNumberSubscriptionRest20:
       title: PhoneNumberSubscription
       properties:
@@ -127,6 +109,9 @@ components:
           description: PhoneNumberSubscription_Field_History_Description
           items:
             $ref: '#/components/schemas/PhoneNumberSubscriptionHistoryRest20'
+    System.Nullable_1__System.Int32__mscorlib__Version_4.0.0.0__Culture_neutral__PublicKeyToken_b77a5c561934e089__Rest20:
+      title: System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+      properties: {}
     PhoneNumberSubscriptionDetailsRest20:
       title: PhoneNumberSubscriptionDetails
       properties:
@@ -178,3 +163,18 @@ components:
           - SmsSubscriptionDataImport
           - SmsReply
           - Visitor
+    PhoneNumberSubscriptionSearchRest20:
+      title: PhoneNumberSubscriptionSearch
+      properties:
+        type:
+          type: string
+          description: PhoneNumberSubscriptionSearch_Field_Type_Description
+        depth:
+          type: string
+          readOnly: true
+          description: PhoneNumberSubscriptionSearch_Field_Depth_Description
+        phoneNumbers:
+          type: array
+          description: PhoneNumberSubscriptionSearch_Field_PhoneNumbers_Description
+          items:
+            type: string

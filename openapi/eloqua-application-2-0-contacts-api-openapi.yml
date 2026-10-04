@@ -192,102 +192,6 @@ components:
         name:
           type: string
           description: Name of the field value.
-    ContactListRest20:
-      title: ContactList
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the contact list.
-        currentStatus:
-          type: string
-          description: The contact list's current status. This is a read-only property.
-        name:
-          type: string
-          description: The contact list's name.
-        description:
-          type: string
-          description: The description of the contact list.
-        permissions:
-          type: array
-          description: The permissions for the contact list granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The folder id of the folder which contains the contact list.
-        sourceTemplateId:
-          type: string
-          description: Id of the template used to create the contact list.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the contact list.
-        createdByName:
-          type: string
-          description: The name of the user who created the contact list.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the contact segment was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the contact list.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the contact list.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the contact list was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date the contact list is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        scope:
-          type: string
-          description: 'The contact list''s scope: either local or global.'
-        count:
-          type: string
-          readOnly: true
-          description: The number of contacts in the contact list. This is a read-only property.
-        membershipAdditions:
-          type: array
-          description: The number of contact membership additions in the contact list.
-          items:
-            type: string
-        membershipDeletions:
-          type: array
-          description: The number of contact membership deletions in the contact list.
-          items:
-            type: string
-        dataLookupId:
-          type: string
-          description: The contact list's data lookup Id. This is a read-only property.
-    EntitySearchByIdsRest20:
-      title: EntitySearchByIds
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        depth:
-          type: string
-          readOnly: true
-          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
-        ids:
-          type: array
-          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
-          items:
-            type: integer
     ContactRest20:
       title: Contact
       properties:
@@ -438,3 +342,99 @@ components:
         updatedSourceType:
           type: string
           description: Contact_Field_UpdatedSourceType_Description
+    EntitySearchByIdsRest20:
+      title: EntitySearchByIds
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
+        ids:
+          type: array
+          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
+          items:
+            type: integer
+    ContactListRest20:
+      title: ContactList
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the contact list.
+        currentStatus:
+          type: string
+          description: The contact list's current status. This is a read-only property.
+        name:
+          type: string
+          description: The contact list's name.
+        description:
+          type: string
+          description: The description of the contact list.
+        permissions:
+          type: array
+          description: The permissions for the contact list granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the contact list.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the contact list.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the contact list.
+        createdByName:
+          type: string
+          description: The name of the user who created the contact list.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the contact segment was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the contact list.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the contact list.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the contact list was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the contact list is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        scope:
+          type: string
+          description: 'The contact list''s scope: either local or global.'
+        count:
+          type: string
+          readOnly: true
+          description: The number of contacts in the contact list. This is a read-only property.
+        membershipAdditions:
+          type: array
+          description: The number of contact membership additions in the contact list.
+          items:
+            type: string
+        membershipDeletions:
+          type: array
+          description: The number of contact membership deletions in the contact list.
+          items:
+            type: string
+        dataLookupId:
+          type: string
+          description: The contact list's data lookup Id. This is a read-only property.

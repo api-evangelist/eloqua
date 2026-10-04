@@ -210,6 +210,17 @@ paths:
       x-filename-id: api-bulk-2.0-campaigns-fields-get
 components:
   schemas:
+    DataType:
+      title: DataType
+      description: The type of data, used for field definitions.
+      default: number
+      enum:
+      - number
+      - string
+      - boolean
+      - date
+      - emailAddress
+      type: string
     CampaignField:
       title: CampaignField
       description: The definition of a campaign field in the system.
@@ -266,14 +277,3 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    DataType:
-      title: DataType
-      description: The type of data, used for field definitions.
-      default: number
-      enum:
-      - number
-      - string
-      - boolean
-      - date
-      - emailAddress
-      type: string

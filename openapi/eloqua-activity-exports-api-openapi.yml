@@ -96,13 +96,6 @@ paths:
           description: Export definition not found
 components:
   parameters:
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
     offset:
       name: offset
       in: query
@@ -111,6 +104,13 @@ components:
         type: integer
         minimum: 0
         default: 0
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -121,21 +121,6 @@ components:
         maximum: 50000
         default: 1000
   schemas:
-    ExportList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExportDefinition'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     ExportDefinition:
       type: object
       required:
@@ -188,6 +173,21 @@ components:
           type: string
           description: Status of the export definition
           readOnly: true
+    ExportList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportDefinition'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
   securitySchemes:
     basicAuth:
       type: http

@@ -222,18 +222,6 @@ paths:
       x-filename-id: api-rest-2.0-assets-external-types-get
 components:
   schemas:
-    SizeRest20:
-      title: Size
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property. The type for this property is 'size'.
-        width:
-          type: string
-          description: The width dimensions of the asset expressed in pixels.
-        height:
-          type: string
-          description: The height dimensions of the asset expressed in pixels.
     ExternalAssetTypeRest20:
       title: ExternalAssetType
       properties:
@@ -323,67 +311,18 @@ components:
         page:
           type: integer
           description: The specified page.
-    ExternalActivityTypeRest20:
-      title: ExternalActivityType
+    SizeRest20:
+      title: Size
       properties:
         type:
           type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
+          description: The asset's type in Eloqua. This is a read-only property. The type for this property is 'size'.
+        width:
           type: string
-          readOnly: true
-          description: Id of the external activity type.
-        currentStatus:
+          description: The width dimensions of the asset expressed in pixels.
+        height:
           type: string
-          description: The external activity type's current status.
-        description:
-          type: string
-          description: The description of the external activity type.
-        permissions:
-          type: array
-          description: The permissions for the external activity type granted to your current instance. This is a read-only property.
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The folder id of the folder which contains the external activity type.
-        sourceTemplateId:
-          type: string
-          description: Id of the template used to create the external activity type.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the external activity type.
-        createdByName:
-          type: string
-          description: The name of the user who created the external activity type.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the external activity type was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the external activity type.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the external activity type.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the external activity type was last updated.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: The date the external activity type is scheduled.
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        name:
-          type: string
-          description: The name of the external activity type.
+          description: The height dimensions of the asset expressed in pixels.
     ImageFileRest20:
       title: ImageFile
       properties:
@@ -460,3 +399,64 @@ components:
         syncDate:
           type: string
           description: The date and time the image was last synced, expressed in Unix time. This is a read-only property.
+    ExternalActivityTypeRest20:
+      title: ExternalActivityType
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the external activity type.
+        currentStatus:
+          type: string
+          description: The external activity type's current status.
+        description:
+          type: string
+          description: The description of the external activity type.
+        permissions:
+          type: array
+          description: The permissions for the external activity type granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the external activity type.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the external activity type.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the external activity type.
+        createdByName:
+          type: string
+          description: The name of the user who created the external activity type.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the external activity type was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the external activity type.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the external activity type.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the external activity type was last updated.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: The date the external activity type is scheduled.
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. Any other values passed are reset to <code>complete</code> by default. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        name:
+          type: string
+          description: The name of the external activity type.

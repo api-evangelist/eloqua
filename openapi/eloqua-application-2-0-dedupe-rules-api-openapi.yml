@@ -208,6 +208,95 @@ paths:
       x-filename-id: api-rest-2.0-assets-deduperule-ruleid-get
 components:
   schemas:
+    DedupeRuleHandlerSetRest20:
+      title: DedupeRuleHandlerSet
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        deletePermanentlyFromDestination:
+          type: string
+        isNonMatchesDestination:
+          type: string
+    QueryResultDedupeRuleHandlerSetRest20:
+      title: QueryResultDedupeRuleHandlerSet
+      properties:
+        type:
+          type: string
+          description: The element's type in Eloqua
+        elements:
+          type: array
+          description: Array of dedupe rule handler sets
+          items:
+            $ref: '#/components/schemas/DedupeRuleHandlerSetRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
+    QueryResultDedupeRuleRest20:
+      title: QueryResultDedupeRule
+      properties:
+        type:
+          type: string
+          description: The Dedupe rule type in Eloqua
+        elements:
+          type: array
+          description: Array of the Dedupe Rule fields
+          items:
+            $ref: '#/components/schemas/DedupeRuleRest20'
+        total:
+          type: integer
+          description: Total number of Dedupe Rules returned
+        pageSize:
+          type: integer
+          description: The Page size
+        page:
+          type: integer
+          description: The Specified page
     DedupeRuleRest20:
       title: DedupeRule
       properties:
@@ -260,93 +349,4 @@ components:
         isMatchRule:
           type: string
         isCompleted:
-          type: string
-    QueryResultDedupeRuleRest20:
-      title: QueryResultDedupeRule
-      properties:
-        type:
-          type: string
-          description: The Dedupe rule type in Eloqua
-        elements:
-          type: array
-          description: Array of the Dedupe Rule fields
-          items:
-            $ref: '#/components/schemas/DedupeRuleRest20'
-        total:
-          type: integer
-          description: Total number of Dedupe Rules returned
-        pageSize:
-          type: integer
-          description: The Page size
-        page:
-          type: integer
-          description: The Specified page
-    QueryResultDedupeRuleHandlerSetRest20:
-      title: QueryResultDedupeRuleHandlerSet
-      properties:
-        type:
-          type: string
-          description: The element's type in Eloqua
-        elements:
-          type: array
-          description: Array of dedupe rule handler sets
-          items:
-            $ref: '#/components/schemas/DedupeRuleHandlerSetRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
-    DedupeRuleHandlerSetRest20:
-      title: DedupeRuleHandlerSet
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        currentStatus:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-        sourceTemplateId:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdByName:
-          type: string
-        createdAt:
-          type: string
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedByName:
-          type: string
-        updatedAt:
-          type: string
-          readOnly: true
-        scheduledFor:
-          type: string
-          readOnly: true
-        depth:
-          type: string
-          readOnly: true
-        deletePermanentlyFromDestination:
-          type: string
-        isNonMatchesDestination:
           type: string
