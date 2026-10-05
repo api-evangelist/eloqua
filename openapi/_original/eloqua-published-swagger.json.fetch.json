@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json",
+ "requested_url": "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 4349561,
+ "sha256": "9f5fd01aefc5a5eebd3563a7dc65d639169d94f06180a66921d930b214b72f87",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
