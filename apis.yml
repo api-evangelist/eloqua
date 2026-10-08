@@ -3050,6 +3050,8 @@ apis:
   - type: ErrorCatalog
     url: errors/eloqua-problem-types.yml
 common:
+- type: FinOps
+  url: finops/eloqua-finops.yml
 - type: CapabilityMap
   url: capabilities/eloqua-capability-edges.yml
   name: Oracle Eloqua Business Capability Map
