@@ -1,4 +1,4 @@
-generated: '2026-09-16'
+generated: '2026-09-23'
 method: generated
 source: openapi/eloqua-account-exports-api-openapi.yml, openapi/eloqua-account-fields-api-openapi.yml,
   openapi/eloqua-account-imports-api-openapi.yml, openapi/eloqua-accounts-api-openapi.yml, openapi/eloqua-activity-exports-api-openapi.yml,
@@ -85,11 +85,11 @@ description: Recommended x-agentic-access execution contracts, classified heuris
 summary:
   operations: 760
   by_action_class:
-    connected: 425
-    acting: 335
+    connected: 431
+    acting: 329
   by_consequence:
-    read: 425
-    write: 328
+    read: 431
+    write: 322
     physical: 2
     safety-critical: 5
   human_in_the_loop_required: 5
@@ -228,18 +228,12 @@ operations:
   method: post
   operationId: searchAccounts
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /data/account/{id}
   method: get
   operationId: getAccount
@@ -1700,18 +1694,12 @@ operations:
   method: post
   operationId: SearchAccountsSEARCHRest20
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/rest/2.0/data/activities/contact/{id}/{type}
   method: get
   operationId: GetActivitiesGETRest20
@@ -2506,18 +2494,12 @@ operations:
   method: post
   operationId: SearchContactsSEARCHRest20
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/rest/2.0/system/countries
   method: get
   operationId: GetCountriesGETRest20
@@ -4724,18 +4706,12 @@ operations:
   method: post
   operationId: SearchSEARCHRest20
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/rest/2.0/system/user
   method: post
   operationId: CreateIndividualPOSTRest20
@@ -4870,18 +4846,12 @@ operations:
   method: post
   operationId: SearchPostSEARCHRest20
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/bulk/2.0/accounts/exports
   method: get
   operationId: GetAccountExportSearch
@@ -7662,18 +7632,12 @@ operations:
   method: post
   operationId: searchContacts
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /data/contact/{id}
   method: get
   operationId: getContact
