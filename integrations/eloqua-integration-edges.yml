@@ -1,0 +1,415 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/eloqua/integrations
+checked:
+- https://composio.dev/toolkits/eloqua
+- https://monid.ai/tools/eloqua
+- https://n8n.io/integrations/eloqua/
+- https://zapier.com/apps/eloqua/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: eloqua
+  url: https://zapier.com/apps/eloqua/integrations
+  external_url: https://www.oracle.com/mx/cx/marketing/automation
+  partner_tier: BRONZE
+  triggers:
+  - key: new_account
+    label: New Account
+  - key: new_contact
+    label: New Contact
+  - key: new_custom_object_data
+    label: New Custom Object Data
+  - key: new_or_updated_custom_object_data
+    label: New or Updated Custom Object Data
+  - key: new_or_updated_record
+    label: New or Updated Record
+  - key: new_record
+    label: New Record
+  - key: updated_account
+    label: Updated Account
+  - key: updated_contact
+    label: Updated Contact
+  actions:
+  - key: account
+    label: Create Account
+  - key: contact
+    label: Create Contact
+  - key: create_custom_object_data
+    label: Create Custom Object Data
+  - key: delete_record
+    label: Delete Record
+  - key: record
+    label: Create Record
+  - key: update_account
+    label: Update Account
+  - key: update_contact
+    label: Update Contact
+  - key: update_custom_object_data
+    label: Update Custom Object Data
+  - key: update_record
+    label: Update Record
+  - key: _zap_raw_request
+    label: API Request (Beta)
+  searches:
+  - key: find_contact
+    label: Find Contact
+  - key: find_custom_object_data
+    label: Find Custom Object Data
+  - key: find_record
+    label: Find Record
+  - key: search_account
+    label: Find Account
+edges:
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: LinkedIn Conversions
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/linkedin-conversions
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://linkedin.com/
+- partner_name: GoTo Webinar
+  partner: gotowebinar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/gotowebinar
+  direction: third-party
+  category: Webinars
+  partner_url: https://www.gotomeeting.com/
+- partner_name: Gainsight Customer Communities
+  partner: gainsight
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/gainsight-customer-communities
+  direction: third-party
+  category: Customer Support
+  partner_url: http://gainsight.com/
+- partner_name: vFairs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/vfairs
+  direction: third-party
+  category: Event Management
+  partner_url: http://www.vfairs.com/
+- partner_name: Qualtrics
+  partner: qualtrics
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/qualtrics
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.qualtrics.com/
+- partner_name: Workzone
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/workzone
+  direction: third-party
+  category: Project Management
+  partner_url: https://www.workzone.com/
+- partner_name: Cognism Prospector
+  partner: cognism
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/cognism-prospector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://cognism.com/
+- partner_name: BigMarker
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/bigmarker
+  direction: third-party
+  category: Webinars
+  partner_url: http://www.bigmarker.com/
+- partner_name: Outreach
+  partner: outreach
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/outreach
+  direction: third-party
+  category: Sales & CRM
+  partner_url: https://www.outreach.io/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: WhatsApp Business
+  partner: whatsapp
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/whatsapp-business
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://business.whatsapp.com/
+- partner_name: Agents
+  partner: agents
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/agents
+  direction: third-party
+  category: AI Agents
+  partner_url: https://zapier.com/agents
+- partner_name: Canva
+  partner: canva
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/canva
+  direction: third-party
+  category: Images & Design
+  partner_url: null
+- partner_name: Outgrow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/outgrow
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://outgrow.co/?utm_source=zapier&utm_medium=referral&utm_campaign=app_directory_
+- partner_name: SFTP By Zapier
+  partner: zapier
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/sftp-by-zapier
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://zapier.com/apps/sftp-by-zapier
+- partner_name: Cvent
+  partner: cvent
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/cvent
+  direction: third-party
+  category: Event Management
+  partner_url: https://marketplace.cvent.com/en-US/apps/380082/zapier
+- partner_name: Wisepops
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/wisepops
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://wisepops.com/
+- partner_name: Clearbit
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/clearbit
+  direction: third-party
+  category: Contact Management
+  partner_url: https://clearbit.com/zapier?utm_source=zapier&utm_medium=referral&utm_campaign=partner
+- partner_name: MoreApp
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/moreapp
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://moreapp.com/
+- partner_name: SurveyMars
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/surveymars
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://surveymars.com/
+- partner_name: UpUp
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/upup
+  direction: third-party
+  category: Customer Appreciation
+  partner_url: https://upup.se/
+- partner_name: Oyster
+  partner: oyster-hr
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/oyster
+  direction: third-party
+  category: HR Talent & Recruitment
+  partner_url: https://www.oysterhr.com/
+- partner_name: Picreel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/eloqua/integrations/picreel
+  direction: third-party
+  category: eCommerce
+  partner_url: http://www.picreel.com/
+templates:
+- title: Analyze new Eloqua leads and send insights via Teams message
+  url: https://zapier.com/apps/microsoft-teams/integrations/oracle-eloqua/255627731/analyze-new-eloqua-leads-and-send-insights-via-teams-message
+  apps:
+  - oracle-eloqua
+  - azure-openai
+  - microsoft-teams
+- title: Automatically analyze new Eloqua leads and send insights
+  url: https://zapier.com/apps/microsoft-teams/integrations/oracle-eloqua/255629361/automatically-analyze-new-eloqua-leads-and-send-insights
+  apps:
+  - oracle-eloqua
+  - azure-openai
+  - microsoft-teams
+- title: Create new Oracle Eloqua contacts from caught Webhooks by Zapier hooks
+  url: https://zapier.com/apps/oracle-eloqua/integrations/webhook/255629572/create-new-oracle-eloqua-contacts-from-caught-webhooks-by-zapier-hooks
+  apps:
+  - webhook
+  - oracle-eloqua
+- title: Create new Oracle Eloqua contacts from new Gmail emails
+  url: https://zapier.com/apps/gmail/integrations/oracle-eloqua/255629573/create-new-oracle-eloqua-contacts-from-new-gmail-emails
+  apps:
+  - gmail
+  - oracle-eloqua
+- title: Create contacts in Oracle Eloqua from new leads in TikTok Lead Generation
+  url: https://zapier.com/apps/oracle-eloqua/integrations/tiktok-lead-generation/255629574/create-contacts-in-oracle-eloqua-from-new-leads-in-tiktok-lead-generation
+  apps:
+  - tiktok-lead-generation
+  - oracle-eloqua
+- title: Create new Oracle Eloqua contacts from new records in Zapier Tables
+  url: https://zapier.com/apps/oracle-eloqua/integrations/zapier-tables/255629575/create-new-oracle-eloqua-contacts-from-new-records-in-zapier-tables
+  apps:
+  - zapier-tables
+  - oracle-eloqua
+- title: Create Oracle Eloqua contacts from new Interact leads
+  url: https://zapier.com/apps/interact/integrations/oracle-eloqua/255629576/create-oracle-eloqua-contacts-from-new-interact-leads
+  apps:
+  - interact
+  - oracle-eloqua
+- title: Generate new Oracle Eloqua contacts from new Facebook Lead Ads leads
+  url: https://zapier.com/apps/facebook-lead-ads/integrations/oracle-eloqua/255629577/generate-new-oracle-eloqua-contacts-from-new-facebook-lead-ads-leads
+  apps:
+  - facebook-lead-ads
+  - oracle-eloqua
+- title: Create new Oracle Eloqua contacts from new comments on Facebook Pages
+  url: https://zapier.com/apps/facebook-pages/integrations/oracle-eloqua/255629578/create-new-oracle-eloqua-contacts-from-new-comments-on-facebook-pages
+  apps:
+  - facebook-pages
+  - oracle-eloqua
+- title: Create new Oracle Eloqua contacts from matching Gmail emails
+  url: https://zapier.com/apps/gmail/integrations/oracle-eloqua/255629579/create-new-oracle-eloqua-contacts-from-matching-gmail-emails
+  apps:
+  - gmail
+  - oracle-eloqua
+- title: Create contacts in Oracle Eloqua from new or updated records in Airtable
+  url: https://zapier.com/apps/airtable/integrations/oracle-eloqua/255629581/create-contacts-in-oracle-eloqua-from-new-or-updated-records-in-airtable
+  apps:
+  - airtable
+  - oracle-eloqua
+- title: Create new Oracle Eloqua contacts from new ai summaries in Fathom
+  url: https://zapier.com/apps/fathom/integrations/oracle-eloqua/255629582/create-new-oracle-eloqua-contacts-from-new-ai-summaries-in-fathom
+  apps:
+  - fathom
+  - oracle-eloqua
+template_total: 277
