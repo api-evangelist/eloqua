@@ -4,8 +4,10 @@ source:
 - https://zapier.com/apps/eloqua/integrations
 checked:
 - https://composio.dev/toolkits/eloqua
+- https://hightouch.com/docs/destinations/eloqua
 - https://monid.ai/tools/eloqua
 - https://n8n.io/integrations/eloqua/
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/eloqua
 - https://zapier.com/apps/eloqua/integrations
 summary: null
 marketplace_apps:
@@ -349,6 +351,64 @@ edges:
   direction: third-party
   category: eCommerce
   partner_url: http://www.picreel.com/
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/eloqua
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - eloqua
+      status: PUBLIC
+      partner_owned: false
+      connection_modes:
+      - cloud:mobile
+      - cloud:server
+      - cloud:web
+      - device:web
+      accepted_methods:
+      - Group
+      - Identify
+      - Page
+      - Track
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/eloqua
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - eloqua
+      status: released
+      sync_types:
+      - Accounts
+      - Contact Lists
+      - Contacts
+      - Custom Objects
+      - Email Trigger
+      sync_modes:
+      - --
+      - add
+      - update
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 templates:
 - title: Analyze new Eloqua leads and send insights via Teams message
   url: https://zapier.com/apps/microsoft-teams/integrations/oracle-eloqua/255627731/analyze-new-eloqua-leads-and-send-insights-via-teams-message

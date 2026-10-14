@@ -19,7 +19,6 @@
   arazzo: null
 - slug: eloqua-microsoft-excel
   label: Microsoft Excel
-  partner: microsoft-excel
   partner_name: Microsoft Excel
   category: Microsoft
   type: marketplace
@@ -27,7 +26,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/eloqua/integrations/excel
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: eloqua-hubspot
   label: HubSpot
@@ -293,7 +292,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/eloqua/integrations/oyster
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: eloqua-picreel
   label: Picreel
@@ -305,4 +304,28 @@
   evidence: https://zapier.com/apps/eloqua/integrations/picreel
   source: edge
   status: pending-partner-spec
+  arazzo: null
+- slug: eloqua-twilio-segment
+  label: Twilio Segment
+  partner: segment
+  partner_name: Twilio Segment
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/eloqua
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: eloqua-hightouch
+  label: Hightouch
+  partner: hightouch
+  partner_name: Hightouch
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://hightouch.com/docs/destinations/eloqua
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
   arazzo: null
