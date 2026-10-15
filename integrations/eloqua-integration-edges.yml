@@ -8,6 +8,7 @@ checked:
 - https://monid.ai/tools/eloqua
 - https://n8n.io/integrations/eloqua/
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/eloqua
+- https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/eloqua/integrations
 summary: null
 marketplace_apps:
@@ -409,6 +410,31 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/oracle-eloqua/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Oracle Eloqua
+    matched_domain: oracle.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: oracle-eloqua
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates:
 - title: Analyze new Eloqua leads and send insights via Teams message
   url: https://zapier.com/apps/microsoft-teams/integrations/oracle-eloqua/255627731/analyze-new-eloqua-leads-and-send-insights-via-teams-message
