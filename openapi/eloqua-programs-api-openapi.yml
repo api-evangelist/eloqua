@@ -178,10 +178,10 @@ paths:
           description: Program not found
 components:
   parameters:
-    orderBy:
-      name: orderBy
+    search:
+      name: search
       in: query
-      description: Field to sort results by (e.g., createdAt DESC)
+      description: Search criteria for filtering results
       schema:
         type: string
     count:
@@ -192,6 +192,27 @@ components:
         type: integer
         minimum: 1
         maximum: 1000
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
     depth:
       name: depth
       in: query
@@ -203,27 +224,6 @@ components:
         - partial
         - complete
         default: minimal
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
     QueryResultProgram:
       type: object

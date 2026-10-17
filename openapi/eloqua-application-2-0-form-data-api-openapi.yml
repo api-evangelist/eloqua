@@ -439,6 +439,35 @@ components:
         errorDescription:
           type: string
           description: Detailed information about current error
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    ObjectValidationErrorRest20:
+      title: ObjectValidationError
+      properties:
+        type:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest20'
+        property:
+          type: string
+        value:
+          type: string
+        requirement:
+          $ref: '#/components/schemas/RequirementRest20'
     QueryResultFormSubmissionRest20:
       title: QueryResultFormSubmission
       properties:
@@ -459,6 +488,17 @@ components:
         page:
           type: integer
           description: The specified page.
+    ObjectKeyRest20:
+      title: ObjectKey
+      properties:
+        type:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        container:
+          $ref: '#/components/schemas/ObjectKeyRest20'
     FormDataRest20:
       title: FormData
       properties:
@@ -502,22 +542,11 @@ components:
         correlationId:
           type: string
           description: The unique identifier of form submission within the batch. Optional String field. If present, must be unique across created batches. If <code>correlationId</code> is not unique, then the entire batch will fail. The <code>correlationId</code> is persisted and could be used to identify the form submit.
-    FieldValueRest20:
-      title: FieldValue
+    RequirementRest20:
+      title: Requirement
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
     AsyncFormSubmissionBatchRest20:
       title: AsyncFormSubmissionBatch
       properties:
@@ -551,32 +580,3 @@ components:
         processingStatus:
           type: string
           description: The processing status of the batch. This is a read-only property.
-    ObjectValidationErrorRest20:
-      title: ObjectValidationError
-      properties:
-        type:
-          type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest20'
-        property:
-          type: string
-        value:
-          type: string
-        requirement:
-          $ref: '#/components/schemas/RequirementRest20'
-    RequirementRest20:
-      title: Requirement
-      properties:
-        type:
-          type: string
-    ObjectKeyRest20:
-      title: ObjectKey
-      properties:
-        type:
-          type: string
-        objectType:
-          type: string
-        objectId:
-          type: string
-        container:
-          $ref: '#/components/schemas/ObjectKeyRest20'

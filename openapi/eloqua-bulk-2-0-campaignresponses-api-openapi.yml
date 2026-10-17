@@ -2156,6 +2156,23 @@ components:
       - warning
       - error
       type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
+      type: string
     CampaignResponseField:
       title: CampaignResponseField
       description: The definition of a campaign response field in the system.
@@ -2305,51 +2322,6 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
-      type: string
-    RuleType:
-      title: RuleType
-      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
-      default: always
-      enum:
-      - always
-      - ifNewIsNotNull
-      - ifExistingIsNull
-      - useFieldRule
-      type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
     Import:
       title: Import
       description: The request body defines the details of the import definition. The following table displays properties for creating import definitions.
@@ -2448,4 +2420,32 @@ components:
       - boolean
       - date
       - emailAddress
+      type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
+      enum:
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    RuleType:
+      title: RuleType
+      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+      default: always
+      enum:
+      - always
+      - ifNewIsNotNull
+      - ifExistingIsNull
+      - useFieldRule
       type: string

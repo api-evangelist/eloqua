@@ -132,52 +132,6 @@ components:
         calendarDayId:
           format: date-time
           type: string
-    EmailAsset:
-      type: object
-      properties:
-        emailID:
-          format: int32
-          type: integer
-        emailName:
-          type: string
-        subjectLine:
-          type: string
-        emailGroupID:
-          format: int32
-          type: integer
-        emailGroup:
-          type: string
-        emailGroupDescription:
-          type: string
-        emailGroupIsDeleted:
-          type: boolean
-        isDeleted:
-          type: boolean
-        isArchived:
-          type: boolean
-        emailCreatedByUserID:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-    WebPage:
-      type: object
-      properties:
-        webPageID:
-          format: int32
-          type: integer
-        webPageURL:
-          type: string
-        webPageDisplayName:
-          type: string
-        lastModifiedDate:
-          format: date-time
-          type: string
-        formSubmissionActivities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FormSubmissionActivities'
     FormSubmissionActivities:
       type: object
       properties:
@@ -224,6 +178,35 @@ components:
           $ref: '#/components/schemas/Campaign'
         emailAsset:
           $ref: '#/components/schemas/EmailAsset'
+    EmailAsset:
+      type: object
+      properties:
+        emailID:
+          format: int32
+          type: integer
+        emailName:
+          type: string
+        subjectLine:
+          type: string
+        emailGroupID:
+          format: int32
+          type: integer
+        emailGroup:
+          type: string
+        emailGroupDescription:
+          type: string
+        emailGroupIsDeleted:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isArchived:
+          type: boolean
+        emailCreatedByUserID:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
     Campaign:
       type: object
       properties:
@@ -276,6 +259,23 @@ components:
         budgetedCost:
           format: double
           type: number
+    WebPage:
+      type: object
+      properties:
+        webPageID:
+          format: int32
+          type: integer
+        webPageURL:
+          type: string
+        webPageDisplayName:
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        formSubmissionActivities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormSubmissionActivities'
     LandingPageAsset:
       type: object
       properties:

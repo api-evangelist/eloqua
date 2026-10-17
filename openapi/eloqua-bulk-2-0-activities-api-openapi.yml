@@ -2081,24 +2081,31 @@ components:
       - warning
       - error
       type: string
-    ActivityFilterType:
-      title: ActivityFilterType
-      description: The activity types available for the activity field.
-      default: EmailSend
+    ImportRuleType:
+      title: ImportRuleType
+      description: Import.ImportRuleType_Description
+      default: createAndUpdate
       enum:
-      - EmailSend
-      - EmailOpen
-      - EmailClickthrough
-      - Subscribe
-      - Unsubscribe
-      - Bounceback
-      - FormSubmit
-      - PageView
-      - WebVisit
-      - ExternalActivity
-      - SmsSend
-      - SmsReply
-      - SmsClickthrough
+      - createAndUpdate
+      - updateOnly
+      - createOnly
+      type: string
+    MemberStatus:
+      title: MemberStatus
+      description: The status of members.
+      default: bounced
+      enum:
+      - bounced
+      - subscribed
+      - unsubscribed
+      - active
+      - complete
+      - pending
+      - errored
+      - 'yes'
+      - 'no'
+      - invalid
+      - permission
       type: string
     SyncAction:
       title: SyncAction
@@ -2180,113 +2187,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SyncAction'
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        updatedBy:
-          title: updatedBy
-          description: The login id of the user that last updated the entity. This is a read-only property.
-          type: string
-        uri:
-          title: uri
-          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
-          type: string
-    SyncActionType:
-      title: SyncActionType
-      description: The action to take at time of synchronization.
-      default: add
-      enum:
-      - add
-      - remove
-      - setStatus
-      type: string
-    ImportRuleType:
-      title: ImportRuleType
-      description: Import.ImportRuleType_Description
-      default: createAndUpdate
-      enum:
-      - createAndUpdate
-      - updateOnly
-      - createOnly
-      type: string
-    RuleType:
-      title: RuleType
-      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
-      default: always
-      enum:
-      - always
-      - ifNewIsNotNull
-      - ifExistingIsNull
-      - useFieldRule
-      type: string
-    MemberStatus:
-      title: MemberStatus
-      description: The status of members.
-      default: bounced
-      enum:
-      - bounced
-      - subscribed
-      - unsubscribed
-      - active
-      - complete
-      - pending
-      - errored
-      - 'yes'
-      - 'no'
-      - invalid
-      - permission
-      type: string
-    ActivityField:
-      title: ActivityField
-      description: The definition of a activity field in the system.
-      properties:
-        activityTypes:
-          title: activityTypes
-          description: 'The activity types associated with the activity field. The possible activity types are: <code>EmailSend</code>, <code>EmailOpen</code>, <code>EmailClickthrough</code>, <code>Subscribe</code>, <code>Unsubscribe</code>, <code>Bounceback</code>, <code>WebVisit</code>, <code>PageView</code>, and <code>FormSubmit</code>. See <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ActivityFields''>Activity Fields</a> for more information about activity fields.'
-          type: array
-          items:
-            $ref: '#/components/schemas/ActivityFilterType'
-        createdAt:
-          format: date-time
-          title: createdAt
-          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
-          type: string
-        createdBy:
-          title: createdBy
-          description: The login id of the user who created the entity. This is a read-only property.
-          type: string
-        dataType:
-          $ref: '#/components/schemas/DataType'
-        defaultValue:
-          title: defaultValue
-          description: The field's default value.
-          type: string
-        hasNotNullConstraint:
-          title: hasNotNullConstraint
-          description: Indicates whether the field can have null values (i.e. empty).
-          type: boolean
-        hasReadOnlyConstraint:
-          title: hasReadOnlyConstraint
-          description: Indicates whether the field can be written to.
-          type: boolean
-        hasUniquenessConstraint:
-          title: hasUniquenessConstraint
-          description: Indicates whether the field must have a unique value.
-          type: boolean
-        internalName:
-          title: internalName
-          description: The field's internal name (used to uniquely identify it).
-          type: string
-        name:
-          title: name
-          description: The name of the activity definition.
-          type: string
-        statement:
-          title: statement
-          description: The markup language statement used to reference the field in an import or export mapping.
-          type: string
         updatedAt:
           format: date-time
           title: updatedAt
@@ -2388,6 +2288,96 @@ components:
           title: uri
           description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
           type: string
+    ActivityField:
+      title: ActivityField
+      description: The definition of a activity field in the system.
+      properties:
+        activityTypes:
+          title: activityTypes
+          description: 'The activity types associated with the activity field. The possible activity types are: <code>EmailSend</code>, <code>EmailOpen</code>, <code>EmailClickthrough</code>, <code>Subscribe</code>, <code>Unsubscribe</code>, <code>Bounceback</code>, <code>WebVisit</code>, <code>PageView</code>, and <code>FormSubmit</code>. See <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ActivityFields''>Activity Fields</a> for more information about activity fields.'
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityFilterType'
+        createdAt:
+          format: date-time
+          title: createdAt
+          description: The date and time the entity was created, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        createdBy:
+          title: createdBy
+          description: The login id of the user who created the entity. This is a read-only property.
+          type: string
+        dataType:
+          $ref: '#/components/schemas/DataType'
+        defaultValue:
+          title: defaultValue
+          description: The field's default value.
+          type: string
+        hasNotNullConstraint:
+          title: hasNotNullConstraint
+          description: Indicates whether the field can have null values (i.e. empty).
+          type: boolean
+        hasReadOnlyConstraint:
+          title: hasReadOnlyConstraint
+          description: Indicates whether the field can be written to.
+          type: boolean
+        hasUniquenessConstraint:
+          title: hasUniquenessConstraint
+          description: Indicates whether the field must have a unique value.
+          type: boolean
+        internalName:
+          title: internalName
+          description: The field's internal name (used to uniquely identify it).
+          type: string
+        name:
+          title: name
+          description: The name of the activity definition.
+          type: string
+        statement:
+          title: statement
+          description: The markup language statement used to reference the field in an import or export mapping.
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          description: The date and time the entity was last updated, expressed using the ISO-8601 standard. This is a read-only property.
+          type: string
+        updatedBy:
+          title: updatedBy
+          description: The login id of the user that last updated the entity. This is a read-only property.
+          type: string
+        uri:
+          title: uri
+          description: System-generated unique resource identifier that defines the definition for future referencing. This is a read-only property.
+          type: string
+    SyncActionType:
+      title: SyncActionType
+      description: The action to take at time of synchronization.
+      default: add
+      enum:
+      - add
+      - remove
+      - setStatus
+      type: string
+    ActivityFilterType:
+      title: ActivityFilterType
+      description: The activity types available for the activity field.
+      default: EmailSend
+      enum:
+      - EmailSend
+      - EmailOpen
+      - EmailClickthrough
+      - Subscribe
+      - Unsubscribe
+      - Bounceback
+      - FormSubmit
+      - PageView
+      - WebVisit
+      - ExternalActivity
+      - SmsSend
+      - SmsReply
+      - SmsClickthrough
+      type: string
     DataType:
       title: DataType
       description: The type of data, used for field definitions.
@@ -2398,4 +2388,14 @@ components:
       - boolean
       - date
       - emailAddress
+      type: string
+    RuleType:
+      title: RuleType
+      description: The rule used when doing updates on existing data. For more information about this parameter, see the <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=ImportExportParams'>Oracle Eloqua Developer Help Center</a>.
+      default: always
+      enum:
+      - always
+      - ifNewIsNotNull
+      - ifExistingIsNull
+      - useFieldRule
       type: string

@@ -190,54 +190,7 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by
-      schema:
-        type: string
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
   schemas:
-    SyncAction:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - add
-          - remove
-          - setStatus
-          description: The action to perform
-        destination:
-          type: string
-          description: The destination for the action (e.g., a contact list URI or subscription status)
-        status:
-          type: string
-          description: The status to set (when action is setStatus)
     ImportDefinition:
       type: object
       required:
@@ -297,6 +250,22 @@ components:
           type: string
           description: Status of the import definition
           readOnly: true
+    SyncAction:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - add
+          - remove
+          - setStatus
+          description: The action to perform
+        destination:
+          type: string
+          description: The destination for the action (e.g., a contact list URI or subscription status)
+        status:
+          type: string
+          description: The status to set (when action is setStatus)
     ImportList:
       type: object
       properties:
@@ -312,6 +281,37 @@ components:
           type: integer
         hasMore:
           type: boolean
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
   securitySchemes:
     basicAuth:
       type: http

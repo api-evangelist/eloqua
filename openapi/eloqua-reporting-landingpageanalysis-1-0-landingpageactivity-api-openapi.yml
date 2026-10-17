@@ -78,36 +78,6 @@ paths:
       x-filename-id: api-odata-landingpageanalysis-1-landingpageactivity-get
 components:
   schemas:
-    LandingPageActivity:
-      type: object
-      properties:
-        averageLandingPageTime:
-          format: double
-          type: number
-          readOnly: true
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        landingPageID:
-          format: int32
-          type: integer
-        landingPageTime:
-          format: double
-          type: number
-        landingPageViews:
-          format: int32
-          type: integer
-        webClickDateHour:
-          format: date-time
-          type: string
-        totalVisitors:
-          format: int32
-          type: integer
-        totalVisits:
-          format: int32
-          type: integer
-        calendar:
-          $ref: '#/components/schemas/Calendar'
     Calendar:
       type: object
       properties:
@@ -162,3 +132,33 @@ components:
         calendarDayId:
           format: date-time
           type: string
+    LandingPageActivity:
+      type: object
+      properties:
+        averageLandingPageTime:
+          format: double
+          type: number
+          readOnly: true
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        landingPageID:
+          format: int32
+          type: integer
+        landingPageTime:
+          format: double
+          type: number
+        landingPageViews:
+          format: int32
+          type: integer
+        webClickDateHour:
+          format: date-time
+          type: string
+        totalVisitors:
+          format: int32
+          type: integer
+        totalVisits:
+          format: int32
+          type: integer
+        calendar:
+          $ref: '#/components/schemas/Calendar'

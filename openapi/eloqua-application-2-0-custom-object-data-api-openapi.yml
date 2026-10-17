@@ -240,26 +240,6 @@ paths:
       x-filename-id: api-rest-2.0-data-customobject-parentid-instances-get
 components:
   schemas:
-    QueryResultCustomObjectDataRest20:
-      title: QueryResultCustomObjectData
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. '
-        elements:
-          type: array
-          description: Array of custom object field elements.
-          items:
-            $ref: '#/components/schemas/CustomObjectDataRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
     CustomObjectDataRest20:
       title: CustomObjectData
       properties:
@@ -357,3 +337,23 @@ components:
         name:
           type: string
           description: Name of the field value.
+    QueryResultCustomObjectDataRest20:
+      title: QueryResultCustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. '
+        elements:
+          type: array
+          description: Array of custom object field elements.
+          items:
+            $ref: '#/components/schemas/CustomObjectDataRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

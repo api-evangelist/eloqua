@@ -280,6 +280,33 @@ paths:
           description: Instance not found
 components:
   schemas:
+    QueryResultCustomObject:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObject'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
     CustomObjectData:
       type: object
       properties:
@@ -312,19 +339,6 @@ components:
           type: string
           description: Last update timestamp (Unix time)
           readOnly: true
-    QueryResultCustomObject:
-      type: object
-      properties:
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomObject'
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        total:
-          type: integer
     CustomObject:
       type: object
       properties:
@@ -376,21 +390,36 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
-    FieldValue:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Field identifier
-          readOnly: true
-        type:
-          type: string
-          description: Field type
-          readOnly: true
-        value:
-          type: string
-          description: Field value (dates are returned as Unix timestamps)
   parameters:
+    search:
+      name: search
+      in: query
+      description: Search criteria for filtering results
+      schema:
+        type: string
+    count:
+      name: count
+      in: query
+      description: Maximum number of entities to return (1-1000)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    page:
+      name: page
+      in: query
+      description: Page number to return (starts at 1)
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
     orderBy:
       name: orderBy
       in: query
@@ -408,35 +437,6 @@ components:
         - partial
         - complete
         default: minimal
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    count:
-      name: count
-      in: query
-      description: Maximum number of entities to return (1-1000)
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
-      schema:
-        type: string
-    page:
-      name: page
-      in: query
-      description: Page number to return (starts at 1)
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   securitySchemes:
     basicAuth:
       type: http

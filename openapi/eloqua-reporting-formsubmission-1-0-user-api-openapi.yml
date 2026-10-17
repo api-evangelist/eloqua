@@ -355,21 +355,6 @@ components:
         budgetedCost:
           format: double
           type: number
-    User:
-      type: object
-      properties:
-        userID:
-          format: int32
-          type: integer
-        userName:
-          type: string
-        userEmailAddress:
-          type: string
-        lastModifiedDateTime:
-          format: date-time
-          type: string
-        isDeleted:
-          type: boolean
     EmailAsset:
       type: object
       properties:
@@ -399,3 +384,18 @@ components:
         lastModifiedDate:
           format: date-time
           type: string
+    User:
+      type: object
+      properties:
+        userID:
+          format: int32
+          type: integer
+        userName:
+          type: string
+        userEmailAddress:
+          type: string
+        lastModifiedDateTime:
+          format: date-time
+          type: string
+        isDeleted:
+          type: boolean

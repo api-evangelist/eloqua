@@ -163,6 +163,74 @@ paths:
           description: Sync not found
 components:
   schemas:
+    SyncLogList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyncLog'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    BulkDataResult:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of data records
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    SyncList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sync'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
+    SyncLog:
+      type: object
+      properties:
+        severity:
+          type: string
+          enum:
+          - information
+          - warning
+          - error
+          description: Severity of the log entry
+        message:
+          type: string
+          description: Log message text
+        count:
+          type: integer
+          description: Number of records affected
+        createdAt:
+          type: string
+          format: date-time
+          description: Log entry timestamp
     Sync:
       type: object
       required:
@@ -204,74 +272,6 @@ components:
           type: string
           description: User who created the sync
           readOnly: true
-    SyncLog:
-      type: object
-      properties:
-        severity:
-          type: string
-          enum:
-          - information
-          - warning
-          - error
-          description: Severity of the log entry
-        message:
-          type: string
-          description: Log message text
-        count:
-          type: integer
-          description: Number of records affected
-        createdAt:
-          type: string
-          format: date-time
-          description: Log entry timestamp
-    BulkDataResult:
-      type: object
-      properties:
-        items:
-          type: array
-          description: Array of data records
-          items:
-            type: object
-            additionalProperties:
-              type: string
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
-    SyncList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Sync'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
-    SyncLogList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SyncLog'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
   parameters:
     offset:
       name: offset
@@ -281,17 +281,17 @@ components:
         type: integer
         minimum: 0
         default: 0
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by
-      schema:
-        type: string
     id:
       name: id
       in: path
       required: true
       description: The unique identifier of the resource
+      schema:
+        type: string
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
       schema:
         type: string
     limit:

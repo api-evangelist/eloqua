@@ -37,25 +37,22 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
   schemas:
+    FieldList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkField'
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
     BulkField:
       type: object
       properties:
@@ -83,21 +80,24 @@ components:
         statement:
           type: string
           description: Eloqua Markup Language (EML) statement for the field (e.g., "{{Contact.Field(C_EmailAddress)}}")
-    FieldList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkField'
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
   securitySchemes:
     basicAuth:
       type: http

@@ -211,6 +211,125 @@ paths:
       x-filename-id: api-rest-2.0-assets-sms-id-delete
 components:
   schemas:
+    KeywordResponseRest20:
+      title: KeywordResponse
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        id:
+          type: string
+          readOnly: true
+          description: Id of the keyword response. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The keyword response current status. This is a read-only property
+        description:
+          type: string
+          description: Description of the keyword response.
+        permissions:
+          type: array
+          description: The permissions for the keyword response granted to your current instance. This is a read-only property.
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+          description: The folder id of the folder which contains the keyword response.
+        sourceTemplateId:
+          type: string
+          description: Id of the template used to create the asset.
+        createdBy:
+          type: string
+          readOnly: true
+          description: The login id of the user who created the keyword response.
+        createdByName:
+          type: string
+          description: The name of the user who created the keyword response.
+        createdAt:
+          type: string
+          readOnly: true
+          description: The date and time the keyword response was created, expressed in Unix time.
+        updatedBy:
+          type: string
+          readOnly: true
+          description: The login id of the user that last updated the keyword response.
+        updatedByName:
+          type: string
+          description: The name of the user who last updated the keyword response.
+        updatedAt:
+          type: string
+          readOnly: true
+          description: Unix timestamp for the date and time the keyword response was last updated. This is a read-only property.
+        scheduledFor:
+          type: string
+          readOnly: true
+          description: This property is not used
+        depth:
+          type: string
+          readOnly: true
+          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
+        keyword:
+          type: string
+          description: Keyword associated with keyword response.
+        response:
+          type: string
+          description: Response associated with the keyword.
+        templateId:
+          type: string
+          description: Id of the template associated with the keyword response.
+        keywordType:
+          type: string
+          description: The type of the keyword.
+    FieldConditionRest20:
+      title: FieldCondition
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        currentStatus:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        folderId:
+          type: string
+          readOnly: true
+        sourceTemplateId:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdByName:
+          type: string
+        createdAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedByName:
+          type: string
+        updatedAt:
+          type: string
+          readOnly: true
+        scheduledFor:
+          type: string
+          readOnly: true
+        depth:
+          type: string
+          readOnly: true
+        condition:
+          $ref: '#/components/schemas/ConditionRest20'
+        fieldId:
+          type: string
     SmsSenderCodeRest20:
       title: SmsSenderCode
       properties:
@@ -281,6 +400,12 @@ components:
         senderCode:
           type: string
           description: Associated sender code.
+    ConditionRest20:
+      title: Condition
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
     SmsRest20:
       title: Sms
       properties:
@@ -377,57 +502,8 @@ components:
           description: Keyword responses associated with the sms
           items:
             $ref: '#/components/schemas/KeywordResponseRest20'
-    FieldConditionRest20:
-      title: FieldCondition
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        currentStatus:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-        sourceTemplateId:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdByName:
-          type: string
-        createdAt:
-          type: string
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedByName:
-          type: string
-        updatedAt:
-          type: string
-          readOnly: true
-        scheduledFor:
-          type: string
-          readOnly: true
-        depth:
-          type: string
-          readOnly: true
-        condition:
-          $ref: '#/components/schemas/ConditionRest20'
-        fieldId:
-          type: string
-    KeywordResponseRest20:
-      title: KeywordResponse
+    SmsLinkRest20:
+      title: SmsLink
       properties:
         type:
           type: string
@@ -435,47 +511,50 @@ components:
         id:
           type: string
           readOnly: true
-          description: Id of the keyword response. This is a read-only property.
+          description: Id of the sms link. This is a read-only property.
         currentStatus:
           type: string
-          description: The keyword response current status. This is a read-only property
+          description: The sms link current status. This is a read-only property.
+        name:
+          type: string
+          description: Name of the sms link.
         description:
           type: string
-          description: Description of the keyword response.
+          description: Description of the sms link.
         permissions:
           type: array
-          description: The permissions for the keyword response granted to your current instance. This is a read-only property.
+          description: The permissions for the sms link granted to your current instance. This is a read-only property.
           items:
             type: string
         folderId:
           type: string
           readOnly: true
-          description: The folder id of the folder which contains the keyword response.
+          description: The folder id of the folder which contains the sms link.
         sourceTemplateId:
           type: string
           description: Id of the template used to create the asset.
         createdBy:
           type: string
           readOnly: true
-          description: The login id of the user who created the keyword response.
+          description: The login id of the user who created the sms link.
         createdByName:
           type: string
-          description: The name of the user who created the keyword response.
+          description: The name of the user who created the sms link.
         createdAt:
           type: string
           readOnly: true
-          description: The date and time the keyword response was created, expressed in Unix time.
+          description: The date and time the sms link was created, expressed in Unix time.
         updatedBy:
           type: string
           readOnly: true
-          description: The login id of the user that last updated the keyword response.
+          description: The login id of the user that last updated the sms link.
         updatedByName:
           type: string
-          description: The name of the user who last updated the keyword response.
+          description: The name of the user who last updated the sms link.
         updatedAt:
           type: string
           readOnly: true
-          description: Unix timestamp for the date and time the keyword response was last updated. This is a read-only property.
+          description: Unix timestamp for the date and time the sms link was last updated. This is a read-only property.
         scheduledFor:
           type: string
           readOnly: true
@@ -484,38 +563,12 @@ components:
           type: string
           readOnly: true
           description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        keyword:
+        href:
           type: string
-          description: Keyword associated with keyword response.
-        response:
+          description: Url represented by sms link.
+        hyperlinkType:
           type: string
-          description: Response associated with the keyword.
-        templateId:
-          type: string
-          description: Id of the template associated with the keyword response.
-        keywordType:
-          type: string
-          description: The type of the keyword.
-    QueryResultSmsRest20:
-      title: QueryResultSms
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of sms fields.
-          items:
-            $ref: '#/components/schemas/SmsRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.
+          description: Type of hyperlink represented by sms link.
     FieldMergeRest20:
       title: FieldMerge
       properties:
@@ -621,76 +674,23 @@ components:
         allowUrlsInValue:
           type: string
           description: Whether or not URLs are allowed in this field merge. False by default. Using URLs in a field merge can be a security risk. By default, when Oracle Eloqua attempts to insert the field merge, it removes any URLs while still inserting the remaining data. However, you can override this security feature by selecting the Allow URLs in field merge check box in the Eloqua user interface.
-    SmsLinkRest20:
-      title: SmsLink
+    QueryResultSmsRest20:
+      title: QueryResultSms
       properties:
         type:
           type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        id:
-          type: string
-          readOnly: true
-          description: Id of the sms link. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The sms link current status. This is a read-only property.
-        name:
-          type: string
-          description: Name of the sms link.
-        description:
-          type: string
-          description: Description of the sms link.
-        permissions:
+          description: The asset's type in Eloqua.
+        elements:
           type: array
-          description: The permissions for the sms link granted to your current instance. This is a read-only property.
+          description: Array of sms fields.
           items:
-            type: string
-        folderId:
-          type: string
-          readOnly: true
-          description: The folder id of the folder which contains the sms link.
-        sourceTemplateId:
-          type: string
-          description: Id of the template used to create the asset.
-        createdBy:
-          type: string
-          readOnly: true
-          description: The login id of the user who created the sms link.
-        createdByName:
-          type: string
-          description: The name of the user who created the sms link.
-        createdAt:
-          type: string
-          readOnly: true
-          description: The date and time the sms link was created, expressed in Unix time.
-        updatedBy:
-          type: string
-          readOnly: true
-          description: The login id of the user that last updated the sms link.
-        updatedByName:
-          type: string
-          description: The name of the user who last updated the sms link.
-        updatedAt:
-          type: string
-          readOnly: true
-          description: Unix timestamp for the date and time the sms link was last updated. This is a read-only property.
-        scheduledFor:
-          type: string
-          readOnly: true
-          description: This property is not used
-        depth:
-          type: string
-          readOnly: true
-          description: 'Level of detail returned by the request. Eloqua APIs can retrieve entities at three different levels of depth: <code>minimal</code>, <code>partial</code>, and <code>complete</code>. For more information, see <a href=''https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth''>Request depth</a>.'
-        href:
-          type: string
-          description: Url represented by sms link.
-        hyperlinkType:
-          type: string
-          description: Type of hyperlink represented by sms link.
-    ConditionRest20:
-      title: Condition
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
+            $ref: '#/components/schemas/SmsRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.

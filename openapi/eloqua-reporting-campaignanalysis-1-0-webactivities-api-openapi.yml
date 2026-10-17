@@ -205,31 +205,6 @@ components:
         budgetedCost:
           format: double
           type: number
-    WebActivities:
-      type: object
-      properties:
-        webActivitiesId:
-          format: int32
-          type: integer
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        totalPageViews:
-          format: int32
-          type: integer
-        totalVisitors:
-          format: int32
-          type: integer
-        lastModifiedDate:
-          format: date-time
-          type: string
-        dateHour:
-          format: date-time
-          type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'
-        calendar:
-          $ref: '#/components/schemas/Calendar'
     Calendar:
       type: object
       properties:
@@ -284,3 +259,28 @@ components:
         calendarDayId:
           format: date-time
           type: string
+    WebActivities:
+      type: object
+      properties:
+        webActivitiesId:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        totalPageViews:
+          format: int32
+          type: integer
+        totalVisitors:
+          format: int32
+          type: integer
+        lastModifiedDate:
+          format: date-time
+          type: string
+        dateHour:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        calendar:
+          $ref: '#/components/schemas/Calendar'

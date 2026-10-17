@@ -49,6 +49,26 @@ paths:
       x-filename-id: api-rest-2.0-assets-visitor-fields-get
 components:
   schemas:
+    QueryResultProfileFieldRest20:
+      title: QueryResultProfileField
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of visitor profile fields.
+          items:
+            $ref: '#/components/schemas/ProfileFieldRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     ProfileFieldRest20:
       title: ProfileField
       properties:
@@ -77,23 +97,3 @@ components:
         length:
           type: string
           description: The value length of the field expressed in bytes.
-    QueryResultProfileFieldRest20:
-      title: QueryResultProfileField
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of visitor profile fields.
-          items:
-            $ref: '#/components/schemas/ProfileFieldRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

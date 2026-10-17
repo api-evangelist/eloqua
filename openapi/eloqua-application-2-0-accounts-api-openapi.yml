@@ -92,37 +92,6 @@ paths:
         required: true
 components:
   schemas:
-    FieldValueRest20:
-      title: FieldValue
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        value:
-          type: string
-          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
-        id:
-          type: string
-          readOnly: true
-          description: The id of the field to be set to the corresponding value.
-        name:
-          type: string
-          description: Name of the field value.
-    EntitySearchByIdsRest20:
-      title: EntitySearchByIds
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        depth:
-          type: string
-          readOnly: true
-          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
-        ids:
-          type: array
-          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
-          items:
-            type: integer
     AccountGroupRest20:
       title: AccountGroup
       properties:
@@ -291,6 +260,37 @@ components:
             This property is also only returned when the request depth is <code>complete</code>.'
           items:
             $ref: '#/components/schemas/CrmSystemMappingRest20'
+    FieldValueRest20:
+      title: FieldValue
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        value:
+          type: string
+          description: The value to set the corresponding field id to. Date values must be submitted as a unix timestamp.
+        id:
+          type: string
+          readOnly: true
+          description: The id of the field to be set to the corresponding value.
+        name:
+          type: string
+          description: Name of the field value.
+    EntitySearchByIdsRest20:
+      title: EntitySearchByIds
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
+        ids:
+          type: array
+          description: The ids to retrieve. Maximum of 200 ids per request. If the array contains duplicate ids, or exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
+          items:
+            type: integer
     CrmSystemMappingRest20:
       title: CrmSystemMapping
       properties:

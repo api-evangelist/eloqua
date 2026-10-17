@@ -108,6 +108,39 @@ paths:
         required: true
 components:
   schemas:
+    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
+      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
+      properties:
+        type:
+          type: string
+          description: The visitor's type in Eloqua.
+        visitorId:
+          type: string
+          description: The Id of the visitor profile.
+        createdAt:
+          type: string
+          description: The date and time the visitor was created, expressed in Unix time.
+        contactId:
+          type: string
+          description: The contact record Id associated to this profile, if any.
+        id:
+          type: integer
+          description: The id of the visitor.
+    EntitySearchByExternalIdsRest20:
+      title: EntitySearchByExternalIds
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua. This is a read-only property.
+        depth:
+          type: string
+          readOnly: true
+          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
+        externalIds:
+          type: array
+          description: The external ids to retrieve. Maximum of 200 external ids per request. If the array exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
+          items:
+            type: string
     QueryResultVisitorViewDataRest20:
       title: QueryResultVisitorViewData
       properties:
@@ -128,36 +161,3 @@ components:
         page:
           type: integer
           description: The specified page.
-    EntitySearchByExternalIdsRest20:
-      title: EntitySearchByExternalIds
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua. This is a read-only property.
-        depth:
-          type: string
-          readOnly: true
-          description: Level of detail returned by the request. The default will be <code>minimal</code>. <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=RequestDepth'>Learn more about the depth parameter</a>.
-        externalIds:
-          type: array
-          description: The external ids to retrieve. Maximum of 200 external ids per request. If the array exceeds the 200 limit, a <a href='https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#CSHID=HTTPStatusCodes'>400 Bad Request</a> will be returned.
-          items:
-            type: string
-    Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewDataRest20:
-      title: Eloqua.API.REST.Contracts.Data.Visitors.VisitorViewData
-      properties:
-        type:
-          type: string
-          description: The visitor's type in Eloqua.
-        visitorId:
-          type: string
-          description: The Id of the visitor profile.
-        createdAt:
-          type: string
-          description: The date and time the visitor was created, expressed in Unix time.
-        contactId:
-          type: string
-          description: The contact record Id associated to this profile, if any.
-        id:
-          type: integer
-          description: The id of the visitor.

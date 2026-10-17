@@ -78,29 +78,6 @@ paths:
       x-filename-id: api-odata-campaignanalysis-1-externalactivitytotals-get
 components:
   schemas:
-    ExternalActivityTotals:
-      type: object
-      properties:
-        externalAssetId:
-          format: int32
-          type: integer
-        externalAssetType:
-          format: int32
-          type: integer
-        eloquaCampaignId:
-          format: int32
-          type: integer
-        totalExternalActivities:
-          format: int32
-          type: integer
-        dateHour:
-          format: date-time
-          type: string
-        lastModifiedDate:
-          format: date-time
-          type: string
-        campaign:
-          $ref: '#/components/schemas/Campaign'
     Campaign:
       type: object
       properties:
@@ -153,3 +130,26 @@ components:
         budgetedCost:
           format: double
           type: number
+    ExternalActivityTotals:
+      type: object
+      properties:
+        externalAssetId:
+          format: int32
+          type: integer
+        externalAssetType:
+          format: int32
+          type: integer
+        eloquaCampaignId:
+          format: int32
+          type: integer
+        totalExternalActivities:
+          format: int32
+          type: integer
+        dateHour:
+          format: date-time
+          type: string
+        lastModifiedDate:
+          format: date-time
+          type: string
+        campaign:
+          $ref: '#/components/schemas/Campaign'

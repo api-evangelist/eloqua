@@ -141,6 +141,67 @@ paths:
           description: Contact not found
 components:
   schemas:
+    FieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identifier
+          readOnly: true
+        type:
+          type: string
+          description: Field type
+          readOnly: true
+        value:
+          type: string
+          description: Field value (dates are returned as Unix timestamps)
+    ContactList:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the contact list
+          readOnly: true
+        name:
+          type: string
+          description: Contact list name
+        description:
+          type: string
+          description: Contact list description
+        count:
+          type: integer
+          description: Number of contacts in the list
+          readOnly: true
+        membershipAdditions:
+          type: array
+          description: Contact identifiers to add
+          items:
+            type: string
+        membershipDeletions:
+          type: array
+          description: Contact identifiers to remove
+          items:
+            type: string
+        folderId:
+          type: string
+          description: Containing folder identifier
+          readOnly: true
+        createdAt:
+          type: string
+          description: Creation timestamp (Unix time)
+          readOnly: true
+        updatedAt:
+          type: string
+          description: Last update timestamp (Unix time)
+          readOnly: true
+        depth:
+          type: string
+          description: Level of detail returned
+          readOnly: true
+        type:
+          type: string
+          description: Asset type in Eloqua
+          readOnly: true
     QueryResultContact:
       type: object
       properties:
@@ -247,90 +308,11 @@ components:
           type: string
           description: Asset type in Eloqua
           readOnly: true
-    ContactList:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the contact list
-          readOnly: true
-        name:
-          type: string
-          description: Contact list name
-        description:
-          type: string
-          description: Contact list description
-        count:
-          type: integer
-          description: Number of contacts in the list
-          readOnly: true
-        membershipAdditions:
-          type: array
-          description: Contact identifiers to add
-          items:
-            type: string
-        membershipDeletions:
-          type: array
-          description: Contact identifiers to remove
-          items:
-            type: string
-        folderId:
-          type: string
-          description: Containing folder identifier
-          readOnly: true
-        createdAt:
-          type: string
-          description: Creation timestamp (Unix time)
-          readOnly: true
-        updatedAt:
-          type: string
-          description: Last update timestamp (Unix time)
-          readOnly: true
-        depth:
-          type: string
-          description: Level of detail returned
-          readOnly: true
-        type:
-          type: string
-          description: Asset type in Eloqua
-          readOnly: true
-    FieldValue:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Field identifier
-          readOnly: true
-        type:
-          type: string
-          description: Field type
-          readOnly: true
-        value:
-          type: string
-          description: Field value (dates are returned as Unix timestamps)
   parameters:
-    depth:
-      name: depth
+    search:
+      name: search
       in: query
-      description: Level of detail returned for the entity
-      schema:
-        type: string
-        enum:
-        - minimal
-        - partial
-        - complete
-        default: minimal
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by (e.g., createdAt DESC)
+      description: Search criteria for filtering results
       schema:
         type: string
     count:
@@ -341,10 +323,11 @@ components:
         type: integer
         minimum: 1
         maximum: 1000
-    search:
-      name: search
-      in: query
-      description: Search criteria for filtering results
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
       schema:
         type: string
     lastUpdatedAt:
@@ -361,6 +344,23 @@ components:
         type: integer
         minimum: 1
         default: 1
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by (e.g., createdAt DESC)
+      schema:
+        type: string
+    depth:
+      name: depth
+      in: query
+      description: Level of detail returned for the entity
+      schema:
+        type: string
+        enum:
+        - minimal
+        - partial
+        - complete
+        default: minimal
   securitySchemes:
     basicAuth:
       type: http

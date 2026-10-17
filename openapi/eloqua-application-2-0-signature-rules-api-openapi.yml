@@ -218,6 +218,26 @@ paths:
         required: true
 components:
   schemas:
+    QueryResultRuleRest20:
+      title: QueryResultRule
+      properties:
+        type:
+          type: string
+          description: The asset's type in Eloqua.
+        elements:
+          type: array
+          description: Array of signature rules.
+          items:
+            $ref: '#/components/schemas/EmailSignatureRuleRest20'
+        total:
+          type: integer
+          description: The total amount of results.
+        pageSize:
+          type: integer
+          description: The page size.
+        page:
+          type: integer
+          description: The specified page.
     EmailSignatureRuleRest20:
       title: EmailSignatureRule
       properties:
@@ -286,23 +306,3 @@ components:
         isPersonalizeReplyAddress:
           type: string
           description: Flag to enable personalizing the reply to address.
-    QueryResultRuleRest20:
-      title: QueryResultRule
-      properties:
-        type:
-          type: string
-          description: The asset's type in Eloqua.
-        elements:
-          type: array
-          description: Array of signature rules.
-          items:
-            $ref: '#/components/schemas/EmailSignatureRuleRest20'
-        total:
-          type: integer
-          description: The total amount of results.
-        pageSize:
-          type: integer
-          description: The page size.
-        page:
-          type: integer
-          description: The specified page.

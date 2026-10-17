@@ -117,6 +117,27 @@ paths:
       x-filename-id: api-rest-1.0-data-customobject-id-get
 components:
   schemas:
+    CustomObjectDataRest10:
+      title: CustomObjectData
+      properties:
+        type:
+          type: string
+          description: 'The asset''s type in Eloqua. This is a read-only property. '
+        id:
+          type: string
+          readOnly: true
+          description: Id of the custom object. This is a read-only property.
+        currentStatus:
+          type: string
+          description: The custom object's current status. This is a read-only property.
+        contactId:
+          type: string
+          description: Id of the contact. This is a read-only property.
+        fieldValues:
+          type: array
+          description: Array containing <code>type</code> and <code>id</code> values for all of the fields associated with a given custom object data asset. Custom object date field values must be in Unix time format.
+          items:
+            $ref: '#/components/schemas/FieldValueRest10'
     QueryResultCustomObjectDataRest10:
       title: QueryResultCustomObjectData
       properties:
@@ -150,24 +171,3 @@ components:
           type: string
           readOnly: true
           description: The id of the field to be set to the corresponding value.
-    CustomObjectDataRest10:
-      title: CustomObjectData
-      properties:
-        type:
-          type: string
-          description: 'The asset''s type in Eloqua. This is a read-only property. '
-        id:
-          type: string
-          readOnly: true
-          description: Id of the custom object. This is a read-only property.
-        currentStatus:
-          type: string
-          description: The custom object's current status. This is a read-only property.
-        contactId:
-          type: string
-          description: Id of the contact. This is a read-only property.
-        fieldValues:
-          type: array
-          description: Array containing <code>type</code> and <code>id</code> values for all of the fields associated with a given custom object data asset. Custom object date field values must be in Unix time format.
-          items:
-            $ref: '#/components/schemas/FieldValueRest10'

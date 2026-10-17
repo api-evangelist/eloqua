@@ -78,6 +78,26 @@ paths:
       x-filename-id: api-odata-opportunityanalysis-1-opportunityrevenue-get
 components:
   schemas:
+    OpportunityRevenue:
+      type: object
+      properties:
+        eloquaCampaignID:
+          format: int32
+          type: integer
+        opportunityID:
+          format: int32
+          type: integer
+        attributedRevenue:
+          format: double
+          type: number
+        influencedRevenue:
+          format: double
+          type: number
+        lastModifiedDate:
+          format: date-time
+          type: string
+        opportunity:
+          $ref: '#/components/schemas/Opportunity'
     Contact:
       type: object
       properties:
@@ -139,26 +159,6 @@ components:
         eloquaLinkedAccountId:
           format: int32
           type: integer
-    OpportunityRevenue:
-      type: object
-      properties:
-        eloquaCampaignID:
-          format: int32
-          type: integer
-        opportunityID:
-          format: int32
-          type: integer
-        attributedRevenue:
-          format: double
-          type: number
-        influencedRevenue:
-          format: double
-          type: number
-        lastModifiedDate:
-          format: date-time
-          type: string
-        opportunity:
-          $ref: '#/components/schemas/Opportunity'
     Opportunity:
       type: object
       properties:

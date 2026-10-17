@@ -145,56 +145,7 @@ paths:
         '404':
           description: Export not found
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Starting index for pagination
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    orderBy:
-      name: orderBy
-      in: query
-      description: Field to sort results by
-      schema:
-        type: string
-    id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 50000
-        default: 1000
   schemas:
-    BulkDataResult:
-      type: object
-      properties:
-        items:
-          type: array
-          description: Array of data records
-          items:
-            type: object
-            additionalProperties:
-              type: string
-        totalResults:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        hasMore:
-          type: boolean
     ExportDefinition:
       type: object
       required:
@@ -247,6 +198,24 @@ components:
           type: string
           description: Status of the export definition
           readOnly: true
+    BulkDataResult:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of data records
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        totalResults:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        hasMore:
+          type: boolean
     ExportList:
       type: object
       properties:
@@ -262,6 +231,37 @@ components:
           type: integer
         hasMore:
           type: boolean
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Starting index for pagination
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource
+      schema:
+        type: string
+    orderBy:
+      name: orderBy
+      in: query
+      description: Field to sort results by
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50000
+        default: 1000
   securitySchemes:
     basicAuth:
       type: http

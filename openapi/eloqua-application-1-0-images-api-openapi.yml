@@ -211,11 +211,6 @@ paths:
       x-filename-id: api-rest-1.0-assets-images-get
 components:
   schemas:
-    SizeRest10:
-      title: Size
-      properties:
-        type:
-          type: string
     ImageFileRest10:
       title: ImageFile
       properties:
@@ -267,6 +262,11 @@ components:
         thumbnailUrl:
           type: string
           description: The image's thumbnail URL. This is a read-only property.
+    SizeRest10:
+      title: Size
+      properties:
+        type:
+          type: string
     QueryResultImageRest10:
       title: QueryResultImage
       properties:
